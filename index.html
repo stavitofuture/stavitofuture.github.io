@@ -38,7 +38,7 @@
     }
 
     .container {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1280px, calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -46,7 +46,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(6, 18, 45, 0.9);
+      background: rgba(6, 18, 45, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -125,8 +125,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 20px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 10px;
       align-items: center;
     }
 
@@ -241,35 +241,37 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding-left: 20px;
+      width: 100%;
     }
 
     .logo-showcase {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      min-height: 460px;
       position: relative;
-      transform: translateX(40px);
+      width: 100%;
+      min-height: 520px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 0;
+      transform: translateX(120px);
     }
 
     .logo-showcase::before {
       content: "";
       position: absolute;
-      width: 520px;
-      height: 520px;
+      right: 40px;
+      width: 620px;
+      height: 620px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 68%);
-      filter: blur(16px);
+      background: radial-gradient(circle, rgba(255,255,255,0.20), transparent 68%);
+      filter: blur(18px);
       z-index: 0;
     }
 
     .hero-logo {
       position: relative;
       z-index: 1;
-      width: 500px;
-      max-width: 98%;
+      width: 620px;
+      max-width: none;
       height: auto;
       object-fit: contain;
       animation: premiumFloat 4.5s ease-in-out infinite;
@@ -639,6 +641,27 @@
       color: rgba(255,255,255,0.74);
     }
 
+    @media (max-width: 1300px) {
+      .container {
+        width: min(1200px, calc(100% - 32px));
+      }
+
+      .logo-showcase {
+        transform: translateX(70px);
+        min-height: 460px;
+      }
+
+      .logo-showcase::before {
+        width: 500px;
+        height: 500px;
+        right: 20px;
+      }
+
+      .hero-logo {
+        width: 500px;
+      }
+    }
+
     @media (max-width: 1100px) {
       .hero h1 {
         font-size: 60px;
@@ -654,21 +677,22 @@
       .hero-visual {
         order: -1;
         justify-content: center;
-        padding-left: 0;
       }
 
       .logo-showcase {
         transform: none;
-        min-height: 340px;
+        justify-content: center;
+        min-height: 360px;
       }
 
       .logo-showcase::before {
-        width: 340px;
-        height: 340px;
+        right: auto;
+        width: 360px;
+        height: 360px;
       }
 
       .hero-logo {
-        width: 340px;
+        width: 360px;
       }
 
       .career-action {
