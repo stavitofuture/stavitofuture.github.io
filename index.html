@@ -4,14 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stavito Future s.r.o.</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+ .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
 
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.contact-icon {
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.contact-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin-bottom: 4px;
+}
+
+.contact-item a,
+.contact-item span {
+  font-size: 20px;
+  color: #1f2937;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-item a:hover {
+  color: #1d4ed8;
+}
+
+.map-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  margin-top: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .contact-item {
+    padding: 16px;
+  }
+
+  .contact-item a,
+  .contact-item span {
+    font-size: 17px;
+  }
+
+  .contact-label {
+    font-size: 14px;
+  }
+
+  .map-wrapper iframe {
+    height: 300px;
+  }
+}
     html {
       scroll-behavior: smooth;
     }
@@ -430,26 +498,46 @@
     </div>
 
   </div>
-</section>
-    <div class="card">
-      <h2>Kontakt</h2>
-      <ul class="contact-list">
-        <li>📞 Telefon: <a href="tel:+420123456789">+420 123 456 789</a></li>
-        <li>📧 Email: <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a></li>
-        <li>📍 Adresa: Skořepka 336/15, 602 00 Brno</li>
-      </ul>
+<section class="section" id="contact">
+  <div class="card">
+    <h2>Kontakt</h2>
 
-      <div class="map-wrapper">
-        <iframe
-          src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <div>
+          <div class="contact-label">Telefon</div>
+          <a href="tel:+420123456789">+420 123 456 789</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <div>
+          <div class="contact-label">Email</div>
+          <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <div class="contact-label">Adresa</div>
+          <span>Skořepka 336/15, 602 00 Brno</span>
+        </div>
       </div>
     </div>
-  </section>
 
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
   <footer>
     © 2026 Stavito Future s.r.o. Všechna práva vyhrazena.
   </footer>
