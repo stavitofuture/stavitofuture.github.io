@@ -46,7 +46,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(6, 18, 45, 0.86);
+      background: rgba(6, 18, 45, 0.9);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -64,10 +64,11 @@
       align-items: center;
       gap: 14px;
       color: white;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 32px;
-      letter-spacing: 0.3px;
+      letter-spacing: 1px;
       white-space: nowrap;
+      text-transform: uppercase;
     }
 
     .brand-mini-logo {
@@ -114,34 +115,18 @@
 
     .hero {
       position: relative;
-      padding: 78px 0 64px;
+      padding: 78px 0 40px;
       overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
       background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 22%),
         radial-gradient(circle at 80% 0%, rgba(147,197,253,0.14), transparent 25%),
         linear-gradient(135deg, #1336a8 0%, #2254d1 45%, #2f68ec 100%);
-      z-index: -2;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 140px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0), #f8fafc);
-      z-index: -1;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 30px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
       align-items: center;
     }
 
@@ -168,10 +153,11 @@
       font-weight: 900;
       margin-bottom: 20px;
       letter-spacing: -1.8px;
+      max-width: 760px;
     }
 
     .hero p {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.92);
       font-size: 22px;
       max-width: 700px;
       margin-bottom: 32px;
@@ -235,6 +221,7 @@
       padding: 20px;
       backdrop-filter: blur(10px);
       box-shadow: 0 16px 38px rgba(0,0,0,0.14);
+      min-height: 128px;
     }
 
     .stat-number {
@@ -245,15 +232,16 @@
     }
 
     .stat-label {
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.86);
       font-size: 14px;
       font-weight: 600;
     }
 
     .hero-visual {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+      padding-left: 20px;
     }
 
     .logo-showcase {
@@ -261,26 +249,27 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      min-height: 420px;
+      min-height: 460px;
       position: relative;
+      transform: translateX(40px);
     }
 
     .logo-showcase::before {
       content: "";
       position: absolute;
-      width: 420px;
-      height: 420px;
+      width: 520px;
+      height: 520px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 68%);
-      filter: blur(12px);
+      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 68%);
+      filter: blur(16px);
       z-index: 0;
     }
 
     .hero-logo {
       position: relative;
       z-index: 1;
-      width: 420px;
-      max-width: 88%;
+      width: 500px;
+      max-width: 98%;
       height: auto;
       object-fit: contain;
       animation: premiumFloat 4.5s ease-in-out infinite;
@@ -294,7 +283,7 @@
     }
 
     .section {
-      padding: 26px 0;
+      padding: 40px 0;
     }
 
     .section-title-wrap {
@@ -463,8 +452,7 @@
       grid-template-columns: 1fr auto;
       gap: 22px;
       align-items: center;
-      background:
-        linear-gradient(135deg, rgba(29,78,216,0.96), rgba(59,130,246,0.95));
+      background: linear-gradient(135deg, rgba(29,78,216,0.96), rgba(59,130,246,0.95));
       border-radius: 30px;
       padding: 34px;
       color: white;
@@ -643,6 +631,7 @@
       font-size: 22px;
       font-weight: 800;
       color: white;
+      text-transform: uppercase;
     }
 
     .footer-text {
@@ -664,6 +653,22 @@
 
       .hero-visual {
         order: -1;
+        justify-content: center;
+        padding-left: 0;
+      }
+
+      .logo-showcase {
+        transform: none;
+        min-height: 340px;
+      }
+
+      .logo-showcase::before {
+        width: 340px;
+        height: 340px;
+      }
+
+      .hero-logo {
+        width: 340px;
       }
 
       .career-action {
@@ -672,19 +677,6 @@
 
       .why-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .logo-showcase {
-        min-height: 320px;
-      }
-
-      .logo-showcase::before {
-        width: 320px;
-        height: 320px;
-      }
-
-      .hero-logo {
-        width: 320px;
       }
     }
 
@@ -704,7 +696,7 @@
       }
 
       .hero {
-        padding: 48px 0 44px;
+        padding: 48px 0 32px;
       }
 
       .hero h1 {
@@ -742,12 +734,12 @@
       }
 
       .brand {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .brand-mini-logo {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
       }
 
       nav a {
@@ -807,7 +799,7 @@
     <div class="container navbar">
       <a href="#top" class="brand">
         <img src="logo.png" alt="Stavito Future logo" class="brand-mini-logo">
-        <span>Stavito Future</span>
+        <span>STAVITO FUTURE</span>
       </a>
 
       <nav>
@@ -840,7 +832,7 @@
 
           <div class="hero-stats">
             <div class="stat-card">
-              <div class="stat-number">100%</div>
+              <div class="stat-number" data-target="100">0%</div>
               <div class="stat-label">Důraz na kvalitu a detail</div>
             </div>
             <div class="stat-card">
@@ -1066,10 +1058,37 @@
 
   <footer>
     <div class="container footer-inner">
-      <div class="footer-brand">Stavito Future s.r.o.</div>
+      <div class="footer-brand">STAVITO FUTURE S.R.O.</div>
       <div class="footer-text">© 2026 Všechna práva vyhrazena.</div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const counter = document.querySelector(".stat-number[data-target]");
+      if (!counter) return;
+
+      const target = parseInt(counter.getAttribute("data-target"), 10);
+      const duration = 1800;
+      const startTime = performance.now();
+
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(progress * target);
+
+        counter.textContent = value + "%";
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + "%";
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  </script>
 
 </body>
 </html>
