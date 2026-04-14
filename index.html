@@ -23,7 +23,7 @@
     }
 
     header {
-      background: #111827;
+      background: #0b1428;
       color: white;
       padding: 18px 40px;
       position: sticky;
@@ -42,7 +42,7 @@
       flex-wrap: wrap;
     }
 
-    .logo {
+    .logo-text {
       font-size: 34px;
       font-weight: 800;
       text-align: center;
@@ -69,7 +69,7 @@
 
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1e40af, #2563eb);
+      background: linear-gradient(135deg, #2148c9, #2f62e2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -79,19 +79,22 @@
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 950px;
       width: 100%;
     }
 
-    .hero-icon {
-      font-size: 90px;
-      margin-bottom: 20px;
+    .hero-logo {
+      width: 150px;
+      max-width: 40vw;
+      height: auto;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
-      font-size: 68px;
+      font-size: 76px;
       font-weight: 800;
       margin-bottom: 18px;
+      line-height: 1.1;
     }
 
     .hero p {
@@ -119,7 +122,7 @@
 
     .btn-primary {
       background: white;
-      color: #1e40af;
+      color: #2148c9;
     }
 
     .btn-primary:hover {
@@ -207,8 +210,23 @@
       text-decoration: underline;
     }
 
+    .map-wrapper {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+      margin-top: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      display: block;
+    }
+
     footer {
-      background: #111827;
+      background: #0b1428;
       color: white;
       text-align: center;
       padding: 24px 20px;
@@ -218,7 +236,7 @@
 
     @media (max-width: 900px) {
       .hero h1 {
-        font-size: 48px;
+        font-size: 52px;
       }
 
       .hero p {
@@ -229,7 +247,7 @@
         grid-template-columns: 1fr;
       }
 
-      .logo {
+      .logo-text {
         font-size: 28px;
       }
     }
@@ -243,7 +261,7 @@
         flex-direction: column;
       }
 
-      .logo {
+      .logo-text {
         font-size: 26px;
       }
 
@@ -255,12 +273,12 @@
         padding: 40px 16px;
       }
 
-      .hero-icon {
-        font-size: 70px;
+      .hero-logo {
+        width: 110px;
       }
 
       .hero h1 {
-        font-size: 38px;
+        font-size: 40px;
       }
 
       .hero p {
@@ -284,6 +302,10 @@
       .contact-list li {
         font-size: 17px;
       }
+
+      .map-wrapper iframe {
+        height: 320px;
+      }
     }
   </style>
 </head>
@@ -291,7 +313,7 @@
 
   <header>
     <div class="navbar">
-      <div class="logo">Stavito Future</div>
+      <div class="logo-text">Stavito Future</div>
       <nav>
         <a href="#about">O nás</a>
         <a href="#why">Proč my?</a>
@@ -303,7 +325,7 @@
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-icon">🏢</div>
+      <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
       <h1>Stavito Future s.r.o.</h1>
       <p>Stavíme budoucnost kvalitně</p>
       <div class="hero-buttons">
@@ -363,8 +385,17 @@
       <ul class="contact-list">
         <li>📞 Telefon: <a href="tel:+420123456789">+420 123 456 789</a></li>
         <li>📧 Email: <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a></li>
-        <li>📍 Město: Brno a okolí</li>
+        <li>📍 Adresa: Skořepka 336/15, 602 00 Brno</li>
       </ul>
+
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
   </section>
 
