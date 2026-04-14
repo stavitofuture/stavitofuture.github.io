@@ -3,156 +3,315 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Savito Future s.r.o.</title>
+  <title>Stavito Future</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f0f6ff;
-      color: #1e3a8a;
+      background: #eef3fb;
+      color: #1f2937;
     }
+
     header {
-      background: #1e40af;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
       color: white;
-      text-align: center;
-      padding: 80px 20px;
+      padding: 40px 20px 50px;
     }
-    header h1 {
-      margin: 0;
-      font-size: 48px;
-      letter-spacing: 1px;
+
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
-    header p {
-      margin-top: 15px;
-      font-size: 20px;
+
+    .hero img {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    .hero-text h1 {
+      margin: 0 0 10px;
+      font-size: 52px;
+      line-height: 1.1;
+    }
+
+    .hero-text p {
+      margin: 0 0 20px;
+      font-size: 24px;
       color: #dbeafe;
     }
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 50px 20px;
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #1e40af;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px 50px;
+    }
+
     .card {
       background: white;
       padding: 30px;
-      margin-bottom: 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(30,64,175,0.15);
+      margin-bottom: 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(30, 64, 175, 0.08);
     }
+
     h2 {
       margin-top: 0;
+      margin-bottom: 20px;
       color: #1e40af;
+      font-size: 38px;
     }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #1f2937;
+      font-size: 24px;
+    }
+
+    .services-list p,
+    .contact-line {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    .contact-line a {
+      color: #1e40af;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .why-box {
+      background: #f8fbff;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid #dbeafe;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .cta-block {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 40px 25px;
+      border-radius: 18px;
+      margin-bottom: 24px;
+    }
+
+    .cta-block h2 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-block p {
+      color: #cbd5e1;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      border-radius: 14px;
+      margin-top: 18px;
+    }
+
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 22px;
       background: #1e40af;
       color: white;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero img {
+        width: 120px;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .hero-text p {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <header>
+    <div class="hero">
+      <img src="logo.png" alt="Stavito Future">
+      <div class="hero-text">
+        <h1>Stavito Future</h1>
+        <p>Stavíme budoucnost kvalitně</p>
 
-  <header style="text-align:center; padding:40px;">
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="tel:+420776604662">📞 Zavolat</a>
+          <a class="btn btn-secondary" href="mailto:info@stavitofuture.com">✉️ Napsat e-mail</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <img src="logo.png" style="width:200px; margin-bottom:10px;">
+  <div class="container">
 
-    <h1>Stavito Future s.r.o.</h1>
-    <p>Stavíme budoucnost kvalitně</p>
-
-</header>
-
-  <section>
     <div class="card">
-    <h2>Naše služby</h2>
-<p>
-✔ Zdivo<br>
-✔ Fasády<br>
-✔ Omítky<br>
-✔ Obklady<br>
-✔ Terasové (terčové) podlahy<br>
-✔ Rekonstrukce a stavební práce
-</p>  
-
-    </div>
-<div class="card">
-  <h2>Proč si vybrat nás?</h2>
-
-  <div style="display:flex; flex-wrap:wrap; gap:20px;">
-
-    <div style="flex:1; min-width:250px;">
-      <h3>🔨 Zkušenosti</h3>
-      <p>Máme bohaté zkušenosti v oblasti stavebnictví a realizujeme projekty všech velikostí.</p>
+      <h2>O nás</h2>
+      <p>
+        Jsme profesionální stavební firma zaměřená na kvalitu, precizní provedení a moderní řešení.
+        Specializujeme se na zednické práce, fasády, omítky, obklady, terasové podlahy a rekonstrukce.
+      </p>
+      <p>
+        Ke každému projektu přistupujeme individuálně, dbáme na detail a zakládáme si na spolehlivosti,
+        dodržení termínů a férovém přístupu. Působíme především v Brně a okolí.
+      </p>
     </div>
 
-    <div style="flex:1; min-width:250px;">
-      <h3>⚡ Rychlost</h3>
-      <p>Dodržujeme termíny a pracujeme efektivně bez zbytečných zdržení.</p>
+    <div class="card">
+      <h2>Proč si vybrat nás?</h2>
+      <div class="why-grid">
+        <div class="why-box">
+          <h3>🔨 Zkušenosti</h3>
+          <p>Máme zkušenosti s menšími i většími zakázkami a víme, jak dotáhnout projekt do kvalitního výsledku.</p>
+        </div>
+        <div class="why-box">
+          <h3>⚡ Rychlost</h3>
+          <p>Pracujeme efektivně a dodržujeme domluvené termíny bez zbytečných průtahů.</p>
+        </div>
+        <div class="why-box">
+          <h3>🎯 Kvalita</h3>
+          <p>Používáme kvalitní materiály a zaměřujeme se na precizní provedení každého detailu.</p>
+        </div>
+      </div>
     </div>
 
-    <div style="flex:1; min-width:250px;">
-      <h3>🎯 Kvalita</h3>
-      <p>Dbáme na detail a používáme kvalitní materiály pro dlouhou životnost.</p>
+    <div class="card services-list">
+      <h2>Naše služby</h2>
+      <p>✔ Zdivo</p>
+      <p>✔ Fasády</p>
+      <p>✔ Omítky</p>
+      <p>✔ Obklady</p>
+      <p>✔ Terasové (terčové) podlahy</p>
+      <p>✔ Rekonstrukce a stavební práce</p>
+    </div>
+
+    <div class="card">
+      <h2>Naše realizace</h2>
+      <div class="gallery-grid">
+        <img src="prace1.jpg" alt="Realizace 1">
+        <img src="prace2.jpg" alt="Realizace 2">
+        <img src="prace3.jpg" alt="Realizace 3">
+        <img src="prace4.jpg" alt="Realizace 4">
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h2>Máte zájem o naše služby?</h2>
+      <p>Kontaktujte nás a připravíme vám nezávaznou nabídku.</p>
+      <a class="btn btn-primary" href="tel:+420776604662">📞 Zavolat nyní</a>
+    </div>
+
+    <div class="card">
+      <h2>Kontakt</h2>
+
+      <p class="contact-line">
+        📍
+        <a href="https://www.google.com/maps?q=Sko%C5%99epka+336%2F15+Brno" target="_blank">
+          Sídlo: Skořepka 336/15, 602 00 Brno
+        </a>
+      </p>
+
+      <p class="contact-line">
+        📞
+        <a href="tel:+420776604662">+420 776 604 662</a>
+      </p>
+
+      <p class="contact-line">
+        ✉️
+        <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
+      </p>
+
+      <iframe
+        src="https://www.google.com/maps?q=Sko%C5%99epka+336%2F15+Brno&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
     </div>
 
   </div>
-</div>
-
-
-    <div class="card">
-<p style="margin:5px 0;">
-📍 
-<a href="https://www.google.com/maps?q=Skořepka+336/15+Brno" 
-target="_blank"
-style="color:#1e40af; font-weight:bold; text-decoration:none;">
-Sídlo: Skořepka 336/15, 602 00 Brno
-</a>
-</p>
-   <div style="
-background:#1e293b;
-color:white;
-padding:40px 20px;
-margin-top:30px;
-border-radius:15px;
-text-align:center;
-">
-
-<h2 style="color:white;">Máte zájem o naše služby?</h2>
-
-<p>Kontaktujte nás ještě dnes a připravíme vám nezávaznou nabídku.</p>
-
-<a href="tel:+420776604662" style="
-display:inline-block;
-margin-top:15px;
-padding:12px 25px;
-background:#1e40af;
-color:white;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-">
-📞 Zavolat nyní
-</a>
-
-</div>
-     <p style="margin-top:10px;"> <p style="margin:5px 0;">
-    <p>✉️ <a href="mailto:info@savitofuture.com" style="color:#1e40af; font-weight:bold; text-decoration:none;">info@savitofuture.com
-</a>
-</p>
-      <iframe 
-    src="https://www.google.com/maps?q=Skořepka+336/15+Brno&output=embed"
-    width="100%" 
-    height="300" 
-    style="border:0; border-radius:10px; margin-top:15px;" 
-    allowfullscreen="" 
-    loading="lazy">
-</iframe>
-    </div>
-  </section>
 
   <footer>
-    © 2024 Savito Future
+    © 2026 Stavito Future
   </footer>
 
 </body>
