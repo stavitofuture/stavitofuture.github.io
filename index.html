@@ -16,7 +16,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #eef3fb;
+      background: #f5f7fb;
       color: #1f2937;
     }
 
@@ -24,8 +24,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.96);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -42,8 +41,8 @@
 
     .brand {
       color: white;
-      font-weight: bold;
       font-size: 22px;
+      font-weight: bold;
       text-decoration: none;
     }
 
@@ -67,7 +66,7 @@
     header {
       background: linear-gradient(135deg, #1e40af, #2563eb);
       color: white;
-      padding: 55px 20px 60px;
+      padding: 56px 20px 64px;
     }
 
     .hero {
@@ -109,7 +108,6 @@
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.2s ease;
     }
 
     .btn-primary {
@@ -118,32 +116,27 @@
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.14);
       color: white;
       border: 1px solid rgba(255,255,255,0.25);
     }
 
-    .btn-dark {
-      background: #1e40af;
-      color: white;
-    }
-
     .container {
       max-width: 1200px;
-      margin: auto;
-      padding: 30px 20px 50px;
+      margin: 0 auto;
+      padding: 28px 20px 50px;
     }
 
     section {
       scroll-margin-top: 90px;
+      margin-bottom: 24px;
     }
 
     .card {
-      background: white;
+      background: #ffffff;
       padding: 30px;
-      margin-bottom: 24px;
       border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(30, 64, 175, 0.08);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     }
 
     h2 {
@@ -156,24 +149,12 @@
     h3 {
       margin-top: 0;
       margin-bottom: 10px;
-      color: #1f2937;
       font-size: 24px;
+      color: #1f2937;
     }
 
-    .services-list p,
-    .contact-line {
-      margin: 8px 0;
-      font-size: 18px;
-    }
-
-    .contact-line a {
-      color: #1e40af;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .contact-line a:hover {
-      text-decoration: underline;
+    p {
+      line-height: 1.6;
     }
 
     .why-grid {
@@ -183,10 +164,15 @@
     }
 
     .why-box {
-      background: #f8fbff;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
       border-radius: 14px;
       padding: 20px;
-      border: 1px solid #dbeafe;
+    }
+
+    .services-list p {
+      margin: 8px 0;
+      font-size: 18px;
     }
 
     .gallery-grid {
@@ -195,12 +181,17 @@
       gap: 16px;
     }
 
-    .gallery-grid img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
+    .gallery-placeholder {
+      height: 220px;
       border-radius: 14px;
-      display: block;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
     }
 
     .cta-block {
@@ -210,6 +201,7 @@
       padding: 42px 25px;
       border-radius: 18px;
       margin-bottom: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
     .cta-block h2 {
@@ -221,6 +213,21 @@
       color: #cbd5e1;
       font-size: 18px;
       margin-bottom: 20px;
+    }
+
+    .contact-line {
+      margin: 6px 0;
+      font-size: 18px;
+    }
+
+    .contact-line a {
+      color: #1e40af;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
     }
 
     iframe {
@@ -240,7 +247,7 @@
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 22px 20px;
       text-align: center;
       font-size: 16px;
     }
@@ -363,10 +370,10 @@
       <div class="card">
         <h2>Naše realizace</h2>
         <div class="gallery-grid">
-          <img src="prace1.jpg" alt="Realizace 1">
-          <img src="prace2.jpg" alt="Realizace 2">
-          <img src="prace3.jpg" alt="Realizace 3">
-          <img src="prace4.jpg" alt="Realizace 4">
+          <div class="gallery-placeholder">Zde budou fotografie realizací</div>
+          <div class="gallery-placeholder">Zde budou fotografie realizací</div>
+          <div class="gallery-placeholder">Zde budou fotografie realizací</div>
+          <div class="gallery-placeholder">Zde budou fotografie realizací</div>
         </div>
       </div>
     </section>
