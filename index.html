@@ -935,11 +935,11 @@
           </p>
 
           <div class="hero-actions">
-            <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
+            <a href="tel:+420 776 604 662" class="btn btn-primary">📞 Zavolat nyní</a>
             <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
           </div>
 
-          <div class="hero-stats">
+          <div class="hero-stats" id="heroStats">
             <div class="stat-card">
               <div class="stat-number" data-target="100">0%</div>
               <div class="stat-label">Důraz na kvalitu a detail</div>
@@ -1170,7 +1170,7 @@
                 <div class="contact-icon">📞</div>
                 <div class="contact-text">
                   <small>Telefon</small>
-                  <a href="tel:+420123456789">+420 123 456 789</a>
+                  <a href="tel:+420 776 604 662">+420 776 604 662</a>
                 </div>
               </div>
 
@@ -1224,31 +1224,10 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const counter = document.querySelector(".stat-number[data-target]");
-      if (counter) {
-        const target = parseInt(counter.getAttribute("data-target"), 10);
-        const duration = 1800;
-        const startTime = performance.now();
-
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const value = Math.floor(progress * target);
-
-          counter.textContent = value + "%";
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target + "%";
-          }
-        }
-
-        requestAnimationFrame(updateCounter);
-      }
-
       const heroLogoWrap = document.getElementById("heroLogoWrap");
       const heroSection = document.querySelector(".hero");
+      const heroStats = document.getElementById("heroStats");
+      const counter = document.querySelector(".stat-number[data-target]");
 
       if (heroLogoWrap && heroSection && window.innerWidth > 1100) {
         heroSection.addEventListener("mousemove", function (e) {
@@ -1265,6 +1244,67 @@
         heroSection.addEventListener("mouseleave", function () {
           heroLogoWrap.style.transform = "translate(0px, 0px)";
         });
+      }
+
+      if (heroStats && counter) {
+        let isAnimating = false;
+        let animationFrameId = null;
+
+        function animateCounter() {
+          if (isAnimating) return;
+
+          isAnimating = true;
+          const target = parseInt(counter.getAttribute("data-target"), 10);
+          const duration = 2800;
+          const startTime = performance.now();
+
+          counter.textContent = "0%";
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const value = Math.floor(easedProgress * target);
+
+            counter.textContent = value + "%";
+
+            if (progress < 1) {
+              animationFrameId = requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + "%";
+              isAnimating = false;
+              animationFrameId = null;
+            }
+          }
+
+          animationFrameId = requestAnimationFrame(updateCounter);
+        }
+
+        function resetCounter() {
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+          isAnimating = false;
+          counter.textContent = "0%";
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounter();
+              } else {
+                resetCounter();
+              }
+            });
+          },
+          {
+            threshold: 0.55
+          }
+        );
+
+        observer.observe(heroStats);
       }
     });
   </script>
