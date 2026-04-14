@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stavito Future s.r.o.</title>
   <meta name="description" content="Stavito Future s.r.o. – profesionální stavební práce, rekonstrukce, fasády a moderní řešení v Brně a okolí." />
+
+  <!-- Иконка во вкладке браузера -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
   <style>
     * {
       margin: 0;
@@ -127,7 +133,7 @@
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
       gap: 10px;
-      align-items: center;
+      align-items: start;
     }
 
     .hero-badge {
@@ -240,7 +246,7 @@
     .hero-visual {
       display: flex;
       justify-content: flex-end;
-      align-items: center;
+      align-items: flex-start;
       width: 100%;
     }
 
@@ -250,32 +256,30 @@
       min-height: 520px;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      padding-right: 0;
+      align-items: flex-start;
+      padding-top: 10px;
       transform: translateX(120px);
+      overflow: visible;
     }
 
-    .logo-showcase::before {
-      content: "";
-      position: absolute;
-      right: 40px;
+    .hero-logo-wrap {
+      position: relative;
+      z-index: 2;
       width: 620px;
-      height: 620px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.20), transparent 68%);
-      filter: blur(18px);
-      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      will-change: transform;
+      transition: transform 0.18s ease-out;
     }
 
     .hero-logo {
-      position: relative;
-      z-index: 1;
       width: 620px;
       max-width: none;
       height: auto;
       object-fit: contain;
       animation: premiumFloat 4.5s ease-in-out infinite;
-      filter: drop-shadow(0 24px 40px rgba(255,255,255,0.12));
+      filter: drop-shadow(0 24px 40px rgba(255,255,255,0.10));
     }
 
     @keyframes premiumFloat {
@@ -651,12 +655,7 @@
         min-height: 460px;
       }
 
-      .logo-showcase::before {
-        width: 500px;
-        height: 500px;
-        right: 20px;
-      }
-
+      .hero-logo-wrap,
       .hero-logo {
         width: 500px;
       }
@@ -682,15 +681,12 @@
       .logo-showcase {
         transform: none;
         justify-content: center;
+        align-items: center;
         min-height: 360px;
+        padding-top: 0;
       }
 
-      .logo-showcase::before {
-        right: auto;
-        width: 360px;
-        height: 360px;
-      }
-
+      .hero-logo-wrap,
       .hero-logo {
         width: 360px;
       }
@@ -805,11 +801,7 @@
         min-height: 240px;
       }
 
-      .logo-showcase::before {
-        width: 240px;
-        height: 240px;
-      }
-
+      .hero-logo-wrap,
       .hero-logo {
         width: 240px;
         max-width: 95%;
@@ -872,7 +864,9 @@
 
         <div class="hero-visual">
           <div class="logo-showcase">
-            <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
+            <div class="hero-logo-wrap" id="heroLogoWrap">
+              <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
+            </div>
           </div>
         </div>
       </div>
@@ -982,7 +976,7 @@
         <div class="why-grid">
           <div class="why-card">
             <h3>Kvalita bez kompromisů</h3>
-            <p>Odvedená práce musí držet úroveň. Na tom neuhýbáme.</p>
+            <p>Odvedená práce musí držet úroveň. На tom neuhýbáme.</p>
           </div>
 
           <div class="why-card">
@@ -1090,27 +1084,47 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const counter = document.querySelector(".stat-number[data-target]");
-      if (!counter) return;
+      if (counter) {
+        const target = parseInt(counter.getAttribute("data-target"), 10);
+        const duration = 1800;
+        const startTime = performance.now();
 
-      const target = parseInt(counter.getAttribute("data-target"), 10);
-      const duration = 1800;
-      const startTime = performance.now();
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const value = Math.floor(progress * target);
 
-      function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const value = Math.floor(progress * target);
+          counter.textContent = value + "%";
 
-        counter.textContent = value + "%";
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = target + "%";
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + "%";
+          }
         }
+
+        requestAnimationFrame(updateCounter);
       }
 
-      requestAnimationFrame(updateCounter);
+      const heroLogoWrap = document.getElementById("heroLogoWrap");
+      const heroSection = document.querySelector(".hero");
+
+      if (heroLogoWrap && heroSection && window.innerWidth > 1100) {
+        heroSection.addEventListener("mousemove", function (e) {
+          const rect = heroSection.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const moveX = (x / rect.width - 0.5) * 24;
+          const moveY = (y / rect.height - 0.5) * 18;
+
+          heroLogoWrap.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        heroSection.addEventListener("mouseleave", function () {
+          heroLogoWrap.style.transform = "translate(0px, 0px)";
+        });
+      }
     });
   </script>
 
