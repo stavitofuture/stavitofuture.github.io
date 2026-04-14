@@ -1,546 +1,157 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stavito Future s.r.o.</title>
- .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  margin-top: 25px;
-  margin-bottom: 30px;
-}
 
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 18px 20px;
-}
-
-.contact-icon {
-  font-size: 24px;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-.contact-label {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1d4ed8;
-  margin-bottom: 4px;
-}
-
-.contact-item a,
-.contact-item span {
-  font-size: 20px;
-  color: #1f2937;
-  text-decoration: none;
-  word-break: break-word;
-}
-
-.contact-item a:hover {
-  color: #1d4ed8;
-}
-
-.map-wrapper {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 18px;
-  margin-top: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.map-wrapper iframe {
-  width: 100%;
-  height: 420px;
-  border: 0;
-  display: block;
-}
-
-@media (max-width: 600px) {
-  .contact-item {
-    padding: 16px;
-  }
-
-  .contact-item a,
-  .contact-item span {
-    font-size: 17px;
-  }
-
-  .contact-label {
-    font-size: 14px;
-  }
-
-  .map-wrapper iframe {
-    height: 300px;
-  }
-}
-    html {
-      scroll-behavior: smooth;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     body {
       background: #f3f4f6;
       color: #1f2937;
-      line-height: 1.6;
     }
 
     header {
       background: #0b1428;
       color: white;
-      padding: 18px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo-text {
-      font-size: 34px;
-      font-weight: 800;
       text-align: center;
-      flex: 1;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
     }
 
     nav {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-top: 10px;
     }
 
     nav a {
+      margin: 0 10px;
       color: white;
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #93c5fd;
     }
 
     .hero {
-      min-height: 72vh;
       background: linear-gradient(135deg, #2148c9, #2f62e2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 50px 20px 40px;
+      padding: 60px 20px;
       color: white;
-    }
-
-    .hero-content {
-      max-width: 950px;
-      width: 100%;
     }
 
     .hero-logo {
-      width: 320px;
-      max-width: 85vw;
-      height: auto;
-      margin-bottom: 24px;
-      animation: floatLogo 3s ease-in-out infinite;
-      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+      width: 260px;
+      animation: float 3s infinite ease-in-out;
     }
 
-    @keyframes floatLogo {
-      0% {
-        transform: translateY(0px) scale(1);
-      }
-      50% {
-        transform: translateY(-10px) scale(1.03);
-      }
-      100% {
-        transform: translateY(0px) scale(1);
-      }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
 
-    .hero h1 {
-      font-size: 76px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-
-    .hero p {
-      font-size: 24px;
-      margin-bottom: 30px;
-      opacity: 0.95;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 700;
-      transition: 0.3s ease;
-    }
-
-    .btn-primary {
-      background: white;
-      color: #2148c9;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-3px);
+    h1 {
+      font-size: 50px;
+      margin-top: 20px;
     }
 
     .section {
-      max-width: 1100px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: 30px auto;
       padding: 0 20px;
     }
 
     .card {
       background: white;
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      margin-bottom: 30px;
-    }
-
-    .card h2 {
-      font-size: 42px;
-      color: #1d4ed8;
+      padding: 30px;
+      border-radius: 15px;
       margin-bottom: 20px;
     }
 
-    .card p {
-      font-size: 19px;
-      margin-bottom: 16px;
+    .contact-item {
+      margin-bottom: 15px;
+      font-size: 18px;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-box {
-      background: #eff6ff;
-      border-radius: 16px;
-      padding: 24px;
-      transition: 0.3s;
-      border: 1px solid #dbeafe;
-    }
-
-    .service-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.12);
-    }
-
-    .service-box h3 {
-      color: #1e40af;
-      margin-bottom: 12px;
-      font-size: 24px;
-    }
-
-    .contact-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .contact-list li {
-      font-size: 20px;
-      margin-bottom: 14px;
-    }
-
-    .contact-list a {
-      color: #1d4ed8;
-      text-decoration: none;
-    }
-
-    .contact-list a:hover {
-      text-decoration: underline;
-    }
-
-    .map-wrapper {
+    iframe {
       width: 100%;
-      overflow: hidden;
-      border-radius: 18px;
+      height: 300px;
+      border-radius: 10px;
+      border: none;
       margin-top: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .map-wrapper iframe {
-      width: 100%;
-      height: 420px;
-      border: 0;
-      display: block;
     }
 
     footer {
       background: #0b1428;
       color: white;
       text-align: center;
-      padding: 24px 20px;
-      margin-top: 40px;
-      font-size: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        min-height: 65vh;
-      }
-
-      .hero h1 {
-        font-size: 52px;
-      }
-
-      .hero p {
-        font-size: 20px;
-      }
-
-      .hero-logo {
-        width: 240px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .logo-text {
-        font-size: 28px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 15px 20px;
-      }
-
-      .navbar {
-        flex-direction: column;
-      }
-
-      .logo-text {
-        font-size: 26px;
-      }
-
-      nav {
-        gap: 14px;
-      }
-
-      .hero {
-        min-height: 58vh;
-        padding: 36px 16px 30px;
-      }
-
-      .hero-logo {
-        width: 180px;
-        margin-bottom: 18px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 260px;
-      }
-
-      .card {
-        padding: 28px 20px;
-      }
-
-      .card h2 {
-        font-size: 32px;
-      }
-
-      .card p,
-      .contact-list li {
-        font-size: 17px;
-      }
-
-      .map-wrapper iframe {
-        height: 320px;
-      }
+      padding: 20px;
+      margin-top: 30px;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="navbar">
-      <div class="logo-text">Stavito Future</div>
-    <nav>
-  <a href="#about">O nás</a>
-  <a href="#why">Proč my?</a>
-  <a href="#services">Služby</a>
-  <a href="#career">Kariéra</a>
-  <a href="#contact">Kontakt</a>
-</nav>
-    </div>
-  </header>
+<header>
+  Stavito Future
+  <nav>
+    <a href="#about">O nás</a>
+    <a href="#services">Služby</a>
+    <a href="#career">Kariéra</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
-      <h1>Stavito Future s.r.o.</h1>
-      <p>Stavíme budoucnost kvalitně</p>
-      <div class="hero-buttons">
-        <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat</a>
-        <a href="#contact" class="btn btn-secondary">📍 Kontakt</a>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <img src="logo.png" class="hero-logo" alt="logo">
+  <h1>Stavito Future s.r.o.</h1>
+  <p>Stavíme budoucnost kvalitně</p>
+</section>
 
-  <section class="section" id="about">
-    <div class="card">
-      <h2>O nás</h2>
-      <p>
-        Jsme profesionální stavební firma zaměřená na kvalitu, precizní provedení a moderní řešení.
-        Specializujeme se na zednické práce, fasády, omítky, obklady, terasové podlahy a rekonstrukce.
-      </p>
-      <p>
-        Ke každému projektu přistupujeme individuálně, dbáme na detail a zakládáme si na spolehlivosti,
-        dodržení termínů a férovém přístupu. Působíme především v Brně a okolí.
-      </p>
-    </div>
-  </section>
+<section class="section" id="about">
+  <div class="card">
+    <h2>O nás</h2>
+    <p>Jsme profesionální stavební firma zaměřená na kvalitu a moderní řešení.</p>
+  </div>
+</section>
 
-  <section class="section" id="why">
-    <div class="card">
-      <h2>Proč si vybrat nás?</h2>
-      <p>✔ Precizní práce a důraz na detail</p>
-      <p>✔ Spolehlivост a dodržení termínů</p>
-      <p>✔ Individuální přístup ke každému projektu</p>
-      <p>✔ Férové ceny a kvalitní materiály</p>
-    </div>
-  </section>
+<section class="section" id="services">
+  <div class="card">
+    <h2>Služby</h2>
+    <p>Zednické práce, fasády, rekonstrukce a další.</p>
+  </div>
+</section>
 
-  <section class="section" id="services">
-    <div class="card">
-      <h2>Služby</h2>
-      <div class="services-grid">
-        <div class="service-box">
-          <h3>Zednické práce</h3>
-          <p>Kompletní zednické práce pro domy, byty i komerční prostory.</p>
-        </div>
-        <div class="service-box">
-          <h3>Fasády a omítky</h3>
-          <p>Kvalitní venkovní i vnitřní omítky a moderní fasádní řešení.</p>
-        </div>
-        <div class="service-box">
-          <h3>Rekonstrukce</h3>
-          <p>Rekonstrukce bytů, домů a dalších objektů od A do Z.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="career">
+<section class="section" id="career">
   <div class="card">
     <h2>Kariéra</h2>
-
-    <p>
-      Hledáme nové kolegy do našeho týmu! Nabízíme stabilní práci ve stavební firmě,
-      přátelské prostředí a férové podmínky.
-    </p>
-
-    <p><strong>Co nabízíme:</strong></p>
-
-    <p>✔ Stabilní zaměstnání</p>
-    <p>✔ Dobré finanční ohodnocení</p>
-    <p>✔ Práci na zajímavých projektech</p>
-    <p>✔ Přátelský kolektiv</p>
-
-    <p style="margin-top:20px;">
-      Aktuální pracovní pozice brzy doplníme.
-      Pokud máte zájem, neváhejte nás kontaktovat.
-    </p>
-
-    <div style="margin-top: 25px;">
-      <a href="#contact" class="btn btn-primary">📩 Kontaktovat nás</a>
-    </div>
-
+    <p>Hledáme nové pracovníky. Více informací brzy.</p>
   </div>
+</section>
+
 <section class="section" id="contact">
   <div class="card">
     <h2>Kontakt</h2>
 
-    <div class="contact-grid">
-      <div class="contact-item">
-        <span class="contact-icon">📞</span>
-        <div>
-          <div class="contact-label">Telefon</div>
-          <a href="tel:+420123456789">+420 123 456 789</a>
-        </div>
-      </div>
+    <div class="contact-item">📞 +420 123 456 789</div>
+    <div class="contact-item">📧 info@stavitofuture.com</div>
+    <div class="contact-item">📍 Skořepka 336/15, 602 00 Brno</div>
 
-      <div class="contact-item">
-        <span class="contact-icon">📧</span>
-        <div>
-          <div class="contact-label">Email</div>
-          <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <span class="contact-icon">📍</span>
-        <div>
-          <div class="contact-label">Adresa</div>
-          <span>Skořepka 336/15, 602 00 Brno</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="map-wrapper">
-      <iframe
-        src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+    <iframe 
+      src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&output=embed">
+    </iframe>
   </div>
 </section>
-  <footer>
-    © 2026 Stavito Future s.r.o. Všechna práva vyhrazena.
-  </footer>
+
+<footer>
+  © 2026 Stavito Future s.r.o.
+</footer>
 
 </body>
 </html>
