@@ -73,7 +73,6 @@
       font-size: 32px;
       letter-spacing: 1px;
       white-space: nowrap;
-      text-transform: uppercase;
     }
 
     .brand-mini-logo {
@@ -81,6 +80,14 @@
       height: 42px;
       object-fit: contain;
       filter: drop-shadow(0 6px 16px rgba(255,255,255,0.12));
+    }
+
+    .brand-text-main {
+      text-transform: uppercase;
+    }
+
+    .brand-text-small {
+      text-transform: none;
     }
 
     nav {
@@ -426,6 +433,52 @@
       font-size: 16px;
     }
 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid #e2e8f0;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 42px rgba(37, 99, 235, 0.12);
+    }
+
+    .project-image {
+      height: 220px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d4ed8;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .project-content p {
+      font-size: 15px;
+      color: #475569;
+    }
+
     .why-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -642,8 +695,16 @@
       font-size: 22px;
       font-weight: 800;
       color: white;
-      text-transform: uppercase;
       line-height: 1.2;
+    }
+
+    .footer-brand-main {
+      text-transform: uppercase;
+    }
+
+    .footer-brand-small {
+      text-transform: none;
+      font-weight: 700;
     }
 
     .footer-company-info {
@@ -684,7 +745,8 @@
       .hero-grid,
       .about-grid,
       .contact-grid,
-      .career-card {
+      .career-card,
+      .projects-grid {
         grid-template-columns: 1fr;
       }
 
@@ -754,7 +816,8 @@
 
       .hero-stats,
       .services-grid,
-      .why-grid {
+      .why-grid,
+      .projects-grid {
         grid-template-columns: 1fr;
       }
 
@@ -843,12 +906,14 @@
     <div class="container navbar">
       <a href="#top" class="brand">
         <img src="logo.png" alt="Stavito Future logo" class="brand-mini-logo">
-        <span>STAVITO FUTURE</span>
+        <span class="brand-text-main">STAVITO FUTURE</span>
+        <span class="brand-text-small">s.r.o.</span>
       </a>
 
       <nav>
         <a href="#about">O nás</a>
         <a href="#services">Služby</a>
+        <a href="#projects">Realizace</a>
         <a href="#why">Proč my?</a>
         <a href="#career">Kariéra</a>
         <a href="#contact">Kontakt</a>
@@ -870,7 +935,7 @@
           </p>
 
           <div class="hero-actions">
-            <a href="tel:+420776604662" class="btn btn-primary">📞 Zavolat nyní</a>
+            <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
             <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
           </div>
 
@@ -991,6 +1056,44 @@
       </div>
     </section>
 
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Realizace</div>
+          <h2 class="section-title">Ukázky našich realizací</h2>
+          <p class="section-subtitle">
+            Přehled projektů, na kterých pracujeme s důrazem na kvalitu, čisté provedení a detail.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">Projekt 1</div>
+            <div class="project-content">
+              <h3>Rekonstrukce bytu</h3>
+              <p>Kompletní úprava interiéru včetně zednických prací a finálních detailů.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">Projekt 2</div>
+            <div class="project-content">
+              <h3>Fasáda rodinného domu</h3>
+              <p>Kvalitní fasádní systém s důrazem na dlouhou životnost a čistý vzhled.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">Projekt 3</div>
+            <div class="project-content">
+              <h3>Modernizace prostoru</h3>
+              <p>Stavební úpravy a rekonstrukční práce v moderním a funkčním stylu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="why">
       <div class="container">
         <div class="section-title-wrap">
@@ -1067,7 +1170,7 @@
                 <div class="contact-icon">📞</div>
                 <div class="contact-text">
                   <small>Telefon</small>
-                  <a href="tel:+420 776 604 662">+420 776 604 662</a>
+                  <a href="tel:+420123456789">+420 123 456 789</a>
                 </div>
               </div>
 
@@ -1105,7 +1208,10 @@
   <footer>
     <div class="container footer-inner">
       <div class="footer-brand-block">
-        <div class="footer-brand">STAVITO FUTURE S.R.O.</div>
+        <div class="footer-brand">
+          <span class="footer-brand-main">STAVITO FUTURE</span>
+          <span class="footer-brand-small"> s.r.o.</span>
+        </div>
         <div class="footer-company-info">
           <div>IČO: 22151168</div>
           <div>DIČ: CZ22151168</div>
