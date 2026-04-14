@@ -68,13 +68,13 @@
     }
 
     .hero {
-      min-height: 100vh;
+      min-height: 72vh;
       background: linear-gradient(135deg, #2148c9, #2f62e2);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 60px 20px;
+      padding: 50px 20px 40px;
       color: white;
     }
 
@@ -84,22 +84,36 @@
     }
 
     .hero-logo {
-      width: 250px;
-      max-width: 40vw;
+      width: 320px;
+      max-width: 85vw;
       height: auto;
       margin-bottom: 24px;
+      animation: floatLogo 3s ease-in-out infinite;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+    }
+
+    @keyframes floatLogo {
+      0% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.03);
+      }
+      100% {
+        transform: translateY(0px) scale(1);
+      }
     }
 
     .hero h1 {
       font-size: 76px;
       font-weight: 800;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.1;
     }
 
     .hero p {
       font-size: 24px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
       opacity: 0.95;
     }
 
@@ -127,7 +141,7 @@
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
     }
 
     .btn-secondary {
@@ -137,7 +151,7 @@
     }
 
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
       transform: translateY(-3px);
     }
 
@@ -151,7 +165,7 @@
       background: white;
       border-radius: 20px;
       padding: 40px 30px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       margin-bottom: 30px;
     }
 
@@ -215,7 +229,7 @@
       overflow: hidden;
       border-radius: 18px;
       margin-top: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .map-wrapper iframe {
@@ -235,12 +249,20 @@
     }
 
     @media (max-width: 900px) {
+      .hero {
+        min-height: 65vh;
+      }
+
       .hero h1 {
         font-size: 52px;
       }
 
       .hero p {
         font-size: 20px;
+      }
+
+      .hero-logo {
+        width: 240px;
       }
 
       .services-grid {
@@ -270,11 +292,13 @@
       }
 
       .hero {
-        padding: 40px 16px;
+        min-height: 58vh;
+        padding: 36px 16px 30px;
       }
 
       .hero-logo {
-        width: 110px;
+        width: 180px;
+        margin-bottom: 18px;
       }
 
       .hero h1 {
@@ -353,7 +377,7 @@
     <div class="card">
       <h2>Proč si vybrat nás?</h2>
       <p>✔ Precizní práce a důraz na detail</p>
-      <p>✔ Spolehlivost a dodržení termínů</p>
+      <p>✔ Spolehlivост a dodržení termínů</p>
       <p>✔ Individuální přístup ke každému projektu</p>
       <p>✔ Férové ceny a kvalitní materiály</p>
     </div>
@@ -373,7 +397,7 @@
         </div>
         <div class="service-box">
           <h3>Rekonstrukce</h3>
-          <p>Rekonstrukce bytů, domů a dalších objektů od A do Z.</p>
+          <p>Rekonstrukce bytů, домů a dalších objektů od A do Z.</p>
         </div>
       </div>
     </div>
