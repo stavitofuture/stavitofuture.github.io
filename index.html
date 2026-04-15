@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stavito Future</title>
-  <meta name="description" content="Stavito Future – montáže ocelových konstrukcí, výroba a montáž ocelových hal, montáž sendvičových panelů, dlažby a obklady." />
+  <meta name="description" content="Stavito Future – montáže ocelových konstrukcí, výroba a montáž ocelových hal, montáž sendvičových panelů, dlažby a obklady, výroba a montáž balkonů." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
@@ -137,22 +137,6 @@
       align-items: start;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255,255,255,0.94);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(12px);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
-
     .hero h1 {
       color: white;
       font-size: 72px;
@@ -160,13 +144,13 @@
       font-weight: 900;
       margin-bottom: 20px;
       letter-spacing: -1.8px;
-      max-width: 760px;
+      max-width: 780px;
     }
 
     .hero p {
-      color: rgba(255,255,255,0.92);
-      font-size: 22px;
-      max-width: 760px;
+      color: rgba(255,255,255,0.94);
+      font-size: 23px;
+      max-width: 790px;
       margin-bottom: 32px;
     }
 
@@ -388,6 +372,9 @@
       box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
       transition: 0.3s ease;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 390px;
     }
 
     .service-card::before {
@@ -442,6 +429,8 @@
       font-weight: 800;
       background: white;
       transition: 0.25s ease;
+      margin-top: auto;
+      align-self: flex-start;
     }
 
     .service-link:hover {
@@ -462,6 +451,9 @@
       padding: 26px;
       box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
       transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
     }
 
     .feature-card:hover {
@@ -502,7 +494,6 @@
       color: #475569;
       font-size: 16px;
       margin-bottom: 18px;
-      min-height: 72px;
     }
 
     .feature-btn {
@@ -518,6 +509,8 @@
       background: white;
       font-weight: 800;
       transition: 0.25s ease;
+      margin-top: auto;
+      align-self: flex-start;
     }
 
     .feature-btn:hover {
@@ -528,47 +521,128 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 24px;
     }
 
     .project-card {
+      position: relative;
       background: linear-gradient(180deg, #ffffff, #f8fbff);
       border: 1px solid #dbeafe;
-      border-radius: 26px;
+      border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
-      transition: 0.3s ease;
+      transition: 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 42px rgba(37, 99, 235, 0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 26px 50px rgba(37, 99, 235, 0.16);
     }
 
     .project-image {
-      height: 220px;
+      position: relative;
+      height: 260px;
+      overflow: hidden;
       background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-      display: flex;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.08);
+      filter: saturate(1.08);
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0.02), rgba(15,23,42,0.28));
+      opacity: 0.9;
+      transition: 0.35s ease;
+    }
+
+    .project-card:hover .project-image::after {
+      background: linear-gradient(180deg, rgba(15,23,42,0.01), rgba(29,78,216,0.22));
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.88);
       color: #1d4ed8;
-      font-size: 24px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
       font-weight: 800;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+      backdrop-filter: blur(8px);
     }
 
     .project-content {
-      padding: 22px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .project-content h3 {
       font-size: 22px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: #0f172a;
+      font-weight: 800;
     }
 
     .project-content p {
       font-size: 15px;
       color: #475569;
+      margin-bottom: 16px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 130px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1.5px solid #60a5fa;
+      color: #1d4ed8;
+      background: white;
+      font-weight: 800;
+      transition: 0.25s ease;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .project-link:hover {
+      background: #eff6ff;
+      transform: translateY(-1px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .career-card {
@@ -1073,10 +1147,6 @@
         font-size: 16px;
       }
 
-      .hero-badge {
-        font-size: 12px;
-      }
-
       .hero h1 {
         font-size: 38px;
       }
@@ -1125,6 +1195,12 @@
       .contact-form-image-box {
         min-height: 240px;
       }
+
+      .service-card,
+      .feature-card,
+      .project-card {
+        min-height: auto;
+      }
     }
   </style>
 </head>
@@ -1153,17 +1229,14 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">Montáže ocelových konstrukcí • Brno a okolí</div>
-
           <h1>Precizní montáže, kvalitní provedení a spolehlivý výsledek.</h1>
 
           <p>
-            Zaměřujeme se na montáže ocelových konstrukcí, výrobu a montáž ocelových hal,
-            montáž sendvičových panelů, dlažby a obklady a výrobu a montáž balkonů.
+            Precizní montáže, kvalitní provedení a spolehlivý výsledek pro stavební práce.
           </p>
 
           <div class="hero-actions">
-            <a href="tel:+420776604662" class="btn btn-primary">📞 Zavolat nyní</a>
+            <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
             <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
           </div>
 
@@ -1253,7 +1326,7 @@
         </div>
 
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card reveal">
             <div class="service-icon">🏗️</div>
             <h3>Montáže ocelových konstrukcí</h3>
             <p>
@@ -1262,7 +1335,7 @@
             <a href="#form" class="service-link">Více</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card reveal">
             <div class="service-icon">🏢</div>
             <h3>Výroba a montáž ocelových hal</h3>
             <p>
@@ -1271,7 +1344,7 @@
             <a href="#form" class="service-link">Více</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card reveal">
             <div class="service-icon">🧱</div>
             <h3>Dlažby a obklady</h3>
             <p>
@@ -1294,7 +1367,7 @@
         </div>
 
         <div class="feature-grid">
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-top">
               <div class="feature-icon">🔩</div>
               <h3>Montáž ocelových konstrukcí</h3>
@@ -1305,7 +1378,7 @@
             <a href="#services" class="feature-btn">Více</a>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-top">
               <div class="feature-icon">🏭</div>
               <h3>Ocelové haly</h3>
@@ -1316,7 +1389,7 @@
             <a href="#services" class="feature-btn">Více</a>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-top">
               <div class="feature-icon">🪟</div>
               <h3>Sendvičové panely</h3>
@@ -1327,7 +1400,7 @@
             <a href="#form" class="feature-btn">Více</a>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-top">
               <div class="feature-icon">🧱</div>
               <h3>Dlažby a obklady</h3>
@@ -1338,7 +1411,7 @@
             <a href="#form" class="feature-btn">Více</a>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-top">
               <div class="feature-icon">🏢</div>
               <h3>Balkony</h3>
@@ -1349,7 +1422,7 @@
             <a href="#projects" class="feature-btn">Více</a>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-top">
               <div class="feature-icon">✉️</div>
               <h3>Kontaktujte nás</h3>
@@ -1367,34 +1440,94 @@
       <div class="container">
         <div class="section-title-wrap">
           <div class="eyebrow">Realizace</div>
-          <h2 class="section-title">Ukázky našich realizací</h2>
+          <h2 class="section-title">Ukázky našich prací</h2>
           <p class="section-subtitle">
-            Přehled činností, na které se zaměřujeme a které reprezentují naši specializaci.
+            Přidejte sem své reálné fotografie. Karty už jsou připravené tak, aby působily moderně, čistě a profesionálně.
           </p>
         </div>
 
         <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">Projekt 1</div>
+          <div class="project-card reveal">
+            <div class="project-image">
+              <span class="project-badge">Montáž</span>
+              <img src="work1.jpg" alt="Montáže ocelových konstrukcí">
+            </div>
             <div class="project-content">
               <h3>Montáže ocelových konstrukcí</h3>
-              <p>Odborná montáž nosných a technických ocelových konstrukcí pro různé typy staveb.</p>
+              <p>
+                Precizní realizace ocelových konstrukcí s důrazem na bezpečnost, přesnost a čisté provedení.
+              </p>
+              <a href="#form" class="project-link">Více</a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-image">Projekt 2</div>
+          <div class="project-card reveal">
+            <div class="project-image">
+              <span class="project-badge">Haly</span>
+              <img src="work2.jpg" alt="Výroba a montáž ocelových hal">
+            </div>
+            <div class="project-content">
+              <h3>Výroba a montáž ocelových hal</h3>
+              <p>
+                Komplexní řešení od výroby po finální montáž ocelových hal s profesionálním výsledkem.
+              </p>
+              <a href="#form" class="project-link">Více</a>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-image">
+              <span class="project-badge">Panely</span>
+              <img src="work3.jpg" alt="Montáž sendvičových panelů">
+            </div>
             <div class="project-content">
               <h3>Montáž sendvičových panelů</h3>
-              <p>Přesné osazení sendvičových panelů s důrazem na funkčnost, izolaci a čistý vzhled.</p>
+              <p>
+                Přesné osazení sendvičových panelů s důrazem na funkčnost, izolaci a kvalitní detail.
+              </p>
+              <a href="#form" class="project-link">Více</a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-image">Projekt 3</div>
+          <div class="project-card reveal">
+            <div class="project-image">
+              <span class="project-badge">Obklady</span>
+              <img src="work4.jpg" alt="Dlažby a obklady">
+            </div>
+            <div class="project-content">
+              <h3>Dlažby a obklady</h3>
+              <p>
+                Kvalitní pokládka dlažeb a obkladů pro interiéry i exteriéry s čistým a pevným výsledkem.
+              </p>
+              <a href="#form" class="project-link">Více</a>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-image">
+              <span class="project-badge">Balkony</span>
+              <img src="work5.jpg" alt="Výroba a montáž balkonů">
+            </div>
             <div class="project-content">
               <h3>Výroba a montáž balkonů</h3>
-              <p>Kompletní realizace balkonů od výroby po finální odbornou montáž.</p>
+              <p>
+                Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetiku.
+              </p>
+              <a href="#form" class="project-link">Více</a>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-image">
+              <span class="project-badge">Detail</span>
+              <img src="work6.jpg" alt="Stavební práce Stavito Future">
+            </div>
+            <div class="project-content">
+              <h3>Další stavební práce</h3>
+              <p>
+                Doplňkové montážní a stavební činnosti provedené precizně, spolehlivě a profesionálně.
+              </p>
+              <a href="#form" class="project-link">Více</a>
             </div>
           </div>
         </div>
@@ -1423,7 +1556,7 @@
                 <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
               </div>
 
-              <form id="contactForm" class="contact-form" <form action="https://formspree.io/f/mrerbnjv" method="POST">
+              <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
                 <div class="form-group">
                   <label for="email">E-mail</label>
                   <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
@@ -1499,7 +1632,7 @@
                 <div class="contact-icon">📞</div>
                 <div class="contact-text">
                   <small>Telefon</small>
-                  <a href="tel:+420776604662">+420 776 604 662</a>
+                  <a href="tel:+420123456789">+420 123 456 789</a>
                 </div>
               </div>
 
@@ -1560,6 +1693,7 @@
       const form = document.getElementById("contactForm");
       const formMessage = document.getElementById("formMessage");
       const formSubmitBtn = document.getElementById("formSubmitBtn");
+      const revealItems = document.querySelectorAll(".reveal");
 
       if (heroLogoWrap && heroSection && window.innerWidth > 1100) {
         heroSection.addEventListener("mousemove", function (e) {
@@ -1637,6 +1771,23 @@
         );
 
         observer.observe(heroStats);
+      }
+
+      if (revealItems.length) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          {
+            threshold: 0.18
+          }
+        );
+
+        revealItems.forEach((item) => revealObserver.observe(item));
       }
 
       if (form) {
