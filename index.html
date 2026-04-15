@@ -25,8 +25,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background:
         radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 30%),
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 25%),
-        linear-gradient(180deg, #edf3ff 0%, #f8fafc 100%);
+        linear-gradient(180deg, #eef5ff 0%, #f8fbff 100%);
       color: #0f172a;
       line-height: 1.6;
       overflow-x: hidden;
@@ -51,7 +50,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(6, 18, 45, 0.92);
+      background: rgba(7, 21, 53, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -123,12 +122,12 @@
 
     .hero {
       position: relative;
-      padding: 78px 0 40px;
+      padding: 78px 0 42px;
       overflow: hidden;
       background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 22%),
-        radial-gradient(circle at 80% 0%, rgba(147,197,253,0.14), transparent 25%),
-        linear-gradient(135deg, #1336a8 0%, #2254d1 45%, #2f68ec 100%);
+        radial-gradient(circle at 82% 8%, rgba(147,197,253,0.18), transparent 24%),
+        linear-gradient(135deg, #1236a6 0%, #1f4fd1 48%, #3a7dff 100%);
     }
 
     .hero-grid {
@@ -142,7 +141,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.94);
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.18);
       backdrop-filter: blur(12px);
@@ -190,6 +189,7 @@
       font-weight: 800;
       transition: 0.25s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -240,7 +240,7 @@
     }
 
     .stat-label {
-      color: rgba(255,255,255,0.86);
+      color: rgba(255,255,255,0.88);
       font-size: 14px;
       font-weight: 600;
     }
@@ -291,12 +291,12 @@
     }
 
     .section {
-      padding: 40px 0;
+      padding: 46px 0;
     }
 
     .section-title-wrap {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
     .eyebrow {
@@ -326,7 +326,7 @@
     }
 
     .glass-card {
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.86);
       border: 1px solid rgba(148,163,184,0.18);
       border-radius: 28px;
       padding: 34px;
@@ -355,10 +355,10 @@
     }
 
     .point-box {
-      background: linear-gradient(180deg, #f8fbff, #eff6ff);
+      background: linear-gradient(180deg, #f8fbff, #edf5ff);
       border: 1px solid #dbeafe;
       border-radius: 20px;
-      padding: 18px 18px;
+      padding: 18px;
     }
 
     .point-box strong {
@@ -381,8 +381,8 @@
 
     .service-card {
       position: relative;
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
-      border: 1px solid #e2e8f0;
+      background: linear-gradient(180deg, #ffffff, #f6faff);
+      border: 1px solid #dbeafe;
       border-radius: 26px;
       padding: 28px;
       box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
@@ -393,9 +393,7 @@
     .service-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      inset: 0 0 auto 0;
       height: 4px;
       background: linear-gradient(90deg, #1d4ed8, #60a5fa);
     }
@@ -413,6 +411,7 @@
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      color: #1d4ed8;
       font-size: 28px;
       margin-bottom: 18px;
     }
@@ -427,6 +426,103 @@
     .service-card p {
       color: #475569;
       font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1.5px solid #60a5fa;
+      color: #1d4ed8;
+      font-weight: 800;
+      background: white;
+      transition: 0.25s ease;
+    }
+
+    .service-link:hover {
+      background: #eff6ff;
+      transform: translateY(-1px);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .feature-card {
+      background: linear-gradient(180deg, #ffffff, #f7fbff);
+      border: 1px solid #dbeafe;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+    }
+
+    .feature-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      color: #2563eb;
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .feature-card h3 {
+      font-size: 23px;
+      color: #0f172a;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .feature-card p {
+      color: #475569;
+      font-size: 16px;
+      margin-bottom: 18px;
+      min-height: 72px;
+    }
+
+    .feature-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1.5px solid #60a5fa;
+      color: #1d4ed8;
+      background: white;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .feature-btn:hover {
+      background: #eff6ff;
+      transform: translateY(-1px);
     }
 
     .projects-grid {
@@ -437,7 +533,7 @@
 
     .project-card {
       background: linear-gradient(180deg, #ffffff, #f8fbff);
-      border: 1px solid #e2e8f0;
+      border: 1px solid #dbeafe;
       border-radius: 26px;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
@@ -475,42 +571,16 @@
       color: #475569;
     }
 
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .why-card {
-      background: linear-gradient(180deg, #ffffff, #f8fafc);
-      border: 1px solid #e2e8f0;
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
-    }
-
-    .why-card h3 {
-      font-size: 20px;
-      color: #0f172a;
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-
-    .why-card p {
-      color: #475569;
-      font-size: 15px;
-    }
-
     .career-card {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 22px;
       align-items: center;
-      background: linear-gradient(135deg, rgba(29,78,216,0.96), rgba(59,130,246,0.95));
+      background: linear-gradient(135deg, rgba(29,78,216,0.97), rgba(96,165,250,0.95));
       border-radius: 30px;
       padding: 34px;
       color: white;
-      box-shadow: 0 24px 55px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 24px 55px rgba(37, 99, 235, 0.22);
       overflow: hidden;
       position: relative;
     }
@@ -552,7 +622,7 @@
 
     .career-card p {
       font-size: 18px;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.94);
       max-width: 720px;
     }
 
@@ -592,7 +662,7 @@
 
     .contact-card {
       background: white;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #dbeafe;
       border-radius: 30px;
       padding: 28px;
       box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
@@ -615,7 +685,7 @@
       gap: 14px;
       align-items: flex-start;
       background: linear-gradient(180deg, #f8fbff, #f8fafc);
-      border: 1px solid #e2e8f0;
+      border: 1px solid #dbeafe;
       border-radius: 22px;
       padding: 18px;
     }
@@ -630,6 +700,7 @@
       justify-content: center;
       background: linear-gradient(135deg, #dbeafe, #eff6ff);
       font-size: 22px;
+      color: #2563eb;
     }
 
     .contact-text small {
@@ -742,7 +813,8 @@
       .about-grid,
       .contact-grid,
       .career-card,
-      .projects-grid {
+      .projects-grid,
+      .feature-grid {
         grid-template-columns: 1fr;
       }
 
@@ -766,10 +838,6 @@
 
       .career-action {
         justify-self: start;
-      }
-
-      .why-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .footer-inner {
@@ -812,8 +880,8 @@
 
       .hero-stats,
       .services-grid,
-      .why-grid,
-      .projects-grid {
+      .projects-grid,
+      .feature-grid {
         grid-template-columns: 1fr;
       }
 
@@ -893,6 +961,10 @@
         width: 240px;
         max-width: 95%;
       }
+
+      .feature-card p {
+        min-height: auto;
+      }
     }
   </style>
 </head>
@@ -908,8 +980,8 @@
       <nav>
         <a href="#about">O nás</a>
         <a href="#services">Služby</a>
+        <a href="#offer">Nabízíme</a>
         <a href="#projects">Realizace</a>
-        <a href="#why">Proč my?</a>
         <a href="#career">Kariéra</a>
         <a href="#contact">Kontakt</a>
       </nav>
@@ -930,7 +1002,7 @@
           </p>
 
           <div class="hero-actions">
-            <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
+            <a href="tel:+420 776 604 662" class="btn btn-primary">📞 Zavolat nyní</a>
             <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
           </div>
 
@@ -1028,6 +1100,7 @@
               Komplexní zednické práce pro byty, domy i komerční prostory
               s důrazem na přesnost a čisté dokončení.
             </p>
+            <a href="#contact" class="service-link">Více</a>
           </div>
 
           <div class="service-card">
@@ -1037,6 +1110,7 @@
               Kvalitní vnitřní i vnější omítky a fasádní řešení,
               která spojují funkčnost a dobrý vzhled.
             </p>
+            <a href="#contact" class="service-link">Více</a>
           </div>
 
           <div class="service-card">
@@ -1046,6 +1120,87 @@
               Rekonstrukce bytů, domů a dalších prostor od začátku do konce,
               profesionálně a bez chaosu.
             </p>
+            <a href="#contact" class="service-link">Více</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="offer">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Nabízíme</div>
+          <h2 class="section-title">Co je pro nás klíčové</h2>
+          <p class="section-subtitle">
+            Čistá struktura, jasná nabídka a profesionální prezentace. Přesně to, co dává dobrý první dojem.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-top">
+              <div class="feature-icon">🏢</div>
+              <h3>Co děláme</h3>
+            </div>
+            <p>
+              Stavební práce, rekonstrukce, fasády, omítky a další řešení pro domy, byty i firemní prostory.
+            </p>
+            <a href="#services" class="feature-btn">Více</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-top">
+              <div class="feature-icon">🧰</div>
+              <h3>Profesionální přístup</h3>
+            </div>
+            <p>
+              Každý projekt řešíme s důrazem na detail, čisté provedení, spolehlivost a férovou komunikaci.
+            </p>
+            <a href="#about" class="feature-btn">Více</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-top">
+              <div class="feature-icon">👷</div>
+              <h3>Pracujte u nás</h3>
+            </div>
+            <p>
+              Hledáme nové kolegy do týmu. Nabízíme stabilní práci, zajímavé projekty a dobré podmínky.
+            </p>
+            <a href="#career" class="feature-btn">Více</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-top">
+              <div class="feature-icon">🤝</div>
+              <h3>Spolehlivá spolupráce</h3>
+            </div>
+            <p>
+              Zakládáme si na dodržení domluvy, termínů a výsledku, který bude dlouhodobě fungovat i vypadat dobře.
+            </p>
+            <a href="#contact" class="feature-btn">Více</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-top">
+              <div class="feature-icon">📷</div>
+              <h3>Reference a realizace</h3>
+            </div>
+            <p>
+              Podívejte se na ukázky projektů a přehled prací, které reprezentují naši úroveň a styl provedení.
+            </p>
+            <a href="#projects" class="feature-btn">Více</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-top">
+              <div class="feature-icon">✉️</div>
+              <h3>Kontaktujte nás</h3>
+            </div>
+            <p>
+              Máte dotaz nebo zájem o spolupráci? Ozvěte se nám telefonicky nebo e-mailem a rádi se domluvíme.
+            </p>
+            <a href="#contact" class="feature-btn">Více</a>
           </div>
         </div>
       </div>
@@ -1084,40 +1239,6 @@
               <h3>Modernizace prostoru</h3>
               <p>Stavební úpravy a rekonstrukční práce v moderním a funkčním stylu.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">Proč my?</div>
-          <h2 class="section-title">Proč si zákazníci vybírají právě nás</h2>
-          <p class="section-subtitle">
-            Tady rozhodují výsledky. Čistá práce, pevné termíny a přístup, který dává smysl.
-          </p>
-        </div>
-
-        <div class="why-grid">
-          <div class="why-card">
-            <h3>Kvalita bez kompromisů</h3>
-            <p>Odvedená práce musí držet úroveň. Na tom neuhýbáme.</p>
-          </div>
-
-          <div class="why-card">
-            <h3>Spolehlivost</h3>
-            <p>Dodržujeme domluvu, termíny a přistupujeme k zakázkám zodpovědně.</p>
-          </div>
-
-          <div class="why-card">
-            <h3>Individuální přístup</h3>
-            <p>Každý projekt má jiné potřeby, proto hledáme řešení na míru.</p>
-          </div>
-
-          <div class="why-card">
-            <h3>Silný výsledek</h3>
-            <p>Nejen hotová práce, ale výsledek, který působí kvalitně i vizuálně.</p>
           </div>
         </div>
       </div>
@@ -1165,7 +1286,7 @@
                 <div class="contact-icon">📞</div>
                 <div class="contact-text">
                   <small>Telefon</small>
-                  <a href="tel:+420123456789">+420 123 456 789</a>
+                  <a href="tel:+420 776 604 662">+420 776 604 662</a>
                 </div>
               </div>
 
