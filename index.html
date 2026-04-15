@@ -29,6 +29,37 @@
       color: #0f172a;
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(10px);
+      opacity: 0.18;
+      transition: transform 0.15s linear;
+    }
+
+    body::before {
+      top: 18%;
+      left: -140px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.28), rgba(59,130,246,0));
+    }
+
+    body::after {
+      top: 62%;
+      right: -120px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(147,197,253,0.32), rgba(147,197,253,0));
     }
 
     a {
@@ -39,6 +70,62 @@
     img {
       max-width: 100%;
       display: block;
+    }
+
+    .page-bg-photo {
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+      transform: translate3d(0,0,0);
+      transition: transform 0.18s linear;
+    }
+
+    .page-bg-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.9);
+    }
+
+    .page-bg-photo.one {
+      top: 140px;
+      right: -70px;
+      width: 260px;
+      height: 360px;
+      transform: rotate(-8deg);
+    }
+
+    .page-bg-photo.two {
+      top: 980px;
+      left: -80px;
+      width: 240px;
+      height: 320px;
+      transform: rotate(8deg);
+    }
+
+    .page-bg-photo.three {
+      top: 1850px;
+      right: -90px;
+      width: 280px;
+      height: 380px;
+      transform: rotate(-10deg);
+    }
+
+    .page-bg-photo.four {
+      top: 2750px;
+      left: -100px;
+      width: 250px;
+      height: 340px;
+      transform: rotate(10deg);
+    }
+
+    .site-wrap {
+      position: relative;
+      z-index: 1;
     }
 
     .container {
@@ -520,7 +607,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 24px;
     }
 
@@ -553,11 +640,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease, filter 0.4s ease;
+      transition: transform 0.7s ease, filter 0.4s ease;
     }
 
     .project-card:hover .project-image img {
-      transform: scale(1.08);
+      transform: scale(1.1);
       filter: saturate(1.08);
     }
 
@@ -636,13 +723,13 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .reveal.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     .career-card {
@@ -1011,6 +1098,12 @@
       text-align: right;
     }
 
+    @media (max-width: 1380px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 1300px) {
       .container {
         width: min(1200px, calc(100% - 32px));
@@ -1076,6 +1169,10 @@
       .contact-form-image-box {
         min-height: 320px;
       }
+
+      .page-bg-photo {
+        display: none;
+      }
     }
 
     @media (max-width: 820px) {
@@ -1108,7 +1205,6 @@
 
       .hero-stats,
       .services-grid,
-      .projects-grid,
       .feature-grid {
         grid-template-columns: 1fr;
       }
@@ -1205,484 +1301,448 @@
   </style>
 </head>
 <body>
+  <div class="page-bg-photo one"><img src="work1.jpg" alt=""></div>
+  <div class="page-bg-photo two"><img src="work3.jpg" alt=""></div>
+  <div class="page-bg-photo three"><img src="work5.jpg" alt=""></div>
+  <div class="page-bg-photo four"><img src="work6.jpg" alt=""></div>
 
-  <header>
-    <div class="container navbar">
-      <a href="#top" class="brand">
-        <img src="logo.png" alt="Stavito Future logo" class="brand-mini-logo">
-        <span class="brand-text-main">STAVITO FUTURE</span>
-      </a>
+  <div class="site-wrap">
+    <header>
+      <div class="container navbar">
+        <a href="#top" class="brand">
+          <img src="logo.png" alt="Stavito Future logo" class="brand-mini-logo">
+          <span class="brand-text-main">STAVITO FUTURE</span>
+        </a>
 
-      <nav>
-        <a href="#about">O nás</a>
-        <a href="#services">Služby</a>
-        <a href="#offer">Nabízíme</a>
-        <a href="#projects">Realizace</a>
-        <a href="#form">Poptávka</a>
-        <a href="#career">Kariéra</a>
-        <a href="#contact">Kontakt</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1>Precizní montáže, kvalitní provedení a spolehlivý výsledek.</h1>
-
-          <p>
-            Precizní montáže, kvalitní provedení a spolehlivý výsledek pro stavební práce.
-          </p>
-
-          <div class="hero-actions">
-            <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
-            <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
-          </div>
-
-          <div class="hero-stats" id="heroStats">
-            <div class="stat-card">
-              <div class="stat-number" data-target="100">0%</div>
-              <div class="stat-label">Důraz na kvalitu a detail</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">Brno</div>
-              <div class="stat-label">Působíme především v regionu</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">Top</div>
-              <div class="stat-label">Profesionální a férový přístup</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="logo-showcase">
-            <div class="hero-logo-wrap" id="heroLogoWrap">
-              <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
-            </div>
-          </div>
-        </div>
+        <nav>
+          <a href="#about">O nás</a>
+          <a href="#services">Služby</a>
+          <a href="#offer">Nabízíme</a>
+          <a href="#projects">Realizace</a>
+          <a href="#form">Poptávka</a>
+          <a href="#career">Kariéra</a>
+          <a href="#contact">Kontakt</a>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">O nás</div>
-          <h2 class="section-title">Spolehlivá firma pro ocelové konstrukce a montáže</h2>
-          <p class="section-subtitle">
-            Každou zakázku řešíme s důrazem na přesnost, bezpečnost, kvalitní provedení a jasnou komunikaci.
-          </p>
-        </div>
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1>Precizní montáže, kvalitní provedení a spolehlivý výsledek.</h1>
 
-        <div class="glass-card about-grid">
-          <div class="about-text">
             <p>
-              Jsme stavební a montážní firma zaměřená na montáže ocelových konstrukcí,
-              výrobu a montáž ocelových hal, montáž sendvičových panelů, dlažby a obklady
-              a výrobu a montáž balkonů.
+              Precizní montáže, kvalitní provedení a spolehlivý výsledek pro stavební práce.
             </p>
-            <p>
-              Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů
-              a profesionální výsledek. Naším cílem je odvést práci, která bude funkční,
-              kvalitní a dlouhodobě spolehlivá.
-            </p>
+
+            <div class="hero-actions">
+              <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
+              <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
+            </div>
+
+            <div class="hero-stats" id="heroStats">
+              <div class="stat-card">
+                <div class="stat-number" data-target="100">0%</div>
+                <div class="stat-label">Důraz na kvalitu a detail</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Brno</div>
+                <div class="stat-label">Působíme především v regionu</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Top</div>
+                <div class="stat-label">Profesionální a férový přístup</div>
+              </div>
+            </div>
           </div>
 
-          <div class="about-points">
-            <div class="point-box">
-              <strong>Přesná montáž</strong>
-              <span>Každý detail řešíme s důrazem na kvalitu, bezpečnost a čisté provedení.</span>
-            </div>
-
-            <div class="point-box">
-              <strong>Férové jednání</strong>
-              <span>Komunikujeme jasně, držíme domluvu a pracujeme spolehlivě.</span>
-            </div>
-
-            <div class="point-box">
-              <strong>Odborné řešení</strong>
-              <span>Zajišťujeme montáže i výrobu s profesionálním technickým přístupem.</span>
-            </div>
-
-            <div class="point-box">
-              <strong>Brno a okolí</strong>
-              <span>Působíme lokálně a jsme připraveni na menší i větší realizace.</span>
+          <div class="hero-visual">
+            <div class="logo-showcase">
+              <div class="hero-logo-wrap" id="heroLogoWrap">
+                <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">Služby</div>
-          <h2 class="section-title">Naše hlavní činnosti</h2>
-          <p class="section-subtitle">
-            Zaměřujeme se na profesionální montážní a stavební práce s důrazem na kvalitu a dlouhou životnost.
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <div class="service-icon">🏗️</div>
-            <h3>Montáže ocelových konstrukcí</h3>
-            <p>
-              Zajišťujeme odbornou montáž ocelových konstrukcí pro různé typy staveb a technických řešení.
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-title-wrap">
+            <div class="eyebrow">O nás</div>
+            <h2 class="section-title">Spolehlivá firma pro ocelové konstrukce a montáže</h2>
+            <p class="section-subtitle">
+              Každou zakázku řešíme s důrazem na přesnost, bezpečnost, kvalitní provedení a jasnou komunikaci.
             </p>
-            <a href="#form" class="service-link">Více</a>
           </div>
 
-          <div class="service-card reveal">
-            <div class="service-icon">🏢</div>
-            <h3>Výroba a montáž ocelových hal</h3>
-            <p>
-              Realizujeme výrobu a montáž ocelových hal s důrazem na funkčnost, stabilitu a přesnost provedení.
-            </p>
-            <a href="#form" class="service-link">Více</a>
-          </div>
-
-          <div class="service-card reveal">
-            <div class="service-icon">🧱</div>
-            <h3>Dlažby a obklady</h3>
-            <p>
-              Provádíme pokládku dlažeb a obkladů s čistým výsledkem, přesností a důrazem na detail.
-            </p>
-            <a href="#form" class="service-link">Více</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="offer">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">Nabízíme</div>
-          <h2 class="section-title">Co je pro nás klíčové</h2>
-          <p class="section-subtitle">
-            Kvalitní práce, přesná montáž a profesionální přístup. To jsou základy, na kterých stavíme každou realizaci.
-          </p>
-        </div>
-
-        <div class="feature-grid">
-          <div class="feature-card reveal">
-            <div class="feature-top">
-              <div class="feature-icon">🔩</div>
-              <h3>Montáž ocelových konstrukcí</h3>
+          <div class="glass-card about-grid">
+            <div class="about-text">
+              <p>
+                Jsme stavební a montážní firma zaměřená na montáže ocelových konstrukcí,
+                výrobu a montáž ocelových hal, montáž sendvičových panelů, dlažby a obklady
+                a výrobu a montáž balkonů.
+              </p>
+              <p>
+                Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů
+                a profesionální výsledek. Naším cílem je odvést práci, která bude funkční,
+                kvalitní a dlouhodobě spolehlivá.
+              </p>
             </div>
-            <p>
-              Provádíme odborné montáže ocelových konstrukcí pro stavební i průmyslové projekty.
-            </p>
-            <a href="#services" class="feature-btn">Více</a>
-          </div>
 
-          <div class="feature-card reveal">
-            <div class="feature-top">
-              <div class="feature-icon">🏭</div>
-              <h3>Ocelové haly</h3>
-            </div>
-            <p>
-              Zajišťujeme výrobu i samotnou montáž ocelových hal podle konkrétních potřeb realizace.
-            </p>
-            <a href="#services" class="feature-btn">Více</a>
-          </div>
+            <div class="about-points">
+              <div class="point-box">
+                <strong>Přesná montáž</strong>
+                <span>Každý detail řešíme s důrazem na kvalitu, bezpečnost a čisté provedení.</span>
+              </div>
 
-          <div class="feature-card reveal">
-            <div class="feature-top">
-              <div class="feature-icon">🪟</div>
-              <h3>Sendvičové panely</h3>
-            </div>
-            <p>
-              Montujeme sendvičové panely s důrazem na přesné usazení, funkčnost a kvalitní finální vzhled.
-            </p>
-            <a href="#form" class="feature-btn">Více</a>
-          </div>
+              <div class="point-box">
+                <strong>Férové jednání</strong>
+                <span>Komunikujeme jasně, držíme domluvu a pracujeme spolehlivě.</span>
+              </div>
 
-          <div class="feature-card reveal">
-            <div class="feature-top">
-              <div class="feature-icon">🧱</div>
-              <h3>Dlažby a obklady</h3>
-            </div>
-            <p>
-              Realizujeme dlažby a obklady pro interiéry i exteriéry s pečlivým zpracováním každého detailu.
-            </p>
-            <a href="#form" class="feature-btn">Více</a>
-          </div>
+              <div class="point-box">
+                <strong>Odborné řešení</strong>
+                <span>Zajišťujeme montáže i výrobu s profesionálním technickým přístupem.</span>
+              </div>
 
-          <div class="feature-card reveal">
-            <div class="feature-top">
-              <div class="feature-icon">🏢</div>
-              <h3>Balkony</h3>
+              <div class="point-box">
+                <strong>Brno a okolí</strong>
+                <span>Působíme lokálně a jsme připraveni na menší i větší realizace.</span>
+              </div>
             </div>
-            <p>
-              Zajišťujeme výrobu a montáž balkonů s ohledem na bezpečnost, pevnost konstrukce a design.
-            </p>
-            <a href="#projects" class="feature-btn">Více</a>
-          </div>
-
-          <div class="feature-card reveal">
-            <div class="feature-top">
-              <div class="feature-icon">✉️</div>
-              <h3>Kontaktujte nás</h3>
-            </div>
-            <p>
-              Máte dotaz nebo zájem o spolupráci? Napište nám a připravíme vhodné řešení pro vaši zakázku.
-            </p>
-            <a href="#form" class="feature-btn">Více</a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">Realizace</div>
-          <h2 class="section-title">Ukázky našich prací</h2>
-          <p class="section-subtitle">
-            Přidejte sem své reálné fotografie. Karty už jsou připravené tak, aby působily moderně, čistě a profesionálně.
-          </p>
-        </div>
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-title-wrap">
+            <div class="eyebrow">Služby</div>
+            <h2 class="section-title">Naše hlavní činnosti</h2>
+            <p class="section-subtitle">
+              Zaměřujeme se na profesionální montážní a stavební práce s důrazem na kvalitu a dlouhou životnost.
+            </p>
+          </div>
 
-        <div class="projects-grid">
-          <div class="project-card reveal">
-            <div class="project-image">
-              <span class="project-badge">Montáž</span>
-              <img src="work1.jpg" alt="Montáže ocelových konstrukcí">
-            </div>
-            <div class="project-content">
+          <div class="services-grid">
+            <div class="service-card reveal">
+              <div class="service-icon">🏗️</div>
               <h3>Montáže ocelových konstrukcí</h3>
               <p>
-                Precizní realizace ocelových konstrukcí s důrazem na bezpečnost, přesnost a čisté provedení.
+                Zajišťujeme odbornou montáž ocelových konstrukcí pro různé typy staveb a technických řešení.
               </p>
-              <a href="#form" class="project-link">Více</a>
+              <a href="#form" class="service-link">Více</a>
             </div>
-          </div>
 
-          <div class="project-card reveal">
-            <div class="project-image">
-              <span class="project-badge">Haly</span>
-              <img src="work2.jpg" alt="Výroba a montáž ocelových hal">
-            </div>
-            <div class="project-content">
+            <div class="service-card reveal">
+              <div class="service-icon">🏢</div>
               <h3>Výroba a montáž ocelových hal</h3>
               <p>
-                Komplexní řešení od výroby po finální montáž ocelových hal s profesionálním výsledkem.
+                Realizujeme výrobu a montáž ocelových hal s důrazem na funkčnost, stabilitu a přesnost provedení.
               </p>
-              <a href="#form" class="project-link">Více</a>
+              <a href="#form" class="service-link">Více</a>
             </div>
-          </div>
 
-          <div class="project-card reveal">
-            <div class="project-image">
-              <span class="project-badge">Panely</span>
-              <img src="work3.jpg" alt="Montáž sendvičových panelů">
-            </div>
-            <div class="project-content">
-              <h3>Montáž sendvičových panelů</h3>
-              <p>
-                Přesné osazení sendvičových panelů s důrazem na funkčnost, izolaci a kvalitní detail.
-              </p>
-              <a href="#form" class="project-link">Více</a>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-image">
-              <span class="project-badge">Obklady</span>
-              <img src="work4.jpg" alt="Dlažby a obklady">
-            </div>
-            <div class="project-content">
+            <div class="service-card reveal">
+              <div class="service-icon">🧱</div>
               <h3>Dlažby a obklady</h3>
               <p>
-                Kvalitní pokládka dlažeb a obkladů pro interiéry i exteriéry s čistým a pevným výsledkem.
+                Provádíme pokládku dlažeb a obkladů s čistým výsledkem, přesností a důrazem na detail.
               </p>
-              <a href="#form" class="project-link">Více</a>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-image">
-              <span class="project-badge">Balkony</span>
-              <img src="work5.jpg" alt="Výroba a montáž balkonů">
-            </div>
-            <div class="project-content">
-              <h3>Výroba a montáž balkonů</h3>
-              <p>
-                Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetiku.
-              </p>
-              <a href="#form" class="project-link">Více</a>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-image">
-              <span class="project-badge">Detail</span>
-              <img src="work6.jpg" alt="Stavební práce Stavito Future">
-            </div>
-            <div class="project-content">
-              <h3>Další stavební práce</h3>
-              <p>
-                Doplňkové montážní a stavební činnosti provedené precizně, spolehlivě a profesionálně.
-              </p>
-              <a href="#form" class="project-link">Více</a>
+              <a href="#form" class="service-link">Více</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="form-section" id="form">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">Poptávka</div>
-          <h2 class="section-title">Napište nám</h2>
-          <p class="section-subtitle">
-            Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.
-          </p>
-        </div>
-
-        <div class="contact-form-card">
-          <div class="contact-form-grid">
-            <div class="contact-form-image-box">
-              <img src="form-photo.jpg" alt="Stavito Future realizace">
-            </div>
-
-            <div class="contact-form-fields">
-              <div>
-                <h3 class="form-title">Kontaktní formulář</h3>
-                <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
-              </div>
-
-              <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
-                <div class="form-group">
-                  <label for="email">E-mail</label>
-                  <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="name">Jméno</label>
-                  <input id="name" class="form-input" type="text" name="name" placeholder="Zadejte vaše jméno" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="phone">Telefon</label>
-                  <input id="phone" class="form-input" type="tel" name="phone" placeholder="Zadejte vaše telefonní číslo">
-                </div>
-
-                <div class="form-group">
-                  <label for="message">Poptávka</label>
-                  <textarea id="message" class="form-textarea" name="message" placeholder="Zadejte vaši zprávu" required></textarea>
-                </div>
-
-                <input type="hidden" name="_subject" value="NOVÁ ZPRÁVA – STAVITO FUTURE">
-                <input type="text" name="_gotcha" style="display:none">
-
-                <button id="formSubmitBtn" class="form-submit" type="submit">ODESLAT</button>
-              </form>
-
-              <div id="formMessage" class="form-message"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="career">
-      <div class="container">
-        <div class="career-card">
-          <div class="career-content">
-            <h3>Kariéra ve Stavito Future</h3>
-            <p>
-              Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě,
-              na zajímavých projektech a v prostředí, kde se kvalita opravdu řeší.
+      <section class="section" id="offer">
+        <div class="container">
+          <div class="section-title-wrap">
+            <div class="eyebrow">Nabízíme</div>
+            <h2 class="section-title">Co je pro nás klíčové</h2>
+            <p class="section-subtitle">
+              Kvalitní práce, přesná montáž a profesionální přístup. To jsou základy, na kterých stavíme každou realizaci.
             </p>
+          </div>
 
-            <div class="career-mini-list">
-              <span>Stabilní práce</span>
-              <span>Dobré ohodnocení</span>
-              <span>Férový přístup</span>
-              <span>Zajímavé projekty</span>
+          <div class="feature-grid">
+            <div class="feature-card reveal">
+              <div class="feature-top">
+                <div class="feature-icon">🔩</div>
+                <h3>Montáž ocelových konstrukcí</h3>
+              </div>
+              <p>
+                Provádíme odborné montáže ocelových konstrukcí pro stavební i průmyslové projekty.
+              </p>
+              <a href="#services" class="feature-btn">Více</a>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-top">
+                <div class="feature-icon">🏭</div>
+                <h3>Ocelové haly</h3>
+              </div>
+              <p>
+                Zajišťujeme výrobu i samotnou montáž ocelových hal podle konkrétních potřeb realizace.
+              </p>
+              <a href="#services" class="feature-btn">Více</a>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-top">
+                <div class="feature-icon">🪟</div>
+                <h3>Sendvičové panely</h3>
+              </div>
+              <p>
+                Montujeme sendvičové panely s důrazem na přesné usazení, funkčnost a kvalitní finální vzhled.
+              </p>
+              <a href="#form" class="feature-btn">Více</a>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-top">
+                <div class="feature-icon">🧱</div>
+                <h3>Dlažby a obklady</h3>
+              </div>
+              <p>
+                Realizujeme dlažby a obklady pro interiéry i exteriéry s pečlivým zpracováním každého detailu.
+              </p>
+              <a href="#form" class="feature-btn">Více</a>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-top">
+                <div class="feature-icon">🏢</div>
+                <h3>Balkony</h3>
+              </div>
+              <p>
+                Zajišťujeme výrobu a montáž balkonů s ohledem na bezpečnost, pevnost konstrukce a design.
+              </p>
+              <a href="#projects" class="feature-btn">Více</a>
+            </div>
+
+            <div class="feature-card reveal">
+              <div class="feature-top">
+                <div class="feature-icon">✉️</div>
+                <h3>Kontaktujte nás</h3>
+              </div>
+              <p>
+                Máte dotaz nebo zájem o spolupráci? Napište nám a připravíme vhodné řešení pro vaši zakázku.
+              </p>
+              <a href="#form" class="feature-btn">Více</a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="career-action">
-            <a href="#contact" class="career-btn">Kontaktovat nás</a>
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-title-wrap">
+            <div class="eyebrow">Realizace</div>
+            <h2 class="section-title">Ukázky našich prací</h2>
+            <p class="section-subtitle">
+              Vybrané realizace s reálnými fotografiemi. Moderní prezentace, čistý styl a profesionální dojem.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <div class="project-card reveal">
+              <div class="project-image">
+                <span class="project-badge">Montáž</span>
+                <img src="work1.jpg" alt="Montáže ocelových konstrukcí">
+              </div>
+              <div class="project-content">
+                <h3>Montáže ocelových konstrukcí</h3>
+                <p>
+                  Precizní realizace ocelových konstrukcí s důrazem na bezpečnost, přesnost a čisté provedení.
+                </p>
+                <a href="#form" class="project-link">Více</a>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-image">
+                <span class="project-badge">Balkony</span>
+                <img src="work5.jpg" alt="Výroba a montáž balkonů">
+              </div>
+              <div class="project-content">
+                <h3>Výroba a montáž balkonů</h3>
+                <p>
+                  Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetiku.
+                </p>
+                <a href="#form" class="project-link">Více</a>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-image">
+                <span class="project-badge">Detail</span>
+                <img src="work6.jpg" alt="Stavební práce Stavito Future">
+              </div>
+              <div class="project-content">
+                <h3>Další stavební práce</h3>
+                <p>
+                  Doplňkové montážní a stavební činnosti provedené precizně, spolehlivě a profesionálně.
+                </p>
+                <a href="#form" class="project-link">Více</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-title-wrap">
-          <div class="eyebrow">Kontakt</div>
-          <h2 class="section-title">Spojte se s námi</h2>
-          <p class="section-subtitle">
-            Máte zájem o spolupráci, montážní práce nebo výrobu? Ozvěte se nám a rádi s vámi vše probereme.
-          </p>
+      <section class="form-section" id="form">
+        <div class="container">
+          <div class="section-title-wrap">
+            <div class="eyebrow">Poptávka</div>
+            <h2 class="section-title">Napište nám</h2>
+            <p class="section-subtitle">
+              Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.
+            </p>
+          </div>
+
+          <div class="contact-form-card">
+            <div class="contact-form-grid">
+              <div class="contact-form-image-box">
+                <img src="form-photo.jpg" alt="Stavito Future realizace">
+              </div>
+
+              <div class="contact-form-fields">
+                <div>
+                  <h3 class="form-title">Kontaktní formulář</h3>
+                  <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
+                </div>
+
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="name">Jméno</label>
+                    <input id="name" class="form-input" type="text" name="name" placeholder="Zadejte vaše jméno" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input id="phone" class="form-input" type="tel" name="phone" placeholder="Zadejte vaše telefonní číslo">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Poptávka</label>
+                    <textarea id="message" class="form-textarea" name="message" placeholder="Zadejte vaši zprávu" required></textarea>
+                  </div>
+
+                  <input type="hidden" name="_subject" value="NOVÁ ZPRÁVA – STAVITO FUTURE">
+                  <input type="text" name="_gotcha" style="display:none">
+
+                  <button id="formSubmitBtn" class="form-submit" type="submit">ODESLAT</button>
+                </form>
+
+                <div id="formMessage" class="form-message"></div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="contact-card">
-          <div class="contact-grid">
-            <div class="contact-list">
-              <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <div class="contact-text">
-                  <small>Telefon</small>
-                  <a href="tel:+420123456789">+420 123 456 789</a>
+      <section class="section" id="career">
+        <div class="container">
+          <div class="career-card">
+            <div class="career-content">
+              <h3>Kariéra ve Stavito Future</h3>
+              <p>
+                Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě,
+                na zajímavých projektech a v prostředí, kde se kvalita opravdu řeší.
+              </p>
+
+              <div class="career-mini-list">
+                <span>Stabilní práce</span>
+                <span>Dobré ohodnocení</span>
+                <span>Férový přístup</span>
+                <span>Zajímavé projekty</span>
+              </div>
+            </div>
+
+            <div class="career-action">
+              <a href="#contact" class="career-btn">Kontaktovat nás</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-title-wrap">
+            <div class="eyebrow">Kontakt</div>
+            <h2 class="section-title">Spojte se s námi</h2>
+            <p class="section-subtitle">
+              Máte zájem o spolupráci, montážní práce nebo výrobu? Ozvěte se nám a rádi s vámi vše probereme.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-grid">
+              <div class="contact-list">
+                <div class="contact-item">
+                  <div class="contact-icon">📞</div>
+                  <div class="contact-text">
+                    <small>Telefon</small>
+                    <a href="tel:+420123456789">+420 123 456 789</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">📧</div>
+                  <div class="contact-text">
+                    <small>Email</small>
+                    <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">📍</div>
+                  <div class="contact-text">
+                    <small>Adresa</small>
+                    <span>Skořepka 336/15, 602 00 Brno</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">📧</div>
-                <div class="contact-text">
-                  <small>Email</small>
-                  <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
-                </div>
+              <div class="contact-map">
+                <iframe
+                  src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
+                  loading="lazy"
+                  allowfullscreen=""
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div class="contact-text">
-                  <small>Adresa</small>
-                  <span>Skořepka 336/15, 602 00 Brno</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-map">
-              <iframe
-                src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
-                loading="lazy"
-                allowfullscreen=""
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <div class="footer-brand-block">
-        <div class="footer-brand">
-          <span class="footer-brand-main">STAVITO FUTURE</span>
-          <span class="footer-brand-small"> s.r.o.</span>
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand-block">
+          <div class="footer-brand">
+            <span class="footer-brand-main">STAVITO FUTURE</span>
+            <span class="footer-brand-small"> s.r.o.</span>
+          </div>
+          <div class="footer-company-info">
+            <div>IČO: 22151168</div>
+            <div>DIČ: CZ22151168</div>
+          </div>
         </div>
-        <div class="footer-company-info">
-          <div>IČO: 22151168</div>
-          <div>DIČ: CZ22151168</div>
-        </div>
-      </div>
 
-      <div class="footer-text">© 2024 Všechna práva vyhrazena.</div>
-    </div>
-  </footer>
+        <div class="footer-text">© 2024 Všechna práva vyhrazena.</div>
+      </div>
+    </footer>
+  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -1694,6 +1754,7 @@
       const formMessage = document.getElementById("formMessage");
       const formSubmitBtn = document.getElementById("formSubmitBtn");
       const revealItems = document.querySelectorAll(".reveal");
+      const bgPhotos = document.querySelectorAll(".page-bg-photo");
 
       if (heroLogoWrap && heroSection && window.innerWidth > 1100) {
         heroSection.addEventListener("mousemove", function (e) {
@@ -1783,12 +1844,28 @@
             });
           },
           {
-            threshold: 0.18
+            threshold: 0.16
           }
         );
 
         revealItems.forEach((item) => revealObserver.observe(item));
       }
+
+      function updateParallax() {
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        bgPhotos.forEach((photo, index) => {
+          const speed = (index + 1) * 0.08 + 0.05;
+          const yMove = scrollY * speed;
+          const xMove = scrollY * (speed * 0.08);
+          photo.style.transform = `translate3d(${index % 2 === 0 ? xMove : -xMove}px, ${yMove}px, 0) rotate(${index % 2 === 0 ? -8 : 8}deg)`;
+        });
+
+        document.body.style.setProperty("--scrollY", scrollY);
+      }
+
+      updateParallax();
+      window.addEventListener("scroll", updateParallax, { passive: true });
 
       if (form) {
         form.addEventListener("submit", async function (e) {
@@ -1830,6 +1907,5 @@
       }
     });
   </script>
-
 </body>
 </html>
