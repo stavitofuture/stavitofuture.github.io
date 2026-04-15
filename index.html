@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stavito Future</title>
-  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, zateplení, dlažby a obklady, montáže ocelových konstrukcí a další stavební práce." />
+  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, zateplení, dlažby a obklady a vybrané stavební práce." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
@@ -64,7 +64,7 @@
       position: absolute;
       border-radius: 28px;
       overflow: hidden;
-      opacity: 0.08;
+      opacity: 0.07;
       box-shadow: 0 20px 60px rgba(15, 23, 42, 0.14);
       will-change: transform;
       transform: translate3d(0,0,0);
@@ -79,34 +79,34 @@
 
     .bg-photo.photo-1 {
       top: 140px;
-      right: -80px;
-      width: 250px;
+      right: -70px;
+      width: 260px;
       height: 360px;
       transform: rotate(-8deg);
     }
 
     .bg-photo.photo-2 {
-      top: 820px;
-      left: -70px;
+      top: 860px;
+      left: -80px;
       width: 240px;
-      height: 330px;
-      transform: rotate(7deg);
+      height: 340px;
+      transform: rotate(8deg);
     }
 
     .bg-photo.photo-3 {
-      top: 1540px;
+      top: 1650px;
       right: -90px;
-      width: 260px;
-      height: 360px;
-      transform: rotate(-10deg);
+      width: 270px;
+      height: 370px;
+      transform: rotate(-9deg);
     }
 
     .bg-photo.photo-4 {
-      top: 2380px;
-      left: -85px;
-      width: 240px;
-      height: 340px;
-      transform: rotate(9deg);
+      top: 2550px;
+      left: -90px;
+      width: 245px;
+      height: 345px;
+      transform: rotate(10deg);
     }
 
     .blue-glow {
@@ -231,7 +231,7 @@
       font-weight: 900;
       margin-bottom: 20px;
       letter-spacing: -1.8px;
-      max-width: 820px;
+      max-width: 830px;
     }
 
     .hero p {
@@ -430,6 +430,35 @@
       border: 1px solid #dbeafe;
       border-radius: 20px;
       padding: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .point-box::after {
+      content: "";
+      position: absolute;
+      top: -120%;
+      left: -40%;
+      width: 70%;
+      height: 260%;
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.18) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: rotate(18deg);
+      transition: 0.8s ease;
+    }
+
+    .point-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 30px rgba(37, 99, 235, 0.10);
+    }
+
+    .point-box:hover::after {
+      left: 110%;
     }
 
     .point-box strong {
@@ -457,7 +486,7 @@
       border-radius: 26px;
       padding: 28px;
       box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
-      transition: 0.3s ease;
+      transition: 0.35s ease;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -472,22 +501,59 @@
       background: linear-gradient(90deg, #1d4ed8, #60a5fa);
     }
 
+    .service-card::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.18), rgba(96,165,250,0));
+      transition: transform 0.4s ease;
+    }
+
     .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 42px rgba(37, 99, 235, 0.12);
+      transform: translateY(-7px);
+      box-shadow: 0 24px 44px rgba(37, 99, 235, 0.14);
+    }
+
+    .service-card:hover::after {
+      transform: scale(1.18);
     }
 
     .service-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
+      width: 62px;
+      height: 62px;
+      border-radius: 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #dbeafe, #eff6ff);
       color: #1d4ed8;
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 18px;
+      position: relative;
+      animation: iconFloat 4.2s ease-in-out infinite;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.10);
+    }
+
+    .service-card:nth-child(2) .service-icon {
+      animation-delay: 0.35s;
+    }
+
+    .service-card:nth-child(3) .service-icon {
+      animation-delay: 0.7s;
+    }
+
+    .service-card:nth-child(4) .service-icon {
+      animation-delay: 1.05s;
+    }
+
+    @keyframes iconFloat {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
     }
 
     .service-card h3 {
@@ -527,7 +593,7 @@
 
     .projects-premium-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 26px;
     }
 
@@ -943,6 +1009,12 @@
       border: 1px solid #dbeafe;
       border-radius: 22px;
       padding: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 28px rgba(37, 99, 235, 0.10);
     }
 
     .contact-icon {
@@ -1434,21 +1506,6 @@
 
             <article class="project-premium-card reveal-card" data-tilt>
               <div class="project-premium-image">
-                <span class="project-premium-badge">Proces</span>
-                <img src="work2.jpg" alt="Průběh realizace">
-                <div class="project-premium-shine"></div>
-              </div>
-              <div class="project-premium-content">
-                <h3>Průběh realizace</h3>
-                <p>
-                  Ukázka pracovního procesu, organizace stavby a důrazu na přesnost během samotné realizace.
-                </p>
-                <a href="#form" class="project-premium-link">Více</a>
-              </div>
-            </article>
-
-            <article class="project-premium-card reveal-card" data-tilt>
-              <div class="project-premium-image">
                 <span class="project-premium-badge">Rekonstrukce</span>
                 <img src="work3.jpg" alt="Rekonstrukce fasády">
                 <div class="project-premium-shine"></div>
@@ -1457,21 +1514,6 @@
                 <h3>Rekonstrukce fasád</h3>
                 <p>
                   Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.
-                </p>
-                <a href="#form" class="project-premium-link">Více</a>
-              </div>
-            </article>
-
-            <article class="project-premium-card reveal-card" data-tilt>
-              <div class="project-premium-image">
-                <span class="project-premium-badge">Detail</span>
-                <img src="work4.jpg" alt="Detail stavebních prací">
-                <div class="project-premium-shine"></div>
-              </div>
-              <div class="project-premium-content">
-                <h3>Precizní detail</h3>
-                <p>
-                  Detail rozhoduje o výsledku. Proto dbáme na čistotu práce, přesnost a profesionální dokončení.
                 </p>
                 <a href="#form" class="project-premium-link">Více</a>
               </div>
