@@ -660,6 +660,121 @@
       transform: translateY(-2px);
     }
 
+    .form-section {
+      padding: 46px 0;
+    }
+
+    .contact-form-card {
+      background: linear-gradient(180deg, #eef6ff, #e7f0ff);
+      border: 1px solid #dbeafe;
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: 0 18px 55px rgba(15, 23, 42, 0.06);
+    }
+
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .contact-form-image-box {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #bfdbfe, #dbeafe);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    .contact-form-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .form-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      font-size: 16px;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #1e3a8a;
+      background: transparent;
+      padding: 10px 4px 12px;
+      font-size: 17px;
+      color: #0f172a;
+      outline: none;
+      border-radius: 0;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #6b7280;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-bottom-color: #3b82f6;
+    }
+
+    .form-textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      min-height: 58px;
+      border: none;
+      border-radius: 16px;
+      background: white;
+      color: #1d4ed8;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+      transition: 0.25s ease;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.16);
+      background: #f8fbff;
+    }
+
     .contact-card {
       background: white;
       border: 1px solid #dbeafe;
@@ -814,7 +929,8 @@
       .contact-grid,
       .career-card,
       .projects-grid,
-      .feature-grid {
+      .feature-grid,
+      .contact-form-grid {
         grid-template-columns: 1fr;
       }
 
@@ -847,6 +963,10 @@
 
       .footer-text {
         text-align: left;
+      }
+
+      .contact-form-image-box {
+        min-height: 320px;
       }
     }
 
@@ -890,11 +1010,13 @@
       }
 
       .glass-card,
-      .contact-card {
+      .contact-card,
+      .contact-form-card {
         padding: 22px;
       }
 
-      .career-card h3 {
+      .career-card h3,
+      .form-title {
         font-size: 28px;
       }
     }
@@ -965,6 +1087,10 @@
       .feature-card p {
         min-height: auto;
       }
+
+      .contact-form-image-box {
+        min-height: 240px;
+      }
     }
   </style>
 </head>
@@ -982,6 +1108,7 @@
         <a href="#services">Služby</a>
         <a href="#offer">Nabízíme</a>
         <a href="#projects">Realizace</a>
+        <a href="#form">Poptávka</a>
         <a href="#career">Kariéra</a>
         <a href="#contact">Kontakt</a>
       </nav>
@@ -1200,7 +1327,7 @@
             <p>
               Máte dotaz nebo zájem o spolupráci? Ozvěte se nám telefonicky nebo e-mailem a rádi se domluvíme.
             </p>
-            <a href="#contact" class="feature-btn">Více</a>
+            <a href="#form" class="feature-btn">Více</a>
           </div>
         </div>
       </div>
@@ -1238,6 +1365,55 @@
             <div class="project-content">
               <h3>Modernizace prostoru</h3>
               <p>Stavební úpravy a rekonstrukční práce v moderním a funkčním stylu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="form">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Poptávka</div>
+          <h2 class="section-title">Napište nám</h2>
+          <p class="section-subtitle">
+            Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.
+          </p>
+        </div>
+
+        <div class="contact-form-card">
+          <div class="contact-form-grid">
+            <div class="contact-form-image-box">
+              <img src="form-photo.jpg" alt="Stavito Future realizace">
+            </div>
+
+            <div class="contact-form-fields">
+              <div>
+                <h3 class="form-title">Kontaktní formulář</h3>
+                <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" class="form-input" type="email" placeholder="Zadejte váš mail">
+              </div>
+
+              <div class="form-group">
+                <label for="name">Jméno</label>
+                <input id="name" class="form-input" type="text" placeholder="Zadejte vaše jméno">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input id="phone" class="form-input" type="tel" placeholder="Zadejte vaše telefonní číslo">
+              </div>
+
+              <div class="form-group">
+                <label for="message">Poptávka</label>
+                <textarea id="message" class="form-textarea" placeholder="Zadejte vaši zprávu"></textarea>
+              </div>
+
+              <button class="form-submit" type="button">ODESLAT</button>
             </div>
           </div>
         </div>
