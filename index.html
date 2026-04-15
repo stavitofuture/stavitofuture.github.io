@@ -11,15 +11,8 @@
   <link rel="apple-touch-icon" href="favicon.png" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -36,7 +29,6 @@
     body::after {
       content: "";
       position: fixed;
-      inset: auto;
       pointer-events: none;
       z-index: 0;
       filter: blur(10px);
@@ -62,15 +54,8 @@
       background: radial-gradient(circle, rgba(147,197,253,0.32), rgba(147,197,253,0));
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
     .page-bg-photo {
       position: fixed;
@@ -115,23 +100,8 @@
       transform: rotate(-10deg);
     }
 
-    .page-bg-photo.four {
-      top: 2750px;
-      left: -100px;
-      width: 250px;
-      height: 340px;
-      transform: rotate(10deg);
-    }
-
-    .site-wrap {
-      position: relative;
-      z-index: 1;
-    }
-
-    .container {
-      width: min(1280px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+    .site-wrap { position: relative; z-index: 1; }
+    .container { width: min(1280px, calc(100% - 40px)); margin: 0 auto; }
 
     header {
       position: sticky;
@@ -168,9 +138,7 @@
       filter: drop-shadow(0 6px 16px rgba(255,255,255,0.12));
     }
 
-    .brand-text-main {
-      text-transform: uppercase;
-    }
+    .brand-text-main { text-transform: uppercase; }
 
     nav {
       display: flex;
@@ -199,13 +167,8 @@
       transition: width 0.25s ease;
     }
 
-    nav a:hover {
-      color: white;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover { color: white; }
+    nav a:hover::after { width: 100%; }
 
     .hero {
       position: relative;
@@ -361,9 +324,7 @@
       100% { transform: translateY(0) scale(1); }
     }
 
-    .section {
-      padding: 46px 0;
-    }
+    .section { padding: 46px 0; }
 
     .section-title-wrap {
       text-align: center;
@@ -605,13 +566,15 @@
       transform: translateY(-1px);
     }
 
-    .projects-grid {
+    .projects-lux {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: 1.35fr 0.65fr;
       gap: 24px;
+      align-items: stretch;
     }
 
-    .project-card {
+    .project-main-card,
+    .project-side-card {
       position: relative;
       background: linear-gradient(180deg, #ffffff, #f8fbff);
       border: 1px solid #dbeafe;
@@ -621,54 +584,64 @@
       transition: 0.35s ease;
       display: flex;
       flex-direction: column;
-      min-height: 420px;
     }
 
-    .project-card:hover {
+    .project-main-card:hover,
+    .project-side-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 26px 50px rgba(37, 99, 235, 0.16);
     }
 
-    .project-image {
+    .project-main-image,
+    .project-side-image {
       position: relative;
-      height: 260px;
       overflow: hidden;
       background: linear-gradient(135deg, #dbeafe, #bfdbfe);
     }
 
-    .project-image img {
+    .project-main-image {
+      height: 480px;
+    }
+
+    .project-side-image {
+      height: 220px;
+    }
+
+    .project-main-image img,
+    .project-side-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.7s ease, filter 0.4s ease;
     }
 
-    .project-card:hover .project-image img {
-      transform: scale(1.1);
+    .project-main-card:hover .project-main-image img,
+    .project-side-card:hover .project-side-image img {
+      transform: scale(1.08);
       filter: saturate(1.08);
     }
 
-    .project-image::after {
+    .project-main-image::after,
+    .project-side-image::after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(15,23,42,0.02), rgba(15,23,42,0.28));
-      opacity: 0.9;
       transition: 0.35s ease;
     }
 
-    .project-card:hover .project-image::after {
+    .project-main-card:hover .project-main-image::after,
+    .project-side-card:hover .project-side-image::after {
       background: linear-gradient(180deg, rgba(15,23,42,0.01), rgba(29,78,216,0.22));
     }
 
     .project-badge {
       position: absolute;
-      top: 16px;
-      left: 16px;
+      top: 18px;
+      left: 18px;
       z-index: 2;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       background: rgba(255,255,255,0.88);
       color: #1d4ed8;
       padding: 8px 14px;
@@ -679,24 +652,32 @@
       backdrop-filter: blur(8px);
     }
 
-    .project-content {
-      padding: 24px;
+    .project-main-content,
+    .project-side-content {
+      padding: 26px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .project-content h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
+    .project-main-content h3,
+    .project-side-content h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
       color: #0f172a;
-      font-weight: 800;
+      font-weight: 900;
+      line-height: 1.08;
     }
 
-    .project-content p {
-      font-size: 15px;
+    .project-side-content h3 {
+      font-size: 24px;
+    }
+
+    .project-main-content p,
+    .project-side-content p {
+      font-size: 16px;
       color: #475569;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .project-link {
@@ -719,6 +700,12 @@
     .project-link:hover {
       background: #eff6ff;
       transform: translateY(-1px);
+    }
+
+    .project-side-stack {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 24px;
     }
 
     .reveal {
@@ -821,9 +808,7 @@
       transform: translateY(-2px);
     }
 
-    .form-section {
-      padding: 46px 0;
-    }
+    .form-section { padding: 46px 0; }
 
     .contact-form-card {
       background: linear-gradient(180deg, #eef6ff, #e7f0ff);
@@ -1075,14 +1060,8 @@
       line-height: 1.2;
     }
 
-    .footer-brand-main {
-      text-transform: uppercase;
-    }
-
-    .footer-brand-small {
-      text-transform: none;
-      font-weight: 700;
-    }
+    .footer-brand-main { text-transform: uppercase; }
+    .footer-brand-small { text-transform: none; font-weight: 700; }
 
     .footer-company-info {
       display: flex;
@@ -1098,40 +1077,31 @@
       text-align: right;
     }
 
-    @media (max-width: 1380px) {
-      .projects-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 1300px) {
-      .container {
-        width: min(1200px, calc(100% - 32px));
-      }
-
+      .container { width: min(1200px, calc(100% - 32px)); }
       .logo-showcase {
         transform: translateX(70px);
         min-height: 460px;
       }
-
       .hero-logo-wrap,
-      .hero-logo {
-        width: 500px;
-      }
+      .hero-logo { width: 500px; }
     }
 
     @media (max-width: 1100px) {
-      .hero h1 {
-        font-size: 60px;
-      }
+      .hero h1 { font-size: 60px; }
 
       .hero-grid,
       .about-grid,
       .contact-grid,
       .career-card,
-      .projects-grid,
       .feature-grid,
-      .contact-form-grid {
+      .contact-form-grid,
+      .projects-lux {
+        grid-template-columns: 1fr;
+      }
+
+      .project-side-stack {
+        grid-template-rows: auto;
         grid-template-columns: 1fr;
       }
 
@@ -1149,30 +1119,19 @@
       }
 
       .hero-logo-wrap,
-      .hero-logo {
-        width: 360px;
-      }
+      .hero-logo { width: 360px; }
 
-      .career-action {
-        justify-self: start;
-      }
+      .career-action { justify-self: start; }
 
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .footer-text {
-        text-align: left;
-      }
-
-      .contact-form-image-box {
-        min-height: 320px;
-      }
-
-      .page-bg-photo {
-        display: none;
-      }
+      .footer-text { text-align: left; }
+      .contact-form-image-box { min-height: 320px; }
+      .page-bg-photo { display: none; }
+      .project-main-image { height: 320px; }
     }
 
     @media (max-width: 820px) {
@@ -1182,13 +1141,8 @@
         flex-direction: column;
       }
 
-      .brand {
-        font-size: 28px;
-      }
-
-      nav {
-        gap: 18px;
-      }
+      .brand { font-size: 28px; }
+      nav { gap: 18px; }
 
       .hero {
         padding: 48px 0 32px;
@@ -1199,9 +1153,7 @@
         letter-spacing: -1px;
       }
 
-      .hero p {
-        font-size: 18px;
-      }
+      .hero p { font-size: 18px; }
 
       .hero-stats,
       .services-grid,
@@ -1209,9 +1161,7 @@
         grid-template-columns: 1fr;
       }
 
-      .section-title {
-        font-size: 36px;
-      }
+      .section-title { font-size: 36px; }
 
       .glass-card,
       .contact-card,
@@ -1226,57 +1176,37 @@
     }
 
     @media (max-width: 560px) {
-      .container {
-        width: min(100% - 20px, 1180px);
-      }
-
-      .brand {
-        font-size: 22px;
-      }
+      .container { width: min(100% - 20px, 1180px); }
+      .brand { font-size: 22px; }
 
       .brand-mini-logo {
         width: 34px;
         height: 34px;
       }
 
-      nav a {
-        font-size: 16px;
-      }
+      nav a { font-size: 16px; }
 
-      .hero h1 {
-        font-size: 38px;
-      }
+      .hero h1 { font-size: 38px; }
 
       .btn,
-      .career-btn {
-        width: 100%;
-      }
+      .career-btn { width: 100%; }
 
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
+      .hero-actions { flex-direction: column; }
+      .section-title { font-size: 30px; }
 
       .contact-text a,
       .contact-text span {
         font-size: 17px;
       }
 
-      .footer-brand {
-        font-size: 18px;
-      }
+      .footer-brand { font-size: 18px; }
 
       .footer-company-info,
       .footer-text {
         font-size: 13px;
       }
 
-      .logo-showcase {
-        min-height: 240px;
-      }
+      .logo-showcase { min-height: 240px; }
 
       .hero-logo-wrap,
       .hero-logo {
@@ -1284,27 +1214,27 @@
         max-width: 95%;
       }
 
-      .feature-card p {
-        min-height: auto;
-      }
-
-      .contact-form-image-box {
-        min-height: 240px;
-      }
+      .feature-card p { min-height: auto; }
+      .contact-form-image-box { min-height: 240px; }
 
       .service-card,
       .feature-card,
-      .project-card {
+      .project-main-card,
+      .project-side-card {
         min-height: auto;
       }
+
+      .project-main-image { height: 240px; }
+      .project-side-image { height: 200px; }
+      .project-main-content h3 { font-size: 24px; }
+      .project-side-content h3 { font-size: 22px; }
     }
   </style>
 </head>
 <body>
   <div class="page-bg-photo one"><img src="work1.jpg" alt=""></div>
-  <div class="page-bg-photo two"><img src="work3.jpg" alt=""></div>
-  <div class="page-bg-photo three"><img src="work5.jpg" alt=""></div>
-  <div class="page-bg-photo four"><img src="work6.jpg" alt=""></div>
+  <div class="page-bg-photo two"><img src="work5.jpg" alt=""></div>
+  <div class="page-bg-photo three"><img src="work6.jpg" alt=""></div>
 
   <div class="site-wrap">
     <header>
@@ -1541,52 +1471,54 @@
         <div class="container">
           <div class="section-title-wrap">
             <div class="eyebrow">Realizace</div>
-            <h2 class="section-title">Ukázky našich prací</h2>
+            <h2 class="section-title">Luxusní galerie realizací</h2>
             <p class="section-subtitle">
-              Vybrané realizace s reálnými fotografiemi. Moderní prezentace, čistý styl a profesionální dojem.
+              Výběr reálných prací ve výraznější a elegantnější prezentaci. Velké hlavní foto a dvě doplňkové realizace.
             </p>
           </div>
 
-          <div class="projects-grid">
-            <div class="project-card reveal">
-              <div class="project-image">
-                <span class="project-badge">Montáž</span>
+          <div class="projects-lux">
+            <div class="project-main-card reveal">
+              <div class="project-main-image">
+                <span class="project-badge">Hlavní realizace</span>
                 <img src="work1.jpg" alt="Montáže ocelových konstrukcí">
               </div>
-              <div class="project-content">
+              <div class="project-main-content">
                 <h3>Montáže ocelových konstrukcí</h3>
                 <p>
-                  Precizní realizace ocelových konstrukcí s důrazem na bezpečnost, přesnost a čisté provedení.
+                  Precizní realizace ocelových konstrukcí s důrazem na bezpečnost, přesnost, technickou kvalitu a čisté provedení detailů.
                 </p>
                 <a href="#form" class="project-link">Více</a>
               </div>
             </div>
 
-            <div class="project-card reveal">
-              <div class="project-image">
-                <span class="project-badge">Balkony</span>
-                <img src="work5.jpg" alt="Výroba a montáž balkonů">
+            <div class="project-side-stack">
+              <div class="project-side-card reveal">
+                <div class="project-side-image">
+                  <span class="project-badge">Balkony</span>
+                  <img src="work5.jpg" alt="Výroba a montáž balkonů">
+                </div>
+                <div class="project-side-content">
+                  <h3>Výroba a montáž balkonů</h3>
+                  <p>
+                    Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetiku.
+                  </p>
+                  <a href="#form" class="project-link">Více</a>
+                </div>
               </div>
-              <div class="project-content">
-                <h3>Výroba a montáž balkonů</h3>
-                <p>
-                  Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetiku.
-                </p>
-                <a href="#form" class="project-link">Více</a>
-              </div>
-            </div>
 
-            <div class="project-card reveal">
-              <div class="project-image">
-                <span class="project-badge">Detail</span>
-                <img src="work6.jpg" alt="Stavební práce Stavito Future">
-              </div>
-              <div class="project-content">
-                <h3>Další stavební práce</h3>
-                <p>
-                  Doplňkové montážní a stavební činnosti provedené precizně, spolehlivě a profesionálně.
-                </p>
-                <a href="#form" class="project-link">Více</a>
+              <div class="project-side-card reveal">
+                <div class="project-side-image">
+                  <span class="project-badge">Detail</span>
+                  <img src="work6.jpg" alt="Další stavební práce">
+                </div>
+                <div class="project-side-content">
+                  <h3>Další stavební práce</h3>
+                  <p>
+                    Doplňkové montážní a stavební činnosti provedené precizně, spolehlivě a profesionálně.
+                  </p>
+                  <a href="#form" class="project-link">Více</a>
+                </div>
               </div>
             </div>
           </div>
@@ -1855,13 +1787,12 @@
         const scrollY = window.scrollY || window.pageYOffset;
 
         bgPhotos.forEach((photo, index) => {
+          const baseRotate = index % 2 === 0 ? -8 : 8;
           const speed = (index + 1) * 0.08 + 0.05;
           const yMove = scrollY * speed;
           const xMove = scrollY * (speed * 0.08);
-          photo.style.transform = `translate3d(${index % 2 === 0 ? xMove : -xMove}px, ${yMove}px, 0) rotate(${index % 2 === 0 ? -8 : 8}deg)`;
+          photo.style.transform = `translate3d(${index % 2 === 0 ? xMove : -xMove}px, ${yMove}px, 0) rotate(${baseRotate}deg)`;
         });
-
-        document.body.style.setProperty("--scrollY", scrollY);
       }
 
       updateParallax();
