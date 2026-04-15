@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stavito Future</title>
-  <meta name="description" content="Stavito Future – profesionální stavební práce, rekonstrukce, fasády a moderní řešení v Brně a okolí." />
+  <meta name="description" content="Stavito Future – montáže ocelových konstrukcí, výroba a montáž ocelových hal, montáž sendvičových panelů, dlažby a obklady." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
@@ -166,7 +166,7 @@
     .hero p {
       color: rgba(255,255,255,0.92);
       font-size: 22px;
-      max-width: 700px;
+      max-width: 760px;
       margin-bottom: 32px;
     }
 
@@ -320,7 +320,7 @@
 
     .section-subtitle {
       color: #475569;
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto;
       font-size: 18px;
     }
@@ -714,6 +714,12 @@
       margin-bottom: 6px;
     }
 
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
     .form-group {
       display: flex;
       flex-direction: column;
@@ -773,6 +779,34 @@
       transform: translateY(-2px);
       box-shadow: 0 18px 34px rgba(15, 23, 42, 0.16);
       background: #f8fbff;
+    }
+
+    .form-submit:disabled {
+      opacity: 0.7;
+      cursor: wait;
+      transform: none;
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .form-message.success {
+      display: block;
+      background: rgba(0, 200, 100, 0.1);
+      color: #00a85a;
+    }
+
+    .form-message.error {
+      display: block;
+      background: rgba(255, 0, 60, 0.08);
+      color: #d90429;
     }
 
     .contact-card {
@@ -1119,17 +1153,17 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">Moderní stavební řešení • Brno a okolí</div>
+          <div class="hero-badge">Montáže ocelových konstrukcí • Brno a okolí</div>
 
-          <h1>Stavíme kvalitně, precizně a s důrazem na detail.</h1>
+          <h1>Precizní montáže, kvalitní provedení a spolehlivý výsledek.</h1>
 
           <p>
-            Profesionální stavební firma pro rekonstrukce, fasády, omítky
-            a zednické práce. Silný výsledek, férový přístup a čisté provedení.
+            Zaměřujeme se na montáže ocelových konstrukcí, výrobu a montáž ocelových hal,
+            montáž sendvičových panelů, dlažby a obklady a výrobu a montáž balkonů.
           </p>
 
           <div class="hero-actions">
-            <a href="tel:+420 776 604 662" class="btn btn-primary">📞 Zavolat nyní</a>
+            <a href="tel:+420776604662" class="btn btn-primary">📞 Zavolat nyní</a>
             <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
           </div>
 
@@ -1144,7 +1178,7 @@
             </div>
             <div class="stat-card">
               <div class="stat-number">Top</div>
-              <div class="stat-label">Moderní a férový přístup</div>
+              <div class="stat-label">Profesionální a férový přístup</div>
             </div>
           </div>
         </div>
@@ -1163,46 +1197,45 @@
       <div class="container">
         <div class="section-title-wrap">
           <div class="eyebrow">O nás</div>
-          <h2 class="section-title">Spolehlivá stavební firma s moderním přístupem</h2>
+          <h2 class="section-title">Spolehlivá firma pro ocelové konstrukce a montáže</h2>
           <p class="section-subtitle">
-            Každý projekt bereme vážně. Stavíme na preciznosti, komunikaci a kvalitním výsledku,
-            který obstojí i po letech.
+            Každou zakázku řešíme s důrazem na přesnost, bezpečnost, kvalitní provedení a jasnou komunikaci.
           </p>
         </div>
 
         <div class="glass-card about-grid">
           <div class="about-text">
             <p>
-              Jsme profesionální stavební firma zaměřená na kvalitu, přesné provedení
-              a moderní řešení. Specializujeme se na zednické práce, fasády, omítky
-              a rekonstrukce.
+              Jsme stavební a montážní firma zaměřená na montáže ocelových konstrukcí,
+              výrobu a montáž ocelových hal, montáž sendvičových panelů, dlažby a obklady
+              a výrobu a montáž balkonů.
             </p>
             <p>
-              Ke každému projektu přistupujeme individuálně, dbáme na detail a zakládáme si
-              na spolehlivosti, dodržení termínů a férovém jednání. Naším cílem není jen
-              dokončit zakázku, ale odvést práci, za kterou si můžeme stát.
+              Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů
+              a profesionální výsledek. Naším cílem je odvést práci, která bude funkční,
+              kvalitní a dlouhodobě spolehlivá.
             </p>
           </div>
 
           <div class="about-points">
             <div class="point-box">
-              <strong>Precizní provedení</strong>
-              <span>Každý detail má své místo a kvalita je pro nás základ.</span>
+              <strong>Přesná montáž</strong>
+              <span>Každý detail řešíme s důrazem na kvalitu, bezpečnost a čisté provedení.</span>
             </div>
 
             <div class="point-box">
-              <strong>Férový přístup</strong>
-              <span>Komunikujeme jasně, srozumitelně a bez zbytečných slibů.</span>
+              <strong>Férové jednání</strong>
+              <span>Komunikujeme jasně, držíme domluvu a pracujeme spolehlivě.</span>
             </div>
 
             <div class="point-box">
-              <strong>Moderní řešení</strong>
-              <span>Funkční postupy, čistá práce a profesionální výsledek.</span>
+              <strong>Odborné řešení</strong>
+              <span>Zajišťujeme montáže i výrobu s profesionálním technickým přístupem.</span>
             </div>
 
             <div class="point-box">
               <strong>Brno a okolí</strong>
-              <span>Působíme lokálně a jsme blízko našim zákazníkům.</span>
+              <span>Působíme lokálně a jsme připraveni na menší i větší realizace.</span>
             </div>
           </div>
         </div>
@@ -1213,41 +1246,38 @@
       <div class="container">
         <div class="section-title-wrap">
           <div class="eyebrow">Služby</div>
-          <h2 class="section-title">Co pro vás zajistíme</h2>
+          <h2 class="section-title">Naše hlavní činnosti</h2>
           <p class="section-subtitle">
-            Praktické, kvalitní a profesionální stavební práce od menších úprav až po větší realizace.
+            Zaměřujeme se na profesionální montážní a stavební práce s důrazem na kvalitu a dlouhou životnost.
           </p>
         </div>
 
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon">🧱</div>
-            <h3>Zednické práce</h3>
-            <p>
-              Komplexní zednické práce pro byty, domy i komerční prostory
-              s důrazem na přesnost a čisté dokončení.
-            </p>
-            <a href="#contact" class="service-link">Více</a>
-          </div>
-
-          <div class="service-card">
             <div class="service-icon">🏗️</div>
-            <h3>Fasády a omítky</h3>
+            <h3>Montáže ocelových konstrukcí</h3>
             <p>
-              Kvalitní vnitřní i vnější omítky a fasádní řešení,
-              která spojují funkčnost a dobrý vzhled.
+              Zajišťujeme odbornou montáž ocelových konstrukcí pro různé typy staveb a technických řešení.
             </p>
-            <a href="#contact" class="service-link">Více</a>
+            <a href="#form" class="service-link">Více</a>
           </div>
 
           <div class="service-card">
-            <div class="service-icon">🏠</div>
-            <h3>Rekonstrukce</h3>
+            <div class="service-icon">🏢</div>
+            <h3>Výroba a montáž ocelových hal</h3>
             <p>
-              Rekonstrukce bytů, domů a dalších prostor od začátku do konce,
-              profesionálně a bez chaosu.
+              Realizujeme výrobu a montáž ocelových hal s důrazem na funkčnost, stabilitu a přesnost provedení.
             </p>
-            <a href="#contact" class="service-link">Více</a>
+            <a href="#form" class="service-link">Více</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🧱</div>
+            <h3>Dlažby a obklady</h3>
+            <p>
+              Provádíme pokládku dlažeb a obkladů s čistým výsledkem, přesností a důrazem na detail.
+            </p>
+            <a href="#form" class="service-link">Více</a>
           </div>
         </div>
       </div>
@@ -1259,62 +1289,62 @@
           <div class="eyebrow">Nabízíme</div>
           <h2 class="section-title">Co je pro nás klíčové</h2>
           <p class="section-subtitle">
-            Čistá struktura, jasná nabídka a profesionální prezentace. Přesně to, co dává dobrý první dojem.
+            Kvalitní práce, přesná montáž a profesionální přístup. To jsou základy, na kterých stavíme každou realizaci.
           </p>
         </div>
 
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-top">
-              <div class="feature-icon">🏢</div>
-              <h3>Co děláme</h3>
+              <div class="feature-icon">🔩</div>
+              <h3>Montáž ocelových konstrukcí</h3>
             </div>
             <p>
-              Stavební práce, rekonstrukce, fasády, omítky a další řešení pro domy, byty i firemní prostory.
+              Provádíme odborné montáže ocelových konstrukcí pro stavební i průmyslové projekty.
             </p>
             <a href="#services" class="feature-btn">Více</a>
           </div>
 
           <div class="feature-card">
             <div class="feature-top">
-              <div class="feature-icon">🧰</div>
-              <h3>Profesionální přístup</h3>
+              <div class="feature-icon">🏭</div>
+              <h3>Ocelové haly</h3>
             </div>
             <p>
-              Každý projekt řešíme s důrazem na detail, čisté provedení, spolehlivost a férovou komunikaci.
+              Zajišťujeme výrobu i samotnou montáž ocelových hal podle konkrétních potřeb realizace.
             </p>
-            <a href="#about" class="feature-btn">Více</a>
+            <a href="#services" class="feature-btn">Více</a>
           </div>
 
           <div class="feature-card">
             <div class="feature-top">
-              <div class="feature-icon">👷</div>
-              <h3>Pracujte u nás</h3>
+              <div class="feature-icon">🪟</div>
+              <h3>Sendvičové panely</h3>
             </div>
             <p>
-              Hledáme nové kolegy do týmu. Nabízíme stabilní práci, zajímavé projekty a dobré podmínky.
+              Montujeme sendvičové panely s důrazem na přesné usazení, funkčnost a kvalitní finální vzhled.
             </p>
-            <a href="#career" class="feature-btn">Více</a>
+            <a href="#form" class="feature-btn">Více</a>
           </div>
 
           <div class="feature-card">
             <div class="feature-top">
-              <div class="feature-icon">🤝</div>
-              <h3>Spolehlivá spolupráce</h3>
+              <div class="feature-icon">🧱</div>
+              <h3>Dlažby a obklady</h3>
             </div>
             <p>
-              Zakládáme si na dodržení domluvy, termínů a výsledku, který bude dlouhodobě fungovat i vypadat dobře.
+              Realizujeme dlažby a obklady pro interiéry i exteriéry s pečlivým zpracováním každého detailu.
             </p>
-            <a href="#contact" class="feature-btn">Více</a>
+            <a href="#form" class="feature-btn">Více</a>
           </div>
 
           <div class="feature-card">
             <div class="feature-top">
-              <div class="feature-icon">📷</div>
-              <h3>Reference a realizace</h3>
+              <div class="feature-icon">🏢</div>
+              <h3>Balkony</h3>
             </div>
             <p>
-              Podívejte se na ukázky projektů a přehled prací, které reprezentují naši úroveň a styl provedení.
+              Zajišťujeme výrobu a montáž balkonů s ohledem na bezpečnost, pevnost konstrukce a design.
             </p>
             <a href="#projects" class="feature-btn">Více</a>
           </div>
@@ -1325,7 +1355,7 @@
               <h3>Kontaktujte nás</h3>
             </div>
             <p>
-              Máte dotaz nebo zájem o spolupráci? Ozvěte se nám telefonicky nebo e-mailem a rádi se domluvíme.
+              Máte dotaz nebo zájem o spolupráci? Napište nám a připravíme vhodné řešení pro vaši zakázku.
             </p>
             <a href="#form" class="feature-btn">Více</a>
           </div>
@@ -1339,7 +1369,7 @@
           <div class="eyebrow">Realizace</div>
           <h2 class="section-title">Ukázky našich realizací</h2>
           <p class="section-subtitle">
-            Přehled projektů, na kterých pracujeme s důrazem na kvalitu, čisté provedení a detail.
+            Přehled činností, na které se zaměřujeme a které reprezentují naši specializaci.
           </p>
         </div>
 
@@ -1347,24 +1377,24 @@
           <div class="project-card">
             <div class="project-image">Projekt 1</div>
             <div class="project-content">
-              <h3>Rekonstrukce bytu</h3>
-              <p>Kompletní úprava interiéru včetně zednických prací a finálních detailů.</p>
+              <h3>Montáže ocelových konstrukcí</h3>
+              <p>Odborná montáž nosných a technických ocelových konstrukcí pro různé typy staveb.</p>
             </div>
           </div>
 
           <div class="project-card">
             <div class="project-image">Projekt 2</div>
             <div class="project-content">
-              <h3>Fasáda rodinného domu</h3>
-              <p>Kvalitní fasádní systém s důrazem na dlouhou životnost a čistý vzhled.</p>
+              <h3>Montáž sendvičových panelů</h3>
+              <p>Přesné osazení sendvičových panelů s důrazem na funkčnost, izolaci a čistý vzhled.</p>
             </div>
           </div>
 
           <div class="project-card">
             <div class="project-image">Projekt 3</div>
             <div class="project-content">
-              <h3>Modernizace prostoru</h3>
-              <p>Stavební úpravy a rekonstrukční práce v moderním a funkčním stylu.</p>
+              <h3>Výroba a montáž balkonů</h3>
+              <p>Kompletní realizace balkonů od výroby po finální odbornou montáž.</p>
             </div>
           </div>
         </div>
@@ -1393,27 +1423,34 @@
                 <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
               </div>
 
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input id="email" class="form-input" type="email" placeholder="Zadejte váš mail">
-              </div>
+              <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
+                </div>
 
-              <div class="form-group">
-                <label for="name">Jméno</label>
-                <input id="name" class="form-input" type="text" placeholder="Zadejte vaše jméno">
-              </div>
+                <div class="form-group">
+                  <label for="name">Jméno</label>
+                  <input id="name" class="form-input" type="text" name="name" placeholder="Zadejte vaše jméno" required>
+                </div>
 
-              <div class="form-group">
-                <label for="phone">Telefon</label>
-                <input id="phone" class="form-input" type="tel" placeholder="Zadejte vaše telefonní číslo">
-              </div>
+                <div class="form-group">
+                  <label for="phone">Telefon</label>
+                  <input id="phone" class="form-input" type="tel" name="phone" placeholder="Zadejte vaše telefonní číslo">
+                </div>
 
-              <div class="form-group">
-                <label for="message">Poptávka</label>
-                <textarea id="message" class="form-textarea" placeholder="Zadejte vaši zprávu"></textarea>
-              </div>
+                <div class="form-group">
+                  <label for="message">Poptávka</label>
+                  <textarea id="message" class="form-textarea" name="message" placeholder="Zadejte vaši zprávu" required></textarea>
+                </div>
 
-              <button class="form-submit" type="button">ODESLAT</button>
+                <input type="hidden" name="_subject" value="NOVÁ ZPRÁVA – STAVITO FUTURE">
+                <input type="text" name="_gotcha" style="display:none">
+
+                <button id="formSubmitBtn" class="form-submit" type="submit">ODESLAT</button>
+              </form>
+
+              <div id="formMessage" class="form-message"></div>
             </div>
           </div>
         </div>
@@ -1451,7 +1488,7 @@
           <div class="eyebrow">Kontakt</div>
           <h2 class="section-title">Spojte se s námi</h2>
           <p class="section-subtitle">
-            Máte zájem o spolupráci, rekonstrukci nebo stavební práce? Ozvěte se nám.
+            Máte zájem o spolupráci, montážní práce nebo výrobu? Ozvěte se nám a rádi s vámi vše probereme.
           </p>
         </div>
 
@@ -1462,7 +1499,7 @@
                 <div class="contact-icon">📞</div>
                 <div class="contact-text">
                   <small>Telefon</small>
-                  <a href="tel:+420 776 604 662">+420 776 604 662</a>
+                  <a href="tel:+420776604662">+420 776 604 662</a>
                 </div>
               </div>
 
@@ -1520,6 +1557,9 @@
       const heroSection = document.querySelector(".hero");
       const heroStats = document.getElementById("heroStats");
       const counter = document.querySelector(".stat-number[data-target]");
+      const form = document.getElementById("contactForm");
+      const formMessage = document.getElementById("formMessage");
+      const formSubmitBtn = document.getElementById("formSubmitBtn");
 
       if (heroLogoWrap && heroSection && window.innerWidth > 1100) {
         heroSection.addEventListener("mousemove", function (e) {
@@ -1597,6 +1637,45 @@
         );
 
         observer.observe(heroStats);
+      }
+
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          formMessage.className = "form-message";
+          formMessage.textContent = "";
+
+          formSubmitBtn.disabled = true;
+          formSubmitBtn.textContent = "ODESÍLÁNÍ...";
+
+          try {
+            const formData = new FormData(form);
+
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                "Accept": "application/json"
+              }
+            });
+
+            if (response.ok) {
+              form.reset();
+              formMessage.className = "form-message success";
+              formMessage.textContent = "✅ Zpráva byla úspěšně odeslána.";
+            } else {
+              formMessage.className = "form-message error";
+              formMessage.textContent = "❌ Chyba při odesílání. Zkuste to prosím znovu.";
+            }
+          } catch (error) {
+            formMessage.className = "form-message error";
+            formMessage.textContent = "❌ Odeslání se nezdařilo. Zkuste to prosím znovu.";
+          } finally {
+            formSubmitBtn.disabled = false;
+            formSubmitBtn.textContent = "ODESLAT";
+          }
+        });
       }
     });
   </script>
