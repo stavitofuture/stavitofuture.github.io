@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stavito Future</title>
-  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, zateplení, dlažby a obklady a vybrané stavební práce." />
+  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, zateplení, dlažby a obklady a vedlejší stavební práce." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
@@ -29,7 +29,6 @@
       color: #0f172a;
       line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
     }
 
     a {
@@ -42,95 +41,9 @@
       display: block;
     }
 
-    .site-wrap {
-      position: relative;
-      z-index: 2;
-    }
-
     .container {
       width: min(1280px, calc(100% - 40px));
       margin: 0 auto;
-    }
-
-    .bg-floating {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .bg-photo {
-      position: absolute;
-      border-radius: 28px;
-      overflow: hidden;
-      opacity: 0.07;
-      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.14);
-      will-change: transform;
-      transform: translate3d(0,0,0);
-    }
-
-    .bg-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.95);
-    }
-
-    .bg-photo.photo-1 {
-      top: 140px;
-      right: -70px;
-      width: 260px;
-      height: 360px;
-      transform: rotate(-8deg);
-    }
-
-    .bg-photo.photo-2 {
-      top: 860px;
-      left: -80px;
-      width: 240px;
-      height: 340px;
-      transform: rotate(8deg);
-    }
-
-    .bg-photo.photo-3 {
-      top: 1650px;
-      right: -90px;
-      width: 270px;
-      height: 370px;
-      transform: rotate(-9deg);
-    }
-
-    .bg-photo.photo-4 {
-      top: 2550px;
-      left: -90px;
-      width: 245px;
-      height: 345px;
-      transform: rotate(10deg);
-    }
-
-    .blue-glow {
-      position: fixed;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      filter: blur(30px);
-      opacity: 0.18;
-      z-index: 0;
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    .glow-1 {
-      top: 12%;
-      left: -130px;
-      background: radial-gradient(circle, rgba(59,130,246,0.35), rgba(59,130,246,0));
-    }
-
-    .glow-2 {
-      top: 58%;
-      right: -130px;
-      background: radial-gradient(circle, rgba(147,197,253,0.34), rgba(147,197,253,0));
     }
 
     header {
@@ -231,7 +144,7 @@
       font-weight: 900;
       margin-bottom: 20px;
       letter-spacing: -1.8px;
-      max-width: 830px;
+      max-width: 840px;
     }
 
     .hero p {
@@ -430,35 +343,12 @@
       border: 1px solid #dbeafe;
       border-radius: 20px;
       padding: 18px;
-      position: relative;
-      overflow: hidden;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .point-box::after {
-      content: "";
-      position: absolute;
-      top: -120%;
-      left: -40%;
-      width: 70%;
-      height: 260%;
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.18) 50%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: rotate(18deg);
-      transition: 0.8s ease;
     }
 
     .point-box:hover {
       transform: translateY(-4px);
       box-shadow: 0 18px 30px rgba(37, 99, 235, 0.10);
-    }
-
-    .point-box:hover::after {
-      left: 110%;
     }
 
     .point-box strong {
@@ -501,25 +391,9 @@
       background: linear-gradient(90deg, #1d4ed8, #60a5fa);
     }
 
-    .service-card::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      top: -40px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(96,165,250,0.18), rgba(96,165,250,0));
-      transition: transform 0.4s ease;
-    }
-
     .service-card:hover {
       transform: translateY(-7px);
       box-shadow: 0 24px 44px rgba(37, 99, 235, 0.14);
-    }
-
-    .service-card:hover::after {
-      transform: scale(1.18);
     }
 
     .service-icon {
@@ -533,27 +407,7 @@
       color: #1d4ed8;
       font-size: 30px;
       margin-bottom: 18px;
-      position: relative;
-      animation: iconFloat 4.2s ease-in-out infinite;
       box-shadow: 0 12px 24px rgba(37, 99, 235, 0.10);
-    }
-
-    .service-card:nth-child(2) .service-icon {
-      animation-delay: 0.35s;
-    }
-
-    .service-card:nth-child(3) .service-icon {
-      animation-delay: 0.7s;
-    }
-
-    .service-card:nth-child(4) .service-icon {
-      animation-delay: 1.05s;
-    }
-
-    @keyframes iconFloat {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
     }
 
     .service-card h3 {
@@ -589,6 +443,63 @@
     .service-link:hover {
       background: #eff6ff;
       transform: translateY(-1px);
+    }
+
+    .animated-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .animated-photo-box {
+      position: relative;
+      height: 300px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+      transform: translateY(0);
+      transition: transform 0.45s ease, box-shadow 0.45s ease;
+    }
+
+    .animated-photo-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 50px rgba(37, 99, 235, 0.16);
+    }
+
+    .animated-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease, filter 0.5s ease;
+    }
+
+    .animated-photo-box:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.05) saturate(1.08);
+    }
+
+    .animated-photo-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0.03), rgba(15,23,42,0.24));
+    }
+
+    .animated-photo-label {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 2;
+      background: rgba(255,255,255,0.92);
+      color: #1d4ed8;
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+      backdrop-filter: blur(8px);
     }
 
     .projects-premium-grid {
@@ -728,6 +639,88 @@
     }
 
     .project-premium-link:hover {
+      background: #eff6ff;
+      transform: translateY(-1px);
+    }
+
+    .secondary-works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 6px;
+    }
+
+    .secondary-work-card {
+      background: linear-gradient(180deg, #ffffff, #f7fbff);
+      border: 1px solid #dbeafe;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
+      transition: 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+    }
+
+    .secondary-work-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+    }
+
+    .secondary-work-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .secondary-work-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      flex: 0 0 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      color: #2563eb;
+      font-size: 26px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.10);
+    }
+
+    .secondary-work-card h3 {
+      font-size: 23px;
+      color: #0f172a;
+      line-height: 1.12;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .secondary-work-card p {
+      color: #475569;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .secondary-work-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1.5px solid #60a5fa;
+      color: #1d4ed8;
+      background: white;
+      font-weight: 800;
+      transition: 0.25s ease;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .secondary-work-link:hover {
       background: #eff6ff;
       transform: translateY(-1px);
     }
@@ -1145,7 +1138,9 @@
       }
 
       .services-grid,
-      .projects-premium-grid {
+      .projects-premium-grid,
+      .secondary-works-grid,
+      .animated-strip {
         grid-template-columns: 1fr;
       }
 
@@ -1182,11 +1177,6 @@
 
       .contact-form-image-box {
         min-height: 320px;
-      }
-
-      .bg-photo,
-      .blue-glow {
-        display: none;
       }
     }
 
@@ -1302,406 +1292,476 @@
       }
 
       .service-card,
-      .project-premium-card {
+      .project-premium-card,
+      .secondary-work-card {
         min-height: auto;
+      }
+
+      .animated-photo-box {
+        height: 240px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="bg-floating">
-    <div class="blue-glow glow-1"></div>
-    <div class="blue-glow glow-2"></div>
+  <header>
+    <div class="container navbar">
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="Stavito Future logo" class="brand-mini-logo">
+        <span class="brand-text-main">STAVITO FUTURE</span>
+      </a>
 
-    <div class="bg-photo photo-1"><img src="bg1.jpg" alt=""></div>
-    <div class="bg-photo photo-2"><img src="bg2.jpg" alt=""></div>
-    <div class="bg-photo photo-3"><img src="bg3.jpg" alt=""></div>
-    <div class="bg-photo photo-4"><img src="bg4.jpg" alt=""></div>
-  </div>
+      <nav>
+        <a href="#about">O nás</a>
+        <a href="#services">Služby</a>
+        <a href="#projects">Realizace</a>
+        <a href="#secondary">Vedlejší práce</a>
+        <a href="#form">Poptávka</a>
+        <a href="#career">Kariéra</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="site-wrap">
-    <header>
-      <div class="container navbar">
-        <a href="#top" class="brand">
-          <img src="logo.png" alt="Stavito Future logo" class="brand-mini-logo">
-          <span class="brand-text-main">STAVITO FUTURE</span>
-        </a>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Precizní fasády a rekonstrukce fasád s důrazem na detail.</h1>
 
-        <nav>
-          <a href="#about">O nás</a>
-          <a href="#services">Služby</a>
-          <a href="#projects">Realizace</a>
-          <a href="#form">Poptávka</a>
-          <a href="#career">Kariéra</a>
-          <a href="#contact">Kontakt</a>
-        </nav>
+          <p>
+            Specializujeme se na fasády, rekonstrukce fasád, zateplení, dlažby a obklady
+            a vybrané stavební práce s profesionálním výsledkem.
+          </p>
+
+          <div class="hero-actions">
+            <a href="tel:+420776604662" class="btn btn-primary">📞 Zavolat nyní</a>
+            <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
+          </div>
+
+          <div class="hero-stats" id="heroStats">
+            <div class="stat-card">
+              <div class="stat-number" data-target="100">0%</div>
+              <div class="stat-label">Důraz na kvalitu a detail</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">Fasády</div>
+              <div class="stat-label">Hlavní zaměření firmy</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">Top</div>
+              <div class="stat-label">Profesionální a férový přístup</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="logo-showcase">
+            <div class="hero-logo-wrap" id="heroLogoWrap">
+              <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <h1>Precizní fasády a rekonstrukce fasád s důrazem na detail.</h1>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">O nás</div>
+          <h2 class="section-title">Fasády a rekonstrukce fasád jsou naším hlavním směrem</h2>
+          <p class="section-subtitle">
+            Každou zakázku řešíme s důrazem na přesnost, dlouhou životnost, čisté provedení a profesionální komunikaci.
+          </p>
+        </div>
 
+        <div class="glass-card about-grid">
+          <div class="about-text">
             <p>
-              Specializujeme se na fasády, rekonstrukce fasád, zateplení, dlažby a obklady
-              a vybrané stavební práce s profesionálním výsledkem.
+              Zaměřujeme se především na fasády, rekonstrukce fasád, zateplení budov, dlažby a obklady
+              a další vybrané stavební práce. Naším cílem je kvalitní výsledek, který dobře vypadá
+              a zároveň dlouhodobě funguje.
             </p>
-
-            <div class="hero-actions">
-              <a href="tel:+420123456789" class="btn btn-primary">📞 Zavolat nyní</a>
-              <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
-            </div>
-
-            <div class="hero-stats" id="heroStats">
-              <div class="stat-card">
-                <div class="stat-number" data-target="100">0%</div>
-                <div class="stat-label">Důraz na kvalitu a detail</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">Fasády</div>
-                <div class="stat-label">Hlavní zaměření firmy</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">Top</div>
-                <div class="stat-label">Profesionální a férový přístup</div>
-              </div>
-            </div>
+            <p>
+              Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů
+              a profesionální finální vzhled. Právě preciznost rozhoduje o výsledku celé realizace.
+            </p>
           </div>
 
-          <div class="hero-visual">
-            <div class="logo-showcase">
-              <div class="hero-logo-wrap" id="heroLogoWrap">
-                <img src="logo.png" alt="Stavito Future logo" class="hero-logo">
-              </div>
+          <div class="about-points">
+            <div class="point-box reveal-card">
+              <strong>Specializace na fasády</strong>
+              <span>Fasády a rekonstrukce fasád tvoří hlavní směr naší práce.</span>
+            </div>
+
+            <div class="point-box reveal-card">
+              <strong>Čisté provedení</strong>
+              <span>Dbáme na rovnost, detail a profesionální finální vzhled.</span>
+            </div>
+
+            <div class="point-box reveal-card">
+              <strong>Kvalitní materiály</strong>
+              <span>Volíme řešení s důrazem na funkčnost a dlouhou životnost.</span>
+            </div>
+
+            <div class="point-box reveal-card">
+              <strong>Spolehlivý přístup</strong>
+              <span>Držíme domluvu, termíny a komunikujeme jasně a férově.</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="about">
-        <div class="container">
-          <div class="section-title-wrap">
-            <div class="eyebrow">O nás</div>
-            <h2 class="section-title">Fasády a rekonstrukce fasád jsou naším hlavním směrem</h2>
-            <p class="section-subtitle">
-              Každou zakázku řešíme s důrazem na přesnost, dlouhou životnost, čisté provedení a profesionální komunikaci.
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Služby</div>
+          <h2 class="section-title">Naše hlavní činnosti</h2>
+          <p class="section-subtitle">
+            Zaměřujeme se především na kvalitní fasádní práce, rekonstrukce a další stavební realizace.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal-card">
+            <div class="service-icon animate-icon">🏠</div>
+            <h3>Fasády</h3>
+            <p>
+              Realizujeme nové fasády s důrazem na estetiku, technickou přesnost a dlouhou životnost.
             </p>
+            <a href="#form" class="service-link">Více</a>
           </div>
 
-          <div class="glass-card about-grid">
-            <div class="about-text">
-              <p>
-                Zaměřujeme se především na fasády, rekonstrukce fasád, zateplení budov, dlažby a obklady
-                a další vybrané stavební práce. Naším cílem je kvalitní výsledek, který dobře vypadá
-                a zároveň dlouhodobě funguje.
-              </p>
-              <p>
-                Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů
-                a profesionální finální vzhled. Právě preciznost rozhoduje o výsledku celé realizace.
-              </p>
-            </div>
+          <div class="service-card reveal-card">
+            <div class="service-icon animate-icon">🛠️</div>
+            <h3>Rekonstrukce fasád</h3>
+            <p>
+              Obnovujeme a modernizujeme starší fasády tak, aby působily čistě, kvalitně a profesionálně.
+            </p>
+            <a href="#form" class="service-link">Více</a>
+          </div>
 
-            <div class="about-points">
-              <div class="point-box">
-                <strong>Specializace na fasády</strong>
-                <span>Fasády a rekonstrukce fasád tvoří hlavní směr naší práce.</span>
-              </div>
+          <div class="service-card reveal-card">
+            <div class="service-icon animate-icon">🧊</div>
+            <h3>Zateplení</h3>
+            <p>
+              Zajišťujeme zateplení objektů s důrazem na funkčnost, úsporu energie a správné provedení.
+            </p>
+            <a href="#form" class="service-link">Více</a>
+          </div>
 
-              <div class="point-box">
-                <strong>Čisté provedení</strong>
-                <span>Dbáme na rovnost, detail a profesionální finální vzhled.</span>
-              </div>
-
-              <div class="point-box">
-                <strong>Kvalitní materiály</strong>
-                <span>Volíme řešení s důrazem na funkčnost a dlouhou životnost.</span>
-              </div>
-
-              <div class="point-box">
-                <strong>Spolehlivý přístup</strong>
-                <span>Držíme domluvu, termíny a komunikujeme jasně a férově.</span>
-              </div>
-            </div>
+          <div class="service-card reveal-card">
+            <div class="service-icon animate-icon">🧱</div>
+            <h3>Dlažby a obklady</h3>
+            <p>
+              Provádíme dlažby a obklady pro interiér i exteriér s důrazem na detail a čistý výsledek.
+            </p>
+            <a href="#form" class="service-link">Více</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="services">
-        <div class="container">
-          <div class="section-title-wrap">
-            <div class="eyebrow">Služby</div>
-            <h2 class="section-title">Naše hlavní činnosti</h2>
-            <p class="section-subtitle">
-              Zaměřujeme se především na kvalitní fasádní práce, rekonstrukce a další stavební realizace.
-            </p>
+    <section class="section" id="gallery-motion">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Galerie</div>
+          <h2 class="section-title">Detaily a atmosféra realizací</h2>
+          <p class="section-subtitle">
+            Při scrollování se fotografie znovu animují a přirozeně oživují celý web.
+          </p>
+        </div>
+
+        <div class="animated-strip">
+          <div class="animated-photo-box reveal-card">
+            <img src="bg1.jpg" alt="Detail realizace">
+            <div class="animated-photo-label">Detail realizace</div>
           </div>
 
-          <div class="services-grid">
-            <div class="service-card reveal-card">
-              <div class="service-icon">🏠</div>
-              <h3>Fasády</h3>
-              <p>
-                Realizujeme nové fasády s důrazem na estetiku, technickou přesnost a dlouhou životnost.
-              </p>
-              <a href="#form" class="service-link">Více</a>
-            </div>
+          <div class="animated-photo-box reveal-card">
+            <img src="bg2.jpg" alt="Pracovní proces">
+            <div class="animated-photo-label">Pracovní proces</div>
+          </div>
 
-            <div class="service-card reveal-card">
-              <div class="service-icon">🛠️</div>
+          <div class="animated-photo-box reveal-card">
+            <img src="bg3.jpg" alt="Výsledek práce">
+            <div class="animated-photo-label">Výsledek práce</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Realizace</div>
+          <h2 class="section-title">Ukázky našich prací</h2>
+          <p class="section-subtitle">
+            Aktuálně prezentujeme fotografie z našich realizací a pracovního procesu.
+          </p>
+        </div>
+
+        <div class="projects-premium-grid">
+          <article class="project-premium-card reveal-card" data-tilt>
+            <div class="project-premium-image">
+              <span class="project-premium-badge">Fasáda</span>
+              <img src="work1.jpg" alt="Fasádní práce">
+              <div class="project-premium-shine"></div>
+            </div>
+            <div class="project-premium-content">
+              <h3>Fasádní práce</h3>
+              <p>
+                Precizní realizace fasád s důrazem na detail, rovnost povrchu a profesionální finální vzhled.
+              </p>
+              <a href="#form" class="project-premium-link">Více</a>
+            </div>
+          </article>
+
+          <article class="project-premium-card reveal-card" data-tilt>
+            <div class="project-premium-image">
+              <span class="project-premium-badge">Rekonstrukce</span>
+              <img src="work3.jpg" alt="Rekonstrukce fasády">
+              <div class="project-premium-shine"></div>
+            </div>
+            <div class="project-premium-content">
               <h3>Rekonstrukce fasád</h3>
               <p>
-                Obnovujeme a modernizujeme starší fasády tak, aby působily čistě, kvalitně a profesionálně.
+                Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.
               </p>
-              <a href="#form" class="service-link">Více</a>
+              <a href="#form" class="project-premium-link">Více</a>
             </div>
+          </article>
 
-            <div class="service-card reveal-card">
-              <div class="service-icon">🧊</div>
-              <h3>Zateplení</h3>
+          <article class="project-premium-card reveal-card" data-tilt>
+            <div class="project-premium-image">
+              <span class="project-premium-badge">Balkony</span>
+              <img src="work5.jpg" alt="Výroba a montáž balkonů">
+              <div class="project-premium-shine"></div>
+            </div>
+            <div class="project-premium-content">
+              <h3>Výroba a montáž balkonů</h3>
               <p>
-                Zajišťujeme zateplení objektů s důrazem na funkčnost, úsporu energie a správné provedení.
+                Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetický výsledek.
               </p>
-              <a href="#form" class="service-link">Více</a>
+              <a href="#form" class="project-premium-link">Více</a>
             </div>
+          </article>
 
-            <div class="service-card reveal-card">
-              <div class="service-icon">🧱</div>
-              <h3>Dlažby a obklady</h3>
+          <article class="project-premium-card reveal-card" data-tilt>
+            <div class="project-premium-image">
+              <span class="project-premium-badge">Stavba</span>
+              <img src="work6.jpg" alt="Další stavební práce">
+              <div class="project-premium-shine"></div>
+            </div>
+            <div class="project-premium-content">
+              <h3>Další stavební práce</h3>
               <p>
-                Provádíme dlažby a obklady pro interiér i exteriér s důrazem na detail a čistý výsledek.
+                Doplňkové stavební činnosti provedené precizně, spolehlivě a s důrazem na kvalitní výsledek.
               </p>
-              <a href="#form" class="service-link">Více</a>
+              <a href="#form" class="project-premium-link">Více</a>
             </div>
-          </div>
+          </article>
         </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="container">
-          <div class="section-title-wrap">
-            <div class="eyebrow">Realizace</div>
-            <h2 class="section-title">Ukázky našich prací</h2>
-            <p class="section-subtitle">
-              Aktuálně prezentujeme fotografie z našich realizací a pracovního procesu. Později můžeme doplnit i sekci před a po.
-            </p>
-          </div>
-
-          <div class="projects-premium-grid">
-            <article class="project-premium-card reveal-card" data-tilt>
-              <div class="project-premium-image">
-                <span class="project-premium-badge">Fasáda</span>
-                <img src="work1.jpg" alt="Fasádní práce">
-                <div class="project-premium-shine"></div>
-              </div>
-              <div class="project-premium-content">
-                <h3>Fasádní práce</h3>
-                <p>
-                  Precizní realizace fasád s důrazem na detail, rovnost povrchu a profesionální finální vzhled.
-                </p>
-                <a href="#form" class="project-premium-link">Více</a>
-              </div>
-            </article>
-
-            <article class="project-premium-card reveal-card" data-tilt>
-              <div class="project-premium-image">
-                <span class="project-premium-badge">Rekonstrukce</span>
-                <img src="work3.jpg" alt="Rekonstrukce fasády">
-                <div class="project-premium-shine"></div>
-              </div>
-              <div class="project-premium-content">
-                <h3>Rekonstrukce fasád</h3>
-                <p>
-                  Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.
-                </p>
-                <a href="#form" class="project-premium-link">Více</a>
-              </div>
-            </article>
-
-            <article class="project-premium-card reveal-card" data-tilt>
-              <div class="project-premium-image">
-                <span class="project-premium-badge">Balkony</span>
-                <img src="work5.jpg" alt="Výroba a montáž balkonů">
-                <div class="project-premium-shine"></div>
-              </div>
-              <div class="project-premium-content">
-                <h3>Výroba a montáž balkonů</h3>
-                <p>
-                  Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetický výsledek.
-                </p>
-                <a href="#form" class="project-premium-link">Více</a>
-              </div>
-            </article>
-
-            <article class="project-premium-card reveal-card" data-tilt>
-              <div class="project-premium-image">
-                <span class="project-premium-badge">Stavba</span>
-                <img src="work6.jpg" alt="Další stavební práce">
-                <div class="project-premium-shine"></div>
-              </div>
-              <div class="project-premium-content">
-                <h3>Další stavební práce</h3>
-                <p>
-                  Doplňkové stavební činnosti provedené precizně, spolehlivě a s důrazem na kvalitní výsledek.
-                </p>
-                <a href="#form" class="project-premium-link">Více</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="form-section" id="form">
-        <div class="container">
-          <div class="section-title-wrap">
-            <div class="eyebrow">Poptávka</div>
-            <h2 class="section-title">Napište nám</h2>
-            <p class="section-subtitle">
-              Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.
-            </p>
-          </div>
-
-          <div class="contact-form-card">
-            <div class="contact-form-grid">
-              <div class="contact-form-image-box">
-                <img src="form-photo.jpg" alt="Stavito Future realizace">
-              </div>
-
-              <div class="contact-form-fields">
-                <div>
-                  <h3 class="form-title">Kontaktní formulář</h3>
-                  <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
-                </div>
-
-                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
-                  <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="name">Jméno</label>
-                    <input id="name" class="form-input" type="text" name="name" placeholder="Zadejte vaše jméno" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="phone">Telefon</label>
-                    <input id="phone" class="form-input" type="tel" name="phone" placeholder="Zadejte vaše telefonní číslo">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="message">Poptávka</label>
-                    <textarea id="message" class="form-textarea" name="message" placeholder="Zadejte vaši zprávu" required></textarea>
-                  </div>
-
-                  <input type="hidden" name="_subject" value="NOVÁ ZPRÁVA – STAVITO FUTURE">
-                  <input type="text" name="_gotcha" style="display:none">
-
-                  <button id="formSubmitBtn" class="form-submit" type="submit">ODESLAT</button>
-                </form>
-
-                <div id="formMessage" class="form-message"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="career">
-        <div class="container">
-          <div class="career-card">
-            <div class="career-content">
-              <h3>Kariéra ve Stavito Future</h3>
-              <p>
-                Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě,
-                na zajímavých projektech a v prostředí, kde se kvalita opravdu řeší.
-              </p>
-
-              <div class="career-mini-list">
-                <span>Stabilní práce</span>
-                <span>Dobré ohodnocení</span>
-                <span>Férový přístup</span>
-                <span>Zajímavé projekty</span>
-              </div>
-            </div>
-
-            <div class="career-action">
-              <a href="#contact" class="career-btn">Kontaktovat nás</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="container">
-          <div class="section-title-wrap">
-            <div class="eyebrow">Kontakt</div>
-            <h2 class="section-title">Spojte se s námi</h2>
-            <p class="section-subtitle">
-              Máte zájem o spolupráci, fasádní práce nebo rekonstrukci? Ozvěte se nám a rádi s vámi vše probereme.
-            </p>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-grid">
-              <div class="contact-list">
-                <div class="contact-item">
-                  <div class="contact-icon">📞</div>
-                  <div class="contact-text">
-                    <small>Telefon</small>
-                    <a href="tel:+420123456789">+420 123 456 789</a>
-                  </div>
-                </div>
-
-                <div class="contact-item">
-                  <div class="contact-icon">📧</div>
-                  <div class="contact-text">
-                    <small>Email</small>
-                    <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
-                  </div>
-                </div>
-
-                <div class="contact-item">
-                  <div class="contact-icon">📍</div>
-                  <div class="contact-text">
-                    <small>Adresa</small>
-                    <span>Skořepka 336/15, 602 00 Brno</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="contact-map">
-                <iframe
-                  src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
-                  loading="lazy"
-                  allowfullscreen=""
-                  referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-inner">
-        <div class="footer-brand-block">
-          <div class="footer-brand">
-            <span class="footer-brand-main">STAVITO FUTURE</span>
-            <span class="footer-brand-small"> s.r.o.</span>
-          </div>
-          <div class="footer-company-info">
-            <div>IČO: 22151168</div>
-            <div>DIČ: CZ22151168</div>
-          </div>
-        </div>
-
-        <div class="footer-text">© 2024 Všechna práva vyhrazena.</div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <section class="section" id="secondary">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Vedlejší práce</div>
+          <h2 class="section-title">Další činnosti, které zajišťujeme</h2>
+          <p class="section-subtitle">
+            Kromě fasád a rekonstrukcí provádíme i další práce podle potřeb konkrétní zakázky.
+          </p>
+        </div>
+
+        <div class="secondary-works-grid">
+          <div class="secondary-work-card reveal-card">
+            <div class="secondary-work-top">
+              <div class="secondary-work-icon animate-icon">🏗️</div>
+              <h3>Montáže ocelových konstrukcí</h3>
+            </div>
+            <p>
+              Zajišťujeme odbornou montáž ocelových konstrukcí pro různé typy staveb a technických řešení.
+            </p>
+            <a href="#form" class="secondary-work-link">Více</a>
+          </div>
+
+          <div class="secondary-work-card reveal-card">
+            <div class="secondary-work-top">
+              <div class="secondary-work-icon animate-icon">🏢</div>
+              <h3>Výroba a montáž balkonů</h3>
+            </div>
+            <p>
+              Realizujeme výrobu a montáž balkonů s důrazem na bezpečnost, pevnost konstrukce a dobrý vzhled.
+            </p>
+            <a href="#form" class="secondary-work-link">Více</a>
+          </div>
+
+          <div class="secondary-work-card reveal-card">
+            <div class="secondary-work-top">
+              <div class="secondary-work-icon animate-icon">🔧</div>
+              <h3>Další stavební práce</h3>
+            </div>
+            <p>
+              Podle typu zakázky zajišťujeme i další související stavební a montážní činnosti.
+            </p>
+            <a href="#form" class="secondary-work-link">Více</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="form">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Poptávka</div>
+          <h2 class="section-title">Napište nám</h2>
+          <p class="section-subtitle">
+            Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.
+          </p>
+        </div>
+
+        <div class="contact-form-card">
+          <div class="contact-form-grid">
+            <div class="contact-form-image-box">
+              <img src="form-photo.jpg" alt="Stavito Future realizace">
+            </div>
+
+            <div class="contact-form-fields">
+              <div>
+                <h3 class="form-title">Kontaktní formulář</h3>
+                <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
+              </div>
+
+              <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Jméno</label>
+                  <input id="name" class="form-input" type="text" name="name" placeholder="Zadejte vaše jméno" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Telefon</label>
+                  <input id="phone" class="form-input" type="tel" name="phone" placeholder="Zadejte vaše telefonní číslo">
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Poptávka</label>
+                  <textarea id="message" class="form-textarea" name="message" placeholder="Zadejte vaši zprávu" required></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="NOVÁ ZPRÁVA – STAVITO FUTURE">
+                <input type="text" name="_gotcha" style="display:none">
+
+                <button id="formSubmitBtn" class="form-submit" type="submit">ODESLAT</button>
+              </form>
+
+              <div id="formMessage" class="form-message"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="career">
+      <div class="container">
+        <div class="career-card">
+          <div class="career-content">
+            <h3>Kariéra ve Stavito Future</h3>
+            <p>
+              Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě,
+              na zajímavých projektech a v prostředí, kde se kvalita opravdu řeší.
+            </p>
+
+            <div class="career-mini-list">
+              <span>Stabilní práce</span>
+              <span>Dobré ohodnocení</span>
+              <span>Férový přístup</span>
+              <span>Zajímavé projekty</span>
+            </div>
+          </div>
+
+          <div class="career-action">
+            <a href="#contact" class="career-btn">Kontaktovat nás</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="eyebrow">Kontakt</div>
+          <h2 class="section-title">Spojte se s námi</h2>
+          <p class="section-subtitle">
+            Máte zájem o spolupráci, fasádní práce nebo rekonstrukci? Ozvěte se nám a rádi s vámi vše probereme.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-grid">
+            <div class="contact-list">
+              <div class="contact-item reveal-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-text">
+                  <small>Telefon</small>
+                  <a href="tel:+420776604662">+420 776 604 662</a>
+                </div>
+              </div>
+
+              <div class="contact-item reveal-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-text">
+                  <small>Email</small>
+                  <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item reveal-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-text">
+                  <small>Adresa</small>
+                  <span>Skořepka 336/15, 602 00 Brno</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-map reveal-card">
+              <iframe
+                src="https://www.google.com/maps?q=Sko%C5%99epka%20336%2F15%2C%20602%2000%20Brno&z=16&output=embed"
+                loading="lazy"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand-block">
+        <div class="footer-brand">
+          <span class="footer-brand-main">STAVITO FUTURE</span>
+          <span class="footer-brand-small"> s.r.o.</span>
+        </div>
+        <div class="footer-company-info">
+          <div>IČO: 22151168</div>
+          <div>DIČ: CZ22151168</div>
+        </div>
+      </div>
+
+      <div class="footer-text">© 2024 Všechna práva vyhrazena.</div>
+    </div>
+  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -1713,8 +1773,7 @@
       const formMessage = document.getElementById("formMessage");
       const formSubmitBtn = document.getElementById("formSubmitBtn");
       const revealCards = document.querySelectorAll(".reveal-card");
-      const bgPhotos = document.querySelectorAll(".bg-photo");
-      const glows = document.querySelectorAll(".blue-glow");
+      const animatedIcons = document.querySelectorAll(".animate-icon");
       const tiltCards = document.querySelectorAll("[data-tilt]");
 
       if (heroLogoWrap && heroSection && window.innerWidth > 1100) {
@@ -1777,7 +1836,7 @@
           counter.textContent = "0%";
         }
 
-        const observer = new IntersectionObserver(
+        const counterObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
@@ -1787,12 +1846,10 @@
               }
             });
           },
-          {
-            threshold: 0.55
-          }
+          { threshold: 0.55 }
         );
 
-        observer.observe(heroStats);
+        counterObserver.observe(heroStats);
       }
 
       if (revealCards.length) {
@@ -1800,33 +1857,28 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
+            } else {
+              entry.target.classList.remove("visible");
             }
           });
-        }, { threshold: 0.16 });
+        }, { threshold: 0.18 });
 
         revealCards.forEach((card) => revealObserver.observe(card));
       }
 
-      function updateParallax() {
-        const scrollY = window.scrollY || window.pageYOffset;
+      if (animatedIcons.length) {
+        const iconObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animation = "iconFloat 4.2s ease-in-out infinite";
+            } else {
+              entry.target.style.animation = "none";
+            }
+          });
+        }, { threshold: 0.35 });
 
-        bgPhotos.forEach((photo, index) => {
-          const speed = 0.08 + index * 0.04;
-          const yMove = scrollY * speed;
-          const xMove = scrollY * speed * 0.12;
-          const rotateBase = index % 2 === 0 ? -8 : 8;
-          photo.style.transform = `translate3d(${index % 2 === 0 ? xMove : -xMove}px, ${yMove}px, 0) rotate(${rotateBase}deg)`;
-        });
-
-        glows.forEach((glow, index) => {
-          const speed = 0.04 + index * 0.02;
-          const yMove = scrollY * speed;
-          glow.style.transform = `translate3d(0, ${yMove}px, 0)`;
-        });
+        animatedIcons.forEach((icon) => iconObserver.observe(icon));
       }
-
-      updateParallax();
-      window.addEventListener("scroll", updateParallax, { passive: true });
 
       if (tiltCards.length && window.innerWidth > 1100) {
         tiltCards.forEach((card) => {
@@ -1834,13 +1886,10 @@
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
             const rotateY = ((x - centerX) / centerX) * 5;
             const rotateX = ((centerY - y) / centerY) * 5;
-
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
           });
 
