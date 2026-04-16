@@ -427,67 +427,27 @@
       box-shadow: 0 24px 48px rgba(37,99,235,0.14);
     }
 
-    .service-art,
-    .secondary-art {
-      position: relative;
-      width: 100%;
-      height: 94px;
-      margin-bottom: 18px;
-      overflow: hidden;
+    .service-icon,
+    .secondary-work-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      flex: 0 0 64px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      color: #1d4ed8;
+      font-size: 30px;
+      box-shadow: 0 12px 24px rgba(37,99,235,0.10);
     }
 
-    .service-shape,
-    .secondary-shape {
-      position: absolute;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(37,99,235,0.20), rgba(96,165,250,0.34));
-      filter: blur(0.2px);
-    }
-
-    .service-shape.one,
-    .secondary-shape.one {
-      width: 88px;
-      height: 88px;
-      left: 0;
-      top: 2px;
-      animation: driftOne 5s ease-in-out infinite;
-    }
-
-    .service-shape.two,
-    .secondary-shape.two {
-      width: 54px;
-      height: 54px;
-      left: 64px;
-      top: 22px;
-      animation: driftTwo 4.6s ease-in-out infinite;
-    }
-
-    .service-shape.three,
-    .secondary-shape.three {
-      width: 140px;
-      height: 18px;
-      left: 110px;
-      top: 38px;
-      border-radius: 999px;
-      animation: driftThree 5.4s ease-in-out infinite;
-    }
-
-    @keyframes driftOne {
-      0% { transform: translateX(0) translateY(0) rotate(0deg); }
-      50% { transform: translateX(10px) translateY(-6px) rotate(6deg); }
-      100% { transform: translateX(0) translateY(0) rotate(0deg); }
-    }
-
-    @keyframes driftTwo {
-      0% { transform: translateX(0) scale(1); }
-      50% { transform: translateX(-8px) scale(1.08); }
-      100% { transform: translateX(0) scale(1); }
-    }
-
-    @keyframes driftThree {
-      0% { transform: translateX(0); opacity: 0.8; }
-      50% { transform: translateX(12px); opacity: 1; }
-      100% { transform: translateX(0); opacity: 0.8; }
+    .service-icon-wrap,
+    .secondary-work-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
     }
 
     .service-card h3,
@@ -496,7 +456,7 @@
       font-size: 24px;
       line-height: 1.12;
       font-weight: 900;
-      margin-bottom: 12px;
+      margin-top: 4px;
     }
 
     .service-card p,
@@ -532,105 +492,38 @@
       transform: translateY(-1px);
     }
 
-    .gallery-layout {
+    .gallery-premium {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
       align-items: stretch;
     }
 
-    .gallery-big {
+    .gallery-card {
       position: relative;
-      min-height: 520px;
-      border-radius: 36px;
+      height: 340px;
+      border-radius: 30px;
       overflow: hidden;
       background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-      box-shadow: 0 24px 56px rgba(15,23,42,0.10);
+      box-shadow: 0 20px 46px rgba(15,23,42,0.10);
       transition: transform 0.45s ease, box-shadow 0.45s ease;
     }
 
-    .gallery-side {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 24px;
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 56px rgba(37,99,235,0.18);
     }
 
-    .gallery-small {
-      position: relative;
-      min-height: 248px;
-      border-radius: 34px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-      box-shadow: 0 24px 56px rgba(15,23,42,0.10);
-      transition: transform 0.45s ease, box-shadow 0.45s ease;
-    }
-
-    .gallery-big:hover,
-    .gallery-small:hover {
-      transform: translateY(-10px) scale(1.01);
-      box-shadow: 0 34px 70px rgba(37,99,235,0.18);
-    }
-
-    .gallery-big img,
-    .gallery-small img {
+    .gallery-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.9s ease, filter 0.5s ease;
+      transition: transform 0.85s ease, filter 0.5s ease;
     }
 
-    .gallery-big:hover img,
-    .gallery-small:hover img {
-      transform: scale(1.08);
-      filter: brightness(1.05) saturate(1.08);
-    }
-
-    .gallery-big::after,
-    .gallery-small::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15,23,42,0.04), rgba(15,23,42,0.32));
-    }
-
-    .gallery-shine {
-      position: absolute;
-      top: 0;
-      left: -140%;
-      width: 58%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.10) 35%,
-        rgba(255,255,255,0.28) 50%,
-        rgba(255,255,255,0.10) 65%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: skewX(-18deg);
-      transition: left 1s ease;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .gallery-big:hover .gallery-shine,
-    .gallery-small:hover .gallery-shine {
-      left: 145%;
-    }
-
-    .gallery-label {
-      position: absolute;
-      left: 20px;
-      bottom: 20px;
-      z-index: 3;
-      background: rgba(255,255,255,0.94);
-      color: #1d4ed8;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
-      backdrop-filter: blur(8px);
+    .gallery-card:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.03) saturate(1.05);
     }
 
     .projects-grid {
@@ -1159,19 +1052,14 @@
       .about-grid,
       .contact-grid,
       .career-card,
-      .contact-form-grid,
-      .gallery-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-side {
-        grid-template-rows: auto;
+      .contact-form-grid {
         grid-template-columns: 1fr;
       }
 
       .services-grid,
       .secondary-works-grid,
-      .projects-grid {
+      .projects-grid,
+      .gallery-premium {
         grid-template-columns: 1fr;
       }
 
@@ -1295,12 +1183,8 @@
         min-height: auto;
       }
 
-      .gallery-big {
-        min-height: 280px;
-      }
-
-      .gallery-small {
-        min-height: 220px;
+      .gallery-card {
+        height: 250px;
       }
 
       .project-image {
@@ -1442,34 +1326,28 @@
 
         <div class="services-grid">
           <div class="service-card reveal from-left">
-            <div class="service-art">
-              <div class="service-shape one"></div>
-              <div class="service-shape two"></div>
-              <div class="service-shape three"></div>
+            <div class="service-icon-wrap">
+              <div class="service-icon">🏠</div>
+              <h3>Fasády</h3>
             </div>
-            <h3>Fasády</h3>
             <p>Realizujeme nové fasády s důrazem na estetiku, technickou přesnost a dlouhou životnost.</p>
             <a href="#form" class="service-link">Více</a>
           </div>
 
           <div class="service-card reveal from-bottom">
-            <div class="service-art">
-              <div class="service-shape one"></div>
-              <div class="service-shape two"></div>
-              <div class="service-shape three"></div>
+            <div class="service-icon-wrap">
+              <div class="service-icon">🛠️</div>
+              <h3>Rekonstrukce fasád</h3>
             </div>
-            <h3>Rekonstrukce fasád</h3>
             <p>Obnovujeme a modernizujeme starší fasády tak, aby působily čistě, kvalitně a profesionálně.</p>
             <a href="#form" class="service-link">Více</a>
           </div>
 
           <div class="service-card reveal from-right">
-            <div class="service-art">
-              <div class="service-shape one"></div>
-              <div class="service-shape two"></div>
-              <div class="service-shape three"></div>
+            <div class="service-icon-wrap">
+              <div class="service-icon">🧱</div>
+              <h3>Dlažby a obklady</h3>
             </div>
-            <h3>Dlažby a obklady</h3>
             <p>Provádíme dlažby a obklady pro interiér i exteriér s důrazem na detail a čistý výsledek.</p>
             <a href="#form" class="service-link">Více</a>
           </div>
@@ -1481,31 +1359,23 @@
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
           <div class="eyebrow">Galerie</div>
-          <h2 class="section-title">Detaily a atmosféra realizací</h2>
+          <h2 class="section-title">Fotogalerie procesu</h2>
           <p class="section-subtitle">
             Fotografie z našich realizací a pracovního procesu.
           </p>
         </div>
 
-        <div class="gallery-layout">
-          <div class="gallery-big reveal from-left">
-            <img src="bg1.jpg" alt="Realizace">
-            <div class="gallery-shine"></div>
-            <div class="gallery-label">Realizace</div>
+        <div class="gallery-premium">
+          <div class="gallery-card reveal from-left">
+            <img src="bg1.jpg" alt="Fotografie procesu 1">
           </div>
 
-          <div class="gallery-side">
-            <div class="gallery-small reveal from-bottom">
-              <img src="bg2.jpg" alt="Detail">
-              <div class="gallery-shine"></div>
-              <div class="gallery-label">Detail</div>
-            </div>
+          <div class="gallery-card reveal from-bottom">
+            <img src="bg2.jpg" alt="Fotografie procesu 2">
+          </div>
 
-            <div class="gallery-small reveal from-right">
-              <img src="bg3.jpg" alt="Proces">
-              <div class="gallery-shine"></div>
-              <div class="gallery-label">Proces</div>
-            </div>
+          <div class="gallery-card reveal from-right">
+            <img src="bg3.jpg" alt="Fotografie procesu 3">
           </div>
         </div>
       </div>
@@ -1597,34 +1467,28 @@
 
         <div class="secondary-works-grid">
           <div class="secondary-work-card reveal from-left">
-            <div class="secondary-art">
-              <div class="secondary-shape one"></div>
-              <div class="secondary-shape two"></div>
-              <div class="secondary-shape three"></div>
+            <div class="secondary-work-top">
+              <div class="secondary-work-icon">🧩</div>
+              <h3>Montáž sendvičových panelů</h3>
             </div>
-            <h3>Montáž sendvičových panelů</h3>
             <p>Profesionální montáž sendvičových panelů s důrazem na přesné usazení, funkčnost a kvalitní výsledek.</p>
             <a href="#form" class="secondary-work-link">Více</a>
           </div>
 
           <div class="secondary-work-card reveal from-bottom">
-            <div class="secondary-art">
-              <div class="secondary-shape one"></div>
-              <div class="secondary-shape two"></div>
-              <div class="secondary-shape three"></div>
+            <div class="secondary-work-top">
+              <div class="secondary-work-icon">🧱</div>
+              <h3>Dlažby a obklady</h3>
             </div>
-            <h3>Dlažby a obklady</h3>
             <p>Precizní pokládka dlažeb a obkladů pro interiér i exteriér s čistým provedením a důrazem na detail.</p>
             <a href="#form" class="secondary-work-link">Více</a>
           </div>
 
           <div class="secondary-work-card reveal from-right">
-            <div class="secondary-art">
-              <div class="secondary-shape one"></div>
-              <div class="secondary-shape two"></div>
-              <div class="secondary-shape three"></div>
+            <div class="secondary-work-top">
+              <div class="secondary-work-icon">🏭</div>
+              <h3>Rekonstrukce hal</h3>
             </div>
-            <h3>Rekonstrukce hal</h3>
             <p>Realizujeme rekonstrukce hal s důrazem na funkčnost, modernizaci prostoru a kvalitní technické provedení.</p>
             <a href="#form" class="secondary-work-link">Více</a>
           </div>
