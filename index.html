@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STAVITO FUTURE</title>
-  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, montáž sendvičových panelů, dlažby a obklady, rekonstrukce hal." />
+  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, montáž sendvičových panelů, výroba a montáž ocelových konstrukcí, rekonstrukce hal." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
@@ -61,6 +61,7 @@
       align-items:center;
       justify-content:space-between;
       gap:24px;
+      padding:10px 0;
     }
 
     .brand{
@@ -72,6 +73,7 @@
       font-size:32px;
       letter-spacing:1px;
       white-space:nowrap;
+      flex-shrink:0;
     }
 
     .brand img{
@@ -79,6 +81,15 @@
       height:42px;
       object-fit:contain;
       filter:drop-shadow(0 8px 18px rgba(255,255,255,.14));
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      margin-left:auto;
     }
 
     nav{
@@ -110,6 +121,36 @@
 
     nav a:hover::after{
       width:100%;
+    }
+
+    .lang-switcher{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .lang-btn{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:10px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.3s ease;
+      font-size:14px;
+      white-space:nowrap;
+      min-height:40px;
+    }
+
+    .lang-btn:hover{
+      background:#2563eb;
+    }
+
+    .lang-btn.active{
+      background:#fff;
+      color:#1d4ed8;
     }
 
     .hero{
@@ -1115,11 +1156,22 @@
       }
     }
 
+    @media (max-width:900px){
+      .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-right{
+        width:100%;
+        justify-content:flex-start;
+      }
+    }
+
     @media (max-width:820px){
       .navbar{
         min-height:auto;
         padding:16px 0;
-        flex-direction:column;
       }
 
       .brand{
@@ -1244,6 +1296,11 @@
       .hero-logo-box img{
         width:160px;
       }
+
+      .lang-btn{
+        width:100%;
+        text-align:center;
+      }
     }
   </style>
 </head>
@@ -1256,15 +1313,23 @@
         <span>STAVITO FUTURE</span>
       </a>
 
-      <nav>
-        <a href="#about">O nás</a>
-        <a href="#services">Služby</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#projects">Realizace</a>
-        <a href="#secondary">Vedlejší práce</a>
-        <a href="#form">Poptávka</a>
-        <a href="#contact">Kontakt</a>
-      </nav>
+      <div class="nav-right">
+        <nav>
+          <a href="#about" id="navAbout">O nás</a>
+          <a href="#services" id="navServices">Služby</a>
+          <a href="#gallery" id="navGallery">Galerie</a>
+          <a href="#projects" id="navProjects">Realizace</a>
+          <a href="#secondary" id="navSecondary">Vedlejší práce</a>
+          <a href="#form" id="navForm">Poptávka</a>
+          <a href="#contact" id="navContact">Kontakt</a>
+        </nav>
+
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="cz" onclick="setLang('cz', this)">Čeština</button>
+          <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en', this)">English</button>
+          <button type="button" class="lang-btn" data-lang="sk" onclick="setLang('sk', this)">Slovenčina</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -1272,28 +1337,28 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content reveal from-left">
-          <h1>Precizní fasády a rekonstrukce fasád s důrazem na detail.</h1>
-          <p>
-            Specializujeme se na fasády, rekonstrukce fasád, montáž sendvičových panelů, dlažby a obklady a rekonstrukce hal s profesionálním výsledkem.
+          <h1 id="heroTitle">Precizní fasády a rekonstrukce fasád s důrazem na detail.</h1>
+          <p id="heroText">
+            Specializujeme se na fasády, rekonstrukce fasád, montáž sendvičových panelů, výrobu a montáž ocelových konstrukcí a rekonstrukce hal s profesionálním výsledkem.
           </p>
 
           <div class="hero-actions">
-            <a href="tel:+420776604662" class="btn btn-primary">📞 Zavolat nyní</a>
-            <a href="#contact" class="btn btn-secondary">📍 Zobrazit kontakt</a>
+            <a href="tel:+420776604662" class="btn btn-primary" id="heroBtnCall">📞 Zavolat nyní</a>
+            <a href="#contact" class="btn btn-secondary" id="heroBtnContact">📍 Zobrazit kontakt</a>
           </div>
 
           <div class="hero-stats" id="heroStats">
             <div class="stat-card">
               <div class="stat-number" data-target="100">0%</div>
-              <div class="stat-label">Důraz na kvalitu a detail</div>
+              <div class="stat-label" id="statLabel1">Důraz na kvalitu a detail</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">Fasády</div>
-              <div class="stat-label">Hlavní zaměření firmy</div>
+              <div class="stat-number" id="statTitle2">Fasády</div>
+              <div class="stat-label" id="statLabel2">Hlavní zaměření firmy</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">Top</div>
-              <div class="stat-label">Profesionální a férový přístup</div>
+              <div class="stat-number" id="statTitle3">Top</div>
+              <div class="stat-label" id="statLabel3">Profesionální a férový přístup</div>
             </div>
           </div>
         </div>
@@ -1309,39 +1374,39 @@
     <section class="section" id="about">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">O nás</div>
-          <h2 class="section-title">Fasády a rekonstrukce fasád jsou naším hlavním směrem</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="aboutEyebrow">O nás</div>
+          <h2 class="section-title" id="aboutTitle">Fasády a rekonstrukce fasád jsou naším hlavním směrem</h2>
+          <p class="section-subtitle" id="aboutSubtitle">
             Každou zakázku řešíme s důrazem na přesnost, dlouhou životnost, čisté provedení a profesionální komunikaci.
           </p>
         </div>
 
         <div class="glass-card about-grid">
           <div class="about-text reveal from-left">
-            <p>
-              Zaměřujeme se především na fasády, rekonstrukce fasád, montáž sendvičových panelů, dlažby a obklady a rekonstrukce hal. Naším cílem je kvalitní výsledek, který dobře vypadá a zároveň dlouhodobě funguje.
+            <p id="aboutText1">
+              Zaměřujeme se především na fasády, rekonstrukce fasád, montáž sendvičových panelů, výrobu a montáž ocelových konstrukcí a rekonstrukce hal. Naším cílem je kvalitní výsledek, který dobře vypadá a zároveň dlouhodobě funguje.
             </p>
-            <p>
+            <p id="aboutText2">
               Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů a profesionální finální vzhled. Právě preciznost rozhoduje o výsledku celé realizace.
             </p>
           </div>
 
           <div class="about-points">
             <div class="point-box reveal from-right">
-              <strong>Specializace na fasády</strong>
-              <span>Fasády a rekonstrukce fasád tvoří hlavní směr naší práce.</span>
+              <strong id="pointTitle1">Specializace na fasády</strong>
+              <span id="pointText1">Fasády a rekonstrukce fasád tvoří hlavní směr naší práce.</span>
             </div>
             <div class="point-box reveal from-right">
-              <strong>Čisté provedení</strong>
-              <span>Dbáme na rovnost, detail a profesionální finální vzhled.</span>
+              <strong id="pointTitle2">Čisté provedení</strong>
+              <span id="pointText2">Dbáme na rovnost, detail a profesionální finální vzhled.</span>
             </div>
             <div class="point-box reveal from-right">
-              <strong>Kvalitní materiály</strong>
-              <span>Volíme řešení s důrazem na funkčnost a dlouhou životnost.</span>
+              <strong id="pointTitle3">Kvalitní materiály</strong>
+              <span id="pointText3">Volíme řešení s důrazem na funkčnost a dlouhou životnost.</span>
             </div>
             <div class="point-box reveal from-right">
-              <strong>Spolehlivý přístup</strong>
-              <span>Držíme domluvu, termíny a komunikujeme jasně a férově.</span>
+              <strong id="pointTitle4">Spolehlivý přístup</strong>
+              <span id="pointText4">Držíme domluvu, termíny a komunikujeme jasně a férově.</span>
             </div>
           </div>
         </div>
@@ -1351,9 +1416,9 @@
     <section class="section" id="services">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">Služby</div>
-          <h2 class="section-title">Naše hlavní činnosti</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="servicesEyebrow">Služby</div>
+          <h2 class="section-title" id="servicesTitle">Naše hlavní činnosti</h2>
+          <p class="section-subtitle" id="servicesSubtitle">
             Zaměřujeme se především na kvalitní fasádní práce, rekonstrukce a další stavební realizace.
           </p>
         </div>
@@ -1362,36 +1427,36 @@
           <div class="service-card reveal from-left">
             <div class="service-icon-wrap">
               <div class="service-icon">🏠</div>
-              <h3>Fasády</h3>
+              <h3 id="serviceTitle1">Fasády</h3>
             </div>
-            <p>Realizujeme nové fasády s důrazem na estetiku, technickou přesnost a dlouhou životnost.</p>
+            <p id="serviceText1">Realizujeme nové fasády s důrazem na estetiku, technickou přesnost a dlouhou životnost.</p>
           </div>
 
           <div class="service-card reveal from-bottom">
             <div class="service-icon-wrap">
               <div class="service-icon">🛠️</div>
-              <h3>Rekonstrukce fasád</h3>
+              <h3 id="serviceTitle2">Rekonstrukce fasád</h3>
             </div>
-            <p>Obnovujeme a modernizujeme starší fasády tak, aby působily čistě, kvalitně a profesionálně.</p>
+            <p id="serviceText2">Obnovujeme a modernizujeme starší fasády tak, aby působily čistě, kvalitně a profesionálně.</p>
           </div>
 
           <div class="service-card reveal from-right">
-    <div class="service-icon-wrap">
-      <div class="service-icon">🏗️</div>
-      <h3>Výroba a montáž ocelových konstrukcí</h3>
-    </div>
-    <p>Provádíme výrobu a montáž ocelových konstrukcí s důrazem na pevnost, přesnost a kvalitní technické provedení.</p>
-  </div>
-</div>
+            <div class="service-icon-wrap">
+              <div class="service-icon">🏗️</div>
+              <h3 id="serviceTitle3">Výroba a montáž ocelových konstrukcí</h3>
+            </div>
+            <p id="serviceText3">Provádíme výrobu a montáž ocelových konstrukcí s důrazem na pevnost, přesnost a kvalitní technické provedení.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="gallery">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">Galerie</div>
-          <h2 class="section-title">Fotоgalerie procesu</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="galleryEyebrow">Galerie</div>
+          <h2 class="section-title" id="galleryTitle">Fotogalerie procesu</h2>
+          <p class="section-subtitle" id="gallerySubtitle">
             Fotografie z našich realizací a pracovního procesu.
           </p>
         </div>
@@ -1415,9 +1480,9 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">Realizace</div>
-          <h2 class="section-title">Ukázky našich hlavních prací</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="projectsEyebrow">Realizace</div>
+          <h2 class="section-title" id="projectsTitle">Ukázky našich prací</h2>
+          <p class="section-subtitle" id="projectsSubtitle">
             Výběr realizací s důrazem na čistý výsledek, přesnost a profesionální provedení.
           </p>
         </div>
@@ -1425,56 +1490,56 @@
         <div class="projects-grid">
           <article class="project-card reveal from-left">
             <div class="project-image">
-              <span class="project-badge">Fasáda</span>
+              <span class="project-badge" id="projectBadge1">Fasáda</span>
               <img src="work1.jpg" alt="Fasádní práce">
             </div>
             <div class="project-content">
-              <h3>Fasádní práce</h3>
-              <p>Precizní realizace fasád s důrazem na detail, rovnost povrchu a profesionální finální vzhled.</p>
+              <h3 id="projectTitle1">Fasádní práce</h3>
+              <p id="projectText1">Precizní realizace fasád s důrazem na detail, rovnost povrchu a profesionální finální vzhled.</p>
             </div>
           </article>
 
           <article class="project-card reveal from-bottom">
             <div class="project-image">
-              <span class="project-badge">Rekonstrukce</span>
+              <span class="project-badge" id="projectBadge2">Rekonstrukce</span>
               <img src="work3.jpg" alt="Rekonstrukce fasády">
             </div>
             <div class="project-content">
-              <h3>Rekonstrukce fasád</h3>
-              <p>Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.</p>
+              <h3 id="projectTitle2">Rekonstrukce fasád</h3>
+              <p id="projectText2">Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.</p>
             </div>
           </article>
 
           <article class="project-card reveal from-bottom">
             <div class="project-image">
-              <span class="project-badge">Ocelové konstrukce</span>
+              <span class="project-badge" id="projectBadge3">Ocelové konstrukce</span>
               <img src="work2.jpg" alt="Ocelové konstrukce">
             </div>
             <div class="project-content">
-              <h3>Výroba a montáž ocelových konstrukcí</h3>
-              <p>Vyrábíme a montujeme ocelové konstrukce.</p>
+              <h3 id="projectTitle3">Výroba a montáž ocelových konstrukcí</h3>
+              <p id="projectText3">Vyrábíme a montujeme ocelové konstrukce.</p>
             </div>
           </article>
 
           <article class="project-card reveal from-bottom">
             <div class="project-image">
-              <span class="project-badge">Balkony</span>
+              <span class="project-badge" id="projectBadge4">Balkony</span>
               <img src="work5.jpg" alt="Výroba a montáž balkonů">
             </div>
             <div class="project-content">
-              <h3>Výroba a montáž balkonů</h3>
-              <p>Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetický výsledek.</p>
+              <h3 id="projectTitle4">Výroba a montáž balkonů</h3>
+              <p id="projectText4">Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetický výsledek.</p>
             </div>
           </article>
 
           <article class="project-card reveal from-right">
             <div class="project-image">
-              <span class="project-badge">Stavba</span>
+              <span class="project-badge" id="projectBadge5">Stavba</span>
               <img src="work6.jpg" alt="Další stavební práce">
             </div>
             <div class="project-content">
-              <h3>Další stavební práce</h3>
-              <p>Doplňkové stavební činnosti provedené precizně, spolehlivě a s důrazem na kvalitní výsledek.</p>
+              <h3 id="projectTitle5">Další stavební práce</h3>
+              <p id="projectText5">Doplňkové stavební činnosti provedené precizně, spolehlivě a s důrazem na kvalitní výsledek.</p>
             </div>
           </article>
         </div>
@@ -1484,9 +1549,9 @@
     <section class="section" id="secondary">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">Vedlejší práce</div>
-          <h2 class="section-title">Další činnosti, které zajišťujeme</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="secondaryEyebrow">Vedlejší práce</div>
+          <h2 class="section-title" id="secondaryTitle">Další činnosti, které zajišťujeme</h2>
+          <p class="section-subtitle" id="secondarySubtitle">
             Kromě fasád a rekonstrukcí provádíme i další práce podle potřeb konkrétní zakázky.
           </p>
         </div>
@@ -1495,25 +1560,25 @@
           <div class="secondary-work-card reveal from-left">
             <div class="secondary-work-top">
               <div class="secondary-work-icon">🧩</div>
-              <h3>Montáž sendvičových panelů</h3>
+              <h3 id="secondaryCardTitle1">Montáž sendvičových panelů</h3>
             </div>
-            <p>Profesionální montáž sendvičových panelů s důrazem na přesné usazení, funkčnost a kvalitní výsledek.</p>
+            <p id="secondaryCardText1">Profesionální montáž sendvičových panelů s důrazem na přesné usazení, funkčnost a kvalitní výsledek.</p>
           </div>
 
           <div class="secondary-work-card reveal from-bottom">
             <div class="secondary-work-top">
-              <div class="secondary-work-icon">🧱</div>
-              <h3>Dlažby a obklady</h3>
+              <div class="secondary-work-icon">🏗️</div>
+              <h3 id="secondaryCardTitle2">Výroba a montáž ocelových konstrukcí</h3>
             </div>
-            <p>Precizní pokládka dlažeb a obkladů pro interiér i exteriér s čistým provedením a důrazem na detail.</p>
+            <p id="secondaryCardText2">Zajišťujeme výrobu a montáž ocelových konstrukcí s důrazem na pevnost, přesnost a kvalitní technické provedení.</p>
           </div>
 
           <div class="secondary-work-card reveal from-right">
             <div class="secondary-work-top">
               <div class="secondary-work-icon">🏭</div>
-              <h3>Rekonstrukce hal</h3>
+              <h3 id="secondaryCardTitle3">Rekonstrukce hal</h3>
             </div>
-            <p>Realizujeme rekonstrukce hal s důrazem na funkčnost, modernizaci prostoru a kvalitní technické provedení.</p>
+            <p id="secondaryCardText3">Realizujeme rekonstrukce hal s důrazem na funkčnost, modernizaci prostoru a kvalitní technické provedení.</p>
           </div>
         </div>
       </div>
@@ -1522,9 +1587,9 @@
     <section class="form-section" id="form">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">Poptávka</div>
-          <h2 class="section-title">Napište nám</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="formEyebrow">Poptávka</div>
+          <h2 class="section-title" id="formSectionTitle">Napište nám</h2>
+          <p class="section-subtitle" id="formSectionSubtitle">
             Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.
           </p>
         </div>
@@ -1537,28 +1602,28 @@
 
             <div class="contact-form-fields reveal from-right">
               <div>
-                <h3 class="form-title">Kontaktní formulář</h3>
-                <p class="form-subtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
+                <h3 class="form-title" id="formTitle">Kontaktní formulář</h3>
+                <p class="form-subtitle" id="formSubtitle">Vyplňte údaje a pošlete nám vaši poptávku.</p>
               </div>
 
-              <form id="contactForm" class="contact-form" action="https://formspree.io/f/mrerbnjv" method="POST">
+              <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrerbnrv" method="POST">
                 <div class="form-group">
-                  <label for="email">E-mail</label>
+                  <label for="email" id="labelEmail">E-mail</label>
                   <input id="email" class="form-input" type="email" name="email" placeholder="Zadejte váš mail" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="name">Jméno</label>
+                  <label for="name" id="labelName">Jméno</label>
                   <input id="name" class="form-input" type="text" name="name" placeholder="Zadejte vaše jméno" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="phone">Telefon</label>
+                  <label for="phone" id="labelPhone">Telefon</label>
                   <input id="phone" class="form-input" type="tel" name="phone" placeholder="Zadejte vaše telefonní číslo">
                 </div>
 
                 <div class="form-group">
-                  <label for="message">Poptávka</label>
+                  <label for="message" id="labelMessage">Poptávka</label>
                   <textarea id="message" class="form-textarea" name="message" placeholder="Zadejte vaši zprávu" required></textarea>
                 </div>
 
@@ -1579,21 +1644,21 @@
       <div class="container">
         <div class="career-card reveal zoom-in">
           <div class="career-content">
-            <h3>Kariéra ve Stavito Future</h3>
-            <p>
-              Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě, na zajímavых projektech и в prostředí, kde se kvalita opravdu řeší.
+            <h3 id="careerTitle">Kariéra ve Stavito Future</h3>
+            <p id="careerText">
+              Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě, na zajímavých projektech a v prostředí, kde se kvalita opravdu řeší.
             </p>
 
             <div class="career-mini-list">
-              <span>Stabilní práce</span>
-              <span>Dobré ohodnocení</span>
-              <span>Férový přístup</span>
-              <span>Zajímavé projekty</span>
+              <span id="careerBadge1">Stabilní práce</span>
+              <span id="careerBadge2">Dobré ohodnocení</span>
+              <span id="careerBadge3">Férový přístup</span>
+              <span id="careerBadge4">Zajímavé projekty</span>
             </div>
           </div>
 
           <div class="career-action">
-            <a href="tel:+420776604662" class="career-btn">Zavolat nám</a>
+            <a href="tel:+420776604662" class="career-btn" id="careerBtn">Zavolat nám</a>
           </div>
         </div>
       </div>
@@ -1602,9 +1667,9 @@
     <section class="section">
       <div class="container">
         <div class="section-title-wrap reveal from-bottom">
-          <div class="eyebrow">Kontakt</div>
-          <h2 class="section-title">Spojte se s námi</h2>
-          <p class="section-subtitle">
+          <div class="eyebrow" id="contactEyebrow">Kontakt</div>
+          <h2 class="section-title" id="contactTitle">Spojte se s námi</h2>
+          <p class="section-subtitle" id="contactSubtitle">
             Máte zájem o spolupráci, fasádní práce nebo rekonstrukci? Ozvěte se nám a rádi s vámi vše probereme.
           </p>
         </div>
@@ -1615,7 +1680,7 @@
               <div class="contact-item reveal from-left">
                 <div class="contact-icon">📞</div>
                 <div class="contact-text">
-                  <small>Telefon</small>
+                  <small id="contactPhoneLabel">Telefon</small>
                   <a href="tel:+420776604662">+420 776 604 662</a>
                 </div>
               </div>
@@ -1623,7 +1688,7 @@
               <div class="contact-item reveal from-left">
                 <div class="contact-icon">📧</div>
                 <div class="contact-text">
-                  <small>Email</small>
+                  <small id="contactEmailLabel">Email</small>
                   <a href="mailto:info@stavitofuture.com">info@stavitofuture.com</a>
                 </div>
               </div>
@@ -1631,7 +1696,7 @@
               <div class="contact-item reveal from-left">
                 <div class="contact-icon">📍</div>
                 <div class="contact-text">
-                  <small>Adresa</small>
+                  <small id="contactAddressLabel">Adresa</small>
                   <span>Skořepka 336/15, 602 00 Brno</span>
                 </div>
               </div>
@@ -1664,14 +1729,406 @@
         </div>
       </div>
 
-      <div class="footer-text">© 2024 Všechna práva vyhrazena.</div>
+      <div class="footer-text" id="footerText">© 2024 Všechna práva vyhrazena.</div>
     </div>
   </footer>
 
   <a href="tel:+420776604662" class="call-fixed" aria-label="Zavolat">📞</a>
 
   <script>
+    const translations = {
+      cz: {
+        navAbout: "O nás",
+        navServices: "Služby",
+        navGallery: "Galerie",
+        navProjects: "Realizace",
+        navSecondary: "Vedlejší práce",
+        navForm: "Poptávka",
+        navContact: "Kontakt",
+
+        heroTitle: "Precizní fasády a rekonstrukce fasád s důrazem na detail.",
+        heroText: "Specializujeme se na fasády, rekonstrukce fasád, montáž sendvičových panelů, výrobu a montáž ocelových konstrukcí a rekonstrukce hal s profesionálním výsledkem.",
+        heroBtnCall: "📞 Zavolat nyní",
+        heroBtnContact: "📍 Zobrazit kontakt",
+        statLabel1: "Důraz na kvalitu a detail",
+        statTitle2: "Fasády",
+        statLabel2: "Hlavní zaměření firmy",
+        statTitle3: "Top",
+        statLabel3: "Profesionální a férový přístup",
+
+        aboutEyebrow: "O nás",
+        aboutTitle: "Fasády a rekonstrukce fasád jsou naším hlavním směrem",
+        aboutSubtitle: "Každou zakázku řešíme s důrazem na přesnost, dlouhou životnost, čisté provedení a profesionální komunikaci.",
+        aboutText1: "Zaměřujeme se především na fasády, rekonstrukce fasád, montáž sendvičových panelů, výrobu a montáž ocelových konstrukcí a rekonstrukce hal. Naším cílem je kvalitní výsledek, který dobře vypadá a zároveň dlouhodobě funguje.",
+        aboutText2: "Ke každému projektu přistupujeme individuálně, dbáme na detail, dodržení termínů a profesionální finální vzhled. Právě preciznost rozhoduje o výsledku celé realizace.",
+        pointTitle1: "Specializace na fasády",
+        pointText1: "Fasády a rekonstrukce fasád tvoří hlavní směr naší práce.",
+        pointTitle2: "Čisté provedení",
+        pointText2: "Dbáme na rovnost, detail a profesionální finální vzhled.",
+        pointTitle3: "Kvalitní materiály",
+        pointText3: "Volíme řešení s důrazem na funkčnost a dlouhou životnost.",
+        pointTitle4: "Spolehlivý přístup",
+        pointText4: "Držíme domluvu, termíny a komunikujeme jasně a férově.",
+
+        servicesEyebrow: "Služby",
+        servicesTitle: "Naše hlavní činnosti",
+        servicesSubtitle: "Zaměřujeme se především na kvalitní fasádní práce, rekonstrukce a další stavební realizace.",
+        serviceTitle1: "Fasády",
+        serviceText1: "Realizujeme nové fasády s důrazem na estetiku, technickou přesnost a dlouhou životnost.",
+        serviceTitle2: "Rekonstrukce fasád",
+        serviceText2: "Obnovujeme a modernizujeme starší fasády tak, aby působily čistě, kvalitně a profesionálně.",
+        serviceTitle3: "Výroba a montáž ocelových konstrukcí",
+        serviceText3: "Provádíme výrobu a montáž ocelových konstrukcí s důrazem na pevnost, přesnost a kvalitní technické provedení.",
+
+        galleryEyebrow: "Galerie",
+        galleryTitle: "Fotogalerie procesu",
+        gallerySubtitle: "Fotografie z našich realizací a pracovního procesu.",
+
+        projectsEyebrow: "Realizace",
+        projectsTitle: "Ukázky našich prací",
+        projectsSubtitle: "Výběr realizací s důrazem na čistý výsledek, přesnost a profesionální provedení.",
+        projectBadge1: "Fasáda",
+        projectTitle1: "Fasádní práce",
+        projectText1: "Precizní realizace fasád s důrazem na detail, rovnost povrchu a profesionální finální vzhled.",
+        projectBadge2: "Rekonstrukce",
+        projectTitle2: "Rekonstrukce fasád",
+        projectText2: "Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.",
+        projectBadge3: "Ocelové konstrukce",
+        projectTitle3: "Výroba a montáž ocelových konstrukcí",
+        projectText3: "Vyrábíme a montujeme ocelové konstrukce.",
+        projectBadge4: "Balkony",
+        projectTitle4: "Výroba a montáž balkonů",
+        projectText4: "Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetický výsledek.",
+        projectBadge5: "Stavba",
+        projectTitle5: "Další stavební práce",
+        projectText5: "Doplňkové stavební činnosti provedené precizně, spolehlivě a s důrazem na kvalitní výsledek.",
+
+        secondaryEyebrow: "Vedlejší práce",
+        secondaryTitle: "Další činnosti, které zajišťujeme",
+        secondarySubtitle: "Kromě fasád a rekonstrukcí provádíme i další práce podle potřeb konkrétní zakázky.",
+        secondaryCardTitle1: "Montáž sendvičových panelů",
+        secondaryCardText1: "Profesionální montáž sendvičových panelů s důrazem na přesné usazení, funkčnost a kvalitní výsledek.",
+        secondaryCardTitle2: "Výroba a montáž ocelových konstrukcí",
+        secondaryCardText2: "Zajišťujeme výrobu a montáž ocelových konstrukcí s důrazem na pevnost, přesnost a kvalitní technické provedení.",
+        secondaryCardTitle3: "Rekonstrukce hal",
+        secondaryCardText3: "Realizujeme rekonstrukce hal s důrazem na funkčnost, modernizaci prostoru a kvalitní technické provedení.",
+
+        formEyebrow: "Poptávka",
+        formSectionTitle: "Napište nám",
+        formSectionSubtitle: "Pošlete nám krátkou zprávu a ozveme se vám zpět. Jednoduše, přehledně a bez zbytečností.",
+        formTitle: "Kontaktní formulář",
+        formSubtitle: "Vyplňte údaje a pošlete nám vaši poptávku.",
+        labelEmail: "E-mail",
+        labelName: "Jméno",
+        labelPhone: "Telefon",
+        labelMessage: "Poptávka",
+
+        careerTitle: "Kariéra ve Stavito Future",
+        careerText: "Rozšiřujeme tým a hledáme nové kolegy, kteří chtějí pracovat ve stabilní firmě, na zajímavých projektech a v prostředí, kde se kvalita opravdu řeší.",
+        careerBadge1: "Stabilní práce",
+        careerBadge2: "Dobré ohodnocení",
+        careerBadge3: "Férový přístup",
+        careerBadge4: "Zajímavé projekty",
+        careerBtn: "Zavolat nám",
+
+        contactEyebrow: "Kontakt",
+        contactTitle: "Spojte se s námi",
+        contactSubtitle: "Máte zájem o spolupráci, fasádní práce nebo rekonstrukci? Ozvěte se nám a rádi s vámi vše probereme.",
+        contactPhoneLabel: "Telefon",
+        contactEmailLabel: "Email",
+        contactAddressLabel: "Adresa",
+
+        footerText: "© 2024 Všechna práva vyhrazena.",
+        placeholderEmail: "Zadejte váš mail",
+        placeholderName: "Zadejte vaše jméno",
+        placeholderPhone: "Zadejte vaše telefonní číslo",
+        placeholderMessage: "Zadejte vaši zprávu",
+        formSending: "ODESÍLÁNÍ...",
+        formSubmit: "ODESLAT",
+        formSuccess: "✅ Zpráva byla úspěšně odeslána.",
+        formError: "❌ Chyba při odesílání. Zkuste to prosím znovu.",
+        formErrorCatch: "❌ Odeslání se nezdařilo. Zkuste to prosím znovu."
+      },
+
+      en: {
+        navAbout: "About us",
+        navServices: "Services",
+        navGallery: "Gallery",
+        navProjects: "Projects",
+        navSecondary: "Additional works",
+        navForm: "Request",
+        navContact: "Contact",
+
+        heroTitle: "Precise facades and facade reconstruction with attention to detail.",
+        heroText: "We specialize in facades, facade reconstruction, sandwich panel installation, steel structure production and installation, and hall reconstruction with professional results.",
+        heroBtnCall: "📞 Call now",
+        heroBtnContact: "📍 Show contact",
+        statLabel1: "Focus on quality and detail",
+        statTitle2: "Facades",
+        statLabel2: "Main focus of the company",
+        statTitle3: "Top",
+        statLabel3: "Professional and fair approach",
+
+        aboutEyebrow: "About us",
+        aboutTitle: "Facades and facade reconstruction are our main direction",
+        aboutSubtitle: "We handle every project with an emphasis on precision, long service life, clean execution and professional communication.",
+        aboutText1: "We focus mainly on facades, facade reconstruction, sandwich panel installation, steel structure production and installation, and hall reconstruction. Our goal is a quality result that looks good and works well in the long term.",
+        aboutText2: "We approach every project individually, pay attention to detail, meet deadlines and deliver a professional final look. Precision is what determines the result of the entire implementation.",
+        pointTitle1: "Facade specialization",
+        pointText1: "Facades and facade reconstruction form the main direction of our work.",
+        pointTitle2: "Clean execution",
+        pointText2: "We care about straightness, detail and a professional final appearance.",
+        pointTitle3: "Quality materials",
+        pointText3: "We choose solutions with an emphasis on functionality and long service life.",
+        pointTitle4: "Reliable approach",
+        pointText4: "We keep our word, meet deadlines and communicate clearly and fairly.",
+
+        servicesEyebrow: "Services",
+        servicesTitle: "Our main activities",
+        servicesSubtitle: "We focus mainly on quality facade work, reconstruction and other construction projects.",
+        serviceTitle1: "Facades",
+        serviceText1: "We build new facades with an emphasis on aesthetics, technical precision and long service life.",
+        serviceTitle2: "Facade reconstruction",
+        serviceText2: "We restore and modernize older facades so that they look clean, quality and professional.",
+        serviceTitle3: "Production and installation of steel structures",
+        serviceText3: "We provide production and installation of steel structures with an emphasis on strength, precision and high technical quality.",
+
+        galleryEyebrow: "Gallery",
+        galleryTitle: "Process photo gallery",
+        gallerySubtitle: "Photos from our projects and work process.",
+
+        projectsEyebrow: "Projects",
+        projectsTitle: "Examples of our work",
+        projectsSubtitle: "Selection of projects with an emphasis on clean results, precision and professional execution.",
+        projectBadge1: "Facade",
+        projectTitle1: "Facade work",
+        projectText1: "Precise facade implementation with attention to detail, straight surfaces and a professional final look.",
+        projectBadge2: "Reconstruction",
+        projectTitle2: "Facade reconstruction",
+        projectText2: "Repairs and renovation of facades to restore a clean, modern and high-quality appearance.",
+        projectBadge3: "Steel structures",
+        projectTitle3: "Production and installation of steel structures",
+        projectText3: "We produce and install steel structures.",
+        projectBadge4: "Balconies",
+        projectTitle4: "Production and installation of balconies",
+        projectText4: "Complete balcony implementation with emphasis on structure strength, safety and aesthetic result.",
+        projectBadge5: "Construction",
+        projectTitle5: "Other construction works",
+        projectText5: "Additional construction activities carried out precisely, reliably and with an emphasis on quality results.",
+
+        secondaryEyebrow: "Additional works",
+        secondaryTitle: "Other activities we provide",
+        secondarySubtitle: "In addition to facades and reconstructions, we also carry out other work according to the needs of a specific project.",
+        secondaryCardTitle1: "Sandwich panel installation",
+        secondaryCardText1: "Professional installation of sandwich panels with an emphasis on precise fitting, functionality and quality results.",
+        secondaryCardTitle2: "Production and installation of steel structures",
+        secondaryCardText2: "We provide production and installation of steel structures with an emphasis on strength, precision and high technical quality.",
+        secondaryCardTitle3: "Hall reconstruction",
+        secondaryCardText3: "We carry out hall reconstruction with an emphasis on functionality, space modernization and quality technical execution.",
+
+        formEyebrow: "Request",
+        formSectionTitle: "Write to us",
+        formSectionSubtitle: "Send us a short message and we will get back to you. Simple, clear and without unnecessary complications.",
+        formTitle: "Contact form",
+        formSubtitle: "Fill in the details and send us your request.",
+        labelEmail: "E-mail",
+        labelName: "Name",
+        labelPhone: "Phone",
+        labelMessage: "Request",
+
+        careerTitle: "Career at Stavito Future",
+        careerText: "We are expanding our team and looking for new colleagues who want to work in a stable company, on interesting projects and in an environment where quality really matters.",
+        careerBadge1: "Stable job",
+        careerBadge2: "Good pay",
+        careerBadge3: "Fair approach",
+        careerBadge4: "Interesting projects",
+        careerBtn: "Call us",
+
+        contactEyebrow: "Contact",
+        contactTitle: "Get in touch with us",
+        contactSubtitle: "Interested in cooperation, facade work or reconstruction? Contact us and we will be happy to discuss everything with you.",
+        contactPhoneLabel: "Phone",
+        contactEmailLabel: "Email",
+        contactAddressLabel: "Address",
+
+        footerText: "© 2024 All rights reserved.",
+        placeholderEmail: "Enter your email",
+        placeholderName: "Enter your name",
+        placeholderPhone: "Enter your phone number",
+        placeholderMessage: "Enter your message",
+        formSending: "SENDING...",
+        formSubmit: "SEND",
+        formSuccess: "✅ Message was sent successfully.",
+        formError: "❌ Error while sending. Please try again.",
+        formErrorCatch: "❌ Sending failed. Please try again."
+      },
+
+      sk: {
+        navAbout: "O nás",
+        navServices: "Služby",
+        navGallery: "Galéria",
+        navProjects: "Realizácie",
+        navSecondary: "Vedľajšie práce",
+        navForm: "Dopyt",
+        navContact: "Kontakt",
+
+        heroTitle: "Precízne fasády a rekonštrukcie fasád s dôrazom na detail.",
+        heroText: "Špecializujeme sa na fasády, rekonštrukcie fasád, montáž sendvičových panelov, výrobu a montáž oceľových konštrukcií a rekonštrukcie hál s profesionálnym výsledkom.",
+        heroBtnCall: "📞 Zavolať teraz",
+        heroBtnContact: "📍 Zobraziť kontakt",
+        statLabel1: "Dôraz na kvalitu a detail",
+        statTitle2: "Fasády",
+        statLabel2: "Hlavné zameranie firmy",
+        statTitle3: "Top",
+        statLabel3: "Profesionálny a férový prístup",
+
+        aboutEyebrow: "O nás",
+        aboutTitle: "Fasády a rekonštrukcie fasád sú naším hlavným smerom",
+        aboutSubtitle: "Každú zákazku riešime s dôrazom na presnosť, dlhú životnosť, čisté prevedenie a profesionálnu komunikáciu.",
+        aboutText1: "Zameriavame sa predovšetkým na fasády, rekonštrukcie fasád, montáž sendvičových panelov, výrobu a montáž oceľových konštrukcií a rekonštrukcie hál. Naším cieľom je kvalitný výsledok, ktorý dobre vyzerá a zároveň dlhodobo funguje.",
+        aboutText2: "Ku každému projektu pristupujeme individuálne, dbáme na detail, dodržanie termínov a profesionálny finálny vzhľad. Práve precíznosť rozhoduje o výsledku celej realizácie.",
+        pointTitle1: "Špecializácia na fasády",
+        pointText1: "Fasády a rekonštrukcie fasád tvoria hlavný smer našej práce.",
+        pointTitle2: "Čisté prevedenie",
+        pointText2: "Dbáme na rovnosť, detail a profesionálny finálny vzhľad.",
+        pointTitle3: "Kvalitné materiály",
+        pointText3: "Volíme riešenia s dôrazom na funkčnosť a dlhú životnosť.",
+        pointTitle4: "Spoľahlivý prístup",
+        pointText4: "Držíme slovo, termíny a komunikujeme jasne a férovo.",
+
+        servicesEyebrow: "Služby",
+        servicesTitle: "Naše hlavné činnosti",
+        servicesSubtitle: "Zameriavame sa predovšetkým na kvalitné fasádne práce, rekonštrukcie a ďalšie stavebné realizácie.",
+        serviceTitle1: "Fasády",
+        serviceText1: "Realizujeme nové fasády s dôrazom na estetiku, technickú presnosť a dlhú životnosť.",
+        serviceTitle2: "Rekonštrukcie fasád",
+        serviceText2: "Obnovujeme a modernizujeme staršie fasády tak, aby pôsobili čisto, kvalitne a profesionálne.",
+        serviceTitle3: "Výroba a montáž oceľových konštrukcií",
+        serviceText3: "Zabezpečujeme výrobu a montáž oceľových konštrukcií s dôrazom na pevnosť, presnosť a kvalitné technické prevedenie.",
+
+        galleryEyebrow: "Galéria",
+        galleryTitle: "Fotogaléria procesu",
+        gallerySubtitle: "Fotografie z našich realizácií a pracovného procesu.",
+
+        projectsEyebrow: "Realizácie",
+        projectsTitle: "Ukážky našich prác",
+        projectsSubtitle: "Výber realizácií s dôrazom na čistý výsledok, presnosť a profesionálne prevedenie.",
+        projectBadge1: "Fasáda",
+        projectTitle1: "Fasádne práce",
+        projectText1: "Precízna realizácia fasád s dôrazom na detail, rovnosť povrchu a profesionálny finálny vzhľad.",
+        projectBadge2: "Rekonštrukcia",
+        projectTitle2: "Rekonštrukcie fasád",
+        projectText2: "Opravy a obnova fasád s cieľom vrátiť objektu čistý, moderný a kvalitný vzhľad.",
+        projectBadge3: "Oceľové konštrukcie",
+        projectTitle3: "Výroba a montáž oceľových konštrukcií",
+        projectText3: "Vyrábame a montujeme oceľové konštrukcie.",
+        projectBadge4: "Balkóny",
+        projectTitle4: "Výroba a montáž balkónov",
+        projectText4: "Kompletná realizácia balkónov s dôrazom na pevnosť konštrukcie, bezpečnosť a estetický výsledok.",
+        projectBadge5: "Stavba",
+        projectTitle5: "Ďalšie stavebné práce",
+        projectText5: "Doplnkové stavebné činnosti vykonané precízne, spoľahlivo a s dôrazom na kvalitný výsledok.",
+
+        secondaryEyebrow: "Vedľajšie práce",
+        secondaryTitle: "Ďalšie činnosti, ktoré zabezpečujeme",
+        secondarySubtitle: "Okrem fasád a rekonštrukcií vykonávame aj ďalšie práce podľa potrieb konkrétnej zákazky.",
+        secondaryCardTitle1: "Montáž sendvičových panelov",
+        secondaryCardText1: "Profesionálna montáž sendvičových panelov s dôrazom na presné osadenie, funkčnosť a kvalitný výsledok.",
+        secondaryCardTitle2: "Výroba a montáž oceľových konštrukcií",
+        secondaryCardText2: "Zabezpečujeme výrobu a montáž oceľových konštrukcií s dôrazom na pevnosť, presnosť a kvalitné technické prevedenie.",
+        secondaryCardTitle3: "Rekonštrukcie hál",
+        secondaryCardText3: "Realizujeme rekonštrukcie hál s dôrazom na funkčnosť, modernizáciu priestoru a kvalitné technické prevedenie.",
+
+        formEyebrow: "Dopyt",
+        formSectionTitle: "Napíšte nám",
+        formSectionSubtitle: "Pošlite nám krátku správu a ozveme sa vám späť. Jednoducho, prehľadne a bez zbytočností.",
+        formTitle: "Kontaktný formulár",
+        formSubtitle: "Vyplňte údaje a pošlite nám váš dopyt.",
+        labelEmail: "E-mail",
+        labelName: "Meno",
+        labelPhone: "Telefón",
+        labelMessage: "Dopyt",
+
+        careerTitle: "Kariéra v Stavito Future",
+        careerText: "Rozširujeme tím a hľadáme nových kolegov, ktorí chcú pracovať v stabilnej firme, na zaujímavých projektoch a v prostredí, kde sa kvalita naozaj rieši.",
+        careerBadge1: "Stabilná práca",
+        careerBadge2: "Dobré ohodnotenie",
+        careerBadge3: "Férový prístup",
+        careerBadge4: "Zaujímavé projekty",
+        careerBtn: "Zavolať nám",
+
+        contactEyebrow: "Kontakt",
+        contactTitle: "Spojte sa s nami",
+        contactSubtitle: "Máte záujem o spoluprácu, fasádne práce alebo rekonštrukciu? Ozvite sa nám a radi s vami všetko preberieme.",
+        contactPhoneLabel: "Telefón",
+        contactEmailLabel: "Email",
+        contactAddressLabel: "Adresa",
+
+        footerText: "© 2024 Všetky práva vyhradené.",
+        placeholderEmail: "Zadajte váš email",
+        placeholderName: "Zadajte vaše meno",
+        placeholderPhone: "Zadajte vaše telefónne číslo",
+        placeholderMessage: "Zadajte vašu správu",
+        formSending: "ODOSIELANIE...",
+        formSubmit: "ODOSLAŤ",
+        formSuccess: "✅ Správa bola úspešne odoslaná.",
+        formError: "❌ Chyba pri odosielaní. Skúste to prosím znova.",
+        formErrorCatch: "❌ Odoslanie sa nepodarilo. Skúste to prosím znova."
+      }
+    };
+
+    function applyTranslations(lang){
+      if(!translations[lang]) return;
+
+      document.documentElement.lang = lang === "cz" ? "cs" : lang;
+
+      Object.keys(translations[lang]).forEach((key) => {
+        const el = document.getElementById(key);
+        if(el){
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      const email = document.getElementById("email");
+      const name = document.getElementById("name");
+      const phone = document.getElementById("phone");
+      const message = document.getElementById("message");
+      const submitBtn = document.getElementById("formSubmitBtn");
+
+      if(email) email.placeholder = translations[lang].placeholderEmail;
+      if(name) name.placeholder = translations[lang].placeholderName;
+      if(phone) phone.placeholder = translations[lang].placeholderPhone;
+      if(message) message.placeholder = translations[lang].placeholderMessage;
+      if(submitBtn) submitBtn.textContent = translations[lang].formSubmit;
+    }
+
+    function setLang(lang, btn){
+      localStorage.setItem("siteLang", lang);
+
+      document.querySelectorAll(".lang-btn").forEach(button => {
+        button.classList.remove("active");
+      });
+
+      if(btn){
+        btn.classList.add("active");
+      }
+
+      applyTranslations(lang);
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
+      const savedLang = localStorage.getItem("siteLang") || "cz";
+      const activeBtn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
+
+      applyTranslations(savedLang);
+
+      if(activeBtn){
+        document.querySelectorAll(".lang-btn").forEach(button => {
+          button.classList.remove("active");
+        });
+        activeBtn.classList.add("active");
+      }
+
       const heroStats = document.getElementById("heroStats");
       const counter = document.querySelector(".stat-number[data-target]");
       const form = document.getElementById("contactForm");
@@ -1753,11 +2210,13 @@
         form.addEventListener("submit", async function (e) {
           e.preventDefault();
 
+          const currentLang = localStorage.getItem("siteLang") || "cz";
+
           formMessage.className = "form-message";
           formMessage.textContent = "";
 
           formSubmitBtn.disabled = true;
-          formSubmitBtn.textContent = "ODESÍLÁNÍ...";
+          formSubmitBtn.textContent = translations[currentLang].formSending;
 
           try {
             const formData = new FormData(form);
@@ -1773,17 +2232,17 @@
             if (response.ok) {
               form.reset();
               formMessage.className = "form-message success";
-              formMessage.textContent = "✅ Zpráva byla úspěšně odeslána.";
+              formMessage.textContent = translations[currentLang].formSuccess;
             } else {
               formMessage.className = "form-message error";
-              formMessage.textContent = "❌ Chyba při odesílání. Zkuste to prosím znovu.";
+              formMessage.textContent = translations[currentLang].formError;
             }
           } catch (error) {
             formMessage.className = "form-message error";
-            formMessage.textContent = "❌ Odeslání se nezdařilo. Zkuste to prosím znovu.";
+            formMessage.textContent = translations[currentLang].formErrorCatch;
           } finally {
             formSubmitBtn.disabled = false;
-            formSubmitBtn.textContent = "ODESLAT";
+            formSubmitBtn.textContent = translations[currentLang].formSubmit;
           }
         });
       }
