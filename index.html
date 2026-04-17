@@ -142,6 +142,10 @@
       font-size:14px;
       white-space:nowrap;
       min-height:40px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
     }
 
     .lang-btn:hover{
@@ -151,6 +155,16 @@
     .lang-btn.active{
       background:#fff;
       color:#1d4ed8;
+    }
+
+    .lang-mobile{
+      display:none;
+    }
+
+    .lang-desktop{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
     }
 
     .hero{
@@ -1215,285 +1229,264 @@
       }
     }
 
-    @media (max-width:560px){
+    @media screen and (max-width: 768px){
+      html,
+      body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden !important;
+      }
+
+      body{
+        position:relative;
+        margin:0;
+        padding:0;
+      }
+
+      header{
+        position:relative !important;
+        top:auto !important;
+        left:auto !important;
+        right:auto !important;
+        z-index:100 !important;
+        width:100% !important;
+      }
+
       .container{
-        width:min(100% - 20px, 1180px);
+        width:calc(100% - 20px) !important;
+        max-width:100% !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        padding-left:0 !important;
+        padding-right:0 !important;
+        overflow-x:hidden !important;
+      }
+
+      .navbar{
+        min-height:auto !important;
+        padding:14px 0 12px !important;
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:flex-start !important;
+        justify-content:flex-start !important;
+        gap:14px !important;
+        width:100% !important;
       }
 
       .brand{
-        font-size:22px;
+        width:100% !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:flex-start !important;
+        gap:12px !important;
+        font-size:22px !important;
+        white-space:nowrap !important;
       }
 
       .brand img{
-        width:34px;
-        height:34px;
+        width:34px !important;
+        height:34px !important;
+      }
+
+      .nav-right{
+        width:100% !important;
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:flex-start !important;
+        justify-content:flex-start !important;
+        gap:14px !important;
+        margin-left:0 !important;
+      }
+
+      nav{
+        width:100% !important;
+        display:flex !important;
+        flex-wrap:wrap !important;
+        justify-content:flex-start !important;
+        align-items:center !important;
+        gap:14px 22px !important;
+        overflow-x:hidden !important;
       }
 
       nav a{
-        font-size:16px;
+        font-size:16px !important;
+        white-space:normal !important;
+      }
+
+      .lang-switcher{
+        width:100% !important;
+        display:flex !important;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        align-items:center !important;
+        gap:10px !important;
+      }
+
+      .lang-btn{
+        width:72px !important;
+        min-width:72px !important;
+        height:42px !important;
+        min-height:42px !important;
+        padding:0 8px !important;
+        border-radius:12px !important;
+        gap:4px !important;
+      }
+
+      .lang-desktop{
+        display:none !important;
+      }
+
+      .lang-mobile{
+        display:inline-flex !important;
+        align-items:center !important;
+        gap:4px !important;
+        font-weight:800 !important;
+        font-size:13px !important;
+        line-height:1 !important;
+      }
+
+      .hero,
+      .hero-grid,
+      .hero-content,
+      .hero-visual,
+      .hero-logo-box,
+      .about-grid,
+      .services-grid,
+      .secondary-works-grid,
+      .projects-grid,
+      .gallery-premium,
+      .contact-grid,
+      .contact-form-grid,
+      .glass-card,
+      .contact-card,
+      .contact-form-card,
+      .service-card,
+      .secondary-work-card,
+      .project-card,
+      .gallery-card,
+      main,
+      section,
+      footer{
+        max-width:100% !important;
+        overflow-x:hidden !important;
+      }
+
+      .hero-logo-box{
+        margin-left:0 !important;
+        margin-right:0 !important;
+        padding-left:0 !important;
+        padding-right:0 !important;
+        min-height:240px !important;
+        justify-content:center !important;
+        align-items:center !important;
+      }
+
+      .hero-logo-box::before,
+      .hero-logo-box::after{
+        left:50% !important;
+      }
+
+      .hero-logo-box img{
+        left:50% !important;
+        max-width:88% !important;
+        height:auto !important;
+      }
+
+      .call-fixed{
+        right:14px !important;
+        bottom:14px !important;
+      }
+    }
+
+    @media screen and (max-width: 420px){
+      .container{
+        width:calc(100% - 16px) !important;
+      }
+
+      .brand{
+        font-size:20px !important;
+      }
+
+      .brand img{
+        width:32px !important;
+        height:32px !important;
+      }
+
+      .lang-btn{
+        width:70px !important;
+        min-width:70px !important;
+        height:40px !important;
+        min-height:40px !important;
+      }
+
+      .lang-mobile{
+        font-size:12px !important;
       }
 
       .hero-content h1{
-        font-size:38px;
+        font-size:38px !important;
       }
 
       .hero-actions{
-        flex-direction:column;
+        flex-direction:column !important;
       }
 
       .btn,
       .career-btn{
-        width:100%;
+        width:100% !important;
       }
 
       .section-title{
-        font-size:31px;
+        font-size:31px !important;
       }
 
       .project-card,
       .service-card,
       .secondary-work-card{
-        min-height:auto;
+        min-height:auto !important;
       }
 
       .gallery-card{
-        height:250px;
+        height:250px !important;
       }
 
       .project-image{
-        height:240px;
+        height:240px !important;
       }
 
       .contact-form-image-box{
-        min-height:240px;
+        min-height:240px !important;
       }
 
       .contact-text a,
       .contact-text span{
-        font-size:17px;
+        font-size:17px !important;
       }
 
       .call-fixed{
-        width:58px;
-        height:58px;
-        font-size:24px;
+        width:58px !important;
+        height:58px !important;
+        font-size:24px !important;
       }
 
       .hero-logo-box{
-        min-height:260px;
+        min-height:260px !important;
       }
 
       .hero-logo-box::before{
-        width:240px;
-        height:240px;
+        width:240px !important;
+        height:240px !important;
       }
 
       .hero-logo-box::after{
-        width:170px;
-        height:170px;
+        width:170px !important;
+        height:170px !important;
       }
 
       .hero-logo-box img{
-        width:160px;
+        width:160px !important;
       }
-
-      .lang-btn{
-        width:100%;
-        text-align:center;
-      }
-    }<style>
-
-@media screen and (max-width: 768px) {
-
-html{
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden !important;
-}
-
-body{
-  margin:0;
-  padding:0;
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden !important;
-  position:relative;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-.container{
-  width:calc(100% - 20px) !important;
-  max-width:100% !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-  padding-left:0 !important;
-  padding-right:0 !important;
-  overflow:hidden !important;
-}
-
-/* všechny hlavní bloky */
-header,
-main,
-section,
-footer,
-.navbar,
-nav,
-.nav-right,
-.hero,
-.hero-grid,
-.hero-content,
-.hero-visual,
-.hero-logo-box,
-.about-grid,
-.services-grid,
-.secondary-works-grid,
-.projects-grid,
-.gallery-premium,
-.contact-grid,
-.contact-form-grid,
-.glass-card,
-.contact-card,
-.contact-form-card,
-.service-card,
-.secondary-work-card,
-.project-card,
-.gallery-card{
-  width:100% !important;
-  max-width:100% !important;
-  overflow-x:hidden !important;
-}
-
-/* HERO LOGO */
-.hero-logo-box{
-  min-height:240px !important;
-  padding:0 !important;
-  margin:0 !important;
-  justify-content:center !important;
-  align-items:center !important;
-}
-
-.hero-logo-box::before,
-.hero-logo-box::after{
-  left:50% !important;
-  right:auto !important;
-  transform:translateX(-50%) !important;
-}
-
-.hero-logo-box img{
-  display:block !important;
-  margin:0 auto !important;
-  width:230px !important;
-  max-width:88% !important;
-  height:auto !important;
-  left:auto !important;
-  right:auto !important;
-}
-
-/* obrázky */
-img{
-  max-width:100% !important;
-  height:auto !important;
-}
-
-/* mapa */
-iframe{
-  max-width:100% !important;
-}
-
-/* floating phone */
-.call-fixed{
-  right:14px !important;
-  bottom:14px !important;
-}
-
-/* menu */
-nav{
-  gap:14px !important;
-}
-
-nav a{
-  white-space:normal !important;
-  font-size:16px !important;
-}
-
-/* texty */
-.hero-content h1{
-  font-size:38px !important;
-  line-height:1.08 !important;
-}
-
-.hero-content p{
-  font-size:18px !important;
-}
-
-/* buttons */
-.hero-actions{
-  flex-direction:column !important;
-}
-
-.btn,
-.career-btn{
-  width:100% !important;
-}
-
-/* cards */
-.service-card,
-.secondary-work-card,
-.project-card{
-  min-height:auto !important;
-}
-
-/* gallery */
-.gallery-card{
-  height:260px !important;
-}
-
-/* project image */
-.project-image{
-  height:240px !important;
-}
-
-}
-
-/* extra malé telefony */
-@media screen and (max-width: 420px){
-
-.container{
-  width:calc(100% - 16px) !important;
-}
-
-.hero-content h1{
-  font-size:34px !important;
-}
-
-.brand{
-  font-size:22px !important;
-}
-
-.brand img{
-  width:34px !important;
-  height:34px !important;
-}
-
-.call-fixed{
-  width:56px !important;
-  height:56px !important;
-}
-@media screen and (max-width: 768px) {
-
-  html{
-    overflow-x:hidden;
-  }
-
-  body{
-    overflow-x:hidden;
-  }
-
-}
-}
+    }
   </style>
 </head>
 <body>
@@ -1517,9 +1510,20 @@ nav a{
         </nav>
 
         <div class="lang-switcher">
-          <button type="button" class="lang-btn active" data-lang="cz" onclick="setLang('cz', this)">Čeština</button>
-          <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en', this)">English</button>
-          <button type="button" class="lang-btn" data-lang="sk" onclick="setLang('sk', this)">Slovenčina</button>
+          <button type="button" class="lang-btn active" data-lang="cz" onclick="setLang('cz', this)">
+            <span class="lang-desktop">🇨🇿 Čeština</span>
+            <span class="lang-mobile">🇨🇿 cz</span>
+          </button>
+
+          <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en', this)">
+            <span class="lang-desktop">🇬🇧 English</span>
+            <span class="lang-mobile">🇬🇧 eng</span>
+          </button>
+
+          <button type="button" class="lang-btn" data-lang="sk" onclick="setLang('sk', this)">
+            <span class="lang-desktop">🇸🇰 Slovenčina</span>
+            <span class="lang-mobile">🇸🇰 sk</span>
+          </button>
         </div>
       </div>
     </div>
