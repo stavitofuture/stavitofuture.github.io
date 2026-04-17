@@ -1303,11 +1303,6 @@
       }
     }<style>
 
-/* ==================================================
-   MOBILE FIX - УБИРАЕТ ПРАВЫЙ ЛИШНИЙ ФОН НА ТЕЛЕФОНЕ
-   УДАЛИ СТАРЫЙ MOBILE FIX И ВСТАВЬ ЭТОТ ПОЛНОСТЬЮ
-================================================== */
-
 @media screen and (max-width: 768px) {
 
 html{
@@ -1487,7 +1482,17 @@ nav a{
   width:56px !important;
   height:56px !important;
 }
+@media screen and (max-width: 768px) {
 
+  html{
+    overflow-x:hidden;
+  }
+
+  body{
+    overflow-x:hidden;
+  }
+
+}
 }
   </style>
 </head>
