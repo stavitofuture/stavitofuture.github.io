@@ -1301,7 +1301,196 @@
         width:100%;
         text-align:center;
       }
-    }
+    }<style>
+
+/* ==================================================
+   MOBILE FIX - УБИРАЕТ ПРАВЫЙ ЛИШНИЙ ФОН НА ТЕЛЕФОНЕ
+   УДАЛИ СТАРЫЙ MOBILE FIX И ВСТАВЬ ЭТОТ ПОЛНОСТЬЮ
+================================================== */
+
+@media screen and (max-width: 768px) {
+
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+
+body{
+  margin:0;
+  padding:0;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden !important;
+  position:relative;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+.container{
+  width:calc(100% - 20px) !important;
+  max-width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+  overflow:hidden !important;
+}
+
+/* všechny hlavní bloky */
+header,
+main,
+section,
+footer,
+.navbar,
+nav,
+.nav-right,
+.hero,
+.hero-grid,
+.hero-content,
+.hero-visual,
+.hero-logo-box,
+.about-grid,
+.services-grid,
+.secondary-works-grid,
+.projects-grid,
+.gallery-premium,
+.contact-grid,
+.contact-form-grid,
+.glass-card,
+.contact-card,
+.contact-form-card,
+.service-card,
+.secondary-work-card,
+.project-card,
+.gallery-card{
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+}
+
+/* HERO LOGO */
+.hero-logo-box{
+  min-height:240px !important;
+  padding:0 !important;
+  margin:0 !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+
+.hero-logo-box::before,
+.hero-logo-box::after{
+  left:50% !important;
+  right:auto !important;
+  transform:translateX(-50%) !important;
+}
+
+.hero-logo-box img{
+  display:block !important;
+  margin:0 auto !important;
+  width:230px !important;
+  max-width:88% !important;
+  height:auto !important;
+  left:auto !important;
+  right:auto !important;
+}
+
+/* obrázky */
+img{
+  max-width:100% !important;
+  height:auto !important;
+}
+
+/* mapa */
+iframe{
+  max-width:100% !important;
+}
+
+/* floating phone */
+.call-fixed{
+  right:14px !important;
+  bottom:14px !important;
+}
+
+/* menu */
+nav{
+  gap:14px !important;
+}
+
+nav a{
+  white-space:normal !important;
+  font-size:16px !important;
+}
+
+/* texty */
+.hero-content h1{
+  font-size:38px !important;
+  line-height:1.08 !important;
+}
+
+.hero-content p{
+  font-size:18px !important;
+}
+
+/* buttons */
+.hero-actions{
+  flex-direction:column !important;
+}
+
+.btn,
+.career-btn{
+  width:100% !important;
+}
+
+/* cards */
+.service-card,
+.secondary-work-card,
+.project-card{
+  min-height:auto !important;
+}
+
+/* gallery */
+.gallery-card{
+  height:260px !important;
+}
+
+/* project image */
+.project-image{
+  height:240px !important;
+}
+
+}
+
+/* extra malé telefony */
+@media screen and (max-width: 420px){
+
+.container{
+  width:calc(100% - 16px) !important;
+}
+
+.hero-content h1{
+  font-size:34px !important;
+}
+
+.brand{
+  font-size:22px !important;
+}
+
+.brand img{
+  width:34px !important;
+  height:34px !important;
+}
+
+.call-fixed{
+  width:56px !important;
+  height:56px !important;
+}
+
+}
+
+</style>
   </style>
 </head>
 <body>
