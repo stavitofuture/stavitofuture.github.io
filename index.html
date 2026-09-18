@@ -1,2538 +1,5124 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STAVITO FUTURE</title>
-  <meta name="description" content="Stavito Future – fasády, rekonstrukce fasád, montáž sendvičových panelů, výroba a montáž ocelových konstrukcí, rekonstrukce hal." />
 
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="shortcut icon" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>STAVITO FUTURE</title>
+
+  <meta
+    name="description"
+    content="Stavito Future – fasády, rekonstrukce fasád, montáž sendvičových panelů, výroba a montáž ocelových konstrukcí, rekonstrukce hal."
+  >
+
+
+  <!-- ========================================
+       IKONA STRÁNKY / FAVICON
+  ======================================== -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="logo.png"
+  >
+
+  <link
+    rel="shortcut icon"
+    href="logo.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="logo.png"
+  >
+
 
   <style>
+
+
+    /* ========================================
+       ZÁKLAD
+    ======================================== */
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
     }
 
+
     html{
       scroll-behavior:smooth;
     }
 
+
     body{
-      font-family:Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       background:
-        radial-gradient(circle at top left, rgba(59,130,246,.08), transparent 30%),
-        linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
+
+        radial-gradient(
+          circle at top left,
+          rgba(59,130,246,.08),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          180deg,
+          #eef4ff 0%,
+          #f8fbff 100%
+        );
+
       color:#0f172a;
+
       line-height:1.6;
+
       overflow-x:hidden;
+
     }
+
 
     a{
       text-decoration:none;
       color:inherit;
     }
 
+
     img{
       max-width:100%;
       display:block;
     }
 
-    .container{
-      width:min(1280px, calc(100% - 40px));
-      margin:0 auto;
+
+    button,
+    input,
+    textarea{
+      font-family:inherit;
     }
+
+
+    .container{
+
+      width:min(
+        1280px,
+        calc(100% - 40px)
+      );
+
+      margin:0 auto;
+
+    }
+
+
+
+    /* ========================================
+       HEADER
+    ======================================== */
 
     header{
+
       position:sticky;
+
       top:0;
+
       z-index:1000;
-      background:rgba(10,25,60,.92);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+
+      background:
+        rgba(10,25,60,.94);
+
+      backdrop-filter:
+        blur(16px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+      box-shadow:
+        0 5px 25px
+        rgba(15,23,42,.08);
+
     }
+
 
     .navbar{
+
       min-height:84px;
+
       display:flex;
+
       align-items:center;
-      justify-content:space-between;
+
+      justify-content:
+        space-between;
+
       gap:24px;
+
       padding:10px 0;
+
     }
+
+
+
+    /* ========================================
+       LOGO
+    ======================================== */
 
     .brand{
+
       display:flex;
+
       align-items:center;
+
       gap:14px;
+
       color:#fff;
+
       font-weight:900;
+
       font-size:32px;
+
       letter-spacing:1px;
+
       white-space:nowrap;
+
       flex-shrink:0;
+
     }
+
 
     .brand img{
+
       width:42px;
+
       height:42px;
+
       object-fit:contain;
-      filter:drop-shadow(0 8px 18px rgba(255,255,255,.14));
+
+      filter:
+        drop-shadow(
+          0 8px 18px
+          rgba(255,255,255,.14)
+        );
+
     }
+
+
+
+    /* ========================================
+       PRAVÁ ČÁST MENU
+    ======================================== */
 
     .nav-right{
+
       display:flex;
+
       align-items:center;
+
       gap:18px;
+
       flex-wrap:wrap;
-      justify-content:flex-end;
+
+      justify-content:
+        flex-end;
+
       margin-left:auto;
+
     }
+
+
+
+    /* ========================================
+       NAVIGACE
+    ======================================== */
 
     nav{
+
       display:flex;
+
       align-items:center;
-      gap:26px;
+
+      gap:24px;
+
       flex-wrap:wrap;
+
       justify-content:center;
+
     }
+
 
     nav a{
-      color:rgba(255,255,255,.92);
-      font-size:18px;
+
+      color:
+        rgba(255,255,255,.92);
+
+      font-size:17px;
+
       font-weight:700;
+
       position:relative;
+
       transition:.25s ease;
+
+      white-space:nowrap;
+
     }
 
+
     nav a::after{
+
       content:"";
+
       position:absolute;
+
       left:0;
+
       bottom:-8px;
+
       width:0;
+
       height:2px;
+
       background:#fff;
-      transition:width .25s ease;
+
+      transition:
+        width .25s ease;
+
     }
+
 
     nav a:hover::after{
       width:100%;
     }
 
-    .lang-switcher{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
+
+    nav a:hover{
+      color:#fff;
     }
 
-    .lang-btn{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.15);
-      color:#fff;
-      padding:8px 14px;
-      border-radius:10px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.3s ease;
-      font-size:14px;
-      white-space:nowrap;
-      min-height:40px;
-      display:inline-flex;
+
+
+    /* ========================================
+       JAZYKY
+    ======================================== */
+
+    .lang-switcher{
+
+      display:flex;
+
+      gap:8px;
+
       align-items:center;
-      justify-content:center;
-      gap:6px;
+
+      flex-wrap:wrap;
+
     }
+
+
+    .lang-btn{
+
+      background:
+        rgba(255,255,255,.08);
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      color:#fff;
+
+      padding:
+        8px 14px;
+
+      border-radius:10px;
+
+      font-weight:800;
+
+      cursor:pointer;
+
+      transition:.3s ease;
+
+      font-size:14px;
+
+      white-space:nowrap;
+
+      min-height:40px;
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:6px;
+
+    }
+
 
     .lang-btn:hover{
       background:#2563eb;
     }
 
+
     .lang-btn.active{
+
       background:#fff;
+
       color:#1d4ed8;
+
     }
+
 
     .lang-mobile{
       display:none;
     }
 
+
     .lang-desktop{
+
       display:inline-flex;
+
       align-items:center;
+
       gap:6px;
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 15% 25%, rgba(255,255,255,.16), transparent 20%),
-        radial-gradient(circle at 85% 15%, rgba(147,197,253,.18), transparent 26%),
-        linear-gradient(135deg, #1236a6 0%, #1e4fd2 48%, #3a7dff 100%);
-      padding:88px 0 56px;
-    }
-
-    .hero::before,
-    .hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      filter:blur(40px);
-      pointer-events:none;
-    }
-
-    .hero::before{
-      width:260px;
-      height:260px;
-      background:rgba(255,255,255,.08);
-      top:30px;
-      right:10%;
-      animation:pulseGlow 5s ease-in-out infinite;
-    }
-
-    .hero::after{
-      width:220px;
-      height:220px;
-      background:rgba(191,219,254,.16);
-      bottom:20px;
-      left:8%;
-      animation:pulseGlow 6s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow{
-      0%{transform:scale(1);opacity:.6;}
-      50%{transform:scale(1.08);opacity:1;}
-      100%{transform:scale(1);opacity:.6;}
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:24px;
-      align-items:center;
-    }
-
-    .hero-content h1{
-      color:#fff;
-      font-size:74px;
-      line-height:1.02;
-      font-weight:900;
-      letter-spacing:-2px;
-      margin-bottom:22px;
-      max-width:860px;
-    }
-
-    .hero-content p{
-      color:rgba(255,255,255,.94);
-      font-size:23px;
-      max-width:760px;
-      margin-bottom:30px;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-bottom:34px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:58px;
-      padding:0 24px;
-      border-radius:16px;
-      font-size:17px;
-      font-weight:800;
-      transition:.28s ease;
-    }
-
-    .btn-primary{
-      background:#fff;
-      color:#1d4ed8;
-      box-shadow:0 16px 35px rgba(15,23,42,.24);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-3px) scale(1.02);
-      box-shadow:0 22px 42px rgba(15,23,42,.28);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.22);
-      color:#fff;
-      backdrop-filter:blur(10px);
-    }
-
-    .btn-secondary:hover{
-      transform:translateY(-3px);
-      background:rgba(255,255,255,.16);
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:14px;
-      max-width:760px;
-    }
-
-    .stat-card{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:22px;
-      padding:20px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 18px 38px rgba(0,0,0,.14);
-      min-height:126px;
-    }
-
-    .stat-number{
-      color:#fff;
-      font-size:28px;
-      font-weight:900;
-      margin-bottom:6px;
-    }
-
-    .stat-label{
-      color:rgba(255,255,255,.88);
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .hero-visual{
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-    }
-
-    .hero-logo-box{
-      position:relative;
-      width:100%;
-      max-width:760px;
-      min-height:520px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:0;
-      margin-left:40px;
-    }
-
-    .hero-logo-box::before{
-      content:"";
-      position:absolute;
-      left:58%;
-      top:42%;
-      transform:translate(-50%,-50%);
-      width:520px;
-      height:520px;
-      border-radius:50%;
-      background:
-        radial-gradient(circle,
-        rgba(255,255,255,.24) 0%,
-        rgba(255,255,255,.12) 25%,
-        rgba(255,255,255,.04) 52%,
-        rgba(255,255,255,0) 72%);
-      filter:blur(10px);
-      animation:logoAura 5s ease-in-out infinite;
-    }
-
-    .hero-logo-box::after{
-      content:"";
-      position:absolute;
-      left:58%;
-      top:42%;
-      transform:translate(-50%,-50%);
-      width:360px;
-      height:360px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow:
-        0 0 0 18px rgba(255,255,255,.03),
-        0 0 0 40px rgba(255,255,255,.02);
-      animation:ringPulse 6s ease-in-out infinite;
-    }
-
-    .hero-logo-box img{
-      position:absolute;
-      left:58%;
-      top:42%;
-      transform:translate(-50%,-50%);
-      z-index:3;
-      width:310px;
-      max-width:none;
-      filter:
-        drop-shadow(0 25px 40px rgba(255,255,255,.14))
-        drop-shadow(0 0 18px rgba(255,255,255,.08));
-      animation:logoFloat 5s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat{
-      0%{transform:translate(-50%,-50%) translateY(0) scale(1);}
-      50%{transform:translate(-50%,-50%) translateY(-14px) scale(1.03);}
-      100%{transform:translate(-50%,-50%) translateY(0) scale(1);}
-    }
-
-    @keyframes logoAura{
-      0%{transform:translate(-50%,-50%) scale(1);opacity:.75;}
-      50%{transform:translate(-50%,-50%) scale(1.08);opacity:1;}
-      100%{transform:translate(-50%,-50%) scale(1);opacity:.75;}
-    }
-
-    @keyframes ringPulse{
-      0%{transform:translate(-50%,-50%) scale(1);opacity:.45;}
-      50%{transform:translate(-50%,-50%) scale(1.04);opacity:.9;}
-      100%{transform:translate(-50%,-50%) scale(1);opacity:.45;}
-    }
-
-    .section{
-      padding:74px 0;
-      position:relative;
-    }
-
-    .section-title-wrap{
-      text-align:center;
-      margin-bottom:34px;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      color:#2563eb;
-      font-weight:900;
-      font-size:14px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
-
-    .section-title{
-      font-size:54px;
-      line-height:1.05;
-      color:#0f172a;
-      font-weight:900;
-      letter-spacing:-1.5px;
-      margin-bottom:12px;
-    }
-
-    .section-subtitle{
-      max-width:900px;
-      margin:0 auto;
-      color:#475569;
-      font-size:20px;
-    }
-
-    .glass-card{
-      background:rgba(255,255,255,.9);
-      border:1px solid rgba(148,163,184,.18);
-      border-radius:30px;
-      padding:34px;
-      box-shadow:0 18px 55px rgba(15,23,42,.07);
-      backdrop-filter:blur(12px);
-    }
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .about-text p{
-      font-size:18px;
-      color:#334155;
-      margin-bottom:16px;
-    }
-
-    .about-points{
-      display:grid;
-      gap:14px;
-    }
-
-    .point-box{
-      background:linear-gradient(180deg, #f8fbff, #edf5ff);
-      border:1px solid #dbeafe;
-      border-radius:20px;
-      padding:18px;
-      transition:transform .35s ease, box-shadow .35s ease;
-    }
-
-    .point-box:hover{
-      transform:translateY(-5px);
-      box-shadow:0 18px 30px rgba(37,99,235,.10);
-    }
-
-    .point-box strong{
-      display:block;
-      color:#1d4ed8;
-      font-size:17px;
-      margin-bottom:5px;
-    }
-
-    .point-box span{
-      color:#475569;
-      font-size:15px;
-    }
-
-    .services-grid,
-    .secondary-works-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:22px;
-    }
-
-    .service-card,
-    .secondary-work-card{
-      position:relative;
-      background:linear-gradient(180deg, #ffffff, #f7fbff);
-      border:1px solid #dbeafe;
-      border-radius:28px;
-      padding:28px;
-      box-shadow:0 16px 36px rgba(15,23,42,.05);
-      transition:.35s ease;
-      display:flex;
-      flex-direction:column;
-      min-height:260px;
-      overflow:hidden;
-    }
-
-    .service-card::before,
-    .secondary-work-card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto 0;
-      height:4px;
-      background:linear-gradient(90deg, #1d4ed8, #60a5fa);
-    }
-
-    .service-card:hover,
-    .secondary-work-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 24px 48px rgba(37,99,235,.14);
-    }
-
-    .service-icon,
-    .secondary-work-icon{
-      width:64px;
-      height:64px;
-      border-radius:20px;
-      flex:0 0 64px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(135deg, #dbeafe, #eff6ff);
-      color:#1d4ed8;
-      font-size:30px;
-      box-shadow:0 12px 24px rgba(37,99,235,.10);
-    }
-
-    .service-icon-wrap,
-    .secondary-work-top{
-      display:flex;
-      align-items:flex-start;
-      gap:14px;
-      margin-bottom:16px;
-    }
-
-    .service-card h3,
-    .secondary-work-card h3{
-      color:#0f172a;
-      font-size:24px;
-      line-height:1.12;
-      font-weight:900;
-      margin-top:4px;
-      margin-bottom:14px;
-    }
-
-    .service-card p,
-    .secondary-work-card p{
-      color:#475569;
-      font-size:17px;
-      margin-bottom:0;
-    }
-
-    .gallery-premium{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .gallery-card{
-      position:relative;
-      height:340px;
-      border-radius:30px;
-      overflow:hidden;
-      background:linear-gradient(135deg, #dbeafe, #bfdbfe);
-      box-shadow:0 20px 46px rgba(15,23,42,.10);
-      transition:transform .45s ease, box-shadow .45s ease;
-    }
-
-    .gallery-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 30px 56px rgba(37,99,235,.18);
-    }
-
-    .gallery-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .85s ease, filter .5s ease;
-    }
-
-    .gallery-card:hover img{
-      transform:scale(1.06);
-      filter:brightness(1.03) saturate(1.05);
-    }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(5, minmax(0,1fr));
-      gap:24px;
-    }
-
-    .project-card{
-      background:linear-gradient(180deg, #ffffff, #f8fbff);
-      border:1px solid #dbeafe;
-      border-radius:30px;
-      overflow:hidden;
-      box-shadow:0 18px 40px rgba(15,23,42,.06);
-      transition:.4s ease;
-      display:flex;
-      flex-direction:column;
-      min-height:430px;
-    }
-
-    .project-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 30px 60px rgba(37,99,235,.16);
-    }
-
-    .project-image{
-      position:relative;
-      height:290px;
-      overflow:hidden;
-      background:linear-gradient(135deg, #dbeafe, #bfdbfe);
-    }
-
-    .project-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .9s ease, filter .5s ease;
-    }
-
-    .project-card:hover .project-image img{
-      transform:scale(1.09);
-      filter:brightness(1.05) saturate(1.1);
-    }
-
-    .project-image::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(15,23,42,.03), rgba(15,23,42,.28));
-      transition:.45s ease;
-    }
-
-    .project-card:hover .project-image::after{
-      background:linear-gradient(180deg, rgba(15,23,42,.02), rgba(29,78,216,.20));
-    }
-
-    .project-badge{
-      position:absolute;
-      top:18px;
-            left:18px;
-      z-index:3;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.92);
-      color:#1d4ed8;
-      font-size:13px;
-      font-weight:900;
-      box-shadow:0 10px 22px rgba(15,23,42,.10);
-      backdrop-filter:blur(8px);
-    }
-
-    .project-content{
-      padding:22px;
-      display:flex;
-      flex-direction:column;
-      flex:1;
-    }
-
-    .project-content h3{
-      font-size:22px;
-      line-height:1.15;
-      color:#0f172a;
-      font-weight:900;
-      margin-bottom:10px;
-    }
-
-    .project-content p{
-      color:#475569;
-      font-size:16px;
-    }
 
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:stretch;
     }
 
-    .contact-card{
-      background:linear-gradient(180deg, #ffffff, #f8fbff);
-      border:1px solid #dbeafe;
-      border-radius:30px;
-      padding:32px;
-      box-shadow:0 18px 44px rgba(15,23,42,.07);
-    }
-
-    .contact-card h3{
-      font-size:28px;
-      color:#0f172a;
-      margin-bottom:20px;
-      font-weight:900;
-    }
-
-    .contact-list{
-      display:grid;
-      gap:14px;
-    }
-
-    .contact-item{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      padding:15px;
-      border-radius:18px;
-      background:#f8fbff;
-      border:1px solid #e2e8f0;
-      transition:.3s ease;
-    }
-
-    .contact-item:hover{
-      transform:translateX(5px);
-      border-color:#bfdbfe;
-      background:#eff6ff;
-    }
-
-    .contact-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      background:linear-gradient(135deg, #dbeafe, #eff6ff);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#1d4ed8;
-      font-size:20px;
-      flex-shrink:0;
-    }
-
-    .contact-item strong{
-      display:block;
-      color:#0f172a;
-      font-size:15px;
-      margin-bottom:2px;
-    }
-
-    .contact-item span,
-    .contact-item a{
-      color:#475569;
-      font-size:15px;
-      word-break:break-word;
-    }
-
-    .form-card{
-      background:linear-gradient(135deg, #1236a6, #2563eb 55%, #4f8dff);
-      color:#fff;
-      border-radius:30px;
-      padding:32px;
-      box-shadow:0 24px 60px rgba(37,99,235,.22);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .form-card::before{
-      content:"";
-      position:absolute;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      background:rgba(255,255,255,.08);
-      right:-70px;
-      top:-70px;
-    }
-
-    .form-card h3{
-      font-size:30px;
-      margin-bottom:8px;
-      position:relative;
-      z-index:2;
-    }
-
-    .form-card > p{
-      color:rgba(255,255,255,.88);
-      margin-bottom:20px;
-      position:relative;
-      z-index:2;
-    }
-
-    .contact-form{
-      display:grid;
-      gap:14px;
-      position:relative;
-      z-index:2;
-    }
-
-    .contact-form input,
-    .contact-form textarea{
-      width:100%;
-      border:none;
-      outline:none;
-      border-radius:16px;
-      padding:15px 16px;
-      background:rgba(255,255,255,.96);
-      color:#0f172a;
-      font:inherit;
-      box-shadow:0 10px 24px rgba(15,23,42,.10);
-    }
-
-    .contact-form textarea{
-      min-height:140px;
-      resize:vertical;
-    }
-
-    .contact-form button{
-      border:none;
-      cursor:pointer;
-      background:#fff;
-      color:#1d4ed8;
-      font-weight:900;
-      font-size:16px;
-      padding:15px 18px;
-      border-radius:16px;
-      transition:.3s ease;
-      box-shadow:0 12px 28px rgba(15,23,42,.18);
-    }
-
-    .contact-form button:hover{
-      transform:translateY(-3px);
-    }
-
-    .map-wrap{
-      margin-top:24px;
-      border-radius:30px;
-      overflow:hidden;
-      box-shadow:0 18px 44px rgba(15,23,42,.08);
-      border:1px solid #dbeafe;
-      background:#fff;
-    }
-
-    .map-wrap iframe{
-      width:100%;
-      height:390px;
-      border:0;
-      display:block;
-    }
-
-    footer{
-      background:#081124;
-      color:#fff;
-      padding:32px 0;
-      margin-top:30px;
-    }
-
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-brand{
-      font-size:22px;
-      font-weight:900;
-    }
-
-    .footer-small{
-      color:rgba(255,255,255,.68);
-      font-size:14px;
-    }
-
-    .call-fixed{
-      position:fixed;
-      right:24px;
-      bottom:24px;
-      z-index:1200;
-      width:62px;
-      height:62px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(135deg, #1d4ed8, #3b82f6);
-      color:#fff;
-      font-size:27px;
-      box-shadow:0 18px 38px rgba(37,99,235,.35);
-      transition:.3s ease;
-    }
-
-    .call-fixed:hover{
-      transform:translateY(-5px) scale(1.05);
-    }
-
-    .reveal{
-      opacity:0;
-      transition:
-        opacity .9s ease,
-        transform .9s cubic-bezier(.2,.7,.2,1);
-      will-change:transform, opacity;
-    }
-
-    .from-left{
-      transform:translateX(-70px);
-    }
-
-    .from-right{
-      transform:translateX(70px);
-    }
-
-    .from-bottom{
-      transform:translateY(55px);
-    }
-
-    .reveal.show{
-      opacity:1;
-      transform:translate(0,0);
-    }
-
-    .service-card:nth-child(1){transition-delay:.05s;}
-    .service-card:nth-child(2){transition-delay:.12s;}
-    .service-card:nth-child(3){transition-delay:.19s;}
-    .service-card:nth-child(4){transition-delay:.26s;}
-    .service-card:nth-child(5){transition-delay:.33s;}
-    .service-card:nth-child(6){transition-delay:.40s;}
-
-    .secondary-work-card:nth-child(1){transition-delay:.05s;}
-    .secondary-work-card:nth-child(2){transition-delay:.12s;}
-    .secondary-work-card:nth-child(3){transition-delay:.19s;}
-
-    .project-card:nth-child(1){transition-delay:.05s;}
-    .project-card:nth-child(2){transition-delay:.12s;}
-    .project-card:nth-child(3){transition-delay:.19s;}
-    .project-card:nth-child(4){transition-delay:.26s;}
-    .project-card:nth-child(5){transition-delay:.33s;}
-
-    .company-mini{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:18px;
-      padding:16px;
-      border-radius:18px;
-      background:#f8fbff;
-      border:1px solid #e2e8f0;
-    }
-
-    .company-mini img{
-      width:54px;
-      height:54px;
-      object-fit:contain;
-    }
-
-    .company-mini strong{
-      display:block;
-      color:#0f172a;
-      font-size:16px;
-    }
-
-    .company-mini span{
-      color:#64748b;
-      font-size:14px;
-    }
-
-    @media (max-width:1180px){
-      .hero-grid,
-      .about-grid,
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero-visual{
-        justify-content:center;
-      }
-
-      .hero-logo-box{
-        margin-left:0;
-        min-height:420px;
-      }
-
-      .hero-logo-box::before{
-        left:50%;
-        top:50%;
-      }
-
-      .hero-logo-box::after{
-        left:50%;
-        top:50%;
-      }
-
-      .hero-logo-box img{
-        left:50%;
-        top:50%;
-      }
-
-      .projects-grid{
-        grid-template-columns:repeat(3, minmax(0,1fr));
-      }
-
-      .services-grid,
-      .secondary-works-grid{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-      }
-    }
-
-    @media (max-width:920px){
-      .navbar{
-        align-items:flex-start;
-        flex-direction:column;
-        gap:12px;
-      }
-
-      .nav-right{
-        width:100%;
-        justify-content:space-between;
-        margin-left:0;
-      }
-
-      nav{
-        gap:18px;
-      }
-
-      .hero{
-        padding-top:64px;
-      }
-
-      .hero-content h1{
-        font-size:58px;
-      }
-
-      .gallery-premium{
-        grid-template-columns:1fr;
-      }
-
-      .gallery-card{
-        height:360px;
-      }
-
-      .projects-grid{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-      }
-    }
-
-    @media (max-width:700px){
-      .container{
-        width:min(100% - 24px, 1280px);
-      }
-
-      header{
-        position:relative;
-      }
-
-      .navbar{
-        min-height:auto;
-        padding:12px 0;
-        align-items:center;
-      }
-
-      .brand{
-        font-size:24px;
-      }
-
-      .brand img{
-        width:36px;
-        height:36px;
-      }
-
-      .nav-right{
-        flex-direction:column;
-        align-items:center;
-        gap:12px;
-      }
-
-      nav{
-        width:100%;
-        justify-content:center;
-        gap:12px 16px;
-      }
-
-      nav a{
-        font-size:15px;
-      }
-
-      .lang-switcher{
-        width:100%;
-        justify-content:center;
-      }
-
-      .lang-btn{
-        min-width:62px;
-      }
-
-      .lang-desktop{
-        display:none;
-      }
-
-      .lang-mobile{
-        display:inline;
-      }
-
-      .hero{
-        padding:48px 0 38px;
-      }
-
-      .hero-content{
-        text-align:center;
-      }
-
-      .hero-content h1{
-        font-size:44px;
-        letter-spacing:-1px;
-      }
-
-      .hero-content p{
-        font-size:18px;
-      }
-
-      .hero-actions{
-        justify-content:center;
-      }
-
-      .hero-stats{
-        grid-template-columns:1fr;
-      }
-
-      .hero-logo-box{
-        min-height:340px;
-      }
-
-      .hero-logo-box::before{
-        width:320px;
-        height:320px;
-      }
-
-      .hero-logo-box::after{
-        width:240px;
-        height:240px;
-      }
-
-      .hero-logo-box img{
-        width:210px;
-      }
-
-      .section{
-        padding:54px 0;
-      }
-
-      .section-title{
-        font-size:40px;
-      }
-
-      .section-subtitle{
-        font-size:17px;
-      }
-
-      .services-grid,
-      .secondary-works-grid,
-      .projects-grid{
-        grid-template-columns:1fr;
-      }
-
-      .gallery-card{
-        height:300px;
-      }
-
-      .project-card{
-        min-height:auto;
-      }
-
-      .project-image{
-        height:260px;
-      }
-
-      .glass-card,
-      .contact-card,
-      .form-card{
-        padding:22px;
-        border-radius:24px;
-      }
-
-      .map-wrap iframe{
-        height:320px;
-      }
-
-      .call-fixed{
-        right:16px;
-        bottom:16px;
-        width:56px;
-        height:56px;
-      }
-    }
-
-    @media (max-width:420px){
-      .brand{
-        font-size:20px;
-      }
-
-      nav{
-        gap:10px 12px;
-      }
-
-      nav a{
-        font-size:14px;
-      }
-
-      .hero-content h1{
-        font-size:38px;
-      }
-
-      .section-title{
-        font-size:34px;
-      }
-
-      .gallery-card{
-        height:260px;
-      }
-
-      .project-image{
-        height:230px;
-      }
-    }
 
 
     /* ========================================
-       ODKAZ NA CELOU FOTOGALERII
+       HERO
+    ======================================== */
+
+    .hero{
+
+      position:relative;
+
+      overflow:hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 25%,
+          rgba(255,255,255,.16),
+          transparent 20%
+        ),
+
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(147,197,253,.18),
+          transparent 26%
+        ),
+
+        linear-gradient(
+          135deg,
+          #1236a6 0%,
+          #1e4fd2 48%,
+          #3a7dff 100%
+        );
+
+      padding:
+        88px 0 56px;
+
+    }
+
+
+    .hero::before,
+    .hero::after{
+
+      content:"";
+
+      position:absolute;
+
+      border-radius:50%;
+
+      filter:
+        blur(40px);
+
+      pointer-events:none;
+
+    }
+
+
+    .hero::before{
+
+      width:260px;
+
+      height:260px;
+
+      background:
+        rgba(255,255,255,.08);
+
+      top:30px;
+
+      right:10%;
+
+      animation:
+        pulseGlow
+        5s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    .hero::after{
+
+      width:220px;
+
+      height:220px;
+
+      background:
+        rgba(191,219,254,.16);
+
+      bottom:20px;
+
+      left:8%;
+
+      animation:
+        pulseGlow
+        6s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    @keyframes pulseGlow{
+
+      0%{
+
+        transform:scale(1);
+
+        opacity:.6;
+
+      }
+
+
+      50%{
+
+        transform:scale(1.08);
+
+        opacity:1;
+
+      }
+
+
+      100%{
+
+        transform:scale(1);
+
+        opacity:.6;
+
+      }
+
+    }
+
+
+
+    .hero-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap:24px;
+
+      align-items:center;
+
+    }
+
+
+
+    .hero-content{
+
+      position:relative;
+
+      z-index:5;
+
+    }
+
+
+
+    .hero-eyebrow{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      gap:8px;
+
+      padding:
+        8px 14px;
+
+      margin-bottom:18px;
+
+      border-radius:999px;
+
+      background:
+        rgba(255,255,255,.10);
+
+      border:
+        1px solid
+        rgba(255,255,255,.16);
+
+      color:#fff;
+
+      font-size:13px;
+
+      font-weight:900;
+
+      letter-spacing:1.4px;
+
+      text-transform:uppercase;
+
+      backdrop-filter:
+        blur(10px);
+
+    }
+
+
+
+    .hero-content h1{
+
+      color:#fff;
+
+      font-size:74px;
+
+      line-height:1.02;
+
+      font-weight:900;
+
+      letter-spacing:-2px;
+
+      margin-bottom:22px;
+
+      max-width:860px;
+
+    }
+
+
+
+    .hero-content p{
+
+      color:
+        rgba(255,255,255,.94);
+
+      font-size:23px;
+
+      max-width:760px;
+
+      margin-bottom:30px;
+
+    }
+
+
+
+    /* ========================================
+       HERO TLAČÍTKA
+    ======================================== */
+
+    .hero-actions{
+
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:14px;
+
+      margin-bottom:34px;
+
+    }
+
+
+    .btn{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:10px;
+
+      min-height:58px;
+
+      padding:
+        0 24px;
+
+      border-radius:16px;
+
+      font-size:17px;
+
+      font-weight:800;
+
+      transition:.28s ease;
+
+    }
+
+
+    .btn-primary{
+
+      background:#fff;
+
+      color:#1d4ed8;
+
+      box-shadow:
+        0 16px 35px
+        rgba(15,23,42,.24);
+
+    }
+
+
+    .btn-primary:hover{
+
+      transform:
+        translateY(-3px)
+        scale(1.02);
+
+      box-shadow:
+        0 22px 42px
+        rgba(15,23,42,.28);
+
+    }
+
+
+    .btn-secondary{
+
+      background:
+        rgba(255,255,255,.08);
+
+      border:
+        1px solid
+        rgba(255,255,255,.22);
+
+      color:#fff;
+
+      backdrop-filter:
+        blur(10px);
+
+    }
+
+
+    .btn-secondary:hover{
+
+      transform:
+        translateY(-3px);
+
+      background:
+        rgba(255,255,255,.16);
+
+    }
+
+
+
+    /* ========================================
+       STATISTIKY
+    ======================================== */
+
+    .hero-stats{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
+
+      gap:14px;
+
+      max-width:760px;
+
+    }
+
+
+    .stat-card{
+
+      background:
+        rgba(255,255,255,.10);
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      border-radius:22px;
+
+      padding:20px;
+
+      backdrop-filter:
+        blur(10px);
+
+      box-shadow:
+        0 18px 38px
+        rgba(0,0,0,.14);
+
+      min-height:126px;
+
+    }
+
+
+    .stat-number{
+
+      color:#fff;
+
+      font-size:28px;
+
+      font-weight:900;
+
+      margin-bottom:6px;
+
+    }
+
+
+    .stat-label{
+
+      color:
+        rgba(255,255,255,.88);
+
+      font-size:14px;
+
+      font-weight:600;
+
+    }
+
+
+
+    /* ========================================
+       HERO LOGO
+    ======================================== */
+
+    .hero-visual{
+
+      display:flex;
+
+      justify-content:flex-end;
+
+      align-items:center;
+
+    }
+
+
+    .hero-logo-box{
+
+      position:relative;
+
+      width:100%;
+
+      max-width:760px;
+
+      min-height:520px;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      padding:0;
+
+      margin-left:40px;
+
+    }
+
+
+    .hero-logo-box::before{
+
+      content:"";
+
+      position:absolute;
+
+      left:58%;
+
+      top:42%;
+
+      transform:
+        translate(-50%,-50%);
+
+      width:520px;
+
+      height:520px;
+
+      border-radius:50%;
+
+      background:
+
+        radial-gradient(
+
+          circle,
+
+          rgba(255,255,255,.24)
+          0%,
+
+          rgba(255,255,255,.12)
+          25%,
+
+          rgba(255,255,255,.04)
+          52%,
+
+          rgba(255,255,255,0)
+          72%
+
+        );
+
+      filter:blur(10px);
+
+      animation:
+        logoAura
+        5s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    .hero-logo-box::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:58%;
+
+      top:42%;
+
+      transform:
+        translate(-50%,-50%);
+
+      width:360px;
+
+      height:360px;
+
+      border-radius:50%;
+
+      border:
+        1px solid
+        rgba(255,255,255,.16);
+
+      box-shadow:
+
+        0 0 0 18px
+        rgba(255,255,255,.03),
+
+        0 0 0 40px
+        rgba(255,255,255,.02);
+
+      animation:
+        ringPulse
+        6s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    .hero-logo-box img{
+
+      position:absolute;
+
+      left:58%;
+
+      top:42%;
+
+      transform:
+        translate(-50%,-50%);
+
+      z-index:3;
+
+      width:310px;
+
+      max-width:none;
+
+      filter:
+
+        drop-shadow(
+          0 25px 40px
+          rgba(255,255,255,.14)
+        )
+
+        drop-shadow(
+          0 0 18px
+          rgba(255,255,255,.08)
+        );
+
+      animation:
+        logoFloat
+        5s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    @keyframes logoFloat{
+
+      0%{
+
+        transform:
+          translate(-50%,-50%)
+          translateY(0)
+          scale(1);
+
+      }
+
+
+      50%{
+
+        transform:
+          translate(-50%,-50%)
+          translateY(-14px)
+          scale(1.03);
+
+      }
+
+
+      100%{
+
+        transform:
+          translate(-50%,-50%)
+          translateY(0)
+          scale(1);
+
+      }
+
+    }
+
+
+    @keyframes logoAura{
+
+      0%{
+
+        transform:
+          translate(-50%,-50%)
+          scale(1);
+
+        opacity:.75;
+
+      }
+
+
+      50%{
+
+        transform:
+          translate(-50%,-50%)
+          scale(1.08);
+
+        opacity:1;
+
+      }
+
+
+      100%{
+
+        transform:
+          translate(-50%,-50%)
+          scale(1);
+
+        opacity:.75;
+
+      }
+
+    }
+
+
+    @keyframes ringPulse{
+
+      0%{
+
+        transform:
+          translate(-50%,-50%)
+          scale(1);
+
+        opacity:.45;
+
+      }
+
+
+      50%{
+
+        transform:
+          translate(-50%,-50%)
+          scale(1.04);
+
+        opacity:.9;
+
+      }
+
+
+      100%{
+
+        transform:
+          translate(-50%,-50%)
+          scale(1);
+
+        opacity:.45;
+
+      }
+
+    }
+
+
+
+    /* ========================================
+       SEKCE
+    ======================================== */
+
+    .section{
+
+      padding:74px 0;
+
+      position:relative;
+
+    }
+
+
+    .section-title-wrap{
+
+      text-align:center;
+
+      margin-bottom:34px;
+
+    }
+
+
+    .eyebrow{
+
+      display:inline-block;
+
+      color:#2563eb;
+
+      font-weight:900;
+
+      font-size:14px;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+      margin-bottom:10px;
+
+    }
+
+
+    .section-title{
+
+      font-size:54px;
+
+      line-height:1.05;
+
+      color:#0f172a;
+
+      font-weight:900;
+
+      letter-spacing:-1.5px;
+
+      margin-bottom:12px;
+
+    }
+
+
+    .section-subtitle{
+
+      max-width:900px;
+
+      margin:0 auto;
+
+      color:#475569;
+
+      font-size:20px;
+
+    }
+
+
+
+    /* ========================================
+       GLASS CARD
+    ======================================== */
+
+    .glass-card{
+
+      background:
+        rgba(255,255,255,.9);
+
+      border:
+        1px solid
+        rgba(148,163,184,.18);
+
+      border-radius:30px;
+
+      padding:34px;
+
+      box-shadow:
+        0 18px 55px
+        rgba(15,23,42,.07);
+
+      backdrop-filter:
+        blur(12px);
+
+    }
+
+
+
+    /* ========================================
+       O NÁS
+    ======================================== */
+
+    .about-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap:24px;
+
+      align-items:stretch;
+
+    }
+
+
+    .about-text p{
+
+      font-size:18px;
+
+      color:#334155;
+
+      margin-bottom:16px;
+
+    }
+
+
+    .company-mini{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:16px;
+
+      margin-top:20px;
+
+      padding:18px;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f8fbff,
+          #eff6ff
+        );
+
+      border:
+        1px solid #dbeafe;
+
+    }
+
+
+    .company-mini img{
+
+      width:52px;
+
+      height:52px;
+
+      object-fit:contain;
+
+    }
+
+
+    .company-mini strong{
+
+      display:block;
+
+      color:#0f172a;
+
+      font-size:17px;
+
+      margin-bottom:2px;
+
+    }
+
+
+    .company-mini span{
+
+      color:#64748b;
+
+      font-size:14px;
+
+    }
+
+
+
+    .about-points{
+
+      display:grid;
+
+      gap:14px;
+
+    }
+
+
+    .point-box{
+
+      background:
+        linear-gradient(
+          180deg,
+          #f8fbff,
+          #edf5ff
+        );
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius:20px;
+
+      padding:18px;
+
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+    }
+
+
+    .point-box:hover{
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 18px 30px
+        rgba(37,99,235,.10);
+
+    }
+
+
+    .point-box strong{
+
+      display:block;
+
+      color:#1d4ed8;
+
+      font-size:17px;
+
+      margin-bottom:5px;
+
+    }
+
+
+    .point-box span{
+
+      color:#475569;
+
+      font-size:15px;
+
+    }
+
+
+
+    /* ========================================
+       SLUŽBY
+    ======================================== */
+
+    .services-grid,
+    .secondary-works-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
+
+      gap:22px;
+
+    }
+
+
+    .service-card,
+    .secondary-work-card{
+
+      position:relative;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #f7fbff
+        );
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius:28px;
+
+      padding:28px;
+
+      box-shadow:
+        0 16px 36px
+        rgba(15,23,42,.05);
+
+      transition:.35s ease;
+
+      display:flex;
+
+      flex-direction:column;
+
+      min-height:260px;
+
+      overflow:hidden;
+
+    }
+
+
+    .service-card::before,
+    .secondary-work-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0 0 auto 0;
+
+      height:4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #1d4ed8,
+          #60a5fa
+        );
+
+    }
+
+
+    .service-card:hover,
+    .secondary-work-card:hover{
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 24px 48px
+        rgba(37,99,235,.14);
+
+    }
+
+
+    .service-icon,
+    .secondary-work-icon{
+
+      width:64px;
+
+      height:64px;
+
+      border-radius:20px;
+
+      flex:0 0 64px;
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dbeafe,
+          #eff6ff
+        );
+
+      color:#1d4ed8;
+
+      font-size:30px;
+
+      box-shadow:
+        0 12px 24px
+        rgba(37,99,235,.10);
+
+    }
+
+
+    .service-icon-wrap,
+    .secondary-work-top{
+
+      display:flex;
+
+      align-items:flex-start;
+
+      gap:14px;
+
+      margin-bottom:16px;
+
+    }
+
+
+    .service-card h3,
+    .secondary-work-card h3{
+
+      color:#0f172a;
+
+      font-size:24px;
+
+      line-height:1.12;
+
+      font-weight:900;
+
+      margin-top:4px;
+
+      margin-bottom:14px;
+
+    }
+
+
+    .service-card p,
+    .secondary-work-card p{
+
+      color:#475569;
+
+      font-size:17px;
+
+      margin-bottom:0;
+
+    }
+
+
+
+    /* ========================================
+       FOTOGALERIE NA HLAVNÍ STRÁNCE
+    ======================================== */
+
+    .gallery-premium{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
+
+      gap:24px;
+
+      align-items:stretch;
+
+    }
+
+
+    .gallery-card-link{
+
+      display:block;
+
+      color:inherit;
+
+    }
+
+
+    .gallery-card{
+
+      position:relative;
+
+      height:340px;
+
+      border-radius:30px;
+
+      overflow:hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dbeafe,
+          #bfdbfe
+        );
+
+      box-shadow:
+        0 20px 46px
+        rgba(15,23,42,.10);
+
+      transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+
+    }
+
+
+    .gallery-card-link
+    .gallery-card{
+
+      height:100%;
+
+    }
+
+
+    .gallery-card:hover{
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 30px 56px
+        rgba(37,99,235,.18);
+
+    }
+
+
+    .gallery-card img{
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      transition:
+        transform .85s ease,
+        filter .5s ease;
+
+    }
+
+
+    .gallery-card:hover img{
+
+      transform:
+        scale(1.06);
+
+      filter:
+        brightness(1.03)
+        saturate(1.05);
+
+    }
+
+
+
+    /* ========================================
+       TLAČÍTKO CELOU FOTOGALERII
     ======================================== */
 
     .gallery-open-wrap{
+
       display:flex;
+
       justify-content:center;
+
       margin-top:28px;
+
     }
+
 
     .gallery-open-btn{
+
       display:inline-flex;
+
       align-items:center;
+
       justify-content:center;
+
       gap:10px;
+
       min-height:56px;
-      padding:0 24px;
+
+      padding:
+        0 24px;
+
       border-radius:16px;
-      background:linear-gradient(135deg,#1d4ed8,#3b82f6);
+
+      background:
+        linear-gradient(
+          135deg,
+          #1d4ed8,
+          #3b82f6
+        );
+
       color:#fff;
+
       font-size:16px;
+
       font-weight:900;
-      box-shadow:0 14px 30px rgba(37,99,235,.22);
-      transition:transform .25s ease,box-shadow .25s ease;
+
+      box-shadow:
+        0 14px 30px
+        rgba(37,99,235,.22);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
     }
+
 
     .gallery-open-btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 20px 38px rgba(37,99,235,.30);
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 20px 38px
+        rgba(37,99,235,.30);
+
     }
 
-    .gallery-card-link{
-      display:block;
-      color:inherit;
+
+
+    /* ========================================
+       REALIZACE
+    ======================================== */
+
+    .projects-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          5,
+          minmax(0,1fr)
+        );
+
+      gap:24px;
+
     }
 
-    .gallery-card-link .gallery-card{
+
+    .project-card{
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #f8fbff
+        );
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius:30px;
+
+      overflow:hidden;
+
+      box-shadow:
+        0 18px 40px
+        rgba(15,23,42,.06);
+
+      transition:.4s ease;
+
+      display:flex;
+
+      flex-direction:column;
+
+      min-height:430px;
+
+    }
+
+
+    .project-card:hover{
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 30px 60px
+        rgba(37,99,235,.16);
+
+    }
+
+
+    .project-image{
+
+      position:relative;
+
+      height:290px;
+
+      overflow:hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dbeafe,
+          #bfdbfe
+        );
+
+    }
+
+
+    .project-image img{
+
+      width:100%;
+
       height:100%;
+
+      object-fit:cover;
+
+      transition:
+        transform .9s ease,
+        filter .5s ease;
+
     }
+
+
+    .project-card:hover
+    .project-image img{
+
+      transform:
+        scale(1.09);
+
+      filter:
+        brightness(1.05)
+        saturate(1.1);
+
+    }
+
+
+    .project-image::after{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15,23,42,.03),
+          rgba(15,23,42,.28)
+        );
+
+      transition:.45s ease;
+
+    }
+
+
+    .project-card:hover
+    .project-image::after{
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15,23,42,.02),
+          rgba(29,78,216,.20)
+        );
+
+    }
+
+
+    .project-badge{
+
+      position:absolute;
+
+      top:18px;
+
+      left:18px;
+
+      z-index:3;
+
+      padding:
+        8px 12px;
+
+      border-radius:999px;
+
+      background:
+        rgba(255,255,255,.92);
+
+      color:#1d4ed8;
+
+      font-size:13px;
+
+      font-weight:900;
+
+      box-shadow:
+        0 10px 22px
+        rgba(15,23,42,.10);
+
+      backdrop-filter:
+        blur(8px);
+
+    }
+
+
+    .project-content{
+
+      padding:22px;
+
+      display:flex;
+
+      flex-direction:column;
+
+      flex:1;
+
+    }
+
+
+    .project-content h3{
+
+      font-size:22px;
+
+      line-height:1.15;
+
+      color:#0f172a;
+
+      font-weight:900;
+
+      margin-bottom:10px;
+
+    }
+
+
+    .project-content p{
+
+      color:#475569;
+
+      font-size:16px;
+
+    }
+
+
+    /* OCELOVÁ KONSTRUKCE JE KLIKACÍ */
+
+    .steel-project{
+      cursor:pointer;
+    }
+
+
+    .steel-project:focus-visible{
+
+      outline:
+        3px solid #60a5fa;
+
+      outline-offset:4px;
+
+    }
+        /* ========================================
+       KONTAKTNÍ SEKCE
+    ======================================== */
+
+    .contact-section{
+
+      background:
+
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(59,130,246,.08),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          180deg,
+          #f8fbff,
+          #eef5ff
+        );
+
+    }
+
+
+    .contact-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        .9fr 1.1fr;
+
+      gap:24px;
+
+      align-items:stretch;
+
+    }
+
+
+    .contact-info{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:16px;
+
+    }
+
+
+    .contact-card{
+
+      background:#fff;
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius:24px;
+
+      padding:22px;
+
+      display:flex;
+
+      align-items:flex-start;
+
+      gap:16px;
+
+      box-shadow:
+        0 15px 35px
+        rgba(15,23,42,.06);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    }
+
+
+    .contact-card:hover{
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 22px 42px
+        rgba(37,99,235,.12);
+
+    }
+
+
+    .contact-icon{
+
+      width:52px;
+
+      height:52px;
+
+      flex:0 0 52px;
+
+      border-radius:16px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dbeafe,
+          #eff6ff
+        );
+
+      color:#1d4ed8;
+
+      font-size:23px;
+
+    }
+
+
+    .contact-card strong{
+
+      display:block;
+
+      color:#0f172a;
+
+      font-size:17px;
+
+      margin-bottom:4px;
+
+    }
+
+
+    .contact-card a,
+    .contact-card span{
+
+      color:#475569;
+
+      font-size:16px;
+
+      word-break:break-word;
+
+    }
+
+
+    .contact-card a:hover{
+
+      color:#2563eb;
+
+    }
+
+
+
+    /* ========================================
+       FORMULÁŘ
+    ======================================== */
+
+    .contact-form{
+
+      background:#fff;
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius:30px;
+
+      padding:32px;
+
+      box-shadow:
+        0 18px 50px
+        rgba(15,23,42,.08);
+
+    }
+
+
+    .contact-form h3{
+
+      font-size:30px;
+
+      line-height:1.15;
+
+      color:#0f172a;
+
+      margin-bottom:10px;
+
+      font-weight:900;
+
+    }
+
+
+    .contact-form > p{
+
+      color:#64748b;
+
+      font-size:16px;
+
+      margin-bottom:22px;
+
+    }
+
+
+    .form-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap:16px;
+
+    }
+
+
+    .form-group{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:7px;
+
+    }
+
+
+    .form-group.full{
+
+      grid-column:
+        1 / -1;
+
+    }
+
+
+    .form-group label{
+
+      color:#334155;
+
+      font-size:14px;
+
+      font-weight:800;
+
+    }
+
+
+    .form-group input,
+    .form-group textarea{
+
+      width:100%;
+
+      border:
+        1px solid #cbd5e1;
+
+      background:#f8fafc;
+
+      color:#0f172a;
+
+      border-radius:14px;
+
+      padding:
+        14px 15px;
+
+      font-size:16px;
+
+      outline:none;
+
+      transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    }
+
+
+    .form-group textarea{
+
+      min-height:150px;
+
+      resize:vertical;
+
+    }
+
+
+    .form-group input:focus,
+    .form-group textarea:focus{
+
+      border-color:#3b82f6;
+
+      background:#fff;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(59,130,246,.10);
+
+    }
+
+
+    .form-submit{
+
+      margin-top:18px;
+
+      width:100%;
+
+      min-height:56px;
+
+      border:none;
+
+      border-radius:16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1d4ed8,
+          #3b82f6
+        );
+
+      color:#fff;
+
+      font-size:16px;
+
+      font-weight:900;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 14px 30px
+        rgba(37,99,235,.22);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .form-submit:hover{
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 20px 38px
+        rgba(37,99,235,.30);
+
+    }
+
+
+
+    /* ========================================
+       MAPA
+    ======================================== */
+
+    .map-wrap{
+
+      margin-top:24px;
+
+      overflow:hidden;
+
+      border-radius:30px;
+
+      border:
+        1px solid #dbeafe;
+
+      background:#fff;
+
+      box-shadow:
+        0 18px 45px
+        rgba(15,23,42,.07);
+
+    }
+
+
+    .map-wrap iframe{
+
+      width:100%;
+
+      height:430px;
+
+      border:0;
+
+      display:block;
+
+    }
+
+
+
+    /* ========================================
+       KARIÉRA
+    ======================================== */
+
+    .career-box{
+
+      position:relative;
+
+      overflow:hidden;
+
+      border-radius:34px;
+
+      padding:42px;
+
+      background:
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(255,255,255,.15),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          135deg,
+          #1236a6,
+          #2563eb
+        );
+
+      color:#fff;
+
+      box-shadow:
+        0 25px 60px
+        rgba(37,99,235,.20);
+
+    }
+
+
+    .career-box h2{
+
+      font-size:42px;
+
+      line-height:1.08;
+
+      font-weight:900;
+
+      margin-bottom:14px;
+
+    }
+
+
+    .career-box p{
+
+      max-width:780px;
+
+      color:
+        rgba(255,255,255,.90);
+
+      font-size:18px;
+
+      margin-bottom:22px;
+
+    }
+
+
+    .career-box a{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      min-height:54px;
+
+      padding:
+        0 22px;
+
+      border-radius:15px;
+
+      background:#fff;
+
+      color:#1d4ed8;
+
+      font-weight:900;
+
+      transition:.25s ease;
+
+    }
+
+
+    .career-box a:hover{
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 16px 30px
+        rgba(0,0,0,.16);
+
+    }
+
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    footer{
+
+      background:#081124;
+
+      color:#fff;
+
+      padding:
+        34px 0;
+
+    }
+
+
+    .footer-inner{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      gap:22px;
+
+      flex-wrap:wrap;
+
+    }
+
+
+    .footer-brand{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:12px;
+
+    }
+
+
+    .footer-brand img{
+
+      width:38px;
+
+      height:38px;
+
+      object-fit:contain;
+
+    }
+
+
+    .footer-brand strong{
+
+      display:block;
+
+      font-size:19px;
+
+      font-weight:900;
+
+    }
+
+
+    .footer-brand span{
+
+      display:block;
+
+      color:
+        rgba(255,255,255,.62);
+
+      font-size:13px;
+
+    }
+
+
+    .footer-text{
+
+      color:
+        rgba(255,255,255,.68);
+
+      font-size:14px;
+
+      text-align:right;
+
+    }
+
+
+
+    /* ========================================
+       FIXNÍ TELEFON
+    ======================================== */
+
+    .fixed-phone{
+
+      position:fixed;
+
+      right:24px;
+
+      bottom:24px;
+
+      z-index:900;
+
+      width:62px;
+
+      height:62px;
+
+      border-radius:50%;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1d4ed8,
+          #3b82f6
+        );
+
+      color:#fff;
+
+      font-size:26px;
+
+      box-shadow:
+        0 18px 35px
+        rgba(37,99,235,.35);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .fixed-phone:hover{
+
+      transform:
+        translateY(-4px)
+        scale(1.05);
+
+      box-shadow:
+        0 24px 42px
+        rgba(37,99,235,.42);
+
+    }
+
+
+
+    /* ========================================
+       ANIMACE PŘI SCROLLU
+    ======================================== */
+
+    .reveal{
+
+      opacity:0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity .75s ease,
+        transform .75s ease;
+
+    }
+
+
+    .reveal.from-left{
+
+      transform:
+        translateX(-45px);
+
+    }
+
+
+    .reveal.from-right{
+
+      transform:
+        translateX(45px);
+
+    }
+
+
+    .reveal.from-bottom{
+
+      transform:
+        translateY(45px);
+
+    }
+
+
+    .reveal.show{
+
+      opacity:1;
+
+      transform:
+        translate(0,0);
+
+    }
+
 
 
     /* ========================================
        GALERIE OCELOVÝCH KONSTRUKCÍ
     ======================================== */
 
-    .steel-project{
-      cursor:pointer;
-    }
-
-    .steel-project:focus-visible{
-      outline:3px solid #60a5fa;
-      outline-offset:4px;
-    }
-
     .steel-gallery-modal{
+
       position:fixed;
+
       inset:0;
+
       z-index:99999;
-      background:rgba(4,10,25,.94);
+
+      background:
+        rgba(4,10,25,.94);
+
       display:flex;
+
       align-items:center;
+
       justify-content:center;
+
       padding:30px;
+
       opacity:0;
+
       visibility:hidden;
+
       pointer-events:none;
-      transition:opacity .3s ease,visibility .3s ease;
-      backdrop-filter:blur(12px);
+
+      transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+      backdrop-filter:
+        blur(12px);
+
     }
+
 
     .steel-gallery-modal.open{
+
       opacity:1;
+
       visibility:visible;
+
       pointer-events:auto;
+
     }
+
 
     .steel-gallery-container{
-      width:min(1100px,100%);
+
+      width:
+        min(1100px,100%);
+
       max-height:94vh;
+
       display:flex;
+
       flex-direction:column;
+
       align-items:center;
+
       position:relative;
+
     }
+
 
     .steel-gallery-title{
+
       color:#fff;
+
       font-size:30px;
+
       text-align:center;
+
       margin-bottom:20px;
+
     }
+
 
     .steel-gallery-main{
+
       position:relative;
+
       width:100%;
-      height:min(68vh,720px);
+
+      height:
+        min(68vh,720px);
+
       display:flex;
+
       justify-content:center;
+
       align-items:center;
+
     }
+
 
     .steel-gallery-main img{
+
       max-width:100%;
+
       max-height:100%;
+
       width:auto;
+
       height:auto;
+
       object-fit:contain;
+
       border-radius:20px;
-      box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+      box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.45);
+
     }
+
 
     .steel-gallery-arrow{
+
       position:absolute;
+
       top:50%;
-      transform:translateY(-50%);
+
+      transform:
+        translateY(-50%);
+
       width:58px;
+
       height:58px;
+
       border:none;
+
       border-radius:50%;
-      background:rgba(255,255,255,.94);
+
+      background:
+        rgba(255,255,255,.94);
+
       color:#1d4ed8;
+
       font-size:42px;
+
       line-height:1;
+
       cursor:pointer;
+
       z-index:5;
+
       display:flex;
+
       align-items:center;
+
       justify-content:center;
-      box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+      box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.25);
+
       transition:.25s ease;
+
     }
 
+
     .steel-gallery-arrow:hover{
-      transform:translateY(-50%) scale(1.08);
+
+      transform:
+        translateY(-50%)
+        scale(1.08);
+
       background:#fff;
+
     }
+
 
     .steel-gallery-prev{
       left:15px;
     }
 
+
     .steel-gallery-next{
       right:15px;
     }
 
+
     .steel-gallery-close{
+
       position:fixed;
+
       top:22px;
+
       right:28px;
+
       z-index:100001;
+
       width:52px;
+
       height:52px;
+
       border:none;
+
       border-radius:50%;
-      background:rgba(255,255,255,.95);
+
+      background:
+        rgba(255,255,255,.95);
+
       color:#0f172a;
+
       font-size:36px;
+
       line-height:1;
+
       cursor:pointer;
+
       display:flex;
+
       align-items:center;
+
       justify-content:center;
-      box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+      box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.25);
+
     }
+
 
     .steel-gallery-counter{
-      color:rgba(255,255,255,.85);
-      margin:12px 0;
+
+      color:
+        rgba(255,255,255,.85);
+
+      margin:
+        12px 0;
+
       font-size:14px;
+
       font-weight:700;
+
     }
+
 
     .steel-gallery-thumbnails{
+
       display:flex;
+
       justify-content:center;
+
       gap:10px;
+
       max-width:100%;
+
       overflow-x:auto;
-      padding:4px 4px 10px;
+
+      padding:
+        4px 4px 10px;
+
     }
+
 
     .steel-gallery-thumbnails img{
+
       width:90px;
+
       height:65px;
+
       object-fit:cover;
+
       border-radius:10px;
+
       cursor:pointer;
+
       opacity:.55;
-      border:3px solid transparent;
+
+      border:
+        3px solid transparent;
+
       transition:.25s ease;
+
       flex-shrink:0;
+
     }
+
 
     .steel-gallery-thumbnails img.active{
+
       opacity:1;
+
       border-color:#60a5fa;
+
     }
 
-    @media(max-width:768px){
-      .gallery-open-btn{
-        width:100%;
+
+
+    /* ========================================
+       RESPONSIVE – TABLET
+    ======================================== */
+
+    @media(max-width:1180px){
+
+      .navbar{
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        padding:
+          14px 0;
+
       }
+
+
+      .nav-right{
+
+        margin-left:0;
+
+        justify-content:center;
+
+      }
+
+
+      .hero-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .hero-content{
+
+        text-align:center;
+
+      }
+
+
+      .hero-content h1{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+      }
+
+
+      .hero-content p{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+      }
+
+
+      .hero-actions{
+
+        justify-content:center;
+
+      }
+
+
+      .hero-stats{
+
+        margin:
+          0 auto;
+
+      }
+
+
+      .hero-visual{
+
+        justify-content:center;
+
+      }
+
+
+      .hero-logo-box{
+
+        margin-left:0;
+
+        min-height:400px;
+
+      }
+
+
+      .hero-logo-box::before{
+
+        left:50%;
+
+        top:50%;
+
+      }
+
+
+      .hero-logo-box::after{
+
+        left:50%;
+
+        top:50%;
+
+      }
+
+
+      .hero-logo-box img{
+
+        left:50%;
+
+        top:50%;
+
+      }
+
+
+      .projects-grid{
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(0,1fr)
+          );
+
+      }
+
+    }
+
+
+
+    /* ========================================
+       RESPONSIVE – MENŠÍ TABLET
+    ======================================== */
+
+    @media(max-width:900px){
+
+      .about-grid,
+      .contact-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .services-grid,
+      .secondary-works-grid{
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(0,1fr)
+          );
+
+      }
+
+
+      .gallery-premium{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .gallery-card{
+
+        height:420px;
+
+      }
+
+
+      .section-title{
+
+        font-size:46px;
+
+      }
+
+
+      .hero-content h1{
+
+        font-size:60px;
+
+      }
+
+    }
+
+
+
+    /* ========================================
+       RESPONSIVE – MOBIL
+    ======================================== */
+
+    @media(max-width:700px){
+
+      .container{
+
+        width:
+          min(
+            100% - 24px,
+            1280px
+          );
+
+      }
+
+
+      header{
+
+        position:relative;
+
+      }
+
+
+      .navbar{
+
+        min-height:auto;
+
+      }
+
+
+      .brand{
+
+        font-size:23px;
+
+      }
+
+
+      .brand img{
+
+        width:36px;
+
+        height:36px;
+
+      }
+
+
+      .nav-right{
+
+        flex-direction:column;
+
+        width:100%;
+
+      }
+
+
+      nav{
+
+        width:100%;
+
+        gap:
+          12px 16px;
+
+      }
+
+
+      nav a{
+
+        font-size:14px;
+
+      }
+
+
+      .lang-switcher{
+
+        justify-content:center;
+
+      }
+
+
+      .lang-desktop{
+        display:none;
+      }
+
+
+      .lang-mobile{
+        display:inline;
+      }
+
+
+      .lang-btn{
+
+        min-width:56px;
+
+        padding:
+          8px 10px;
+
+      }
+
+
+      .hero{
+
+        padding:
+          60px 0 35px;
+
+      }
+
+
+      .hero-content h1{
+
+        font-size:45px;
+
+        letter-spacing:-1px;
+
+      }
+
+
+      .hero-content p{
+
+        font-size:18px;
+
+      }
+
+
+      .hero-stats{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .stat-card{
+
+        min-height:auto;
+
+      }
+
+
+      .hero-logo-box{
+
+        min-height:330px;
+
+      }
+
+
+      .hero-logo-box img{
+
+        width:220px;
+
+      }
+
+
+      .hero-logo-box::before{
+
+        width:330px;
+
+        height:330px;
+
+      }
+
+
+      .hero-logo-box::after{
+
+        width:250px;
+
+        height:250px;
+
+      }
+
+
+      .section{
+
+        padding:
+          55px 0;
+
+      }
+
+
+      .section-title{
+
+        font-size:38px;
+
+      }
+
+
+      .section-subtitle{
+
+        font-size:17px;
+
+      }
+
+
+      .glass-card{
+
+        padding:24px;
+
+        border-radius:24px;
+
+      }
+
+
+      .services-grid,
+      .secondary-works-grid,
+      .projects-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .project-card{
+
+        min-height:auto;
+
+      }
+
+
+      .project-image{
+
+        height:300px;
+
+      }
+
+
+      .gallery-card{
+
+        height:330px;
+
+      }
+
+
+      .gallery-open-btn{
+
+        width:100%;
+
+      }
+
+
+      .form-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .form-group.full{
+
+        grid-column:auto;
+
+      }
+
+
+      .contact-form{
+
+        padding:24px;
+
+      }
+
+
+      .career-box{
+
+        padding:30px 24px;
+
+      }
+
+
+      .career-box h2{
+
+        font-size:34px;
+
+      }
+
+
+      .map-wrap iframe{
+
+        height:350px;
+
+      }
+
+
+      .footer-inner{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+      }
+
+
+      .footer-text{
+
+        text-align:left;
+
+      }
+
+
+      .fixed-phone{
+
+        width:56px;
+
+        height:56px;
+
+        right:16px;
+
+        bottom:16px;
+
+      }
+
+
+      /* OCELOVÁ GALERIE */
 
       .steel-gallery-modal{
+
         padding:15px;
+
       }
+
 
       .steel-gallery-title{
+
         font-size:21px;
-        padding:0 45px;
+
+        padding:
+          0 45px;
+
       }
+
 
       .steel-gallery-main{
+
         height:60vh;
+
       }
 
+
       .steel-gallery-arrow{
+
         width:46px;
+
         height:46px;
+
         font-size:34px;
+
       }
+
 
       .steel-gallery-prev{
         left:5px;
       }
 
+
       .steel-gallery-next{
         right:5px;
       }
 
+
       .steel-gallery-close{
+
         top:14px;
+
         right:14px;
+
         width:44px;
+
         height:44px;
+
         font-size:30px;
+
       }
+
 
       .steel-gallery-thumbnails{
-        justify-content:flex-start;
+
+        justify-content:
+          flex-start;
+
       }
+
 
       .steel-gallery-thumbnails img{
+
         width:72px;
+
         height:54px;
+
       }
+
     }
 
+
+
+    /* ========================================
+       MALÝ MOBIL
+    ======================================== */
+
+    @media(max-width:420px){
+
+      .brand{
+
+        font-size:20px;
+
+      }
+
+
+      nav{
+
+        gap:
+          10px 12px;
+
+      }
+
+
+      nav a{
+
+        font-size:13px;
+
+      }
+
+
+      .hero-content h1{
+
+        font-size:38px;
+
+      }
+
+
+      .section-title{
+
+        font-size:33px;
+
+      }
+
+
+      .gallery-card{
+
+        height:290px;
+
+      }
+
+    }
+
+
   </style>
+
 </head>
+
 
 <body>
 
+
+  <!-- ========================================
+       HEADER
+  ======================================== -->
+
   <header>
+
     <div class="container navbar">
 
-      <a href="#home" class="brand">
-        <img src="logo.png" alt="STAVITO FUTURE logo">
-        <span>STAVITO FUTURE</span>
+
+      <!-- LOGO -->
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="STAVITO FUTURE"
+      >
+
+        <img
+          src="logo.png"
+          alt="STAVITO FUTURE logo"
+        >
+
+        <span>
+          STAVITO FUTURE
+        </span>
+
       </a>
+
 
       <div class="nav-right">
 
+
+        <!-- ==================================
+             MENU
+        =================================== -->
+
         <nav>
-          <a href="#about" id="navAbout">O nás</a>
-          <a href="#services" id="navServices">Služby</a>
-          <a href="#projects" id="navProjects">Realizace</a>
-          <a href="#contact" id="navContact">Kontakt</a>
+
+          <a
+            href="#about"
+            id="navAbout"
+          >
+            O nás
+          </a>
+
+
+          <a
+            href="#services"
+            id="navServices"
+          >
+            Služby
+          </a>
+
+
+          <a
+            href="#projects"
+            id="navProjects"
+          >
+            Realizace
+          </a>
+
+
+          <!--
+            DŮLEŽITÉ:
+            není zde target="_blank",
+            takže galerie se otevře
+            VE STEJNÉ KARTĚ.
+          -->
+
+          <a
+            href="gallery.html"
+            id="navGallery"
+          >
+            Fotogalerie
+          </a>
+
+
+          <a
+            href="#contact"
+            id="navContact"
+          >
+            Kontakt
+          </a>
+
         </nav>
+
+
+        <!-- ==================================
+             JAZYKY
+        =================================== -->
 
         <div class="lang-switcher">
 
+
           <button
+            type="button"
             class="lang-btn active"
-            onclick="setLang('cz', this)"
-            type="button"
+            data-lang="cz"
+            onclick="setLang('cz',this)"
           >
-            <span class="lang-desktop">🇨🇿 Čeština</span>
-            <span class="lang-mobile">CZ</span>
+
+            <span class="lang-desktop">
+              🇨🇿 Čeština
+            </span>
+
+            <span class="lang-mobile">
+              CZ
+            </span>
+
           </button>
 
-          <button
-            class="lang-btn"
-            onclick="setLang('en', this)"
-            type="button"
-          >
-            <span class="lang-desktop">🇬🇧 English</span>
-            <span class="lang-mobile">EN</span>
-          </button>
 
           <button
-            class="lang-btn"
-            onclick="setLang('sk', this)"
             type="button"
+            class="lang-btn"
+            data-lang="en"
+            onclick="setLang('en',this)"
           >
-            <span class="lang-desktop">🇸🇰 Slovenčina</span>
-            <span class="lang-mobile">SK</span>
+
+            <span class="lang-desktop">
+              🇬🇧 English
+            </span>
+
+            <span class="lang-mobile">
+              EN
+            </span>
+
           </button>
+
+
+          <button
+            type="button"
+            class="lang-btn"
+            data-lang="sk"
+            onclick="setLang('sk',this)"
+          >
+
+            <span class="lang-desktop">
+              🇸🇰 Slovenčina
+            </span>
+
+            <span class="lang-mobile">
+              SK
+            </span>
+
+          </button>
+
 
         </div>
 
       </div>
+
     </div>
+
   </header>
 
 
-  <main>
 
-    <section class="hero" id="home">
-      <div class="container hero-grid">
+  <!-- ========================================
+       HERO
+  ======================================== -->
 
-        <div class="hero-content reveal from-left">
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+
+      <div class="hero-content">
+
+
+        <div
+          class="hero-eyebrow reveal from-left"
+          id="heroEyebrow"
+        >
+          STAVEBNÍ SPOLEČNOST
+        </div>
+
+
+        <h1
+          class="reveal from-left"
+          id="heroTitle"
+        >
+          STAVITO FUTURE
+        </h1>
+
+
+        <p
+          class="reveal from-left"
+          id="heroText"
+        >
+          Spolehlivý partner pro fasády,
+          rekonstrukce, ocelové konstrukce
+          a průmyslové stavby.
+        </p>
+
+
+        <div
+          class="hero-actions reveal from-bottom"
+        >
+
+          <a
+            href="#contact"
+            class="btn btn-primary"
+            id="heroBtnContact"
+          >
+            Nezávazná poptávka
+          </a>
+
+
+          <a
+            href="#projects"
+            class="btn btn-secondary"
+            id="heroBtnProjects"
+          >
+            Naše realizace
+          </a>
+
+        </div>
+
+
+
+        <!-- STATISTIKY -->
+
+        <div class="hero-stats">
+
+
+          <div class="stat-card reveal from-bottom">
+
+            <div
+              class="stat-number"
+              data-target="100"
+            >
+              100%
+            </div>
+
+            <div
+              class="stat-label"
+              id="statLabel1"
+            >
+              Individuální přístup
+            </div>
+
+          </div>
+
+
+          <div class="stat-card reveal from-bottom">
+
+            <div
+              class="stat-number"
+              data-target="24"
+            >
+              24/7
+            </div>
+
+            <div
+              class="stat-label"
+              id="statLabel2"
+            >
+              Komunikace
+            </div>
+
+          </div>
+
+
+          <div class="stat-card reveal from-bottom">
+
+            <div
+              class="stat-number"
+              data-target="100"
+            >
+              100%
+            </div>
+
+            <div
+              class="stat-label"
+              id="statLabel3"
+            >
+              Důraz na kvalitu
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- VELKÉ LOGO -->
+
+      <div class="hero-visual">
+
+        <div class="hero-logo-box">
+
+          <img
+            src="logo.png"
+            alt="STAVITO FUTURE"
+          >
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ========================================
+       O NÁS
+  ======================================== -->
+
+  <section
+    class="section"
+    id="about"
+  >
+
+    <div class="container">
+
+
+      <div class="section-title-wrap">
+
+        <span
+          class="eyebrow"
+          id="aboutEyebrow"
+        >
+          O NÁS
+        </span>
+
+
+        <h2
+          class="section-title"
+          id="aboutTitle"
+        >
+          Stavíme na kvalitě a spolehlivosti
+        </h2>
+
+
+        <p
+          class="section-subtitle"
+          id="aboutSubtitle"
+        >
+          Nabízíme profesionální stavební práce
+          s důrazem na kvalitu provedení,
+          komunikaci a dodržení dohodnutých termínů.
+        </p>
+
+      </div>
+
+
+
+      <div class="about-grid">
+
+
+        <div
+          class="glass-card about-text reveal from-left"
+        >
+
+          <p id="aboutText1">
+            STAVITO FUTURE s.r.o. se zaměřuje
+            na realizaci stavebních prací,
+            rekonstrukce, fasády, montáž
+            sendvičových panelů a výrobu
+            a montáž ocelových konstrukcí.
+          </p>
+
+
+          <p id="aboutText2">
+            Ke každé zakázce přistupujeme
+            individuálně a hledáme řešení,
+            které odpovídá požadavkům
+            konkrétního zákazníka.
+          </p>
+
+
+          <p id="aboutText3">
+            Naším cílem je dlouhodobá spolupráce,
+            kvalitně odvedená práce
+            a spokojený zákazník.
+          </p>
+
+
+          <div class="company-mini">
+
+            <img
+              src="logo.png"
+              alt="STAVITO FUTURE logo"
+            >
+
+            <div>
+
+              <strong>
+                STAVITO FUTURE s.r.o.
+              </strong>
+
+              <span>
+                Profesionální stavební práce
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="about-points">
+
 
           <div
-            class="eyebrow"
-            id="heroEyebrow"
-            style="color:#dbeafe;"
+            class="point-box reveal from-right"
           >
-            STAVITO FUTURE
-          </div>
 
-          <h1 id="heroTitle">
-            Stavíme budoucnost pevně a spolehlivě.
-          </h1>
+            <strong id="aboutPoint1Title">
+              Kvalita
+            </strong>
 
-          <p id="heroText">
-            Specializujeme se na fasády, rekonstrukce fasád,
-            montáž sendvičových panelů, výrobu a montáž
-            ocelových konstrukcí a rekonstrukce hal.
-          </p>
-
-          <div class="hero-actions">
-
-            <a
-              href="#contact"
-              class="btn btn-primary"
-              id="heroBtnContact"
-            >
-              Kontaktujte nás
-            </a>
-
-            <a
-              href="#projects"
-              class="btn btn-secondary"
-              id="heroBtnProjects"
-            >
-              Naše realizace
-            </a>
-
-          </div>
-
-          <div class="hero-stats">
-
-            <div class="stat-card">
-              <div class="stat-number" data-target="50">0+</div>
-              <div class="stat-label" id="statLabel1">
-                Realizovaných zakázek
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-number" data-target="100">0%</div>
-              <div class="stat-label" id="statLabel2">
-                Důraz na kvalitu
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-number" data-target="24">0/7</div>
-              <div class="stat-label" id="statLabel3">
-                Individuální přístup
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="hero-visual reveal from-right">
-          <div class="hero-logo-box">
-            <img src="logo.png" alt="STAVITO FUTURE">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="section" id="about">
-      <div class="container">
-
-        <div class="section-title-wrap reveal from-bottom">
-
-          <div class="eyebrow" id="aboutEyebrow">
-            O společnosti
-          </div>
-
-          <h2 class="section-title" id="aboutTitle">
-            Spolehlivý partner pro vaše stavební projekty
-          </h2>
-
-          <p class="section-subtitle" id="aboutSubtitle">
-            Zakládáme si na kvalitním provedení, férovém jednání
-            a pečlivém přístupu ke každé zakázce.
-          </p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-          <div class="glass-card about-text reveal from-left">
-
-            <p id="aboutText1">
-              STAVITO FUTURE s.r.o. je stavební společnost zaměřená
-              na realizaci a rekonstrukci fasád, montáž sendvičových
-              panelů, ocelové konstrukce a rekonstrukce průmyslových hal.
-            </p>
-
-            <p id="aboutText2">
-              Každý projekt řešíme individuálně s důrazem na přesnost,
-              kvalitní materiály, bezpečnost práce a dlouhodobou
-              spokojenost zákazníka.
-            </p>
-
-            <div class="company-mini">
-
-              <img src="logo.png" alt="STAVITO FUTURE">
-
-              <div>
-                <strong>STAVITO FUTURE s.r.o.</strong>
-                <span id="companyMiniText">
-                  Stavební práce a profesionální realizace
-                </span>
-              </div>
-
-            </div>
+            <span id="aboutPoint1Text">
+              Důraz na precizní provedení
+              a kvalitní materiály.
+            </span>
 
           </div>
 
 
-          <div class="about-points reveal from-right">
+          <div
+            class="point-box reveal from-right"
+          >
 
-            <div class="point-box">
-              <strong id="pointTitle1">Kvalita</strong>
-              <span id="pointText1">
-                Pečlivé provedení a důraz na každý detail.
-              </span>
-            </div>
+            <strong id="aboutPoint2Title">
+              Spolehlivost
+            </strong>
 
-            <div class="point-box">
-              <strong id="pointTitle2">Spolehlivost</strong>
-              <span id="pointText2">
-                Dodržování dohodnutých termínů a férová komunikace.
-              </span>
-            </div>
-
-            <div class="point-box">
-              <strong id="pointTitle3">Zkušenosti</strong>
-              <span id="pointText3">
-                Praktické zkušenosti s různými typy stavebních prací.
-              </span>
-            </div>
-
-            <div class="point-box">
-              <strong id="pointTitle4">Individuální přístup</strong>
-              <span id="pointText4">
-                Řešení přizpůsobené konkrétním potřebám zákazníka.
-              </span>
-            </div>
+            <span id="aboutPoint2Text">
+              Dodržujeme domluvené podmínky
+              a termíny realizace.
+            </span>
 
           </div>
+
+
+          <div
+            class="point-box reveal from-right"
+          >
+
+            <strong id="aboutPoint3Title">
+              Individuální přístup
+            </strong>
+
+            <span id="aboutPoint3Text">
+              Každou zakázku řešíme
+              podle konkrétních potřeb zákazníka.
+            </span>
+
+          </div>
+
+
+          <div
+            class="point-box reveal from-right"
+          >
+
+            <strong id="aboutPoint4Title">
+              Komunikace
+            </strong>
+
+            <span id="aboutPoint4Text">
+              Zakládáme si na rychlé
+              a srozumitelné komunikaci.
+            </span>
+
+          </div>
+
 
         </div>
 
       </div>
-    </section>
+
+    </div>
+
+  </section>
 
 
-    <section
-      class="section"
-      id="services"
-      style="background:rgba(255,255,255,.48);"
-    >
 
-      <div class="container">
+  <!-- ========================================
+       SLUŽBY
+  ======================================== -->
 
-        <div class="section-title-wrap reveal from-bottom">
+  <section
+    class="section"
+    id="services"
+  >
 
-          <div class="eyebrow" id="servicesEyebrow">
-            Naše služby
-          </div>
-
-          <h2 class="section-title" id="servicesTitle">
-            Kompletní stavební řešení
-          </h2>
-
-          <p class="section-subtitle" id="servicesSubtitle">
-            Nabízíme široké spektrum stavebních prací pro soukromé,
-            komerční i průmyslové objekty.
-          </p>
-
-        </div>
+    <div class="container">
 
 
-        <div class="services-grid">
+      <div class="section-title-wrap">
 
-          <article class="service-card reveal from-bottom">
+        <span
+          class="eyebrow"
+          id="servicesEyebrow"
+        >
+          SLUŽBY
+        </span>
 
-            <div class="service-icon-wrap">
-              <div class="service-icon">🏢</div>
+
+        <h2
+          class="section-title"
+          id="servicesTitle"
+        >
+          Co pro vás zajistíme
+        </h2>
+
+
+        <p
+          class="section-subtitle"
+          id="servicesSubtitle"
+        >
+          Kompletní stavební řešení
+          pro soukromé i firemní zákazníky.
+        </p>
+
+      </div>
+
+
+
+      <div class="services-grid">
+
+
+        <article
+          class="service-card reveal from-bottom"
+        >
+
+          <div class="service-icon-wrap">
+
+            <div class="service-icon">
+              🏢
             </div>
 
-            <h3 id="serviceTitle1">
+          </div>
+
+          <h3 id="service1Title">
+            Fasády
+          </h3>
+
+          <p id="service1Text">
+            Realizace nových fasád
+            a profesionální obnova
+            stávajících fasádních systémů.
+          </p>
+
+        </article>
+
+
+
+        <article
+          class="service-card reveal from-bottom"
+        >
+
+          <div class="service-icon-wrap">
+
+            <div class="service-icon">
+              🧱
+            </div>
+
+          </div>
+
+          <h3 id="service2Title">
+            Rekonstrukce fasád
+          </h3>
+
+          <p id="service2Text">
+            Opravy a rekonstrukce fasád
+            se zaměřením na funkčnost,
+            vzhled a dlouhou životnost.
+          </p>
+
+        </article>
+
+
+
+        <article
+          class="service-card reveal from-bottom"
+        >
+
+          <div class="service-icon-wrap">
+
+            <div class="service-icon">
+              🏗️
+            </div>
+
+          </div>
+
+          <h3 id="service3Title">
+            Sendvičové panely
+          </h3>
+
+          <p id="service3Text">
+            Montáž sendvičových panelů
+            pro průmyslové, skladové
+            a další stavební objekty.
+          </p>
+
+        </article>
+
+
+
+        <article
+          class="service-card reveal from-bottom"
+        >
+
+          <div class="service-icon-wrap">
+
+            <div class="service-icon">
+              ⚙️
+            </div>
+
+          </div>
+
+          <h3 id="service4Title">
+            Ocelové konstrukce
+          </h3>
+
+          <p id="service4Text">
+            Výroba a montáž ocelových
+            konstrukcí podle požadavků
+            konkrétního projektu.
+          </p>
+
+        </article>
+
+
+
+        <article
+          class="service-card reveal from-bottom"
+        >
+
+          <div class="service-icon-wrap">
+
+            <div class="service-icon">
+              🏭
+            </div>
+
+          </div>
+
+          <h3 id="service5Title">
+            Rekonstrukce hal
+          </h3>
+
+          <p id="service5Text">
+            Rekonstrukce průmyslových
+            a skladových hal včetně
+            souvisejících stavebních prací.
+          </p>
+
+        </article>
+
+
+
+        <article
+          class="service-card reveal from-bottom"
+        >
+
+          <div class="service-icon-wrap">
+
+            <div class="service-icon">
+              🔨
+            </div>
+
+          </div>
+
+          <h3 id="service6Title">
+            Stavební práce
+          </h3>
+
+          <p id="service6Text">
+            Další stavební a montážní práce
+            podle rozsahu a potřeb zakázky.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+    <!-- ========================================
+       FOTOGALERIE PROCESU
+  ======================================== -->
+
+  <section
+    class="section"
+    id="processGallery"
+  >
+
+    <div class="container">
+
+
+      <div class="section-title-wrap">
+
+        <span
+          class="eyebrow"
+          id="galleryEyebrow"
+        >
+          FOTOGALERIE
+        </span>
+
+
+        <h2
+          class="section-title"
+          id="galleryTitle"
+        >
+          Fotogalerie procesu
+        </h2>
+
+
+        <p
+          class="section-subtitle"
+          id="gallerySubtitle"
+        >
+          Nahlédněte do průběhu našich realizací
+          a pracovního procesu.
+        </p>
+
+      </div>
+
+
+
+      <div class="gallery-premium">
+
+
+        <!-- FOTO 1 -->
+
+        <a
+          href="gallery.html"
+          class="gallery-card-link reveal from-left"
+          aria-label="Otevřít celou fotogalerii"
+        >
+
+          <div class="gallery-card">
+
+            <img
+              src="bg1.jpg"
+              alt="Fotografie procesu 1"
+            >
+
+          </div>
+
+        </a>
+
+
+
+        <!-- FOTO 2 -->
+
+        <a
+          href="gallery.html"
+          class="gallery-card-link reveal from-bottom"
+          aria-label="Otevřít celou fotogalerii"
+        >
+
+          <div class="gallery-card">
+
+            <img
+              src="bg2.jpg"
+              alt="Fotografie procesu 2"
+            >
+
+          </div>
+
+        </a>
+
+
+
+        <!-- FOTO 3 -->
+
+        <a
+          href="gallery.html"
+          class="gallery-card-link reveal from-right"
+          aria-label="Otevřít celou fotogalerii"
+        >
+
+          <div class="gallery-card">
+
+            <img
+              src="bg3.jpg"
+              alt="Fotografie procesu 3"
+            >
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+
+
+      <!-- TLAČÍTKO CELOU FOTOGALERII -->
+
+      <div
+        class="gallery-open-wrap reveal from-bottom"
+      >
+
+        <a
+          href="gallery.html"
+          class="gallery-open-btn"
+          id="galleryOpenBtn"
+        >
+          📷 Zobrazit celou fotogalerii
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ========================================
+       REALIZACE
+  ======================================== -->
+
+  <section
+    class="section"
+    id="projects"
+  >
+
+    <div class="container">
+
+
+      <div class="section-title-wrap">
+
+        <span
+          class="eyebrow"
+          id="projectsEyebrow"
+        >
+          REALIZACE
+        </span>
+
+
+        <h2
+          class="section-title"
+          id="projectsTitle"
+        >
+          Ukázky našich prací
+        </h2>
+
+
+        <p
+          class="section-subtitle"
+          id="projectsSubtitle"
+        >
+          Vybrané realizace společnosti
+          STAVITO FUTURE.
+        </p>
+
+      </div>
+
+
+
+      <div class="projects-grid">
+
+
+        <!-- ==================================
+             REALIZACE 1
+        =================================== -->
+
+        <article
+          class="project-card reveal from-bottom"
+        >
+
+          <div class="project-image">
+
+            <img
+              src="project1.jpg"
+              alt="Fasády"
+            >
+
+            <span
+              class="project-badge"
+              id="projectBadge1"
+            >
               Fasády
+            </span>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3 id="projectTitle1">
+              Realizace fasád
             </h3>
 
-            <p id="serviceText1">
-              Realizace nových fasád s důrazem na kvalitní provedení,
-              moderní vzhled a dlouhou životnost.
+
+            <p id="projectText1">
+              Kompletní realizace fasádních
+              systémů s důrazem na kvalitní
+              provedení a dlouhou životnost.
             </p>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <article class="service-card reveal from-bottom">
 
-            <div class="service-icon-wrap">
-              <div class="service-icon">🛠️</div>
-            </div>
+        <!-- ==================================
+             REALIZACE 2
+        =================================== -->
 
-            <h3 id="serviceTitle2">
-              Rekonstrukce fasád
-            </h3>
+        <article
+          class="project-card reveal from-bottom"
+        >
 
-            <p id="serviceText2">
-              Opravy a kompletní rekonstrukce stávajících fasád,
-              včetně obnovy jejich vzhledu a funkčnosti.
-            </p>
+          <div class="project-image">
 
-          </article>
+            <img
+              src="project2.jpg"
+              alt="Sendvičové panely"
+            >
 
-
-          <article class="service-card reveal from-bottom">
-
-            <div class="service-icon-wrap">
-              <div class="service-icon">🏗️</div>
-            </div>
-
-            <h3 id="serviceTitle3">
+            <span
+              class="project-badge"
+              id="projectBadge2"
+            >
               Sendvičové panely
+            </span>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3 id="projectTitle2">
+              Montáž sendvičových panelů
             </h3>
 
-            <p id="serviceText3">
-              Profesionální montáž sendvičových panelů pro průmyslové,
-              skladové a komerční objekty.
+
+            <p id="projectText2">
+              Montáž opláštění průmyslových
+              a skladových objektů pomocí
+              sendvičových panelů.
             </p>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <article class="service-card reveal from-bottom">
 
-            <div class="service-icon-wrap">
-              <div class="service-icon">⚙️</div>
-            </div>
+        <!-- ==================================
+             REALIZACE 3
+             OCELOVÉ KONSTRUKCE
 
-            <h3 id="serviceTitle4">
+             TATO KARTA OTEVÍRÁ
+             GALERII ocel1.jpeg - ocel3.jpeg
+        =================================== -->
+
+        <article
+          class="project-card steel-project reveal from-bottom"
+          onclick="openSteelGallery()"
+          role="button"
+          tabindex="0"
+          onkeydown="
+            if(
+              event.key === 'Enter' ||
+              event.key === ' '
+            ){
+              event.preventDefault();
+              openSteelGallery();
+            }
+          "
+        >
+
+          <div class="project-image">
+
+            <img
+              src="ocel1.jpeg"
+              alt="Ocelové konstrukce"
+            >
+
+            <span
+              class="project-badge"
+              id="projectBadge3"
+            >
               Ocelové konstrukce
+            </span>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3 id="projectTitle3">
+              Výroba a montáž ocelových konstrukcí
             </h3>
 
-            <p id="serviceText4">
-              Výroba a montáž ocelových konstrukcí podle požadavků
-              konkrétního projektu.
+
+            <p id="projectText3">
+              Výroba a montáž ocelových
+              konstrukcí podle technických
+              požadavků konkrétního projektu.
             </p>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <article class="service-card reveal from-bottom">
 
-            <div class="service-icon-wrap">
-              <div class="service-icon">🏭</div>
-            </div>
+        <!-- ==================================
+             REALIZACE 4
+        =================================== -->
 
-            <h3 id="serviceTitle5">
+        <article
+          class="project-card reveal from-bottom"
+        >
+
+          <div class="project-image">
+
+            <img
+              src="project4.jpg"
+              alt="Rekonstrukce hal"
+            >
+
+            <span
+              class="project-badge"
+              id="projectBadge4"
+            >
+              Rekonstrukce
+            </span>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3 id="projectTitle4">
               Rekonstrukce hal
             </h3>
 
-            <p id="serviceText5">
-              Rekonstrukce průmyslových a skladových hal včetně
+
+            <p id="projectText4">
+              Rekonstrukce průmyslových
+              a skladových hal včetně
               souvisejících stavebních prací.
             </p>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <article class="service-card reveal from-bottom">
 
-            <div class="service-icon-wrap">
-              <div class="service-icon">🔨</div>
-            </div>
+        <!-- ==================================
+             REALIZACE 5
+        =================================== -->
 
-            <h3 id="serviceTitle6">
+        <article
+          class="project-card reveal from-bottom"
+        >
+
+          <div class="project-image">
+
+            <img
+              src="project5.jpg"
+              alt="Stavební práce"
+            >
+
+            <span
+              class="project-badge"
+              id="projectBadge5"
+            >
+              Stavební práce
+            </span>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3 id="projectTitle5">
               Další stavební práce
             </h3>
 
-            <p id="serviceText6">
-              Doplňkové stavební práce realizované podle potřeb
-              zákazníka a konkrétního projektu.
+
+            <p id="projectText5">
+              Stavební a montážní práce
+              realizované podle požadavků
+              a potřeb zákazníka.
             </p>
 
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-        <!-- ========================================
-         DALŠÍ PRÁCE
-    ======================================== -->
-
-    <section class="section">
-
-      <div class="container">
-
-        <div class="section-title-wrap reveal from-bottom">
-
-          <div class="eyebrow" id="secondaryEyebrow">
-            Další možnosti
           </div>
 
-          <h2 class="section-title" id="secondaryTitle">
-            Práce podle potřeb projektu
-          </h2>
+        </article>
 
-          <p class="section-subtitle" id="secondarySubtitle">
-            Každá zakázka je jiná. Proto dokážeme rozsah prací
-            přizpůsobit konkrétním požadavkům projektu.
-          </p>
-
-        </div>
-
-
-        <div class="secondary-works-grid">
-
-          <article class="secondary-work-card reveal from-left">
-
-            <div class="secondary-work-top">
-              <div class="secondary-work-icon">🔩</div>
-            </div>
-
-            <h3 id="secondaryTitle1">
-              Montážní práce
-            </h3>
-
-            <p id="secondaryText1">
-              Montáž konstrukčních prvků a dalších stavebních částí
-              podle technických požadavků projektu.
-            </p>
-
-          </article>
-
-
-          <article class="secondary-work-card reveal from-bottom">
-
-            <div class="secondary-work-top">
-              <div class="secondary-work-icon">🧱</div>
-            </div>
-
-            <h3 id="secondaryTitle2">
-              Stavební úpravy
-            </h3>
-
-            <p id="secondaryText2">
-              Úpravy a opravy stávajících objektů s důrazem
-              na kvalitní a čisté provedení.
-            </p>
-
-          </article>
-
-
-          <article class="secondary-work-card reveal from-right">
-
-            <div class="secondary-work-top">
-              <div class="secondary-work-icon">📐</div>
-            </div>
-
-            <h3 id="secondaryTitle3">
-              Individuální řešení
-            </h3>
-
-            <p id="secondaryText3">
-              Rozsah prací přizpůsobíme konkrétní stavbě,
-              technickému zadání a potřebám zákazníka.
-            </p>
-
-          </article>
-
-        </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- ========================================
-         FOTOGALERIE PROCESU
-    ======================================== -->
 
-    <section
-      class="section"
-      style="background:rgba(255,255,255,.48);"
-    >
+  <!-- ========================================
+       DALŠÍ PRÁCE
+  ======================================== -->
 
-      <div class="container">
+  <section class="section">
 
-        <div class="section-title-wrap reveal from-bottom">
+    <div class="container">
 
-          <div class="eyebrow" id="galleryEyebrow">
-            Fotogalerie
+
+      <div class="section-title-wrap">
+
+        <span
+          class="eyebrow"
+          id="additionalEyebrow"
+        >
+          DALŠÍ PRÁCE
+        </span>
+
+
+        <h2
+          class="section-title"
+          id="additionalTitle"
+        >
+          Další služby podle potřeb projektu
+        </h2>
+
+
+        <p
+          class="section-subtitle"
+          id="additionalSubtitle"
+        >
+          Rozsah prací vždy přizpůsobujeme
+          konkrétní zakázce a požadavkům zákazníka.
+        </p>
+
+      </div>
+
+
+
+      <div class="secondary-works-grid">
+
+
+        <article
+          class="secondary-work-card reveal from-bottom"
+        >
+
+          <div class="secondary-work-top">
+
+            <div class="secondary-work-icon">
+              🔧
+            </div>
+
           </div>
 
-          <h2 class="section-title" id="galleryTitle">
-            Fotogalerie procesu
-          </h2>
 
-          <p class="section-subtitle" id="gallerySubtitle">
-            Fotografie z našich realizací a pracovního procesu.
+          <h3 id="additional1Title">
+            Montážní práce
+          </h3>
+
+
+          <p id="additional1Text">
+            Montážní práce a související
+            stavební činnosti podle
+            technických požadavků projektu.
           </p>
 
-        </div>
+        </article>
 
 
-        <!--
-          TŘI FOTOGRAFIE NA HLAVNÍ STRÁNCE.
-          PO KLIKNUTÍ SE OTEVŘE gallery.html
-          V NOVÉ KARTĚ.
-        -->
 
-        <div class="gallery-premium">
+        <article
+          class="secondary-work-card reveal from-bottom"
+        >
 
+          <div class="secondary-work-top">
 
-          <a
-            href="gallery.html"
-            target="_blank"
-            rel="noopener"
-            class="gallery-card-link reveal from-left"
-            aria-label="Otevřít celou fotogalerii"
-          >
-
-            <div class="gallery-card">
-
-              <img
-                src="bg1.jpg"
-                alt="Fotografie procesu 1"
-              >
-
+            <div class="secondary-work-icon">
+              🧰
             </div>
 
-          </a>
+          </div>
 
 
-          <a
-            href="gallery.html"
-            target="_blank"
-            rel="noopener"
-            class="gallery-card-link reveal from-bottom"
-            aria-label="Otevřít celou fotogalerii"
-          >
+          <h3 id="additional2Title">
+            Opravy a údržba
+          </h3>
 
-            <div class="gallery-card">
 
-              <img
-                src="bg2.jpg"
-                alt="Fotografie procesu 2"
-              >
+          <p id="additional2Text">
+            Opravy stavebních prvků
+            a údržba objektů podle
+            individuálních potřeb.
+          </p>
 
+        </article>
+
+
+
+        <article
+          class="secondary-work-card reveal from-bottom"
+        >
+
+          <div class="secondary-work-top">
+
+            <div class="secondary-work-icon">
+              📐
             </div>
 
-          </a>
+          </div>
 
 
-          <a
-            href="gallery.html"
-            target="_blank"
-            rel="noopener"
-            class="gallery-card-link reveal from-right"
-            aria-label="Otevřít celou fotogalerii"
-          >
-
-            <div class="gallery-card">
-
-              <img
-                src="bg3.jpg"
-                alt="Fotografie procesu 3"
-              >
-
-            </div>
-
-          </a>
-
-        </div>
+          <h3 id="additional3Title">
+            Individuální řešení
+          </h3>
 
 
-        <!-- TLAČÍTKO NA CELOU FOTOGALERII -->
+          <p id="additional3Text">
+            Řešení specifických stavebních
+            požadavků podle charakteru
+            konkrétní zakázky.
+          </p>
 
-        <div class="gallery-open-wrap reveal from-bottom">
+        </article>
 
-          <a
-            href="gallery.html"
-            target="_blank"
-            rel="noopener"
-            class="gallery-open-btn"
-            id="galleryOpenBtn"
-          >
-            📷 Zobrazit celou fotogalerii
-          </a>
-
-        </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- ========================================
-         REALIZACE
-    ======================================== -->
 
-    <section
-      class="section"
-      id="projects"
-    >
+  <!-- ========================================
+       KARIÉRA
+  ======================================== -->
 
-      <div class="container">
+  <section class="section">
 
-        <div class="section-title-wrap reveal from-bottom">
+    <div class="container">
+
+
+      <div
+        class="career-box reveal from-bottom"
+      >
+
+        <h2 id="careerTitle">
+          Chcete pracovat s námi?
+        </h2>
+
+
+        <p id="careerText">
+          Máte zkušenosti ve stavebnictví
+          a hledáte nové pracovní příležitosti?
+          Kontaktujte nás a zjistěte více
+          o aktuálních možnostech spolupráce.
+        </p>
+
+
+        <a
+          href="#contact"
+          id="careerBtn"
+        >
+          Kontaktovat nás
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ========================================
+       KONTAKT
+  ======================================== -->
+
+  <section
+    class="section contact-section"
+    id="contact"
+  >
+
+    <div class="container">
+
+
+      <div class="section-title-wrap">
+
+        <span
+          class="eyebrow"
+          id="contactEyebrow"
+        >
+          KONTAKT
+        </span>
+
+
+        <h2
+          class="section-title"
+          id="contactTitle"
+        >
+          Kontaktujte nás
+        </h2>
+
+
+        <p
+          class="section-subtitle"
+          id="contactSubtitle"
+        >
+          Máte zájem o spolupráci?
+          Napište nám nebo nám zavolejte.
+        </p>
+
+      </div>
+
+
+
+      <div class="contact-grid">
+
+
+        <!-- ==================================
+             KONTAKTNÍ INFORMACE
+        =================================== -->
+
+        <div class="contact-info">
+
 
           <div
-            class="eyebrow"
-            id="projectsEyebrow"
+            class="contact-card reveal from-left"
           >
-            Hlavní práce
+
+            <div class="contact-icon">
+              ✉️
+            </div>
+
+
+            <div>
+
+              <strong id="contactEmailTitle">
+                E-mail
+              </strong>
+
+
+              <a href="mailto:info@stavitofuture.com">
+                info@stavitofuture.com
+              </a>
+
+            </div>
+
           </div>
 
-          <h2
-            class="section-title"
-            id="projectsTitle"
-          >
-            Ukázky našich prací
-          </h2>
 
-          <p
-            class="section-subtitle"
-            id="projectsSubtitle"
-          >
-            Výběr realizací s důrazem na čistý výsledek,
-            přesnost a profesionální provedení.
-          </p>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-
-          <!-- ==================================
-               FASÁDY
-          =================================== -->
-
-          <article class="project-card reveal from-left">
-
-            <div class="project-image">
-
-              <span
-                class="project-badge"
-                id="projectBadge1"
-              >
-                Fasáda
-              </span>
-
-              <img
-                src="work1.jpg"
-                alt="Fasádní práce"
-              >
-
-            </div>
-
-
-            <div class="project-content">
-
-              <h3 id="projectTitle1">
-                Fasádní práce
-              </h3>
-
-              <p id="projectText1">
-                Precizní realizace fasád s důrazem na detail,
-                rovnost povrchu a profesionální finální vzhled.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- ==================================
-               REKONSTRUKCE FASÁD
-          =================================== -->
-
-          <article class="project-card reveal from-bottom">
-
-            <div class="project-image">
-
-              <span
-                class="project-badge"
-                id="projectBadge2"
-              >
-                Rekonstrukce
-              </span>
-
-              <img
-                src="work3.jpg"
-                alt="Rekonstrukce fasády"
-              >
-
-            </div>
-
-
-            <div class="project-content">
-
-              <h3 id="projectTitle2">
-                Rekonstrukce fasád
-              </h3>
-
-              <p id="projectText2">
-                Opravy a obnovy fasád s cílem vrátit objektu
-                čistý, moderní a kvalitní vzhled.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- ==================================
-               OCELOVÉ KONSTRUKCE
-               TATO KARTA OTEVÍRÁ GALERII
-          =================================== -->
-
-          <article
-            class="project-card steel-project reveal from-bottom"
-            onclick="openSteelGallery()"
-            role="button"
-            tabindex="0"
-            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSteelGallery();}"
-          >
-
-            <div class="project-image">
-
-              <span
-                class="project-badge"
-                id="projectBadge3"
-              >
-                Ocelové konstrukce
-              </span>
-
-              <img
-                src="work2.jpg"
-                alt="Ocelové konstrukce"
-              >
-
-            </div>
-
-
-            <div class="project-content">
-
-              <h3 id="projectTitle3">
-                Výroba a montáž ocelových konstrukcí
-              </h3>
-
-              <p id="projectText3">
-                Vyrábíme a montujeme ocelové konstrukce.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- ==================================
-               BALKONY
-          =================================== -->
-
-          <article class="project-card reveal from-bottom">
-
-            <div class="project-image">
-
-              <span
-                class="project-badge"
-                id="projectBadge4"
-              >
-                Balkony
-              </span>
-
-              <img
-                src="work5.jpg"
-                alt="Výroba a montáž balkonů"
-              >
-
-            </div>
-
-
-            <div class="project-content">
-
-              <h3 id="projectTitle4">
-                Výroba a montáž balkonů
-              </h3>
-
-              <p id="projectText4">
-                Kompletní realizace balkonů s důrazem na pevnost
-                konstrukce, bezpečnost a estetický výsledek.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- ==================================
-               DALŠÍ STAVEBNÍ PRÁCE
-          =================================== -->
-
-          <article class="project-card reveal from-right">
-
-            <div class="project-image">
-
-              <span
-                class="project-badge"
-                id="projectBadge5"
-              >
-                Stavba
-              </span>
-
-              <img
-                src="work6.jpg"
-                alt="Další stavební práce"
-              >
-
-            </div>
-
-
-            <div class="project-content">
-
-              <h3 id="projectTitle5">
-                Další stavební práce
-              </h3>
-
-              <p id="projectText5">
-                Doplňkové stavební činnosti provedené precizně,
-                spolehlivě a s důrazem na kvalitní výsledek.
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ========================================
-         KONTAKT
-    ======================================== -->
-
-    <section
-      class="section"
-      id="contact"
-      style="background:rgba(255,255,255,.50);"
-    >
-
-      <div class="container">
-
-        <div class="section-title-wrap reveal from-bottom">
 
           <div
-            class="eyebrow"
-            id="contactEyebrow"
+            class="contact-card reveal from-left"
           >
-            Kontakt
-          </div>
 
-          <h2
-            class="section-title"
-            id="contactTitle"
-          >
-            Máte projekt? Ozvěte se nám.
-          </h2>
-
-          <p
-            class="section-subtitle"
-            id="contactSubtitle"
-          >
-            Rádi s vámi probereme možnosti spolupráce
-            a připravíme řešení podle vašich potřeb.
-          </p>
-
-        </div>
+            <div class="contact-icon">
+              📞
+            </div>
 
 
-        <div class="contact-grid">
+            <div>
+
+              <strong id="contactPhoneTitle">
+                Telefon
+              </strong>
 
 
-          <!-- KONTAKTNÍ ÚDAJE -->
-
-          <div class="contact-card reveal from-left">
-
-            <h3 id="contactInfoTitle">
-              Kontaktní údaje
-            </h3>
-
-
-            <div class="contact-list">
-
-
-              <div class="contact-item">
-
-                <div class="contact-icon">
-                  📞
-                </div>
-
-                <div>
-
-                  <strong id="contactPhoneLabel">
-                    Telefon
-                  </strong>
-
-                  <a href="tel:+420776604662">
-                    +420 776 604 662
-                  </a>
-
-                </div>
-
-              </div>
-
-
-              <div class="contact-item">
-
-                <div class="contact-icon">
-                  ✉️
-                </div>
-
-                <div>
-
-                  <strong>
-                    E-mail
-                  </strong>
-
-                  <a href="mailto:info@stavitofuture.com">
-                    info@stavitofuture.com
-                  </a>
-
-                </div>
-
-              </div>
-
-
-              <div class="contact-item">
-
-                <div class="contact-icon">
-                  🏢
-                </div>
-
-                <div>
-
-                  <strong id="contactCompanyLabel">
-                    Společnost
-                  </strong>
-
-                  <span>
-                    STAVITO FUTURE s.r.o.
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <div class="contact-item">
-
-                <div class="contact-icon">
-                  📋
-                </div>
-
-                <div>
-
-                  <strong>
-                    IČO
-                  </strong>
-
-                  <span>
-                    22151168
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <div class="contact-item">
-
-                <div class="contact-icon">
-                  🧾
-                </div>
-
-                <div>
-
-                  <strong>
-                    DIČ
-                  </strong>
-
-                  <span>
-                    CZ22151168
-                  </span>
-
-                </div>
-
-              </div>
+              <span>
+                Kontaktujte nás telefonicky
+              </span>
 
             </div>
 
           </div>
 
 
-          <!-- FORMULÁŘ -->
 
-          <div class="form-card reveal from-right">
+          <div
+            class="contact-card reveal from-left"
+          >
 
-            <h3 id="formTitle">
-              Napište nám
-            </h3>
-
-            <p id="formSubtitle">
-              Zanechte nám zprávu a my se vám ozveme.
-            </p>
+            <div class="contact-icon">
+              🏢
+            </div>
 
 
-            <form
-              class="contact-form"
-              id="contactForm"
-            >
+            <div>
+
+              <strong id="contactCompanyTitle">
+                Společnost
+              </strong>
+
+
+              <span>
+                STAVITO FUTURE s.r.o.
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="contact-card reveal from-left"
+          >
+
+            <div class="contact-icon">
+              📋
+            </div>
+
+
+            <div>
+
+              <strong id="contactCompanyDataTitle">
+                Firemní údaje
+              </strong>
+
+
+              <span>
+                IČO: 22151168
+                <br>
+                DIČ: CZ22151168
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================
+             FORMULÁŘ
+        =================================== -->
+
+        <form
+          class="contact-form reveal from-right"
+          id="contactForm"
+        >
+
+
+          <h3 id="formTitle">
+            Nezávazná poptávka
+          </h3>
+
+
+          <p id="formSubtitle">
+            Napište nám základní informace
+            o vaší zakázce a ozveme se vám.
+          </p>
+
+
+
+          <div class="form-grid">
+
+
+            <div class="form-group">
+
+              <label
+                for="formName"
+                id="formNameLabel"
+              >
+                Jméno
+              </label>
+
 
               <input
                 type="text"
                 id="formName"
-                placeholder="Jméno a příjmení"
+                placeholder="Vaše jméno"
                 required
               >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+              <label
+                for="formEmail"
+                id="formEmailLabel"
+              >
+                E-mail
+              </label>
+
 
               <input
                 type="email"
                 id="formEmail"
-                placeholder="E-mail"
+                placeholder="Váš e-mail"
                 required
               >
+
+            </div>
+
+
+
+            <div class="form-group full">
+
+              <label
+                for="formPhone"
+                id="formPhoneLabel"
+              >
+                Telefon
+              </label>
+
 
               <input
                 type="tel"
                 id="formPhone"
-                placeholder="Telefon"
+                placeholder="Telefonní číslo"
               >
+
+            </div>
+
+
+
+            <div class="form-group full">
+
+              <label
+                for="formMessage"
+                id="formMessageLabel"
+              >
+                Zpráva
+              </label>
+
 
               <textarea
                 id="formMessage"
-                placeholder="Vaše zpráva"
+                placeholder="Popište nám vaši zakázku..."
                 required
               ></textarea>
 
-              <button
-                type="submit"
-                id="formButton"
-              >
-                Odeslat zprávu
-              </button>
+            </div>
 
-            </form>
 
           </div>
 
-        </div>
 
 
-        <!-- MAPA -->
+          <button
+            type="submit"
+            class="form-submit"
+            id="formSubmit"
+          >
+            Odeslat poptávku
+          </button>
 
-        <div class="map-wrap reveal from-bottom">
 
-          <iframe
-            src="https://www.google.com/maps?q=Brno%2C%20Czech%20Republic&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa"
-          ></iframe>
+        </form>
 
-        </div>
 
       </div>
 
-    </section>
 
-  </main>
+
+      <!-- ==================================
+           MAPA
+      =================================== -->
+
+      <div
+        class="map-wrap reveal from-bottom"
+      >
+
+        <iframe
+          src="https://www.google.com/maps?q=Brno%2C%20Czech%20Republic&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="STAVITO FUTURE mapa"
+        ></iframe>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
 
 
   <!-- ========================================
@@ -2543,29 +5129,46 @@
 
     <div class="container footer-inner">
 
-      <div>
 
-        <div class="footer-brand">
-          STAVITO FUTURE s.r.o.
-        </div>
+      <div class="footer-brand">
 
-        <div class="footer-small">
-          IČO: 22151168 &nbsp; | &nbsp; DIČ: CZ22151168
+        <img
+          src="logo.png"
+          alt="STAVITO FUTURE logo"
+        >
+
+
+        <div>
+
+          <strong>
+            STAVITO FUTURE s.r.o.
+          </strong>
+
+
+          <span>
+            IČO: 22151168 |
+            DIČ: CZ22151168
+          </span>
+
         </div>
 
       </div>
+
 
 
       <div
-        class="footer-small"
+        class="footer-text"
         id="footerText"
       >
-        © 2026 STAVITO FUTURE s.r.o. Všechna práva vyhrazena.
+        © 2026 STAVITO FUTURE s.r.o.
+        Všechna práva vyhrazena.
       </div>
+
 
     </div>
 
   </footer>
+
 
 
   <!-- ========================================
@@ -2578,6 +5181,7 @@
     aria-hidden="true"
   >
 
+
     <button
       class="steel-gallery-close"
       type="button"
@@ -2588,17 +5192,24 @@
     </button>
 
 
+
     <div
       class="steel-gallery-container"
       onclick="event.stopPropagation()"
     >
 
-      <h2 class="steel-gallery-title">
+
+      <h2
+        class="steel-gallery-title"
+        id="steelGalleryTitle"
+      >
         Výroba a montáž ocelových konstrukcí
       </h2>
 
 
+
       <div class="steel-gallery-main">
+
 
         <button
           class="steel-gallery-arrow steel-gallery-prev"
@@ -2610,11 +5221,13 @@
         </button>
 
 
+
         <img
           id="steelGalleryImage"
           src="ocel1.jpeg"
           alt="Ocelové konstrukce"
         >
+
 
 
         <button
@@ -2626,7 +5239,9 @@
           ›
         </button>
 
+
       </div>
+
 
 
       <div
@@ -2637,7 +5252,9 @@
       </div>
 
 
+
       <div class="steel-gallery-thumbnails">
+
 
         <img
           src="ocel1.jpeg"
@@ -2646,11 +5263,13 @@
           alt="Ocelové konstrukce 1"
         >
 
+
         <img
           src="ocel2.jpeg"
           onclick="selectSteelPhoto(1,event)"
           alt="Ocelové konstrukce 2"
         >
+
 
         <img
           src="ocel3.jpeg"
@@ -2658,25 +5277,36 @@
           alt="Ocelové konstrukce 3"
         >
 
+
       </div>
+
 
     </div>
 
   </div>
 
 
-  <!-- PLOVOUCÍ TELEFON -->
+
+  <!-- ========================================
+       FIXNÍ TELEFON
+  ======================================== -->
 
   <a
-    href="tel:+420776604662"
-    class="call-fixed"
-    aria-label="Zavolat"
+    href="tel:+420"
+    class="fixed-phone"
+    aria-label="Zavolat STAVITO FUTURE"
   >
-    📞
+    ☎
   </a>
 
 
+
+  <!-- ========================================
+       JAVASCRIPT
+  ======================================== -->
+
   <script>
+
 
     /* ========================================
        PŘEKLADY
@@ -2684,678 +5314,2093 @@
 
     const translations = {
 
+
+      /* =====================================
+         ČEŠTINA
+      ===================================== */
+
       cz:{
 
-        navAbout:"O nás",
-        navServices:"Služby",
-        navProjects:"Realizace",
-        navContact:"Kontakt",
 
-        heroEyebrow:"STAVITO FUTURE",
-        heroTitle:"Stavíme budoucnost pevně a spolehlivě.",
-        heroText:"Specializujeme se na fasády, rekonstrukce fasád, montáž sendvičových panelů, výrobu a montáž ocelových konstrukcí a rekonstrukce hal.",
-        heroBtnContact:"Kontaktujte nás",
-        heroBtnProjects:"Naše realizace",
+        navAbout:
+          "O nás",
 
-        statLabel1:"Realizovaných zakázek",
-        statLabel2:"Důraz na kvalitu",
-        statLabel3:"Individuální přístup",
 
-        aboutEyebrow:"O společnosti",
-        aboutTitle:"Spolehlivý partner pro vaše stavební projekty",
-        aboutSubtitle:"Zakládáme si na kvalitním provedení, férovém jednání a pečlivém přístupu ke každé zakázce.",
+        navServices:
+          "Služby",
 
-        aboutText1:"STAVITO FUTURE s.r.o. je stavební společnost zaměřená na realizaci a rekonstrukci fasád, montáž sendvičových panelů, ocelové konstrukce a rekonstrukce průmyslových hal.",
 
-        aboutText2:"Každý projekt řešíme individuálně s důrazem na přesnost, kvalitní materiály, bezpečnost práce a dlouhodobou spokojenost zákazníka.",
+        navProjects:
+          "Realizace",
 
-        companyMiniText:"Stavební práce a profesionální realizace",
 
-        pointTitle1:"Kvalita",
-        pointText1:"Pečlivé provedení a důraz na každý detail.",
+        navGallery:
+          "Fotogalerie",
 
-        pointTitle2:"Spolehlivost",
-        pointText2:"Dodržování dohodnutých termínů a férová komunikace.",
 
-        pointTitle3:"Zkušenosti",
-        pointText3:"Praktické zkušenosti s různými typy stavebních prací.",
+        navContact:
+          "Kontakt",
 
-        pointTitle4:"Individuální přístup",
-        pointText4:"Řešení přizpůsobené konkrétním potřebám zákazníka.",
 
-        servicesEyebrow:"Naše služby",
-        servicesTitle:"Kompletní stavební řešení",
-        servicesSubtitle:"Nabízíme široké spektrum stavebních prací pro soukromé, komerční i průmyslové objekty.",
 
-        serviceTitle1:"Fasády",
-        serviceText1:"Realizace nových fasád s důrazem na kvalitní provedení, moderní vzhled a dlouhou životnost.",
+        heroEyebrow:
+          "STAVEBNÍ SPOLEČNOST",
 
-        serviceTitle2:"Rekonstrukce fasád",
-        serviceText2:"Opravy a kompletní rekonstrukce stávajících fasád, včetně obnovy jejich vzhledu a funkčnosti.",
 
-        serviceTitle3:"Sendvičové panely",
-        serviceText3:"Profesionální montáž sendvičových panelů pro průmyslové, skladové a komerční objekty.",
+        heroTitle:
+          "STAVITO FUTURE",
 
-        serviceTitle4:"Ocelové konstrukce",
-        serviceText4:"Výroba a montáž ocelových konstrukcí podle požadavků konkrétního projektu.",
 
-        serviceTitle5:"Rekonstrukce hal",
-        serviceText5:"Rekonstrukce průmyslových a skladových hal včetně souvisejících stavebních prací.",
+        heroText:
+          "Spolehlivý partner pro fasády, rekonstrukce, ocelové konstrukce a průmyslové stavby.",
 
-        serviceTitle6:"Další stavební práce",
-        serviceText6:"Doplňkové stavební práce realizované podle potřeb zákazníka a konkrétního projektu.",
 
-        secondaryEyebrow:"Další možnosti",
-        secondaryTitle:"Práce podle potřeb projektu",
-        secondarySubtitle:"Každá zakázka je jiná. Proto dokážeme rozsah prací přizpůsobit konkrétním požadavkům projektu.",
+        heroBtnContact:
+          "Nezávazná poptávka",
 
-        secondaryTitle1:"Montážní práce",
-        secondaryText1:"Montáž konstrukčních prvků a dalších stavebních částí podle technických požadavků projektu.",
 
-        secondaryTitle2:"Stavební úpravy",
-        secondaryText2:"Úpravy a opravy stávajících objektů s důrazem na kvalitní a čisté provedení.",
+        heroBtnProjects:
+          "Naše realizace",
 
-        secondaryTitle3:"Individuální řešení",
-        secondaryText3:"Rozsah prací přizpůsobíme konkrétní stavbě, technickému zadání a potřebám zákazníka.",
 
-        galleryEyebrow:"Fotogalerie",
-        galleryTitle:"Fotogalerie procesu",
-        gallerySubtitle:"Fotografie z našich realizací a pracovního procesu.",
-        galleryOpenBtn:"📷 Zobrazit celou fotogalerii",
 
-        projectsEyebrow:"Hlavní práce",
-        projectsTitle:"Ukázky našich prací",
-        projectsSubtitle:"Výběr realizací s důrazem na čistý výsledek, přesnost a profesionální provedení.",
+        statLabel1:
+          "Individuální přístup",
 
-        projectBadge1:"Fasáda",
-        projectTitle1:"Fasádní práce",
-        projectText1:"Precizní realizace fasád s důrazem na detail, rovnost povrchu a profesionální finální vzhled.",
 
-        projectBadge2:"Rekonstrukce",
-        projectTitle2:"Rekonstrukce fasád",
-        projectText2:"Opravy a obnovy fasád s cílem vrátit objektu čistý, moderní a kvalitní vzhled.",
+        statLabel2:
+          "Komunikace",
 
-        projectBadge3:"Ocelové konstrukce",
-        projectTitle3:"Výroba a montáž ocelových konstrukcí",
-        projectText3:"Vyrábíme a montujeme ocelové konstrukce.",
 
-        projectBadge4:"Balkony",
-        projectTitle4:"Výroba a montáž balkonů",
-        projectText4:"Kompletní realizace balkonů s důrazem na pevnost konstrukce, bezpečnost a estetický výsledek.",
+        statLabel3:
+          "Důraz na kvalitu",
 
-        projectBadge5:"Stavba",
-        projectTitle5:"Další stavební práce",
-        projectText5:"Doplňkové stavební činnosti provedené precizně, spolehlivě a s důrazem na kvalitní výsledek.",
 
-        contactEyebrow:"Kontakt",
-        contactTitle:"Máte projekt? Ozvěte se nám.",
-        contactSubtitle:"Rádi s vámi probereme možnosti spolupráce a připravíme řešení podle vašich potřeb.",
 
-        contactInfoTitle:"Kontaktní údaje",
-        contactPhoneLabel:"Telefon",
-        contactCompanyLabel:"Společnost",
+        aboutEyebrow:
+          "O NÁS",
 
-        formTitle:"Napište nám",
-        formSubtitle:"Zanechte nám zprávu a my se vám ozveme.",
-        formName:"Jméno a příjmení",
-        formEmail:"E-mail",
-        formPhone:"Telefon",
-        formMessage:"Vaše zpráva",
-        formButton:"Odeslat zprávu",
 
-        footerText:"© 2026 STAVITO FUTURE s.r.o. Všechna práva vyhrazena."
+        aboutTitle:
+          "Stavíme na kvalitě a spolehlivosti",
+
+
+        aboutSubtitle:
+          "Nabízíme profesionální stavební práce s důrazem na kvalitu provedení, komunikaci a dodržení dohodnutých termínů.",
+
+
+        aboutText1:
+          "STAVITO FUTURE s.r.o. se zaměřuje na realizaci stavebních prací, rekonstrukce, fasády, montáž sendvičových panelů a výrobu a montáž ocelových konstrukcí.",
+
+
+        aboutText2:
+          "Ke každé zakázce přistupujeme individuálně a hledáme řešení, které odpovídá požadavkům konkrétního zákazníka.",
+
+
+        aboutText3:
+          "Naším cílem je dlouhodobá spolupráce, kvalitně odvedená práce a spokojený zákazník.",
+
+
+
+        aboutPoint1Title:
+          "Kvalita",
+
+
+        aboutPoint1Text:
+          "Důraz na precizní provedení a kvalitní materiály.",
+
+
+        aboutPoint2Title:
+          "Spolehlivost",
+
+
+        aboutPoint2Text:
+          "Dodržujeme domluvené podmínky a termíny realizace.",
+
+
+        aboutPoint3Title:
+          "Individuální přístup",
+
+
+        aboutPoint3Text:
+          "Každou zakázku řešíme podle konkrétních potřeb zákazníka.",
+
+
+        aboutPoint4Title:
+          "Komunikace",
+
+
+        aboutPoint4Text:
+          "Zakládáme si na rychlé a srozumitelné komunikaci.",
+
+
+
+        servicesEyebrow:
+          "SLUŽBY",
+
+
+        servicesTitle:
+          "Co pro vás zajistíme",
+
+
+        servicesSubtitle:
+          "Kompletní stavební řešení pro soukromé i firemní zákazníky.",
+
+
+
+        service1Title:
+          "Fasády",
+
+
+        service1Text:
+          "Realizace nových fasád a profesionální obnova stávajících fasádních systémů.",
+
+
+        service2Title:
+          "Rekonstrukce fasád",
+
+
+        service2Text:
+          "Opravy a rekonstrukce fasád se zaměřením na funkčnost, vzhled a dlouhou životnost.",
+
+
+        service3Title:
+          "Sendvičové panely",
+
+
+        service3Text:
+          "Montáž sendvičových panelů pro průmyslové, skladové a další stavební objekty.",
+
+
+        service4Title:
+          "Ocelové konstrukce",
+
+
+        service4Text:
+          "Výroba a montáž ocelových konstrukcí podle požadavků konkrétního projektu.",
+
+
+        service5Title:
+          "Rekonstrukce hal",
+
+
+        service5Text:
+          "Rekonstrukce průmyslových a skladových hal včetně souvisejících stavebních prací.",
+
+
+        service6Title:
+          "Stavební práce",
+
+
+        service6Text:
+          "Další stavební a montážní práce podle rozsahu a potřeb zakázky.",
+
+
+
+        galleryEyebrow:
+          "FOTOGALERIE",
+
+
+        galleryTitle:
+          "Fotogalerie procesu",
+
+
+        gallerySubtitle:
+          "Nahlédněte do průběhu našich realizací a pracovního procesu.",
+
+
+        galleryOpenBtn:
+          "📷 Zobrazit celou fotogalerii",
+
+
+
+        projectsEyebrow:
+          "REALIZACE",
+
+
+        projectsTitle:
+          "Ukázky našich prací",
+
+
+        projectsSubtitle:
+          "Vybrané realizace společnosti STAVITO FUTURE.",
+
+
+
+        projectBadge1:
+          "Fasády",
+
+
+        projectTitle1:
+          "Realizace fasád",
+
+
+        projectText1:
+          "Kompletní realizace fasádních systémů s důrazem na kvalitní provedení a dlouhou životnost.",
+
+
+
+        projectBadge2:
+          "Sendvičové panely",
+
+
+        projectTitle2:
+          "Montáž sendvičových panelů",
+
+
+        projectText2:
+          "Montáž opláštění průmyslových a skladových objektů pomocí sendvičových panelů.",
+
+
+
+        projectBadge3:
+          "Ocelové konstrukce",
+
+
+        projectTitle3:
+          "Výroba a montáž ocelových konstrukcí",
+
+
+        projectText3:
+          "Výroba a montáž ocelových konstrukcí podle technických požadavků konkrétního projektu.",
+
+
+
+        projectBadge4:
+          "Rekonstrukce",
+
+
+        projectTitle4:
+          "Rekonstrukce hal",
+
+
+        projectText4:
+          "Rekonstrukce průmyslových a skladových hal včetně souvisejících stavebních prací.",
+
+
+
+        projectBadge5:
+          "Stavební práce",
+
+
+        projectTitle5:
+          "Další stavební práce",
+
+
+        projectText5:
+          "Stavební a montážní práce realizované podle požadavků a potřeb zákazníka.",
+
+
+
+        additionalEyebrow:
+          "DALŠÍ PRÁCE",
+
+
+        additionalTitle:
+          "Další služby podle potřeb projektu",
+
+
+        additionalSubtitle:
+          "Rozsah prací vždy přizpůsobujeme konkrétní zakázce a požadavkům zákazníka.",
+
+
+
+        additional1Title:
+          "Montážní práce",
+
+
+        additional1Text:
+          "Montážní práce a související stavební činnosti podle technických požadavků projektu.",
+
+
+        additional2Title:
+          "Opravy a údržba",
+
+
+        additional2Text:
+          "Opravy stavebních prvků a údržba objektů podle individuálních potřeb.",
+
+
+        additional3Title:
+          "Individuální řešení",
+
+
+        additional3Text:
+          "Řešení specifických stavebních požadavků podle charakteru konkrétní zakázky.",
+
+
+
+        careerTitle:
+          "Chcete pracovat s námi?",
+
+
+        careerText:
+          "Máte zkušenosti ve stavebnictví a hledáte nové pracovní příležitosti? Kontaktujte nás a zjistěte více o aktuálních možnostech spolupráce.",
+
+
+        careerBtn:
+          "Kontaktovat nás",
+
+
+
+        contactEyebrow:
+          "KONTAKT",
+
+
+        contactTitle:
+          "Kontaktujte nás",
+
+
+        contactSubtitle:
+          "Máte zájem o spolupráci? Napište nám nebo nám zavolejte.",
+
+
+        contactEmailTitle:
+          "E-mail",
+
+
+        contactPhoneTitle:
+          "Telefon",
+
+
+        contactCompanyTitle:
+          "Společnost",
+
+
+        contactCompanyDataTitle:
+          "Firemní údaje",
+
+
+
+        formTitle:
+          "Nezávazná poptávka",
+
+
+        formSubtitle:
+          "Napište nám základní informace o vaší zakázce a ozveme se vám.",
+
+
+        formNameLabel:
+          "Jméno",
+
+
+        formEmailLabel:
+          "E-mail",
+
+
+        formPhoneLabel:
+          "Telefon",
+
+
+        formMessageLabel:
+          "Zpráva",
+
+
+        formName:
+          "Vaše jméno",
+
+
+        formEmail:
+          "Váš e-mail",
+
+
+        formPhone:
+          "Telefonní číslo",
+
+
+        formMessage:
+          "Popište nám vaši zakázku...",
+
+
+        formSubmit:
+          "Odeslat poptávku",
+
+
+
+        steelGalleryTitle:
+          "Výroba a montáž ocelových konstrukcí",
+
+
+
+        footerText:
+          "© 2026 STAVITO FUTURE s.r.o. Všechna práva vyhrazena."
+
       },
 
+
+      /* =====================================
+         ENGLISH
+      ===================================== */
 
       en:{
 
-        navAbout:"About us",
-        navServices:"Services",
-        navProjects:"Projects",
-        navContact:"Contact",
 
-        heroEyebrow:"STAVITO FUTURE",
-        heroTitle:"We build the future firmly and reliably.",
-        heroText:"We specialize in facades, facade renovations, sandwich panel installation, production and installation of steel structures, and industrial hall renovations.",
-        heroBtnContact:"Contact us",
-        heroBtnProjects:"Our projects",
+        navAbout:
+          "About us",
 
-        statLabel1:"Completed projects",
-        statLabel2:"Focus on quality",
-        statLabel3:"Individual approach",
 
-        aboutEyebrow:"About company",
-        aboutTitle:"A reliable partner for your construction projects",
-        aboutSubtitle:"We focus on quality workmanship, fair communication and a careful approach to every project.",
+        navServices:
+          "Services",
 
-        aboutText1:"STAVITO FUTURE s.r.o. is a construction company focused on facade construction and renovation, sandwich panel installation, steel structures and industrial hall renovations.",
 
-        aboutText2:"We approach every project individually with an emphasis on precision, quality materials, work safety and long-term customer satisfaction.",
+        navProjects:
+          "Projects",
 
-        companyMiniText:"Construction work and professional implementation",
 
-        pointTitle1:"Quality",
-        pointText1:"Careful workmanship and attention to every detail.",
+        navGallery:
+          "Photo gallery",
 
-        pointTitle2:"Reliability",
-        pointText2:"Meeting agreed deadlines and maintaining fair communication.",
 
-        pointTitle3:"Experience",
-        pointText3:"Practical experience with various types of construction work.",
+        navContact:
+          "Contact",
 
-        pointTitle4:"Individual approach",
-        pointText4:"Solutions tailored to the specific needs of each customer.",
 
-        servicesEyebrow:"Our services",
-        servicesTitle:"Complete construction solutions",
-        servicesSubtitle:"We provide a wide range of construction services for private, commercial and industrial buildings.",
 
-        serviceTitle1:"Facades",
-        serviceText1:"Construction of new facades with an emphasis on quality workmanship, modern appearance and long service life.",
+        heroEyebrow:
+          "CONSTRUCTION COMPANY",
 
-        serviceTitle2:"Facade renovations",
-        serviceText2:"Repairs and complete renovations of existing facades, including restoration of their appearance and functionality.",
 
-        serviceTitle3:"Sandwich panels",
-        serviceText3:"Professional installation of sandwich panels for industrial, warehouse and commercial buildings.",
+        heroTitle:
+          "STAVITO FUTURE",
 
-        serviceTitle4:"Steel structures",
-        serviceText4:"Production and installation of steel structures according to the requirements of the specific project.",
 
-        serviceTitle5:"Hall renovations",
-        serviceText5:"Renovation of industrial and warehouse halls, including related construction work.",
+        heroText:
+          "A reliable partner for facades, renovations, steel structures and industrial construction.",
 
-        serviceTitle6:"Other construction work",
-        serviceText6:"Additional construction work carried out according to the customer's needs and the specific project.",
 
-        secondaryEyebrow:"Other possibilities",
-        secondaryTitle:"Work tailored to the project",
-        secondarySubtitle:"Every project is different. Therefore, we can adapt the scope of work to the specific requirements of each project.",
+        heroBtnContact:
+          "Request a quote",
 
-        secondaryTitle1:"Installation work",
-        secondaryText1:"Installation of structural elements and other building components according to the technical requirements of the project.",
 
-        secondaryTitle2:"Building modifications",
-        secondaryText2:"Modifications and repairs of existing buildings with an emphasis on quality and clean workmanship.",
+        heroBtnProjects:
+          "Our projects",
 
-        secondaryTitle3:"Individual solutions",
-        secondaryText3:"We adapt the scope of work to the specific building, technical requirements and customer needs.",
 
-        galleryEyebrow:"Photo gallery",
-        galleryTitle:"Process photo gallery",
-        gallerySubtitle:"Photos from our projects and work process.",
-        galleryOpenBtn:"📷 View full photo gallery",
 
-        projectsEyebrow:"Main work",
-        projectsTitle:"Examples of our work",
-        projectsSubtitle:"A selection of projects with an emphasis on a clean result, precision and professional workmanship.",
+        statLabel1:
+          "Individual approach",
 
-        projectBadge1:"Facade",
-        projectTitle1:"Facade work",
-        projectText1:"Precise facade implementation with an emphasis on detail, surface evenness and a professional final appearance.",
 
-        projectBadge2:"Renovation",
-        projectTitle2:"Facade renovations",
-        projectText2:"Facade repairs and renovations aimed at restoring a clean, modern and high-quality appearance.",
+        statLabel2:
+          "Communication",
 
-        projectBadge3:"Steel structures",
-        projectTitle3:"Production and installation of steel structures",
-        projectText3:"We manufacture and install steel structures.",
 
-        projectBadge4:"Balconies",
-        projectTitle4:"Production and installation of balconies",
-        projectText4:"Complete balcony implementation with an emphasis on structural strength, safety and an aesthetic result.",
+        statLabel3:
+          "Focus on quality",
 
-        projectBadge5:"Construction",
-        projectTitle5:"Other construction work",
-        projectText5:"Additional construction activities carried out precisely, reliably and with an emphasis on a quality result.",
 
-        contactEyebrow:"Contact",
-        contactTitle:"Do you have a project? Contact us.",
-        contactSubtitle:"We will be happy to discuss cooperation options and prepare a solution according to your needs.",
 
-        contactInfoTitle:"Contact details",
-        contactPhoneLabel:"Phone",
-        contactCompanyLabel:"Company",
+        aboutEyebrow:
+          "ABOUT US",
 
-        formTitle:"Write to us",
-        formSubtitle:"Leave us a message and we will get back to you.",
-        formName:"Full name",
-        formEmail:"E-mail",
-        formPhone:"Phone",
-        formMessage:"Your message",
-        formButton:"Send message",
 
-        footerText:"© 2026 STAVITO FUTURE s.r.o. All rights reserved."
+        aboutTitle:
+          "We build on quality and reliability",
+
+
+        aboutSubtitle:
+          "We provide professional construction services with an emphasis on quality, communication and meeting agreed deadlines.",
+
+
+        aboutText1:
+          "STAVITO FUTURE s.r.o. focuses on construction work, renovations, facades, sandwich panel installation and the production and installation of steel structures.",
+
+
+        aboutText2:
+          "We approach every project individually and look for solutions that meet the requirements of each customer.",
+
+
+        aboutText3:
+          "Our goal is long-term cooperation, high-quality work and a satisfied customer.",
+
+
+
+        aboutPoint1Title:
+          "Quality",
+
+
+        aboutPoint1Text:
+          "Emphasis on precise workmanship and quality materials.",
+
+
+        aboutPoint2Title:
+          "Reliability",
+
+
+        aboutPoint2Text:
+          "We respect agreed conditions and project deadlines.",
+
+
+        aboutPoint3Title:
+          "Individual approach",
+
+
+        aboutPoint3Text:
+          "Every project is handled according to the customer's specific needs.",
+
+
+        aboutPoint4Title:
+          "Communication",
+
+
+        aboutPoint4Text:
+          "We value fast and clear communication.",
+
+
+
+        servicesEyebrow:
+          "SERVICES",
+
+
+        servicesTitle:
+          "What we can provide",
+
+
+        servicesSubtitle:
+          "Comprehensive construction solutions for private and corporate customers.",
+
+
+
+        service1Title:
+          "Facades",
+
+
+        service1Text:
+          "Installation of new facades and professional renovation of existing facade systems.",
+
+
+        service2Title:
+          "Facade renovations",
+
+
+        service2Text:
+          "Facade repairs and renovations focused on functionality, appearance and long service life.",
+
+
+        service3Title:
+          "Sandwich panels",
+
+
+        service3Text:
+          "Installation of sandwich panels for industrial, warehouse and other buildings.",
+
+
+        service4Title:
+          "Steel structures",
+
+
+        service4Text:
+          "Production and installation of steel structures according to specific project requirements.",
+
+
+        service5Title:
+          "Hall renovations",
+
+
+        service5Text:
+          "Renovation of industrial and warehouse halls including related construction work.",
+
+
+        service6Title:
+          "Construction work",
+
+
+        service6Text:
+          "Additional construction and installation work according to the scope and needs of the project.",
+
+
+
+        galleryEyebrow:
+          "PHOTO GALLERY",
+
+
+        galleryTitle:
+          "Process photo gallery",
+
+
+        gallerySubtitle:
+          "Take a look at our projects and work process.",
+
+
+        galleryOpenBtn:
+          "📷 View full photo gallery",
+
+
+
+        projectsEyebrow:
+          "PROJECTS",
+
+
+        projectsTitle:
+          "Examples of our work",
+
+
+        projectsSubtitle:
+          "Selected projects by STAVITO FUTURE.",
+
+
+
+        projectBadge1:
+          "Facades",
+
+
+        projectTitle1:
+          "Facade projects",
+
+
+        projectText1:
+          "Complete facade systems with an emphasis on quality workmanship and long service life.",
+
+
+
+        projectBadge2:
+          "Sandwich panels",
+
+
+        projectTitle2:
+          "Sandwich panel installation",
+
+
+        projectText2:
+          "Installation of cladding for industrial and warehouse buildings using sandwich panels.",
+
+
+
+        projectBadge3:
+          "Steel structures",
+
+
+        projectTitle3:
+          "Production and installation of steel structures",
+
+
+        projectText3:
+          "Production and installation of steel structures according to the technical requirements of each project.",
+
+
+
+        projectBadge4:
+          "Renovation",
+
+
+        projectTitle4:
+          "Hall renovations",
+
+
+        projectText4:
+          "Renovation of industrial and warehouse halls including related construction work.",
+
+
+
+        projectBadge5:
+          "Construction work",
+
+
+        projectTitle5:
+          "Additional construction work",
+
+
+        projectText5:
+          "Construction and installation work carried out according to customer requirements and needs.",
+
+
+
+        additionalEyebrow:
+          "ADDITIONAL WORK",
+
+
+        additionalTitle:
+          "Additional services according to project needs",
+
+
+        additionalSubtitle:
+          "We always adapt the scope of work to the specific project and customer requirements.",
+
+
+
+        additional1Title:
+          "Installation work",
+
+
+        additional1Text:
+          "Installation and related construction work according to the technical requirements of the project.",
+
+
+        additional2Title:
+          "Repairs and maintenance",
+
+
+        additional2Text:
+          "Repairs of building elements and maintenance of properties according to individual needs.",
+
+
+        additional3Title:
+          "Individual solutions",
+
+
+        additional3Text:
+          "Solutions for specific construction requirements according to the nature of each project.",
+
+
+
+        careerTitle:
+          "Would you like to work with us?",
+
+
+        careerText:
+          "Do you have experience in construction and are you looking for new job opportunities? Contact us to learn more about current cooperation opportunities.",
+
+
+        careerBtn:
+          "Contact us",
+
+
+
+        contactEyebrow:
+          "CONTACT",
+
+
+        contactTitle:
+          "Contact us",
+
+
+        contactSubtitle:
+          "Interested in working with us? Send us a message or give us a call.",
+
+
+        contactEmailTitle:
+          "E-mail",
+
+
+        contactPhoneTitle:
+          "Phone",
+
+
+        contactCompanyTitle:
+          "Company",
+
+
+        contactCompanyDataTitle:
+          "Company details",
+
+
+
+        formTitle:
+          "Request a quote",
+
+
+        formSubtitle:
+          "Send us basic information about your project and we will contact you.",
+
+
+        formNameLabel:
+          "Name",
+
+
+        formEmailLabel:
+          "E-mail",
+
+
+        formPhoneLabel:
+          "Phone",
+
+
+        formMessageLabel:
+          "Message",
+
+
+        formName:
+          "Your name",
+
+
+        formEmail:
+          "Your e-mail",
+
+
+        formPhone:
+          "Phone number",
+
+
+        formMessage:
+          "Tell us about your project...",
+
+
+        formSubmit:
+          "Send request",
+
+
+
+        steelGalleryTitle:
+          "Production and installation of steel structures",
+
+
+
+        footerText:
+          "© 2026 STAVITO FUTURE s.r.o. All rights reserved."
+
       },
-
+            /* =====================================
+         SLOVENČINA
+      ===================================== */
 
       sk:{
 
-        navAbout:"O nás",
-        navServices:"Služby",
-        navProjects:"Realizácie",
-        navContact:"Kontakt",
 
-        heroEyebrow:"STAVITO FUTURE",
-        heroTitle:"Budujeme budúcnosť pevne a spoľahlivo.",
-        heroText:"Špecializujeme sa na fasády, rekonštrukcie fasád, montáž sendvičových panelov, výrobu a montáž oceľových konštrukcií a rekonštrukcie hál.",
-        heroBtnContact:"Kontaktujte nás",
-        heroBtnProjects:"Naše realizácie",
+        navAbout:
+          "O nás",
 
-        statLabel1:"Realizovaných zákaziek",
-        statLabel2:"Dôraz na kvalitu",
-        statLabel3:"Individuálny prístup",
 
-        aboutEyebrow:"O spoločnosti",
-        aboutTitle:"Spoľahlivý partner pre vaše stavebné projekty",
-        aboutSubtitle:"Zakladáme si na kvalitnom prevedení, férovom jednaní a starostlivom prístupe ku každej zákazke.",
+        navServices:
+          "Služby",
 
-        aboutText1:"STAVITO FUTURE s.r.o. je stavebná spoločnosť zameraná na realizáciu a rekonštrukciu fasád, montáž sendvičových panelov, oceľové konštrukcie a rekonštrukcie priemyselných hál.",
 
-        aboutText2:"Každý projekt riešime individuálne s dôrazom na presnosť, kvalitné materiály, bezpečnosť práce a dlhodobú spokojnosť zákazníka.",
+        navProjects:
+          "Realizácie",
 
-        companyMiniText:"Stavebné práce a profesionálna realizácia",
 
-        pointTitle1:"Kvalita",
-        pointText1:"Starostlivé prevedenie a dôraz na každý detail.",
+        navGallery:
+          "Fotogaléria",
 
-        pointTitle2:"Spoľahlivosť",
-        pointText2:"Dodržiavanie dohodnutých termínov a férová komunikácia.",
 
-        pointTitle3:"Skúsenosti",
-        pointText3:"Praktické skúsenosti s rôznymi typmi stavebných prác.",
+        navContact:
+          "Kontakt",
 
-        pointTitle4:"Individuálny prístup",
-        pointText4:"Riešenie prispôsobené konkrétnym potrebám zákazníka.",
 
-        servicesEyebrow:"Naše služby",
-        servicesTitle:"Kompletné stavebné riešenia",
-        servicesSubtitle:"Ponúkame široké spektrum stavebných prác pre súkromné, komerčné aj priemyselné objekty.",
 
-        serviceTitle1:"Fasády",
-        serviceText1:"Realizácia nových fasád s dôrazom na kvalitné prevedenie, moderný vzhľad a dlhú životnosť.",
+        heroEyebrow:
+          "STAVEBNÁ SPOLOČNOSŤ",
 
-        serviceTitle2:"Rekonštrukcie fasád",
-        serviceText2:"Opravy a kompletné rekonštrukcie existujúcich fasád vrátane obnovy ich vzhľadu a funkčnosti.",
 
-        serviceTitle3:"Sendvičové panely",
-        serviceText3:"Profesionálna montáž sendvičových panelov pre priemyselné, skladové a komerčné objekty.",
+        heroTitle:
+          "STAVITO FUTURE",
 
-        serviceTitle4:"Oceľové konštrukcie",
-        serviceText4:"Výroba a montáž oceľových konštrukcií podľa požiadaviek konkrétneho projektu.",
 
-        serviceTitle5:"Rekonštrukcie hál",
-        serviceText5:"Rekonštrukcie priemyselných a skladových hál vrátane súvisiacich stavebných prác.",
+        heroText:
+          "Spoľahlivý partner pre fasády, rekonštrukcie, oceľové konštrukcie a priemyselné stavby.",
 
-        serviceTitle6:"Ďalšie stavebné práce",
-        serviceText6:"Doplnkové stavebné práce realizované podľa potrieb zákazníka a konkrétneho projektu.",
 
-        secondaryEyebrow:"Ďalšie možnosti",
-        secondaryTitle:"Práce podľa potrieb projektu",
-        secondarySubtitle:"Každá zákazka je iná. Preto dokážeme rozsah prác prispôsobiť konkrétnym požiadavkám projektu.",
+        heroBtnContact:
+          "Nezáväzný dopyt",
 
-        secondaryTitle1:"Montážne práce",
-        secondaryText1:"Montáž konštrukčných prvkov a ďalších stavebných častí podľa technických požiadaviek projektu.",
 
-        secondaryTitle2:"Stavebné úpravy",
-        secondaryText2:"Úpravy a opravy existujúcich objektov s dôrazom na kvalitné a čisté prevedenie.",
+        heroBtnProjects:
+          "Naše realizácie",
 
-        secondaryTitle3:"Individuálne riešenia",
-        secondaryText3:"Rozsah prác prispôsobíme konkrétnej stavbe, technickému zadaniu a potrebám zákazníka.",
 
-        galleryEyebrow:"Fotogaléria",
-        galleryTitle:"Fotogaléria procesu",
-        gallerySubtitle:"Fotografie z našich realizácií a pracovného procesu.",
-        galleryOpenBtn:"📷 Zobraziť celú fotogalériu",
 
-        projectsEyebrow:"Hlavné práce",
-        projectsTitle:"Ukážky našich prác",
-        projectsSubtitle:"Výber realizácií s dôrazom na čistý výsledok, presnosť a profesionálne prevedenie.",
+        statLabel1:
+          "Individuálny prístup",
 
-        projectBadge1:"Fasáda",
-        projectTitle1:"Fasádne práce",
-        projectText1:"Precízna realizácia fasád s dôrazom na detail, rovnosť povrchu a profesionálny finálny vzhľad.",
 
-        projectBadge2:"Rekonštrukcia",
-        projectTitle2:"Rekonštrukcie fasád",
-        projectText2:"Opravy a obnovy fasád s cieľom vrátiť objektu čistý, moderný a kvalitný vzhľad.",
+        statLabel2:
+          "Komunikácia",
 
-        projectBadge3:"Oceľové konštrukcie",
-        projectTitle3:"Výroba a montáž oceľových konštrukcií",
-        projectText3:"Vyrábame a montujeme oceľové konštrukcie.",
 
-        projectBadge4:"Balkóny",
-        projectTitle4:"Výroba a montáž balkónov",
-        projectText4:"Kompletná realizácia balkónov s dôrazom na pevnosť konštrukcie, bezpečnosť a estetický výsledok.",
+        statLabel3:
+          "Dôraz na kvalitu",
 
-        projectBadge5:"Stavba",
-        projectTitle5:"Ďalšie stavebné práce",
-        projectText5:"Doplnkové stavebné činnosti vykonané precízne, spoľahlivo a s dôrazom na kvalitný výsledok.",
 
-        contactEyebrow:"Kontakt",
-        contactTitle:"Máte projekt? Ozvite sa nám.",
-        contactSubtitle:"Radi s vami preberieme možnosti spolupráce a pripravíme riešenie podľa vašich potrieb.",
 
-        contactInfoTitle:"Kontaktné údaje",
-        contactPhoneLabel:"Telefón",
-        contactCompanyLabel:"Spoločnosť",
+        aboutEyebrow:
+          "O NÁS",
 
-        formTitle:"Napíšte nám",
-        formSubtitle:"Zanechajte nám správu a my sa vám ozveme.",
-        formName:"Meno a priezvisko",
-        formEmail:"E-mail",
-        formPhone:"Telefón",
-        formMessage:"Vaša správa",
-        formButton:"Odoslať správu",
 
-        footerText:"© 2026 STAVITO FUTURE s.r.o. Všetky práva vyhradené."
+        aboutTitle:
+          "Staviame na kvalite a spoľahlivosti",
+
+
+        aboutSubtitle:
+          "Ponúkame profesionálne stavebné práce s dôrazom na kvalitu realizácie, komunikáciu a dodržiavanie dohodnutých termínov.",
+
+
+        aboutText1:
+          "STAVITO FUTURE s.r.o. sa zameriava na realizáciu stavebných prác, rekonštrukcie, fasády, montáž sendvičových panelov a výrobu a montáž oceľových konštrukcií.",
+
+
+        aboutText2:
+          "Ku každej zákazke pristupujeme individuálne a hľadáme riešenie, ktoré zodpovedá požiadavkám konkrétneho zákazníka.",
+
+
+        aboutText3:
+          "Naším cieľom je dlhodobá spolupráca, kvalitne odvedená práca a spokojný zákazník.",
+
+
+
+        aboutPoint1Title:
+          "Kvalita",
+
+
+        aboutPoint1Text:
+          "Dôraz na precízne prevedenie a kvalitné materiály.",
+
+
+        aboutPoint2Title:
+          "Spoľahlivosť",
+
+
+        aboutPoint2Text:
+          "Dodržiavame dohodnuté podmienky a termíny realizácie.",
+
+
+        aboutPoint3Title:
+          "Individuálny prístup",
+
+
+        aboutPoint3Text:
+          "Každú zákazku riešime podľa konkrétnych potrieb zákazníka.",
+
+
+        aboutPoint4Title:
+          "Komunikácia",
+
+
+        aboutPoint4Text:
+          "Zakladáme si na rýchlej a zrozumiteľnej komunikácii.",
+
+
+
+        servicesEyebrow:
+          "SLUŽBY",
+
+
+        servicesTitle:
+          "Čo pre vás zabezpečíme",
+
+
+        servicesSubtitle:
+          "Komplexné stavebné riešenia pre súkromných aj firemných zákazníkov.",
+
+
+
+        service1Title:
+          "Fasády",
+
+
+        service1Text:
+          "Realizácia nových fasád a profesionálna obnova existujúcich fasádnych systémov.",
+
+
+        service2Title:
+          "Rekonštrukcie fasád",
+
+
+        service2Text:
+          "Opravy a rekonštrukcie fasád so zameraním na funkčnosť, vzhľad a dlhú životnosť.",
+
+
+        service3Title:
+          "Sendvičové panely",
+
+
+        service3Text:
+          "Montáž sendvičových panelov pre priemyselné, skladové a ďalšie stavebné objekty.",
+
+
+        service4Title:
+          "Oceľové konštrukcie",
+
+
+        service4Text:
+          "Výroba a montáž oceľových konštrukcií podľa požiadaviek konkrétneho projektu.",
+
+
+        service5Title:
+          "Rekonštrukcie hál",
+
+
+        service5Text:
+          "Rekonštrukcie priemyselných a skladových hál vrátane súvisiacich stavebných prác.",
+
+
+        service6Title:
+          "Stavebné práce",
+
+
+        service6Text:
+          "Ďalšie stavebné a montážne práce podľa rozsahu a potrieb zákazky.",
+
+
+
+        galleryEyebrow:
+          "FOTOGALÉRIA",
+
+
+        galleryTitle:
+          "Fotogaléria procesu",
+
+
+        gallerySubtitle:
+          "Nahliadnite do priebehu našich realizácií a pracovného procesu.",
+
+
+        galleryOpenBtn:
+          "📷 Zobraziť celú fotogalériu",
+
+
+
+        projectsEyebrow:
+          "REALIZÁCIE",
+
+
+        projectsTitle:
+          "Ukážky našich prác",
+
+
+        projectsSubtitle:
+          "Vybrané realizácie spoločnosti STAVITO FUTURE.",
+
+
+
+        projectBadge1:
+          "Fasády",
+
+
+        projectTitle1:
+          "Realizácia fasád",
+
+
+        projectText1:
+          "Kompletná realizácia fasádnych systémov s dôrazom na kvalitné prevedenie a dlhú životnosť.",
+
+
+
+        projectBadge2:
+          "Sendvičové panely",
+
+
+        projectTitle2:
+          "Montáž sendvičových panelov",
+
+
+        projectText2:
+          "Montáž opláštenia priemyselných a skladových objektov pomocou sendvičových panelov.",
+
+
+
+        projectBadge3:
+          "Oceľové konštrukcie",
+
+
+        projectTitle3:
+          "Výroba a montáž oceľových konštrukcií",
+
+
+        projectText3:
+          "Výroba a montáž oceľových konštrukcií podľa technických požiadaviek konkrétneho projektu.",
+
+
+
+        projectBadge4:
+          "Rekonštrukcia",
+
+
+        projectTitle4:
+          "Rekonštrukcie hál",
+
+
+        projectText4:
+          "Rekonštrukcie priemyselných a skladových hál vrátane súvisiacich stavebných prác.",
+
+
+
+        projectBadge5:
+          "Stavebné práce",
+
+
+        projectTitle5:
+          "Ďalšie stavebné práce",
+
+
+        projectText5:
+          "Stavebné a montážne práce realizované podľa požiadaviek a potrieb zákazníka.",
+
+
+
+        additionalEyebrow:
+          "ĎALŠIE PRÁCE",
+
+
+        additionalTitle:
+          "Ďalšie služby podľa potrieb projektu",
+
+
+        additionalSubtitle:
+          "Rozsah prác vždy prispôsobujeme konkrétnej zákazke a požiadavkám zákazníka.",
+
+
+
+        additional1Title:
+          "Montážne práce",
+
+
+        additional1Text:
+          "Montážne práce a súvisiace stavebné činnosti podľa technických požiadaviek projektu.",
+
+
+        additional2Title:
+          "Opravy a údržba",
+
+
+        additional2Text:
+          "Opravy stavebných prvkov a údržba objektov podľa individuálnych potrieb.",
+
+
+        additional3Title:
+          "Individuálne riešenia",
+
+
+        additional3Text:
+          "Riešenia špecifických stavebných požiadaviek podľa charakteru konkrétnej zákazky.",
+
+
+
+        careerTitle:
+          "Chcete pracovať s nami?",
+
+
+        careerText:
+          "Máte skúsenosti v stavebníctve a hľadáte nové pracovné príležitosti? Kontaktujte nás a zistite viac o aktuálnych možnostiach spolupráce.",
+
+
+        careerBtn:
+          "Kontaktovať nás",
+
+
+
+        contactEyebrow:
+          "KONTAKT",
+
+
+        contactTitle:
+          "Kontaktujte nás",
+
+
+        contactSubtitle:
+          "Máte záujem o spoluprácu? Napíšte nám alebo nám zavolajte.",
+
+
+        contactEmailTitle:
+          "E-mail",
+
+
+        contactPhoneTitle:
+          "Telefón",
+
+
+        contactCompanyTitle:
+          "Spoločnosť",
+
+
+        contactCompanyDataTitle:
+          "Firemné údaje",
+
+
+
+        formTitle:
+          "Nezáväzný dopyt",
+
+
+        formSubtitle:
+          "Napíšte nám základné informácie o vašej zákazke a ozveme sa vám.",
+
+
+        formNameLabel:
+          "Meno",
+
+
+        formEmailLabel:
+          "E-mail",
+
+
+        formPhoneLabel:
+          "Telefón",
+
+
+        formMessageLabel:
+          "Správa",
+
+
+        formName:
+          "Vaše meno",
+
+
+        formEmail:
+          "Váš e-mail",
+
+
+        formPhone:
+          "Telefónne číslo",
+
+
+        formMessage:
+          "Popíšte nám vašu zákazku...",
+
+
+        formSubmit:
+          "Odoslať dopyt",
+
+
+
+        steelGalleryTitle:
+          "Výroba a montáž oceľových konštrukcií",
+
+
+
+        footerText:
+          "© 2026 STAVITO FUTURE s.r.o. Všetky práva vyhradené."
+
       }
 
     };
-        /* ========================================
-       PŘEPÍNÁNÍ JAZYKŮ
+
+
+
+    /* ========================================
+       ZMĚNA JAZYKA
     ======================================== */
 
     function setLang(lang, button){
 
-      const t = translations[lang];
+
+      const t =
+        translations[lang];
+
 
       if(!t){
         return;
       }
 
 
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.remove("active");
-      });
 
+      /* =====================================
+         TEXTOVÉ ELEMENTY
+      ===================================== */
 
-      if(button){
-        button.classList.add("active");
-      }
+      const textElements = [
 
+        "navAbout",
+        "navServices",
+        "navProjects",
+        "navGallery",
+        "navContact",
 
-      localStorage.setItem("stavitoLanguage", lang);
+        "heroEyebrow",
+        "heroTitle",
+        "heroText",
+        "heroBtnContact",
+        "heroBtnProjects",
 
+        "statLabel1",
+        "statLabel2",
+        "statLabel3",
 
-      Object.keys(t).forEach(key => {
+        "aboutEyebrow",
+        "aboutTitle",
+        "aboutSubtitle",
 
-        const element = document.getElementById(key);
+        "aboutText1",
+        "aboutText2",
+        "aboutText3",
 
-        if(element){
-          element.innerHTML = t[key];
-        }
+        "aboutPoint1Title",
+        "aboutPoint1Text",
 
-      });
+        "aboutPoint2Title",
+        "aboutPoint2Text",
 
+        "aboutPoint3Title",
+        "aboutPoint3Text",
 
-      /* PLACEHOLDERY FORMULÁŘE */
+        "aboutPoint4Title",
+        "aboutPoint4Text",
 
-      const formName = document.getElementById("formName");
-      const formEmail = document.getElementById("formEmail");
-      const formPhone = document.getElementById("formPhone");
-      const formMessage = document.getElementById("formMessage");
+        "servicesEyebrow",
+        "servicesTitle",
+        "servicesSubtitle",
 
+        "service1Title",
+        "service1Text",
 
-      if(formName){
-        formName.placeholder = t.formName;
-      }
+        "service2Title",
+        "service2Text",
 
-      if(formEmail){
-        formEmail.placeholder = t.formEmail;
-      }
+        "service3Title",
+        "service3Text",
 
-      if(formPhone){
-        formPhone.placeholder = t.formPhone;
-      }
+        "service4Title",
+        "service4Text",
 
-      if(formMessage){
-        formMessage.placeholder = t.formMessage;
-      }
+        "service5Title",
+        "service5Text",
 
+        "service6Title",
+        "service6Text",
 
-      /* HTML LANG */
+        "galleryEyebrow",
+        "galleryTitle",
+        "gallerySubtitle",
+        "galleryOpenBtn",
 
-      if(lang === "cz"){
-        document.documentElement.lang = "cs";
-      }
+        "projectsEyebrow",
+        "projectsTitle",
+        "projectsSubtitle",
 
-      if(lang === "en"){
-        document.documentElement.lang = "en";
-      }
+        "projectBadge1",
+        "projectTitle1",
+        "projectText1",
 
-      if(lang === "sk"){
-        document.documentElement.lang = "sk";
-      }
+        "projectBadge2",
+        "projectTitle2",
+        "projectText2",
 
-    }
+        "projectBadge3",
+        "projectTitle3",
+        "projectText3",
 
+        "projectBadge4",
+        "projectTitle4",
+        "projectText4",
 
+        "projectBadge5",
+        "projectTitle5",
+        "projectText5",
 
-    /* ========================================
-       NAČTENÍ ULOŽENÉHO JAZYKA
-    ======================================== */
+        "additionalEyebrow",
+        "additionalTitle",
+        "additionalSubtitle",
 
-    document.addEventListener("DOMContentLoaded", function(){
+        "additional1Title",
+        "additional1Text",
 
-      const savedLanguage =
-        localStorage.getItem("stavitoLanguage") || "cz";
+        "additional2Title",
+        "additional2Text",
 
+        "additional3Title",
+        "additional3Text",
 
-      const buttons =
-        document.querySelectorAll(".lang-btn");
+        "careerTitle",
+        "careerText",
+        "careerBtn",
 
+        "contactEyebrow",
+        "contactTitle",
+        "contactSubtitle",
 
-      let selectedButton = null;
+        "contactEmailTitle",
+        "contactPhoneTitle",
+        "contactCompanyTitle",
+        "contactCompanyDataTitle",
 
+        "formTitle",
+        "formSubtitle",
 
-      buttons.forEach(btn => {
+        "formNameLabel",
+        "formEmailLabel",
+        "formPhoneLabel",
+        "formMessageLabel",
 
-        const text =
-          btn.textContent
-            .trim()
-            .toLowerCase();
+        "formSubmit",
 
+        "steelGalleryTitle",
 
-        if(
-          savedLanguage === "cz" &&
-          (
-            text.includes("čeština") ||
-            text.includes("cz")
-          )
-        ){
-          selectedButton = btn;
-        }
+        "footerText"
 
+      ];
 
-        if(
-          savedLanguage === "en" &&
-          (
-            text.includes("english") ||
-            text.includes("en")
-          )
-        ){
-          selectedButton = btn;
-        }
 
 
-        if(
-          savedLanguage === "sk" &&
-          (
-            text.includes("slovenčina") ||
-            text.includes("sk")
-          )
-        ){
-          selectedButton = btn;
-        }
+      textElements.forEach(
 
-      });
+        function(id){
 
+          const element =
+            document.getElementById(id);
 
-      setLang(
-        savedLanguage,
-        selectedButton || buttons[0]
-      );
 
-    });
+          if(
+            element &&
+            t[id] !== undefined
+          ){
 
-
-
-    /* ========================================
-       ANIMACE PŘI SCROLLOVÁNÍ
-    ======================================== */
-
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-
-    const revealObserver =
-      new IntersectionObserver(
-
-        entries => {
-
-          entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-              entry.target.classList.add("show");
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold:0.12
-        }
-
-      );
-
-
-    revealElements.forEach(element => {
-
-      revealObserver.observe(element);
-
-    });
-
-
-
-    /* ========================================
-       ANIMOVANÁ ČÍSLA
-    ======================================== */
-
-    const statNumbers =
-      document.querySelectorAll(
-        ".stat-number[data-target]"
-      );
-
-
-    function animateNumber(element){
-
-      const target =
-        Number(
-          element.getAttribute("data-target")
-        );
-
-
-      const originalText =
-        element.textContent;
-
-
-      let suffix = "";
-
-
-      if(originalText.includes("%")){
-        suffix = "%";
-      }
-
-      else if(originalText.includes("+")){
-        suffix = "+";
-      }
-
-      else if(originalText.includes("/7")){
-        suffix = "/7";
-      }
-
-
-      let current = 0;
-
-
-      const duration = 1300;
-
-      const frameRate = 16;
-
-      const steps =
-        Math.max(
-          1,
-          Math.floor(duration / frameRate)
-        );
-
-
-      const increment =
-        target / steps;
-
-
-      const timer =
-        setInterval(() => {
-
-          current += increment;
-
-
-          if(current >= target){
-
-            current = target;
-
-            clearInterval(timer);
+            element.textContent =
+              t[id];
 
           }
 
-
-          element.textContent =
-            Math.floor(current) + suffix;
-
-        }, frameRate);
-
-    }
-
-
-
-    const statsObserver =
-      new IntersectionObserver(
-
-        entries => {
-
-          entries.forEach(entry => {
-
-            if(
-              entry.isIntersecting &&
-              !entry.target.dataset.animated
-            ){
-
-              entry.target.dataset.animated = "true";
-
-              animateNumber(entry.target);
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold:0.5
         }
 
       );
 
 
-    statNumbers.forEach(number => {
 
-      statsObserver.observe(number);
+      /* =====================================
+         PLACEHOLDERY FORMULÁŘE
+      ===================================== */
 
-    });
+      const formName =
+        document.getElementById(
+          "formName"
+        );
+
+
+      const formEmail =
+        document.getElementById(
+          "formEmail"
+        );
+
+
+      const formPhone =
+        document.getElementById(
+          "formPhone"
+        );
+
+
+      const formMessage =
+        document.getElementById(
+          "formMessage"
+        );
+
+
+
+      if(formName){
+
+        formName.placeholder =
+          t.formName;
+
+      }
+
+
+      if(formEmail){
+
+        formEmail.placeholder =
+          t.formEmail;
+
+      }
+
+
+      if(formPhone){
+
+        formPhone.placeholder =
+          t.formPhone;
+
+      }
+
+
+      if(formMessage){
+
+        formMessage.placeholder =
+          t.formMessage;
+
+      }
+
+
+
+      /* =====================================
+         AKTIVNÍ JAZYK
+      ===================================== */
+
+      document
+        .querySelectorAll(
+          ".lang-btn"
+        )
+        .forEach(
+
+          function(btn){
+
+            btn.classList.remove(
+              "active"
+            );
+
+          }
+
+        );
+
+
+      if(button){
+
+        button.classList.add(
+          "active"
+        );
+
+      }
+
+
+
+      /* =====================================
+         HTML LANG
+      ===================================== */
+
+      if(lang === "cz"){
+
+        document.documentElement.lang =
+          "cs";
+
+      }
+
+
+      if(lang === "en"){
+
+        document.documentElement.lang =
+          "en";
+
+      }
+
+
+      if(lang === "sk"){
+
+        document.documentElement.lang =
+          "sk";
+
+      }
+
+
+
+      /* =====================================
+         ULOŽENÍ JAZYKA
+      ===================================== */
+
+      try{
+
+        localStorage.setItem(
+          "stavitoLanguage",
+          lang
+        );
+
+      }
+      catch(error){
+
+        /* nic */
+
+      }
+
+    }
+
+
+
+    /* ========================================
+       OBNOVENÍ ULOŽENÉHO JAZYKA
+    ======================================== */
+
+    document.addEventListener(
+
+      "DOMContentLoaded",
+
+      function(){
+
+
+        let savedLanguage =
+          "cz";
+
+
+        try{
+
+          const stored =
+            localStorage.getItem(
+              "stavitoLanguage"
+            );
+
+
+          if(
+            stored &&
+            translations[stored]
+          ){
+
+            savedLanguage =
+              stored;
+
+          }
+
+        }
+        catch(error){
+
+          savedLanguage =
+            "cz";
+
+        }
+
+
+
+        const languageButton =
+          document.querySelector(
+            '.lang-btn[data-lang="' +
+            savedLanguage +
+            '"]'
+          );
+
+
+        setLang(
+          savedLanguage,
+          languageButton
+        );
+
+      }
+
+    );
+
+
+
+    /* ========================================
+       ANIMACE PŘI SCROLLU
+    ======================================== */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
+      );
+
+
+
+    if(
+      "IntersectionObserver"
+      in window
+    ){
+
+      const revealObserver =
+        new IntersectionObserver(
+
+          function(entries){
+
+            entries.forEach(
+
+              function(entry){
+
+                if(
+                  entry.isIntersecting
+                ){
+
+                  entry.target
+                    .classList
+                    .add(
+                      "show"
+                    );
+
+
+                  revealObserver
+                    .unobserve(
+                      entry.target
+                    );
+
+                }
+
+              }
+
+            );
+
+          },
+
+          {
+
+            threshold:.12,
+
+            rootMargin:
+              "0px 0px -40px 0px"
+
+          }
+
+        );
+
+
+
+      revealElements.forEach(
+
+        function(element){
+
+          revealObserver.observe(
+            element
+          );
+
+        }
+
+      );
+
+    }
+
+    else{
+
+      revealElements.forEach(
+
+        function(element){
+
+          element.classList.add(
+            "show"
+          );
+
+        }
+
+      );
+
+    }
+
+
+
+    /* ========================================
+       OCELOVÉ KONSTRUKCE – GALERIE
+    ======================================== */
+
+    const steelPhotos = [
+
+      "ocel1.jpeg",
+
+      "ocel2.jpeg",
+
+      "ocel3.jpeg"
+
+    ];
+
+
+    let steelPhotoIndex = 0;
+
+
+
+    /* =====================================
+       OTEVŘÍT GALERII
+    ===================================== */
+
+    function openSteelGallery(){
+
+
+      steelPhotoIndex = 0;
+
+
+      const modal =
+        document.getElementById(
+          "steelGalleryModal"
+        );
+
+
+      if(!modal){
+        return;
+      }
+
+
+      updateSteelGallery();
+
+
+      modal.classList.add(
+        "open"
+      );
+
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+
+    /* =====================================
+       ZAVŘÍT GALERII
+    ===================================== */
+
+    function closeSteelGallery(event){
+
+
+      if(event){
+
+        event.stopPropagation();
+
+      }
+
+
+      const modal =
+        document.getElementById(
+          "steelGalleryModal"
+        );
+
+
+      if(!modal){
+        return;
+      }
+
+
+      modal.classList.remove(
+        "open"
+      );
+
+
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+
+    /* =====================================
+       DALŠÍ / PŘEDCHOZÍ FOTOGRAFIE
+    ===================================== */
+
+    function changeSteelPhoto(
+      direction,
+      event
+    ){
+
+
+      if(event){
+
+        event.stopPropagation();
+
+      }
+
+
+      steelPhotoIndex +=
+        direction;
+
+
+
+      if(
+        steelPhotoIndex < 0
+      ){
+
+        steelPhotoIndex =
+          steelPhotos.length - 1;
+
+      }
+
+
+
+      if(
+        steelPhotoIndex >=
+        steelPhotos.length
+      ){
+
+        steelPhotoIndex = 0;
+
+      }
+
+
+      updateSteelGallery();
+
+    }
+
+
+
+    /* =====================================
+       VÝBĚR MINIATURY
+    ===================================== */
+
+    function selectSteelPhoto(
+      index,
+      event
+    ){
+
+
+      if(event){
+
+        event.stopPropagation();
+
+      }
+
+
+      steelPhotoIndex =
+        index;
+
+
+      updateSteelGallery();
+
+    }
+
+
+
+    /* =====================================
+       AKTUALIZACE GALERIE
+    ===================================== */
+
+    function updateSteelGallery(){
+
+
+      const image =
+        document.getElementById(
+          "steelGalleryImage"
+        );
+
+
+      const counter =
+        document.getElementById(
+          "steelGalleryCounter"
+        );
+
+
+      const thumbnails =
+        document.querySelectorAll(
+          ".steel-gallery-thumbnails img"
+        );
+
+
+
+      if(image){
+
+        image.src =
+          steelPhotos[
+            steelPhotoIndex
+          ];
+
+      }
+
+
+
+      if(counter){
+
+        counter.textContent =
+
+          (
+            steelPhotoIndex + 1
+          )
+
+          +
+
+          " / "
+
+          +
+
+          steelPhotos.length;
+
+      }
+
+
+
+      thumbnails.forEach(
+
+        function(
+          thumbnail,
+          index
+        ){
+
+          thumbnail
+            .classList
+            .toggle(
+
+              "active",
+
+              index ===
+              steelPhotoIndex
+
+            );
+
+        }
+
+      );
+
+    }
+
+
+
+    /* =====================================
+       KLIK NA TMAVÉ POZADÍ
+    ===================================== */
+
+    const steelGalleryModal =
+      document.getElementById(
+        "steelGalleryModal"
+      );
+
+
+    if(steelGalleryModal){
+
+      steelGalleryModal
+        .addEventListener(
+
+          "click",
+
+          function(event){
+
+            if(
+              event.target === this
+            ){
+
+              closeSteelGallery(
+                event
+              );
+
+            }
+
+          }
+
+        );
+
+    }
+
+
+
+    /* =====================================
+       KLÁVESNICE
+    ===================================== */
+
+    document.addEventListener(
+
+      "keydown",
+
+      function(event){
+
+
+        const modal =
+          document.getElementById(
+            "steelGalleryModal"
+          );
+
+
+        if(
+          !modal ||
+          !modal.classList.contains(
+            "open"
+          )
+        ){
+
+          return;
+
+        }
+
+
+
+        if(
+          event.key ===
+          "Escape"
+        ){
+
+          closeSteelGallery();
+
+        }
+
+
+
+        if(
+          event.key ===
+          "ArrowRight"
+        ){
+
+          changeSteelPhoto(
+            1
+          );
+
+        }
+
+
+
+        if(
+          event.key ===
+          "ArrowLeft"
+        ){
+
+          changeSteelPhoto(
+            -1
+          );
+
+        }
+
+      }
+
+    );
 
 
 
@@ -3364,50 +7409,69 @@
     ======================================== */
 
     const contactForm =
-      document.getElementById("contactForm");
+      document.getElementById(
+        "contactForm"
+      );
 
 
     if(contactForm){
 
       contactForm.addEventListener(
+
         "submit",
+
         function(event){
+
 
           event.preventDefault();
 
 
+
           const name =
             document
-              .getElementById("formName")
+              .getElementById(
+                "formName"
+              )
               .value
               .trim();
+
 
 
           const email =
             document
-              .getElementById("formEmail")
+              .getElementById(
+                "formEmail"
+              )
               .value
               .trim();
+
 
 
           const phone =
             document
-              .getElementById("formPhone")
+              .getElementById(
+                "formPhone"
+              )
               .value
               .trim();
+
 
 
           const message =
             document
-              .getElementById("formMessage")
+              .getElementById(
+                "formMessage"
+              )
               .value
               .trim();
+
 
 
           const subject =
             encodeURIComponent(
               "Poptávka z webu STAVITO FUTURE"
             );
+
 
 
           const body =
@@ -3428,10 +7492,18 @@
             );
 
 
+
           window.location.href =
-            "mailto:info@stavitofuture.com" +
+
+            "mailto:info@stavitofuture.com"
+
+            +
+
             "?subject=" +
-            subject +
+            subject
+
+            +
+
             "&body=" +
             body;
 
@@ -3444,386 +7516,129 @@
 
 
     /* ========================================
-       GALERIE OCELOVÝCH KONSTRUKCÍ
-    ======================================== */
-
-    const steelPhotos = [
-
-      "ocel1.jpeg",
-
-      "ocel2.jpeg",
-
-      "ocel3.jpeg"
-
-    ];
-
-
-    let steelPhotoIndex = 0;
-
-
-
-    function openSteelGallery(){
-
-      steelPhotoIndex = 0;
-
-
-      const modal =
-        document.getElementById(
-          "steelGalleryModal"
-        );
-
-
-      if(!modal){
-        return;
-      }
-
-
-      updateSteelGallery();
-
-
-      modal.classList.add("open");
-
-
-      modal.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-
-      document.body.style.overflow =
-        "hidden";
-
-    }
-
-
-
-    function closeSteelGallery(event){
-
-      if(event){
-        event.stopPropagation();
-      }
-
-
-      const modal =
-        document.getElementById(
-          "steelGalleryModal"
-        );
-
-
-      if(!modal){
-        return;
-      }
-
-
-      modal.classList.remove("open");
-
-
-      modal.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-
-      document.body.style.overflow =
-        "";
-
-    }
-
-
-
-    function changeSteelPhoto(
-      direction,
-      event
-    ){
-
-      if(event){
-        event.stopPropagation();
-      }
-
-
-      steelPhotoIndex += direction;
-
-
-      if(
-        steelPhotoIndex < 0
-      ){
-
-        steelPhotoIndex =
-          steelPhotos.length - 1;
-
-      }
-
-
-      if(
-        steelPhotoIndex >=
-        steelPhotos.length
-      ){
-
-        steelPhotoIndex = 0;
-
-      }
-
-
-      updateSteelGallery();
-
-    }
-
-
-
-    function selectSteelPhoto(
-      index,
-      event
-    ){
-
-      if(event){
-        event.stopPropagation();
-      }
-
-
-      steelPhotoIndex = index;
-
-
-      updateSteelGallery();
-
-    }
-
-
-
-    function updateSteelGallery(){
-
-      const image =
-        document.getElementById(
-          "steelGalleryImage"
-        );
-
-
-      const counter =
-        document.getElementById(
-          "steelGalleryCounter"
-        );
-
-
-      const thumbnails =
-        document.querySelectorAll(
-          ".steel-gallery-thumbnails img"
-        );
-
-
-      if(image){
-
-        image.src =
-          steelPhotos[
-            steelPhotoIndex
-          ];
-
-      }
-
-
-      if(counter){
-
-        counter.textContent =
-          (steelPhotoIndex + 1) +
-          " / " +
-          steelPhotos.length;
-
-      }
-
-
-      thumbnails.forEach(
-        (thumbnail,index) => {
-
-          thumbnail.classList.toggle(
-            "active",
-            index === steelPhotoIndex
-          );
-
-        }
-      );
-
-    }
-
-
-
-    /* ========================================
-       ZAVŘENÍ GALERIE KLIKNUTÍM NA POZADÍ
-    ======================================== */
-
-    const steelGalleryModal =
-      document.getElementById(
-        "steelGalleryModal"
-      );
-
-
-    if(steelGalleryModal){
-
-      steelGalleryModal.addEventListener(
-        "click",
-        function(event){
-
-          if(
-            event.target === this
-          ){
-
-            closeSteelGallery(event);
-
-          }
-
-        }
-      );
-
-    }
-
-
-
-    /* ========================================
-       OVLÁDÁNÍ GALERIE KLÁVESNICÍ
-    ======================================== */
-
-    document.addEventListener(
-      "keydown",
-      function(event){
-
-        const modal =
-          document.getElementById(
-            "steelGalleryModal"
-          );
-
-
-        if(
-          !modal ||
-          !modal.classList.contains("open")
-        ){
-
-          return;
-
-        }
-
-
-        if(
-          event.key === "Escape"
-        ){
-
-          closeSteelGallery();
-
-        }
-
-
-        if(
-          event.key === "ArrowRight"
-        ){
-
-          changeSteelPhoto(1);
-
-        }
-
-
-        if(
-          event.key === "ArrowLeft"
-        ){
-
-          changeSteelPhoto(-1);
-
-        }
-
-      }
-    );
-
-
-
-    /* ========================================
-       PLYNULÉ POSOUVÁNÍ NA SEKCE
+       HLADKÉ POSOUVÁNÍ NA SEKCE
     ======================================== */
 
     document
       .querySelectorAll(
         'a[href^="#"]'
       )
-      .forEach(anchor => {
+      .forEach(
 
-        anchor.addEventListener(
-          "click",
-          function(event){
+        function(link){
 
-            const href =
-              this.getAttribute("href");
+          link.addEventListener(
 
+            "click",
 
-            if(
-              !href ||
-              href === "#"
-            ){
-
-              return;
-
-            }
+            function(event){
 
 
-            const target =
-              document.querySelector(href);
+              const href =
+                this.getAttribute(
+                  "href"
+                );
 
 
-            if(target){
+              if(
+                !href ||
+                href === "#"
+              ){
+
+                return;
+
+              }
+
+
+              const target =
+                document.querySelector(
+                  href
+                );
+
+
+              if(!target){
+
+                return;
+
+              }
+
 
               event.preventDefault();
 
 
               target.scrollIntoView({
 
-                behavior:"smooth",
+                behavior:
+                  "smooth",
 
-                block:"start"
+                block:
+                  "start"
 
               });
 
             }
 
-          }
-        );
+          );
 
-      });
+        }
+
+      );
 
 
 
     /* ========================================
-       OCHRANA PRO PŘÍPAD CHYBĚJÍCÍHO OBRÁZKU
+       ZABEZPEČENÍ OBRÁZKŮ
+       KDYŽ SE NĚKTERÝ NENAČTE
     ======================================== */
 
     document
-      .querySelectorAll("img")
-      .forEach(image => {
+      .querySelectorAll(
+        "img"
+      )
+      .forEach(
 
-        image.addEventListener(
-          "error",
-          function(){
-
-            /*
-              Obrázek pouze skryjeme,
-              aby se na stránce nezobrazovala
-              ikona poškozeného obrázku.
-            */
-
-            this.style.visibility =
-              "hidden";
-
-          }
-        );
-
-      });
+        function(image){
 
 
+          image.addEventListener(
 
-    /* ========================================
-       FOTOGALERIE PROCESU
+            "error",
 
-       gallery.html se otevírá pomocí:
-       target="_blank"
+            function(){
 
-       Proto se celá galerie otevře
-       v NOVÉ KARTĚ prohlížeče.
-    ======================================== */
+
+              /*
+                Logo necháme bez náhradního
+                obrázku, aby nevznikala
+                nekonečná smyčka.
+              */
+
+
+              if(
+                this.src.includes(
+                  "logo.png"
+                )
+              ){
+
+                return;
+
+              }
+
+
+              this.style.background =
+                "linear-gradient(135deg,#dbeafe,#eff6ff)";
+
+            }
+
+          );
+
+        }
+
+      );
 
 
   </script>
+
 
 </body>
 
